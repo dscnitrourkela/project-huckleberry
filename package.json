@@ -1,21 +1,32 @@
 {
-  "name": "banana-1.1",
-  "version": "1.0.0",
+  "name": "client",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "yarn lint:fix && next lint",
+    "lint:fix": "eslint --fix \"**/*.{js,jsx}\" --config \"./.eslintrc.json\" --ignore-path \"./.eslintignore\"",
+    "format:check": "prettier --list-different --config \"./.prettierrc\" --ignore-path \"./.prettierignore\" --no-error-on-unmatched-pattern \"./.\"",
+    "format": "prettier --write --config \"./.prettierrc\" --ignore-path \"./.prettierignore\" --no-error-on-unmatched-pattern \"./.\""
   },
   "dependencies": {
-    "@nuxtjs/pwa": "^3.0.0-beta.20",
-    "nuxt": "^2.14.0"
+    "eslint": "8.37.0",
+    "eslint-config-next": "13.2.4",
+    "next": "13.2.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "styled-components": "^5.3.9"
   },
   "devDependencies": {
-    "@nuxtjs/vuetify": "^1.11.2",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "prettier": "^2.0.5"
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "opencommit": "^1.1.39",
+    "prettier": "^2.8.7",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1"
   }
 }
