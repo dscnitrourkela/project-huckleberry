@@ -1,19 +1,19 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const lightTheme = {
-  primaryBackGround: '#f7f7f7',
-  secondaryBackGround: '#abadaf',
-  primaryTextColor: '#000000',
-  secondaryTextColor: '#5339c4',
-  tertiaryTextColor: '#bf4b7b',
+	primaryBackGround: '#f7f7f7',
+	secondaryBackGround: '#abadaf',
+	primaryTextColor: '#000000',
+	secondaryTextColor: '#5339c4',
+	tertiaryTextColor: '#bf4b7b',
 };
 
 export const darkTheme = {
-  primaryBackGround: '#000000',
-  secondaryBackGround: '#181818',
-  primaryTextColor: '#abadaf',
-  secondaryTextColor: '#f2f5f7',
-  tertiaryTextColor: '#ffffff',
+	primaryBackGround: '#000000',
+	secondaryBackGround: '#181818',
+	primaryTextColor: '#abadaf',
+	secondaryTextColor: '#f2f5f7',
+	tertiaryTextColor: '#ffffff',
 };
 
 export const GlobalStyles = createGlobalStyle`
