@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
-  background: red;
+  background: var(--background-primary);
 `;
 
 const HomePage = () => (

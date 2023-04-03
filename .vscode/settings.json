@@ -1,0 +1,15 @@
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": false,
+  "editor.detectIndentation": false,
+  "tsImportSorter.configuration.autoFormat": "off",
+  "tsImportSorter.configuration.formatExports": false,
+  "html.format.enable": true,
+  "javascript.format.enable": false,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+  "files.eol": "\n"
+}
