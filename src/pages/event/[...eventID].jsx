@@ -1,9 +1,16 @@
+import Head from 'next/head';
+
 const Event = ({ eventID, eventName }) => (
-	<div>
-		<h1>
-			{eventID} {eventName}
-		</h1>
-	</div>
+	<>
+		<Head>
+			<title>{eventName} | GDSC NITR</title>
+		</Head>
+		<div>
+			<h1>
+				{eventID} {eventName}
+			</h1>
+		</div>
+	</>
 );
 
 export default Event;

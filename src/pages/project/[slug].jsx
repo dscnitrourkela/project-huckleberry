@@ -1,7 +1,14 @@
+import Head from 'next/head';
+
 const Project = ({ slug }) => (
-	<div>
-		<h1>{slug}</h1>
-	</div>
+	<>
+		<Head>
+			<title>{slug} | GDSC NITR</title>
+		</Head>
+		<div>
+			<h1>{slug}</h1>
+		</div>
+	</>
 );
 
 export default Project;

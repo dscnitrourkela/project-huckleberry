@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -5,9 +6,14 @@ const Container = styled.div`
 `;
 
 const HomePage = () => (
-	<Container>
-		<h1>Home Page</h1>
-	</Container>
+	<>
+		<Head>
+			<title>DSC NIT Rourkela</title>
+		</Head>
+		<Container>
+			<h1>Home Page</h1>
+		</Container>
+	</>
 );
 
 export default HomePage;
