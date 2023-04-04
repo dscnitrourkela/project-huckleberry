@@ -1,9 +1,16 @@
+import Head from 'next/head';
+
 const Member = ({ memberID, memberName }) => (
-	<div>
-		<h1>
-			{memberID} {memberName}
-		</h1>
-	</div>
+	<>
+		<Head>
+			<title>{memberName} | GDSC NITR</title>
+		</Head>
+		<div>
+			<h1>
+				{memberID} {memberName}
+			</h1>
+		</div>
+	</>
 );
 
 export default Member;

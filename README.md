@@ -47,7 +47,7 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#contribution-guidelines">Contribution guidelines</a></li>
+        <li><a href="#contribution-guidelines-">Contribution guidelines</a></li>
         <li><a href="#local-repository-setup">Local Repository Setup</a></li>
         <li><a href="#running-the-project">Running the project</a></li>
       </ul>
@@ -138,9 +138,9 @@ Please refer to the project's style and contribution guidelines for submitting p
 4.  **Push** your work back up to your fork
 5.  Submit a **Pull request** so that we can review your changes
 
-NOTE 1: Please abide by the [Contributing Guidelines](https://github.com/dscnitrourkela/project-huckleberry/blob/master/CONTRIBUTING.md).
+NOTE 1: Please abide by the [Contributing Guidelines](https://github.com/dscnitrourkela/project-huckleberry/blob/main/CONTRIBUTING.md).
 
-NOTE 2: Please abide by the [Code of Conduct](https://github.com/dscnitrourkela/project-huckleberry/blob/master/CODE_OF_CONDUCT.md).
+NOTE 2: Please abide by the [Code of Conduct](https://github.com/dscnitrourkela/project-huckleberry/blob/main/CODE_OF_CONDUCT.md).
 
 NOTE 3: We follow the following [coventional commit types](https://github.com/pvdlg/conventional-commit-types)
 
@@ -224,5 +224,5 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 [issues-shield]: https://img.shields.io/github/issues/dscnitrourkela/project-huckleberry?style=for-the-badge
 [issues-url]: https://github.com/dscnitrourkela/project-huckleberry/issues
 [license-shield]: https://img.shields.io/github/license/dscnitrourkela/project-huckleberry?style=for-the-badge
-[license-url]: https://github.com/dscnitrourkela/project-huckleberry/blob/LICENSE
+[license-url]: https://github.com/dscnitrourkela/project-huckleberry/blob/main/LICENSE
 [dsc-nitrourkela]: images/RepoCover.png

@@ -1,0 +1,91 @@
+name: Bug Report
+description: File a Bug Report. And help us improve even further.
+title: '[bug]: '
+labels: [bug, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        "Please fill up the given form for easier resolve of same."
+  - type: textarea
+    id: description
+    attributes:
+      label: 'Description'
+      description: 'Kindly elaborate on the above issue.'
+      placeholder: 'What happened huh?'
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behaviour
+      description: Tell us what should happen
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behaviour
+      description: Tell us what actually happened
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: Browser
+      description: Which browser were you on when facing this problem?
+      multiple: false
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+  - type: input
+    id: possiblefix
+    attributes:
+      label: Possible fix
+      description: Not obligatory, but suggest a fix or reason for the bug
+    validations:
+      required: false
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: |
+        Provide a link to a live example, or an unambiguous set of steps to
+        reproduce this bug. Include code to reproduce, if relevant
+      placeholder: |
+        1.
+        2.
+        3.
+        4.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: How has this bug affected you? What were you trying to accomplish?
+    validations:
+      required: true
+  - type: textarea
+    id: extrainformation
+    attributes:
+      label: Additional information
+      description: Is there anything else we should know about this bug?
+    validations:
+      required: false
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: bash
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
