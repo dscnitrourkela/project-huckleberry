@@ -5,13 +5,10 @@ export default styled.section`
 	font-family: 'Poppins';
 	font-weight: ${(props) => (props.medium ? '500' : '400')};
 
+	font-size: 16 px;
+	line-height: 20 px;
+
 	@media ${device.mobile} {
 		font-size: 14 px;
-	}
-	@media ${device.tablet} {
-		font-size: 16 px;
-	}
-	@media ${device.desktop} {
-		font-size: 20 px;
 	}
 `;

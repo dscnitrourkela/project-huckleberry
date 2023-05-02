@@ -5,15 +5,11 @@ export default styled.h4`
 	font-family: 'Poppins';
 	font-weight: ${(props) => (props.semibold ? '600' : '400')};
 
+	font-size: 24 px;
+	line-height: 36 px;
+
 	@media ${device.mobile} {
 		font-size: 20 px;
-	}
-
-	@media ${device.tablet} {
-		font-size: 24 px;
-	}
-
-	@media ${device.desktop} {
-		font-size: 36 px;
+		line-height: 28 px;
 	}
 `;

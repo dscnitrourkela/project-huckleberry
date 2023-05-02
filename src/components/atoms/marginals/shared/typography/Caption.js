@@ -5,13 +5,11 @@ export default styled.caption`
 	font-family: 'Poppins';
 	font-weight: 400; // regular
 
+	font-size: 14 px;
+	line-height: 20 px;
+
 	@media ${device.mobile} {
 		font-size: 12 px;
-	}
-	@media ${device.tablet} {
-		font-size: 14 px;
-	}
-	@media ${device.desktop} {
-		font-size: 20 px;
+		line-height: 18 px;
 	}
 `;
