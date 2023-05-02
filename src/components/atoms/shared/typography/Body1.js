@@ -10,7 +10,7 @@ export default styled.p`
 
 	@media ${device.mobile} {
 		font-size: 16 px;
-		line-height: ${(props) => (props.medium ? '20' : '24')};
-		font-weight: ${(props) => (props.medium ? '500' : '400')};
+		line-height: ${(props) => (props.semibold ? '20' : '24')};
+		font-weight: ${(props) => (props.semibold ? '500' : '400')};
 	}
 `;

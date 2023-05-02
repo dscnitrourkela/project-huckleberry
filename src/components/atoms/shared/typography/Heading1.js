@@ -3,7 +3,7 @@ import { device } from '../device';
 
 export default styled.h1`
 	font-family: 'Open Sans';
-	font-weight: ${(props) => (props.bold ? '700' : '400')};
+	font-weight: ${(props) => (props.semibold ? '700' : '400')};
 
 	font-size: 64 px;
 	line-height: 96 px;
