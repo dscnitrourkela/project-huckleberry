@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from '../device';
+import { devices } from '../Devices.js';
 
 export default styled.h2`
 	font-family: 'Open Sans';
@@ -8,7 +8,7 @@ export default styled.h2`
 	font-size: 48 px;
 	line-height: 64 px;
 
-	@media ${device.mobile} {
+	@media ${devices.mobile} {
 		font-size: 32 px;
 		line-height: 48 px;
 	}

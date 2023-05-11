@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from './device';
+import { devices } from '../Devices';
 
 export default styled.button`
 	font-family: 'Poppins';
@@ -8,7 +8,7 @@ export default styled.button`
 	font-size: 16 px;
 	line-height: 24 px;
 
-	@media ${device.mobile} {
+	@media ${devices.mobile} {
 		font-size: 14 px;
 		line-height: 20 px;
 	}

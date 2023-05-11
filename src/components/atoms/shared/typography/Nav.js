@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-// import { device } from './device';
+// import { devices } from '../Devices';
 
 export default styled.nav`
 	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
