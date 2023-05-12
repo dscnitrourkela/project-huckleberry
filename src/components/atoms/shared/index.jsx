@@ -1,2 +1,11 @@
 export { default as Container } from './Container';
 export { default as ToggleModeIcon } from './ToggleModeIcon';
+export { default as Body1 } from './typography/Body1';
+export { default as Body2 } from './typography/Body2';
+export { default as Heading1 } from './typography/Heading1';
+export { default as Heading2 } from './typography/Heading2';
+export { default as Heading3 } from './typography/Heading3';
+export { default as Heading4 } from './typography/Heading4';
+export { default as Nav } from './typography/Nav';
+export { default as Caption } from './typography/Caption';
+export { default as Button } from './typography/Button';

@@ -5,11 +5,11 @@ export default styled.h2`
 	font-family: 'Open Sans';
 	font-weight: ${(props) => (props.semibold ? '600' : '400')};
 
-	font-size: 48 px;
-	line-height: 64 px;
+	font-size: 48px;
+	line-height: 64px;
 
 	@media ${devices.mobile} {
-		font-size: 32 px;
-		line-height: 48 px;
+		font-size: 32px;
+		line-height: 48px;
 	}
 `;
