@@ -104,6 +104,8 @@ const Button = ({ type, variant, onclick, children, size}) => {
 			{children}
     
 		</Buttonstyles>
+		
+		
 	);
 };
   

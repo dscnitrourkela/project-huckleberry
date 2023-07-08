@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import Button from '../atoms/shared/button/Button';
+// import Button from '@/components/atoms/shared/button/Index';
 // import Link from 'next/link';
 
 const Playground = () => {
