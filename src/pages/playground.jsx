@@ -2,9 +2,9 @@ import Button from '@/components/atoms/shared/Button';
 
 const Playground = () => (
 	<>
-		<Button type='primary' text='Primary' />
-		<Button type='outline' text='Outline' />
-		<Button type='disabled' text='Disabled' />
+		<Button type='button' text='button' />
+		<Button type='submit' text='submit' />
+		<Button type='reset' text='reset' />
 	</>
 );
 
