@@ -24,13 +24,13 @@ const Wrapper = styled.button`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 12px 48px;
+	font-family: inherit;
+	padding: 8px 30px;
 	font-size: 16px;
 	font-weight: 600;
 	border-radius: 8px;
 	border: 2px solid;
 	cursor: pointer;
-	font-family: open sans;
 	font-style: normal;
 	line-height: 24px;
 	letter-spacing: 0.32px;
@@ -56,12 +56,12 @@ const Wrapper = styled.button`
 	}
 	@media (max-width: 768px) {
 		display: inline-flex;
-		padding: 8px 32px;
+		padding: 4px 24px;
 		justify-content: center;
 		align-items: center;
 		flex-shrink: 0;
 		border-radius: 4px;
-		font-size: 14px;
+		font-size: 12px;
 		line-height: 20px;
 		letter-spacing: 0.28px;
 	}

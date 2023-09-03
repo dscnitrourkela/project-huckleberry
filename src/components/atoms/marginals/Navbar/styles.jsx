@@ -47,12 +47,16 @@ export const MobileNavList = styled.ul`
 export const Nav = styled.nav`
 	padding: 1.5em 0;
 	display: flex;
+	gap: 16px;
 	justify-content: space-between;
 	align-items: center;
 
+	font-family: 'DM Sans', sans-serif;
+
 	.nav--right {
 		display: flex;
-		gap: 1em;
+		align-items: center;
+		gap: 1.5em;
 	}
 
 	.nav--center {
@@ -72,6 +76,10 @@ export const Nav = styled.nav`
 		.nav--left {
 			width: 50%;
 		}
+
+		.nav--left > img {
+			max-width: 100%;
+		}
 	}
 `;
 
@@ -80,7 +88,7 @@ export const NavList = styled.ul`
 	padding: 0;
 	list-style: none;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
 	align-items: center;
 	gap: 1.2em;
 	font-size: 1.2em;
