@@ -1,20 +1,11 @@
-import { useState } from 'react';
-import { Body1, Body2, Heading1, Heading2, Nav, Button } from '@/components/atoms/shared';
+import Button from '@/components/atoms/shared/Button';
 
-const Playground = () => {
-	const [value, setValue] = useState(0);
-
-	return (
-		<>
-			<Nav>This is navigation bar</Nav>
-			<Body1>
-				<Heading1>Playground</Heading1>
-				<Body2>Value: {value}</Body2>
-				<Button onClick={() => setValue(value + 1)}>Increment</Button>
-				<Heading2>Checking...</Heading2>
-			</Body1>
-		</>
-	);
-};
+const Playground = () => (
+	<>
+		<Button type='button' text='button' />
+		<Button type='submit' text='submit' />
+		<Button type='reset' text='reset' />
+	</>
+);
 
 export default Playground;

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { devices } from '../Devices';
 
-export default styled.button`
-	font-family: 'Poppins';
+export default styled.p`
+	/* font-family: 'Poppins'; */
 	font-weight: 500; // medium
 
 	font-size: 16px;
