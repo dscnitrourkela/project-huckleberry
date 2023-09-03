@@ -3,20 +3,20 @@ import styled from 'styled-components';
 import ButtonText from '../Typography/ButtonText';
 
 const stylesMap = {
-	button: {
+	primary: {
 		color: '#fff',
 		backgroundColor: '#145EF1',
 		borderColor: '#145EF1',
 	},
-	submit: {
+	secondary: {
 		color: '#145EF1',
 		backgroundColor: '#fff',
 		border: '#145EF1',
 	},
-	reset: {
-		color: '#fff',
-		backgroundColor: '#A6A6A6',
-		borderColor: '#A6A6A6',
+	outline: {
+		color: '#145EF1',
+		backgroundColor: 'transparent',
+		borderColor: '#145EF1',
 	},
 };
 
@@ -36,8 +36,8 @@ const Wrapper = styled.button`
 	letter-spacing: 0.32px;
 	text-transform: capitalize;
 	transition: all 0.3s ease-in-out;
-	${({ type }) => {
-		const { color, backgroundColor, borderColor } = stylesMap[type];
+	${({ variant }) => {
+		const { color, backgroundColor, borderColor } = stylesMap[variant];
 		return `
       color: ${color};
       background-color: ${backgroundColor};
@@ -67,7 +67,7 @@ const Wrapper = styled.button`
 	}
 `;
 
-const Button = ({ type, text, link, onclick, children, width, height, disabled }) => {
+const Button = ({ variant, text, link, onclick, children, disabled, ...props }) => {
 	const handleClick = (e) => {
 		e.stopPropagation();
 		if (onclick && !disabled) {
@@ -77,13 +77,13 @@ const Button = ({ type, text, link, onclick, children, width, height, disabled }
 
 	return link ? (
 		<Link href={link} passHref>
-			<Wrapper type={disabled ? 'disabled' : type} width={width} height={height} onClick={handleClick}>
+			<Wrapper onClick={handleClick} variant={variant} {...props}>
 				<ButtonText>{text}</ButtonText>
 				{children}
 			</Wrapper>
 		</Link>
 	) : (
-		<Wrapper type={disabled ? 'disabled' : type} width={width} height={height} onClick={handleClick}>
+		<Wrapper onClick={handleClick} variant={variant} {...props}>
 			<ButtonText aria-disabled={disabled} disabled={disabled}>
 				{text}
 			</ButtonText>

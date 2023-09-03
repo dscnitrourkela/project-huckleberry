@@ -3,11 +3,11 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 import Image from 'next/image';
-import { navigation } from '@/assets/placeholders/navigation';
-import { Container, NavText } from '@/components/atoms/shared';
+import Logo from '@images/Logo.svg';
+import { navigation } from '@/data/navigation';
+import { SectionContainer, NavText } from '@/components/atoms/shared';
 
 import { MenuButton, MobileNavList, Nav, NavList } from './styles';
-import Logo from '@/assets/images/Logo.svg';
 import Button from '../../shared/Button';
 
 const NavBar = () => {
@@ -31,7 +31,7 @@ const NavBar = () => {
 				top: '0',
 			}}
 		>
-			<Container>
+			<SectionContainer>
 				<Nav>
 					<div className='nav nav--left'>
 						<Image src={Logo} alt='logo' className='logo' width={320} height={32} />
@@ -39,7 +39,7 @@ const NavBar = () => {
 					<NavList className='nav nav--center'>{navList}</NavList>
 					<div className='nav nav--right'>
 						{/* TODO :- IMPLEMENT DARK THEME */}
-						<Button type='button' text='Join US' />
+						<Button variant='primary' text='Join US' />
 						{/* <ToggleModeIcon /> */}
 						<div className='btn__container' onClick={toggleMenuIsOpen} role='button' tabIndex={0}>
 							<MenuButton menuIsOpen={menuIsOpen}>
@@ -48,7 +48,7 @@ const NavBar = () => {
 						</div>
 					</div>
 				</Nav>
-			</Container>
+			</SectionContainer>
 			{menuIsOpen && <MobileNavList>{navList}</MobileNavList>}
 		</div>
 	);

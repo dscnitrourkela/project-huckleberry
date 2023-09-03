@@ -1,4 +1,4 @@
-export { default as Container } from './Container';
+export * from './SectionContainer';
 export { default as ToggleModeIcon } from './ToggleModeIcon';
 export { default as Body1 } from './Typography/Body1';
 export { default as Body2 } from './Typography/Body2';

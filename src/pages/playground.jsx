@@ -1,10 +1,8 @@
-import Button from '@/components/atoms/shared/Button';
+import HeroSection from '@/components/molecules/HeroSection';
 
 const Playground = () => (
 	<>
-		<Button type='button' text='button' />
-		<Button type='submit' text='submit' />
-		<Button type='reset' text='reset' />
+		<HeroSection />
 	</>
 );
 

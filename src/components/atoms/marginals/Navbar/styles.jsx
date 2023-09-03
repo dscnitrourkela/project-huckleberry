@@ -81,6 +81,10 @@ export const Nav = styled.nav`
 			max-width: 100%;
 		}
 	}
+
+	@media (max-width: 768px) {
+		padding: 1.5em;
+	}
 `;
 
 export const NavList = styled.ul`

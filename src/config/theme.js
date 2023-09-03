@@ -29,6 +29,5 @@ export const GlobalStyles = createGlobalStyle`
     background-color: var(--background-primary);
     color: var(--text-color-primary);
     font-family: var(--font-family);
-    padding: 0 0.7em;
   }
 `;
