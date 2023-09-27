@@ -13,4 +13,6 @@ const Footer = () => (
 	</SectionContainer>
 );
 
+//footer
+
 export default Footer;
