@@ -1,8 +1,8 @@
-import { Container } from '../../shared';
+import { SectionContainer } from '../../shared';
 import { Wrapper } from './styles';
 
 const Footer = () => (
-	<Container>
+	<SectionContainer>
 		<Wrapper>
 			Made with{' '}
 			<span role='img' aria-label='love'>
@@ -10,7 +10,7 @@ const Footer = () => (
 			</span>{' '}
 			by DSC NIT Rourkela
 		</Wrapper>
-	</Container>
+	</SectionContainer>
 );
 
 export default Footer;

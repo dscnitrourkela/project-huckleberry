@@ -3,20 +3,20 @@ import styled from 'styled-components';
 import ButtonText from '../Typography/ButtonText';
 
 const stylesMap = {
-	button: {
+	primary: {
 		color: '#fff',
 		backgroundColor: '#145EF1',
 		borderColor: '#145EF1',
 	},
-	submit: {
+	secondary: {
 		color: '#145EF1',
 		backgroundColor: '#fff',
 		border: '#145EF1',
 	},
-	reset: {
-		color: '#fff',
-		backgroundColor: '#A6A6A6',
-		borderColor: '#A6A6A6',
+	outline: {
+		color: '#145EF1',
+		backgroundColor: 'transparent',
+		borderColor: '#145EF1',
 	},
 };
 
@@ -24,20 +24,20 @@ const Wrapper = styled.button`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 12px 48px;
+	font-family: inherit;
+	padding: 8px 30px;
 	font-size: 16px;
 	font-weight: 600;
 	border-radius: 8px;
 	border: 2px solid;
 	cursor: pointer;
-	font-family: open sans;
 	font-style: normal;
 	line-height: 24px;
 	letter-spacing: 0.32px;
 	text-transform: capitalize;
 	transition: all 0.3s ease-in-out;
-	${({ type }) => {
-		const { color, backgroundColor, borderColor } = stylesMap[type];
+	${({ variant }) => {
+		const { color, backgroundColor, borderColor } = stylesMap[variant];
 		return `
       color: ${color};
       background-color: ${backgroundColor};
@@ -56,18 +56,18 @@ const Wrapper = styled.button`
 	}
 	@media (max-width: 768px) {
 		display: inline-flex;
-		padding: 8px 32px;
+		padding: 4px 24px;
 		justify-content: center;
 		align-items: center;
 		flex-shrink: 0;
 		border-radius: 4px;
-		font-size: 14px;
+		font-size: 12px;
 		line-height: 20px;
 		letter-spacing: 0.28px;
 	}
 `;
 
-const Button = ({ type, text, link, onclick, children, width, height, disabled }) => {
+const Button = ({ variant, text, link, onclick, children, disabled, ...props }) => {
 	const handleClick = (e) => {
 		e.stopPropagation();
 		if (onclick && !disabled) {
@@ -77,13 +77,13 @@ const Button = ({ type, text, link, onclick, children, width, height, disabled }
 
 	return link ? (
 		<Link href={link} passHref>
-			<Wrapper type={disabled ? 'disabled' : type} width={width} height={height} onClick={handleClick}>
+			<Wrapper onClick={handleClick} variant={variant} {...props}>
 				<ButtonText>{text}</ButtonText>
 				{children}
 			</Wrapper>
 		</Link>
 	) : (
-		<Wrapper type={disabled ? 'disabled' : type} width={width} height={height} onClick={handleClick}>
+		<Wrapper onClick={handleClick} variant={variant} {...props}>
 			<ButtonText aria-disabled={disabled} disabled={disabled}>
 				{text}
 			</ButtonText>

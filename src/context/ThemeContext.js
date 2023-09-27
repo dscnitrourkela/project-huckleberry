@@ -5,12 +5,12 @@ import { ThemeProvider } from 'styled-components';
 import { darkTheme, GlobalStyles, lightTheme } from '@/config/theme';
 
 export const ThemeContext = createContext({
-	isDarkMode: true,
+	isDarkMode: false,
 	handleToggle: () => null,
 });
 
 const CustomThemeProvider = ({ children }) => {
-	const [isDarkMode, setIsDarkMode] = useState(true);
+	const [isDarkMode, setIsDarkMode] = useState(false);
 
 	const handleToggle = () => {
 		setIsDarkMode(!isDarkMode);

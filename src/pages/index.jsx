@@ -1,18 +1,12 @@
 import Head from 'next/head';
-import styled from 'styled-components';
-
-const Container = styled.div`
-	background: var(--background-primary);
-`;
+import { HeroSection } from '@/components/molecules';
 
 const HomePage = () => (
 	<>
 		<Head>
 			<title>DSC NIT Rourkela</title>
 		</Head>
-		<Container>
-			<h1>Home Page</h1>
-		</Container>
+		<HeroSection />
 	</>
 );
 
