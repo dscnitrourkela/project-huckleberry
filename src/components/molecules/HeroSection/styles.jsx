@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
 	background-repeat: no-repeat;
 	padding: 0 24px;
 	background-color: #fff;
+	padding: 40px 0;
 
 	@media (max-width: 720px) {
 		background-image: url('/images/hero/background-mobile.png');

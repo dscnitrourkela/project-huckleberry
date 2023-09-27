@@ -21,13 +21,13 @@ export const CircleContainer = styled.div`
 	background-image: ${(props) => props.fill};
 	background-color: #fff;
 	position: absolute;
-	top: ${(props) => props.coors.y}%;
-	left: ${(props) => props.coors.x}%;
+	top: ${(props) => props.coords.y}%;
+	left: ${(props) => props.coords.x}%;
 	transform: translate(-50%, -50%);
 	filter: ${(props) => props.filter};
 	transition: scale 0.3s ease-in-out, transform 0.3s ease-in-out, top 1s ease-in-out, left 1s ease-in-out;
 	text-align: center;
-
+	padding: 8px;
 	&:hover {
 		transform: translate(-50%, -50%) scale(1.1);
 	}
