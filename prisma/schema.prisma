@@ -1,0 +1,71 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Event {
+  id          String  @id @default(cuid())
+  coverImage  String? @default("")
+  title       String
+  subTitle    String?
+  description String
+  location    String?
+  mode        String
+  eligibility String
+  timestamp   String
+
+  @@map("events")
+}
+
+model Member {
+  id             String   @id @default(cuid())
+  created_at     DateTime @default(now())
+  profile_photo  String?
+  user_name      String   
+  email          String   @unique
+  mobile_no      String
+  role           String
+  github         String?
+  linkedin       String?
+  twitter        String?
+  other_socials  String[]
+  caption        String?
+  introduction   String
+  is_admin       Boolean  @default(false)
+  year_of_passing Int?
+  @@map("members")
+}
+
+model Project {
+  id           String   @id @default(cuid())
+  repo_id      String   @unique
+  repo_name    String
+  published_at DateTime @default(now())
+
+  @@map("projects")
+}
+
+model Tweet {
+  id              String   @id @unique
+  text            String
+  createdAt       DateTime @map("created_at")
+  retweetCount    Int      @default(0)
+  replyCount      Int      @default(0)
+  likeCount       Int      @default(0)
+  quoteCount      Int      @default(0)
+  conversationId  String?
+  inReplyToUserId String?
+
+  @@map("tweets")
+}
+
+model TweetFetchLog {
+  type      String   @id
+  fetchedAt DateTime
+
+  @@map("tweet_fetch_logs")
+}
