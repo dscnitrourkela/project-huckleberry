@@ -1,6 +1,1 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-echo "Running custom pre-commit hooks..."
-yarn lint-staged
-yarn next lint
+npx lint-staged
