@@ -74,7 +74,10 @@ export async function fetchRepos(
     repos.map(async (repo) => {
       try {
         const contributors = await fetchContributors(repo.full_name);
-        return { ...repo, contributors };
+        return {
+          ...repo,
+          contributors: Array.isArray(contributors) ? contributors : [],
+        };
       } catch (error) {
         console.error(
           `Error fetching contributors for ${repo.full_name}:`,
