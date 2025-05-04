@@ -20,6 +20,7 @@ import { Button } from '@/components/ui/button';
 import GoogleColorsBar from '@/components/shared/google-colors-bar';
 import { useAuth } from '@/contexts/auth-context';
 import Image from 'next/image';
+import { LOGO } from '@/config/common';
 const navItems = [
   {
     name: 'Dashboard',
@@ -102,11 +103,11 @@ export default function Sidebar({ className }: SidebarProps) {
         )}
       >
         <div className="flex flex-col h-full">
-          <div className="h-16 flex items-center px-4 border-b">
+          <div className="h-16 flex items-center px-4">
             <div className="flex items-center space-x-2">
               <div className="relative w-8 h-8 rounded-full overflow-hidden">
                 <Image
-                  src="/src/public/gdg.jpg"
+                  src={LOGO}
                   alt={user?.name || 'GDSC logo'}
                   fill
                   className="object-cover"
