@@ -4,6 +4,8 @@ import { handleError, EventOperationError } from './error-handler';
 import { handleSuccess } from './success-handler';
 import { withLoadingToast } from './withToast';
 import { formatTimestamp, formatTimestampForHTML } from './fomat-time';
+import { asyncHandler } from './asyncHandler';
+
 export {
   upsertEvent,
   uploadToCloudinary,
@@ -13,4 +15,5 @@ export {
   withLoadingToast,
   formatTimestamp,
   formatTimestampForHTML,
+  asyncHandler,
 };

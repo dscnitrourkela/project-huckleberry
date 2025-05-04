@@ -68,10 +68,8 @@ export async function requireAdmin() {
   return true;
 }
 
-// In your actions/members/index.ts file
 export async function updateMember(member: Member) {
   try {
-    // Validate that ID exists before updating
     if (!member.id) {
       return {
         status: 'error',
