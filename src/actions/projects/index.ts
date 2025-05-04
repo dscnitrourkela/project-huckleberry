@@ -5,7 +5,7 @@ import { ApiResponse } from '@/types/commons';
 import { GitHubRepo, GitHubContributor } from '@/types/projects';
 import { handleError, handleSuccess } from '@/utils';
 import { revalidatePath } from 'next/cache';
-import { isAdmin } from '../auth';
+import { withAdminCheck } from '../events';
 
 const GITHUB_API_URL = 'https://api.github.com';
 const token = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
@@ -30,7 +30,6 @@ async function fetchPaginatedData<T>(url: string, token: string): Promise<T[]> {
       const data: T[] = await response.json();
       results.push(...data);
 
-      // Handle pagination
       const linkHeader = response.headers.get('Link');
       const nextLink = linkHeader
         ?.split(',')
@@ -96,22 +95,20 @@ export async function publishRepos(
   repos: { id: string; name: string }[]
 ): Promise<ApiResponse> {
   try {
-    if (!(await isAdmin()))
-      return handleError({
-        message: 'You are not authorized to perform this action',
+    return await withAdminCheck(async () => {
+      await prisma.project.createMany({
+        data: repos.map((repo) => ({
+          repo_id: repo.id,
+          repo_name: repo.name,
+        })),
+        skipDuplicates: true,
       });
-    await prisma.project.createMany({
-      data: repos.map((repo) => ({
-        repo_id: repo.id,
-        repo_name: repo.name,
-      })),
-      skipDuplicates: true,
-    });
 
-    revalidatePath('/projects');
+      revalidatePath('/projects');
 
-    return handleSuccess({
-      message: 'Repositories published successfully',
+      return handleSuccess({
+        message: 'Repositories published successfully',
+      });
     });
   } catch (error) {
     return handleError(error);
@@ -142,21 +139,19 @@ export async function getPublishedRepos() {
 
 export async function unpublishRepos(repoIds: string[]): Promise<ApiResponse> {
   try {
-    if (!(await isAdmin()))
-      return handleError({
-        message: 'You are not authorized to perform this action',
-      });
-    await prisma.project.deleteMany({
-      where: {
-        repo_id: {
-          in: repoIds,
+    return await withAdminCheck(async () => {
+      await prisma.project.deleteMany({
+        where: {
+          repo_id: {
+            in: repoIds,
+          },
         },
-      },
-    });
+      });
 
-    revalidatePath('/projects');
-    return handleSuccess({
-      message: 'Repository unpublished successfully',
+      revalidatePath('/projects');
+      return handleSuccess({
+        message: 'Repository unpublished successfully',
+      });
     });
   } catch (error) {
     return handleError(error);
