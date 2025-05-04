@@ -3,7 +3,7 @@
 import { prisma } from '@/lib/prisma';
 import { ApiResponse } from '@/types/commons';
 import { GitHubRepo, GitHubContributor } from '@/types/projects';
-import { handleError, handleSuccess } from '@/utils';
+import { asyncHandler, handleError, handleSuccess } from '@/utils';
 import { revalidatePath } from 'next/cache';
 import { withAdminCheck } from '../events';
 
@@ -94,10 +94,8 @@ export async function fetchRepos(
   );
 }
 
-export async function publishRepos(
-  repos: { id: string; name: string }[]
-): Promise<ApiResponse> {
-  try {
+export const publishRepos = asyncHandler(
+  async (repos: { id: string; name: string }[]): Promise<ApiResponse> => {
     return await withAdminCheck(async () => {
       await prisma.project.createMany({
         data: repos.map((repo) => ({
@@ -113,35 +111,29 @@ export async function publishRepos(
         message: 'Repositories published successfully',
       });
     });
-  } catch (error) {
-    return handleError(error);
   }
-}
+);
 
-export async function getPublishedRepos() {
-  try {
-    const res = await prisma.project.findMany({
-      orderBy: {
-        published_at: 'desc',
-      },
-    });
-    if (!res) {
-      return handleSuccess({
-        data: [],
-        message: null,
-      });
-    }
+export const getPublishedRepos = asyncHandler(async () => {
+  const res = await prisma.project.findMany({
+    orderBy: {
+      published_at: 'desc',
+    },
+  });
+  if (!res) {
     return handleSuccess({
-      data: res,
+      data: [],
       message: null,
     });
-  } catch (error) {
-    return handleError(error);
   }
-}
+  return handleSuccess({
+    data: res,
+    message: null,
+  });
+});
 
-export async function unpublishRepos(repoIds: string[]): Promise<ApiResponse> {
-  try {
+export const unpublishRepos = asyncHandler(
+  async (repoIds: string[]): Promise<ApiResponse> => {
     return await withAdminCheck(async () => {
       await prisma.project.deleteMany({
         where: {
@@ -156,7 +148,5 @@ export async function unpublishRepos(repoIds: string[]): Promise<ApiResponse> {
         message: 'Repository unpublished successfully',
       });
     });
-  } catch (error) {
-    return handleError(error);
   }
-}
+);

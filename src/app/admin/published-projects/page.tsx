@@ -46,7 +46,7 @@ export default function ProjectsPage() {
   if (isLoading) {
     return (
       <div className="container mx-auto p-6">
-        <AdminPageHeader accentTitle="All Projects" title="Projects" />
+        <AdminPageHeader accentTitle="Published Projects" title="Projects" />
         <div className="text-center">
           <p className="text-lg">Loading projects...</p>
         </div>

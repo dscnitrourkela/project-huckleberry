@@ -34,13 +34,13 @@ export const navItems = [
   },
   {
     name: 'Manage Projects',
-    href: '/admin/publish-projects',
+    href: '/admin/manage-projects',
     icon: Layers,
     color: 'text-gdg-green',
   },
   {
-    name: 'All Projects',
-    href: '/admin/projects',
+    name: 'Published Projects',
+    href: '/admin/published-projects',
     icon: Layers,
     color: 'text-gdg-green',
   },
