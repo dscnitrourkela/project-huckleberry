@@ -1,72 +1,95 @@
-import React from 'react';
+import { memo } from 'react';
+import {
+  LucideIcon,
+  Github,
+  Linkedin,
+  Youtube,
+  Twitter,
+  Instagram,
+} from 'lucide-react';
+import SocialLink from '../shared/social-link';
 import { cn } from '@/lib/utils';
-import { Github, Twitter, Linkedin, Youtube, Instagram } from 'lucide-react';
 
-interface SocialLinksProps {
-  className?: string;
+export interface SocialLinkType {
+  platform: string;
+  url: string;
+  icon: LucideIcon;
+  ariaLabel?: string;
 }
 
-const SocialLinks: React.FC<SocialLinksProps> = ({ className }) => {
-  const socialLinks = [
-    {
-      icon: Github,
-      href: 'https://github.com/dscnitrourkela',
-      label: 'GitHub',
-      color: '#4285F4',
-    },
-    {
-      icon: Twitter,
-      href: 'https://x.com/dscnitrourkela',
-      label: 'Twitter',
-      color: '#EA4335',
-    },
-    {
-      icon: Linkedin,
-      href: 'https://www.linkedin.com/company/dscnitrourkela/',
-      label: 'LinkedIn',
-      color: '#FBBC05',
-    },
-    {
-      icon: Youtube,
-      href: 'https://www.youtube.com/c/DSCNITRourkela',
-      label: 'YouTube',
-      color: '#34A853',
-    },
-    {
-      icon: Instagram,
-      href: 'https://www.instagram.com/dscnitrourkela/',
-      label: 'Instagram',
-      color: '#4285F4',
-    },
-  ];
+export interface SocialLinksProps {
+  socials?: SocialLinkType[];
+  className?: string;
+  linkClassName?: string;
+  iconClassName?: string;
+  iconSize?: number;
+}
+
+const DEFAULT_SOCIALS: SocialLinkType[] = [
+  {
+    platform: 'github',
+    url: 'https://github.com/GDSC-HUCKLEBERRY',
+    icon: Github,
+    ariaLabel: 'GDSC Huckleberry GitHub',
+  },
+  {
+    platform: 'linkedin',
+    url: 'https://www.linkedin.com/company/gdsc-huckleberry',
+    icon: Linkedin,
+    ariaLabel: 'GDSC Huckleberry LinkedIn',
+  },
+  {
+    platform: 'youtube',
+    url: 'https://www.youtube.com/channel/GDSC-HUCKLEBERRY',
+    icon: Youtube,
+    ariaLabel: 'GDSC Huckleberry YouTube',
+  },
+  {
+    platform: 'twitter',
+    url: 'https://twitter.com/gdsc_huckleberry',
+    icon: Twitter,
+    ariaLabel: 'GDSC Huckleberry Twitter',
+  },
+  {
+    platform: 'instagram',
+    url: 'https://www.instagram.com/gdsc_huckleberry',
+    icon: Instagram,
+    ariaLabel: 'GDSC Huckleberry Instagram',
+  },
+];
+
+const SocialLinks = ({
+  socials,
+  className = '',
+  linkClassName,
+  iconClassName,
+  iconSize = 24,
+}: SocialLinksProps) => {
+  const displaySocials = socials?.length ? socials : DEFAULT_SOCIALS;
+
+  const validSocials = displaySocials.filter(
+    (social) => social.url && social.url !== '#' && social.url.trim() !== ''
+  );
+
+  if (validSocials.length === 0) {
+    return null;
+  }
 
   return (
-    <div className={cn('flex justify-center gap-4', className)}>
-      {socialLinks.map((link, index) => {
-        const Icon = link.icon;
-        return (
-          <a
-            key={link.label}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative w-12 h-12 flex items-center justify-center rounded-full bg-white/90 backdrop-blur-xs hover:bg-white shadow-sm hover:shadow-md transition-all duration-300"
-            aria-label={link.label}
-            style={{ animationDelay: `${0.1 + index * 0.1}s` }}
-          >
-            <Icon
-              className="w-5 h-5"
-              strokeWidth={1.5}
-              style={{ color: link.color }}
-            />
-            <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/80 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-              {link.label}
-            </span>
-          </a>
-        );
-      })}
+    <div className={cn('flex items-center gap-4', className)}>
+      {validSocials.map((social, index) => (
+        <SocialLink
+          key={`${social.platform}-${index}`}
+          href={social.url}
+          icon={social.icon}
+          className={linkClassName}
+          iconClassName={iconClassName}
+          size={iconSize}
+          ariaLabel={social.ariaLabel || `Visit our ${social.platform} profile`}
+        />
+      ))}
     </div>
   );
 };
 
-export default SocialLinks;
+export default memo(SocialLinks);

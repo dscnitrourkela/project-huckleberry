@@ -73,7 +73,7 @@
       "contributions": [
         "design"
       ]
-    },
+    },{
       "login": "somnath-07",
       "name": "somnath-07",
       "avatar_url": "https://avatars.githubusercontent.com/u/138187553?v=4",
@@ -81,7 +81,7 @@
       "contributions": [
         "design"
       ]
-    },
+    },{
       "login": "pseudomidget",
       "name": "pseudomidget",
       "avatar_url": "https://avatars.githubusercontent.com/u/157236850?v=4",
@@ -91,7 +91,7 @@
       ]
     }
   ],
-  "contributorsPerLine": 7,
+  "contributorsPerLine": 5,
   "linkToUsage": true,
   "commitType": "docs"
 }
