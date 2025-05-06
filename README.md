@@ -1,7 +1,9 @@
 [![Starware](https://img.shields.io/badge/Starware-⭐-black?labelColor=f9b00d)](https://github.com/zepfietje/starware)
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <br />
@@ -94,16 +96,16 @@ To setup the project locally the steps below.
   ```sh
     # Homebrew
     brew install git
-  
+
     # Sudo apt
     apt-get install git
-  
+
     # Packman
     pacman -S git
-  
+
     # Module Install (Fedora)
     dnf install git
-  
+
   ```
 
 ### Contribution guidlines
@@ -129,16 +131,19 @@ Please refer to the project's style and contribution guidelines for submitting p
 The project uses Yarn as the package manager. It is strictly advised to use Yarn instead of NPM to avoid dependency conflicts.
 
 1. **Install Dependencies**
+
    ```sh
    yarn install
    ```
 
 2. **Environment Setup**
+
    - Create a new `.env` file in the root directory
    - Copy the contents from `.sample.env` as reference
    - Update the environment variables as needed
 
 3. **Database Setup**
+
    ```sh
    # Generate Prisma Client
    yarn generate
@@ -148,12 +153,14 @@ The project uses Yarn as the package manager. It is strictly advised to use Yarn
    ```
 
 4. **Development Server**
+
    ```sh
    # Start the development server with Turbopack
    yarn dev
    ```
 
 5. **Additional Commands**
+
    ```sh
    # Run linting
    yarn lint
@@ -200,15 +207,17 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://ayussh.vercel.app/"><img src="https://avatars.githubusercontent.com/u/135319056?v=4?s=100" width="100px;" alt="Ayush"/><br /><sub><b>Ayush</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=ayussh-2" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Cybrite"><img src="https://avatars.githubusercontent.com/u/140698710?v=4?s=100" width="100px;" alt="Harsh"/><br /><sub><b>Harsh</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=Cybrite" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/siddharth-narayan-mishra"><img src="https://avatars.githubusercontent.com/u/138509510?v=4?s=100" width="100px;" alt="siddharth"/><br /><sub><b>siddharth</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=siddharth-narayan-mishra" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/swaindhruti"><img src="https://avatars.githubusercontent.com/u/92504849?v=4?s=100" width="100px;" alt="Dhrutinandan Swain"/><br /><sub><b>Dhrutinandan Swain</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=swaindhruti" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://portfolioscyy.netlify.app/playground"><img src="https://avatars.githubusercontent.com/u/180634057?v=4?s=100" width="100px;" alt="Ayan"/><br /><sub><b>Ayan</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=AYANscyy2" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/HIMANSHU6001"><img src="https://avatars.githubusercontent.com/u/92459082?v=4?s=100" width="100px;" alt="Himanshu Kaushik"/><br /><sub><b>Himanshu Kaushik</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=HIMANSHU6001" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/NishkarshG"><img src="https://avatars.githubusercontent.com/u/143815191?v=4?s=100" width="100px;" alt="Nishkarsh Gupta"/><br /><sub><b>Nishkarsh Gupta</b></sub></a><br /><a href="#design-NishkarshG" title="Design">🎨</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/somnath-07"><img src="https://avatars.githubusercontent.com/u/138187553?v=4?s=100" width="100px;" alt="somnath-07"/><br /><sub><b>somnath-07</b></sub></a><br /><a href="#design-somnath-07" title="Design">🎨</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/pseudomidget"><img src="https://avatars.githubusercontent.com/u/157236850?v=4?s=100" width="100px;" alt="pseudomidget"/><br /><sub><b>pseudomidget</b></sub></a><br /><a href="#design-pseudomidget" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="20%"><a href="https://ayussh.vercel.app/"><img src="https://avatars.githubusercontent.com/u/135319056?v=4?s=100" width="100px;" alt="Ayush"/><br /><sub><b>Ayush</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=ayussh-2" title="Code">💻</a></td>
+      <td align="center" valign="top" width="20%"><a href="https://github.com/Cybrite"><img src="https://avatars.githubusercontent.com/u/140698710?v=4?s=100" width="100px;" alt="Harsh"/><br /><sub><b>Harsh</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=Cybrite" title="Code">💻</a></td>
+      <td align="center" valign="top" width="20%"><a href="https://github.com/siddharth-narayan-mishra"><img src="https://avatars.githubusercontent.com/u/138509510?v=4?s=100" width="100px;" alt="siddharth"/><br /><sub><b>siddharth</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=siddharth-narayan-mishra" title="Code">💻</a></td>
+      <td align="center" valign="top" width="20%"><a href="https://github.com/swaindhruti"><img src="https://avatars.githubusercontent.com/u/92504849?v=4?s=100" width="100px;" alt="Dhrutinandan Swain"/><br /><sub><b>Dhrutinandan Swain</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=swaindhruti" title="Code">💻</a></td>
+      <td align="center" valign="top" width="20%"><a href="https://portfolioscyy.netlify.app/playground"><img src="https://avatars.githubusercontent.com/u/180634057?v=4?s=100" width="100px;" alt="Ayan"/><br /><sub><b>Ayan</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=AYANscyy2" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="20%"><a href="https://github.com/HIMANSHU6001"><img src="https://avatars.githubusercontent.com/u/92459082?v=4?s=100" width="100px;" alt="Himanshu Kaushik"/><br /><sub><b>Himanshu Kaushik</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=HIMANSHU6001" title="Code">💻</a></td>
+      <td align="center" valign="top" width="20%"><a href="https://github.com/NishkarshG"><img src="https://avatars.githubusercontent.com/u/143815191?v=4?s=100" width="100px;" alt="Nishkarsh Gupta"/><br /><sub><b>Nishkarsh Gupta</b></sub></a><br /><a href="#design-NishkarshG" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="20%"><a href="https://github.com/somnath-07"><img src="https://avatars.githubusercontent.com/u/138187553?v=4?s=100" width="100px;" alt="somnath-07"/><br /><sub><b>somnath-07</b></sub></a><br /><a href="#design-somnath-07" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="20%"><a href="https://github.com/pseudomidget"><img src="https://avatars.githubusercontent.com/u/157236850?v=4?s=100" width="100px;" alt="pseudomidget"/><br /><sub><b>pseudomidget</b></sub></a><br /><a href="#design-pseudomidget" title="Design">🎨</a></td>
     </tr>
   </tbody>
   <tfoot>
