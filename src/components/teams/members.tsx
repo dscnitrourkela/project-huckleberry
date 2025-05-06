@@ -24,7 +24,7 @@ const Members = ({ teamMembers, showBatch = false }: MembersProps) => {
       {leads.length > 0 && (
         <div className="flex justify-center mb-12">
           <div
-            className={`grid ${getGridClass(leads.length)} gap-6 max-w-6xl w-full px-4`}
+            className={`grid ${getGridClass(leads.length)} gap-6 max-w-6xl w-full px-4 my-10`}
           >
             {leads.map((member, index) => (
               <MemberCard
@@ -42,7 +42,7 @@ const Members = ({ teamMembers, showBatch = false }: MembersProps) => {
       {coreMembers.length > 0 && (
         <div className="flex justify-center">
           <div
-            className={`grid ${getGridClass(coreMembers.length)} gap-6 max-w-6xl w-full px-4`}
+            className={`grid ${getGridClass(coreMembers.length)} gap-6 max-w-6xl w-full px-4 my-10`}
           >
             {coreMembers.map((member, index) => (
               <MemberCard

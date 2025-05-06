@@ -3,10 +3,14 @@ import Members from '@/components/teams/members';
 import TeamHeader from '@/components/teams/team-header';
 import BatchFilter from '@/components/teams/batch-filter';
 import { TEAM_MEMBERS } from '@/config/teams';
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 
 export default function Page() {
   const [selectedBatch, setSelectedBatch] = useState<string>('all');
+  const [isChanging, setIsChanging] = useState<boolean>(false);
+  const [displayedMembers, setDisplayedMembers] = useState<typeof TEAM_MEMBERS>(
+    []
+  );
 
   const availableBatches = [
     ...new Set(TEAM_MEMBERS.map((member) => member.batch)),
@@ -41,6 +45,17 @@ export default function Page() {
     return members;
   }, [selectedBatch]);
 
+  useEffect(() => {
+    setIsChanging(true);
+
+    const timer = setTimeout(() => {
+      setDisplayedMembers(filteredMembers);
+      setIsChanging(false);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [filteredMembers]);
+
   const isAllBatchesSelected = selectedBatch === 'all';
 
   return (
@@ -55,7 +70,14 @@ export default function Page() {
         />
       </div>
 
-      <Members teamMembers={filteredMembers} showBatch={isAllBatchesSelected} />
+      <div
+        className={`transition-opacity duration-300 ${isChanging ? 'opacity-0' : 'opacity-100'}`}
+      >
+        <Members
+          teamMembers={displayedMembers}
+          showBatch={isAllBatchesSelected}
+        />
+      </div>
     </main>
   );
 }
