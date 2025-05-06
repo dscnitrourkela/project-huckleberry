@@ -2,60 +2,26 @@
 import { memo } from 'react';
 import { motion } from 'motion/react';
 import { useState } from 'react';
-import { Linkedin, Github, Twitter, Figma } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
-import SocialLinks, { SocialLinkType } from '../home/social-links';
+import SocialLinks from '../home/social-links';
+import { TeamMember } from '@/types/team';
 
-interface MemberCardProps {
-  name: string;
-  title: string;
-  quote: string;
-  imageSrc: string;
-  altText?: string;
-  colorClass?: string;
-  socials?: SocialLinkType[];
+interface MemberCardProps extends TeamMember {
+  showBatch?: boolean;
 }
-
-const DEFAULT_MEMBER_SOCIALS: SocialLinkType[] = [
-  {
-    platform: 'linkedin',
-    url: '#',
-    icon: Linkedin,
-    ariaLabel: 'LinkedIn Profile',
-  },
-  {
-    platform: 'github',
-    url: '#',
-    icon: Github,
-    ariaLabel: 'GitHub Profile',
-  },
-  {
-    platform: 'twitter',
-    url: '#',
-    icon: Twitter,
-    ariaLabel: 'Twitter Profile',
-  },
-  {
-    platform: 'figma',
-    url: '#',
-    icon: Figma,
-    ariaLabel: 'Figma Projects',
-  },
-];
 
 const MemberCard = ({
   name,
-  title,
+  role,
   quote,
-  imageSrc,
-  altText,
+  photo,
+  batch,
   colorClass = 'bg-gdg-blue',
   socials,
+  showBatch = false,
 }: MemberCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
-
-  const displaySocials = socials?.length ? socials : DEFAULT_MEMBER_SOCIALS;
 
   const firstName = name.split(' ')[0];
 
@@ -76,8 +42,8 @@ const MemberCard = ({
         <div className="bg-white rounded-2xl h-full flex flex-col">
           <div className="h-3/4 overflow-hidden">
             <Image
-              src={imageSrc}
-              alt={altText || `${name} - ${title}`}
+              src={photo}
+              alt={`${name} - ${role}`}
               className="w-full h-full object-cover"
               width={600}
               height={600}
@@ -88,7 +54,14 @@ const MemberCard = ({
             <h2 className="text-2xl font-bold text-gray-800 font-poppins">
               {name}
             </h2>
-            <p className="text-gray-600 font-geist-sans">{title}</p>
+            <div className="flex items-center justify-between">
+              <p className="text-gray-600 font-geist-sans">{role}</p>
+              {showBatch && batch && (
+                <span className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded-full text-xs font-medium">
+                  Batch {batch}
+                </span>
+              )}
+            </div>
           </div>
         </div>
       </motion.div>
@@ -104,20 +77,22 @@ const MemberCard = ({
       >
         <div className="flex flex-col h-full p-6 justify-between">
           <div>
-            <SocialLinks
-              socials={displaySocials}
-              className="justify-center"
-              linkClassName="bg-black/80 hover:bg-black"
-              iconSize={20}
-            />
+            {socials && (
+              <SocialLinks
+                socials={socials}
+                className="justify-start"
+                linkClassName="bg-black/80 hover:bg-black"
+                iconSize={20}
+              />
+            )}
             {quote && (
               <p className="text-lg text-black mt-4 mb-auto font-dm text-center font-[400]">
                 "{quote}"
               </p>
             )}
           </div>
-          <div>
-            <div className="inline-block bg-black text-white px-4 py-1 rounded-full font-poppins text-sm">
+          <div className="flex items-center justify-between">
+            <div className="inline-block border-2 text-black border-black  px-4 py-1 rounded-full font-poppins text-sm">
               {firstName}
             </div>
           </div>

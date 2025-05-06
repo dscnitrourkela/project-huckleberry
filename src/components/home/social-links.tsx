@@ -17,46 +17,27 @@ export interface SocialLinkType {
   ariaLabel?: string;
 }
 
+export interface TeamMemberSocialLink {
+  name: string;
+  url: string;
+  icon: string;
+}
+
 export interface SocialLinksProps {
-  socials?: SocialLinkType[];
+  socials?: SocialLinkType[] | TeamMemberSocialLink[];
   className?: string;
   linkClassName?: string;
   iconClassName?: string;
   iconSize?: number;
 }
 
-const DEFAULT_SOCIALS: SocialLinkType[] = [
-  {
-    platform: 'github',
-    url: 'https://github.com/GDSC-HUCKLEBERRY',
-    icon: Github,
-    ariaLabel: 'GDSC Huckleberry GitHub',
-  },
-  {
-    platform: 'linkedin',
-    url: 'https://www.linkedin.com/company/gdsc-huckleberry',
-    icon: Linkedin,
-    ariaLabel: 'GDSC Huckleberry LinkedIn',
-  },
-  {
-    platform: 'youtube',
-    url: 'https://www.youtube.com/channel/GDSC-HUCKLEBERRY',
-    icon: Youtube,
-    ariaLabel: 'GDSC Huckleberry YouTube',
-  },
-  {
-    platform: 'twitter',
-    url: 'https://twitter.com/gdsc_huckleberry',
-    icon: Twitter,
-    ariaLabel: 'GDSC Huckleberry Twitter',
-  },
-  {
-    platform: 'instagram',
-    url: 'https://www.instagram.com/gdsc_huckleberry',
-    icon: Instagram,
-    ariaLabel: 'GDSC Huckleberry Instagram',
-  },
-];
+export const SOCIAL_ICONS_MAP: Record<string, LucideIcon> = {
+  github: Github,
+  linkedin: Linkedin,
+  youtube: Youtube,
+  twitter: Twitter,
+  instagram: Instagram,
+};
 
 const SocialLinks = ({
   socials,
@@ -65,9 +46,26 @@ const SocialLinks = ({
   iconClassName,
   iconSize = 24,
 }: SocialLinksProps) => {
-  const displaySocials = socials?.length ? socials : DEFAULT_SOCIALS;
+  if (!socials || socials.length === 0) {
+    return null;
+  }
 
-  const validSocials = displaySocials.filter(
+  const processedSocials = socials.map((social) => {
+    if ('platform' in social) {
+      return social as SocialLinkType;
+    } else {
+      const teamSocial = social as TeamMemberSocialLink;
+      const iconName = teamSocial.icon.toLowerCase();
+      return {
+        platform: teamSocial.name.toLowerCase(),
+        url: teamSocial.url,
+        icon: SOCIAL_ICONS_MAP[iconName] || Github,
+        ariaLabel: `Visit ${teamSocial.name} profile`,
+      } as SocialLinkType;
+    }
+  });
+
+  const validSocials = processedSocials.filter(
     (social) => social.url && social.url !== '#' && social.url.trim() !== ''
   );
 
