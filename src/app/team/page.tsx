@@ -6,7 +6,7 @@ import { getAllMembers } from '@/actions/members';
 import React, { useState, useMemo, useEffect } from 'react';
 import { Member } from '@/types/admin/members';
 import { TeamMember, Social, MembersResponse } from '@/types/team';
-import Loader from '@/components/ui/loader';
+import Loader from '@/components/shared/loader';
 
 const transformMemberToTeamMember = (member: Member): TeamMember => {
   const socials: Social[] = [];
