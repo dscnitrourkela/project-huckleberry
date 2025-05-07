@@ -1,4 +1,5 @@
 'use client';
+import Loader from '@/components/shared/loader';
 import { motion } from 'framer-motion';
 
 const colors = [
@@ -17,23 +18,7 @@ export default function Loading() {
         </h2>
       </div>
       <div className="flex space-x-3">
-        {colors.map(({ color, delay }, index) => (
-          <motion.div
-            key={index}
-            className="w-4 h-4 rounded-full"
-            style={{ backgroundColor: color }}
-            animate={{
-              y: [0, -20, 0],
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              duration: 1,
-              repeat: Infinity,
-              delay,
-              ease: 'easeInOut',
-            }}
-          />
-        ))}
+        <Loader />
       </div>
     </div>
   );

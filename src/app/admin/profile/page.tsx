@@ -19,6 +19,7 @@ import {
   PersonalInfoSection,
 } from '@/components/admin/members/member-form';
 import AdminPageHeader from '@/components/admin/layout/admin-page-header';
+import Loader from '@/components/shared/loader';
 
 type ProfileFormSchema = z.infer<typeof memberSchema>;
 
@@ -139,8 +140,7 @@ export default function AdminProfilePage() {
     return (
       <div className="p-8 flex justify-center items-center min-h-[80vh]">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gdg-blue mx-auto"></div>
-          <p className="mt-4 text-gdg-gray">Loading profile...</p>
+          <Loader />
         </div>
       </div>
     );

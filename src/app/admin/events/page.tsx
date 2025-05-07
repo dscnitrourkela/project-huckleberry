@@ -24,6 +24,7 @@ import {
 import { ApiResponse } from '@/types/commons';
 import { useAuth } from '@/contexts/auth-context';
 import AdminPageHeader from '@/components/admin/layout/admin-page-header';
+import Loader from '@/components/shared/loader';
 
 const EventsDashboard = () => {
   const [open, setOpen] = useState(false);
@@ -38,6 +39,7 @@ const EventsDashboard = () => {
   });
   const [loading, setLoading] = useState(false);
   const { user } = useAuth();
+  const [fetchingEvents, setFetchingEvents] = useState(true);
 
   const handleEdit = (event: Event) => {
     setOpen(true);
@@ -95,14 +97,29 @@ const EventsDashboard = () => {
 
   useEffect(() => {
     async function fetchEvents() {
+      setFetchingEvents(true);
       const result = await getAllEvents();
-      if (result.status === 'success' && 'data' in result) {
+      if (
+        result.status === 'success' &&
+        'data' in result &&
+        'events' in result.data
+      ) {
         setEvents(result.data.events as Event[]);
       }
+      setFetchingEvents(false);
     }
 
     fetchEvents();
   }, []);
+
+  if (fetchingEvents) {
+    return (
+      <div className="p-8">
+        <AdminPageHeader accentTitle="Events" title="Events" />
+        <Loader />
+      </div>
+    );
+  }
 
   return (
     <div className="p-8 font-geist-sans">
