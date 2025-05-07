@@ -5,6 +5,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
+  FormDescription,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import {
@@ -110,6 +111,32 @@ const MemberInfoSection: React.FC<MemberInfoSectionProps> = ({ form }) => (
                 ))}
               </SelectContent>
             </Select>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      <FormField
+        control={form.control}
+        name="year_of_passing"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel className="text-gdg-gray">Year of Passing</FormLabel>
+            <FormControl>
+              <Input
+                type="number"
+                {...field}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  field.onChange(value ? parseInt(value) : null);
+                }}
+                value={field.value || ''}
+                className="rounded-lg border-gray-200 focus:border-gdg-blue focus:ring-gdg-blue/20"
+              />
+            </FormControl>
+            <FormDescription className="text-xs text-gdg-gray">
+              The year you will graduate
+            </FormDescription>
             <FormMessage />
           </FormItem>
         )}

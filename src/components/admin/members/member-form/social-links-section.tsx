@@ -71,6 +71,25 @@ const SocialLinksSection: React.FC<SocialLinksSectionProps> = ({ form }) => (
           </FormItem>
         )}
       />
+
+      <FormField
+        control={form.control}
+        name="figma"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel className="text-gdg-gray">Figma Profile</FormLabel>
+            <FormControl>
+              <Input
+                type="url"
+                {...field}
+                placeholder="https://figma.com/@username"
+                className="rounded-lg border-gray-200 focus:border-gdg-blue focus:ring-gdg-blue/20"
+              />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
     </div>
   </div>
 );

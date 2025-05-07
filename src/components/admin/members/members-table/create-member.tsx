@@ -53,10 +53,10 @@ const MemberRegistrationModal = ({
     github: '',
     linkedin: '',
     twitter: '',
-    other_socials: [],
+    figma: '',
     caption: '',
-    introduction: '',
     is_admin: false,
+    is_lead: false,
   };
 
   const form = useForm<MemberFormSchema>({
@@ -67,10 +67,7 @@ const MemberRegistrationModal = ({
   const handleSubmit = async (data: MemberFormSchema) => {
     try {
       const finalData = { ...data };
-
-      // typecast mobile_no to string
-      finalData.mobile_no = data.mobile_no.toString() as any;
-
+      finalData.mobile_no = data.mobile_no.toString();
       if (imageFile) {
         setUploadLoading(true);
         try {
@@ -100,6 +97,7 @@ const MemberRegistrationModal = ({
       }
 
       onSubmit(finalData);
+      form.reset(defaultFormValues);
     } catch (error) {
       console.error('Error in form submission:', error);
     }
