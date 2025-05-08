@@ -1,13 +1,5 @@
 'use client';
 import Loader from '@/components/shared/loader';
-import { motion } from 'framer-motion';
-
-const colors = [
-  { color: '#4285F4', delay: 0 },
-  { color: '#EA4335', delay: 0.2 },
-  { color: '#FBBC05', delay: 0.4 },
-  { color: '#34A853', delay: 0.6 },
-];
 
 export default function Loading() {
   return (

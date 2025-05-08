@@ -22,7 +22,6 @@ import {
   deleteEvent,
 } from '@/actions/events';
 import { ApiResponse } from '@/types/commons';
-import { useAuth } from '@/contexts/auth-context';
 import AdminPageHeader from '@/components/admin/layout/admin-page-header';
 import Loader from '@/components/shared/loader';
 import { useAdmin } from '@/hooks/useAdmin';

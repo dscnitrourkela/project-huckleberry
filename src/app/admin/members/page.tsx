@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import MemberRegistrationModal from '../../../components/admin/members/members-table/create-member';
 import { Member } from '@/types/admin/members';
 import MemberTable from '@/components/admin/members/members-table/members-table';
-import { createMember, getAllMembers, updateMember } from '@/actions/members';
+import { createMember, getAllMembers } from '@/actions/members';
 import AdminPageHeader from '@/components/admin/layout/admin-page-header';
 import { useAdmin } from '@/hooks/useAdmin';
 import BulkUpload from '@/components/admin/members/members-table/bulk-upload';

@@ -1,13 +1,5 @@
 import { memo } from 'react';
-import {
-  LucideIcon,
-  Github,
-  Linkedin,
-  Youtube,
-  Twitter,
-  Instagram,
-  Figma,
-} from 'lucide-react';
+import { LucideIcon, Github, Linkedin, Twitter, Figma } from 'lucide-react';
 import SocialLink from '../shared/social-link';
 import { cn } from '@/lib/utils';
 

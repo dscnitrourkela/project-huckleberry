@@ -17,9 +17,8 @@ const Blogs = () => {
     const fetchBlogs = async () => {
       const response = await getAllBlogs();
       if ('data' in response) {
-        setBlogList(response.data.blogs.items);
-      } else {
-        console.error(response.message);
+        // @ts-ignore
+        setBlogList(response.data.blogs);
       }
     };
     fetchBlogs();

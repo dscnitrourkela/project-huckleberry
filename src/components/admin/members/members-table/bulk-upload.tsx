@@ -5,7 +5,6 @@ import { Upload } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { bulkUploadMembers } from '@/actions/members';
-import { useRouter } from 'next/navigation';
 
 type ValidationError = {
   status: 'error';
@@ -30,7 +29,6 @@ type UploadResponse = ValidationError | SuccessResponse | ErrorResponse;
 
 export default function BulkUpload() {
   const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
 
   const handleFileUpload = async (
     event: React.ChangeEvent<HTMLInputElement>
