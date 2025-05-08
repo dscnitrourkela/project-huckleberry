@@ -72,7 +72,6 @@ const MemberRegistrationModal = ({
         setUploadLoading(true);
         try {
           const imageUrl = await uploadToCloudinary(imageFile);
-          // const imageUrl = 'https://res.cloudinary.com/dg3p6xom';
           finalData.profile_photo = imageUrl;
         } catch (error) {
           console.error('Error uploading image:', error);

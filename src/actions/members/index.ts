@@ -7,7 +7,7 @@ import {
   handleSuccess,
 } from '@/utils';
 import { Member } from '@/types/admin/members';
-import { getSessionUser, requireAdmin } from '../auth';
+import { getSessionUser } from '../auth';
 import { withAdminCheck } from '../events';
 
 export const getAllMembers = asyncHandler(async () => {

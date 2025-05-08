@@ -1,7 +1,3 @@
 {
-	"recommendations": [
-		"styled-components.vscode-styled-components",
-		"rvest.vs-code-prettier-eslint",
-		"formulahendry.auto-rename-tag"
-	]
+  "recommendations": ["formulahendry.auto-rename-tag"]
 }

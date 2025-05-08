@@ -1,5 +1,3 @@
-// @ts-nocheck // This is a temporary fix to avoid TypeScript errors
-
 import NextAuth from 'next-auth';
 import Google from 'next-auth/providers/google';
 import { User as DefaultUser } from 'next-auth';
@@ -8,9 +6,6 @@ declare module 'next-auth' {
   interface Session {
     user: {
       memberId?: string;
-      isAdmin?: boolean;
-      isSuperAdmin?: boolean;
-      role?: string;
       userName?: string;
     } & DefaultUser;
   }
@@ -54,8 +49,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
           if (memberResponse?.id) {
             token.memberId = memberResponse.id;
-            token.isAdmin = memberResponse.is_admin;
-            token.role = memberResponse.role;
             token.userName = memberResponse.user_name;
           }
         }
@@ -65,13 +58,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return token;
     },
 
-    async session({ session, token }) {
+    async session({ session, token }: { session: any; token: any }) {
       if (session.user) {
-        session.user.memberId = token.memberId;
-        session.user.isAdmin = token.isAdmin;
-        session.user.isSuperAdmin = token.isSuperAdmin;
-        session.user.role = token.role;
-        session.user.userName = token.userName;
+        session.user.memberId = token.memberId as string | undefined;
+        session.user.userName = token.userName as string | undefined;
       }
       return session;
     },

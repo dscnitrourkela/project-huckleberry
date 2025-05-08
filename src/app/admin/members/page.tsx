@@ -2,21 +2,21 @@
 
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
-import { Plus } from 'lucide-react';
+import { Loader, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import MemberRegistrationModal from '../../../components/admin/members/members-table/create-member';
 import { Member } from '@/types/admin/members';
 import MemberTable from '@/components/admin/members/members-table/members-table';
 import { createMember, getAllMembers, updateMember } from '@/actions/members';
-import { useAuth } from '@/contexts/auth-context';
 import AdminPageHeader from '@/components/admin/layout/admin-page-header';
+import { useAdmin } from '@/hooks/useAdmin';
 
 const MembersDashboard = () => {
   const [open, setOpen] = useState(false);
   const [members, setMembers] = useState<Member[]>([]);
   const [currentMember, setCurrentMember] = useState<Member | null>(null);
   const [loading, setLoading] = useState(false);
-  const { user } = useAuth();
+  const { isAdmin, isLoading: isAdminLoading } = useAdmin();
 
   useEffect(() => {
     const fetchMembers = async () => {
@@ -62,13 +62,19 @@ const MembersDashboard = () => {
     }
   };
 
-  useEffect(() => {});
-
+  if (isAdminLoading) {
+    return (
+      <div className="p-8">
+        <AdminPageHeader accentTitle="Members" title="Members" />
+        <Loader />
+      </div>
+    );
+  }
   return (
     <div className="p-8">
       <AdminPageHeader accentTitle="Members" title="Members" />
 
-      {user?.role === 'admin' && (
+      {isAdmin && (
         <>
           <MemberRegistrationModal
             key={currentMember ? currentMember.id : 'new-member'}
@@ -91,7 +97,7 @@ const MembersDashboard = () => {
         setCurrentMember={setCurrentMember}
         setOpen={setOpen}
         setLoading={setLoading}
-        isAdmin={user?.role === 'admin'}
+        isAdmin={isAdmin}
       />
     </div>
   );
