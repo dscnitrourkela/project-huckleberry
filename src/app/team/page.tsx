@@ -8,6 +8,37 @@ import { getAllMembers } from '@/actions/members';
 import { Member } from '@/types/admin/members';
 import { TeamMember, Social, MembersResponse } from '@/types/team';
 import Loader from '@/components/shared/loader';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Twitter Feed | GDSC NIT Rourkela',
+  description:
+    'Stay updated with the latest announcements, events, and tech insights from GDSC NIT Rourkela through our Twitter feed',
+  keywords: [
+    'GDSC',
+    'NIT Rourkela',
+    'Twitter',
+    'tweets',
+    'updates',
+    'tech news',
+  ],
+  openGraph: {
+    title: 'Twitter Feed | GDSC NIT Rourkela',
+    description:
+      'Stay updated with the latest announcements, events, and tech insights from GDSC NIT Rourkela through our Twitter feed',
+    images: ['/opengraph-image.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Twitter Feed | GDSC NIT Rourkela',
+    description:
+      'Stay updated with the latest announcements, events, and tech insights from GDSC NIT Rourkela through our Twitter feed',
+    images: ['/opengraph-image.png'],
+    creator: '@dscnitrourkela',
+    site: '@dscnitrourkela',
+  },
+};
 
 const transformMemberToTeamMember = (member: Member): TeamMember => {
   const socials: Social[] = [];
