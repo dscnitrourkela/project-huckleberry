@@ -1,72 +1,85 @@
-import React from 'react';
+import { memo } from 'react';
+import { LucideIcon, Github, Linkedin, Twitter, Figma } from 'lucide-react';
+import SocialLink from '../shared/social-link';
 import { cn } from '@/lib/utils';
-import { Github, Twitter, Linkedin, Youtube, Instagram } from 'lucide-react';
 
-interface SocialLinksProps {
-  className?: string;
+export interface SocialLinkType {
+  platform: string;
+  url: string;
+  icon: LucideIcon;
+  ariaLabel?: string;
 }
 
-const SocialLinks: React.FC<SocialLinksProps> = ({ className }) => {
-  const socialLinks = [
-    {
-      icon: Github,
-      href: 'https://github.com/dscnitrourkela',
-      label: 'GitHub',
-      color: '#4285F4',
-    },
-    {
-      icon: Twitter,
-      href: 'https://x.com/dscnitrourkela',
-      label: 'Twitter',
-      color: '#EA4335',
-    },
-    {
-      icon: Linkedin,
-      href: 'https://www.linkedin.com/company/dscnitrourkela/',
-      label: 'LinkedIn',
-      color: '#FBBC05',
-    },
-    {
-      icon: Youtube,
-      href: 'https://www.youtube.com/c/DSCNITRourkela',
-      label: 'YouTube',
-      color: '#34A853',
-    },
-    {
-      icon: Instagram,
-      href: 'https://www.instagram.com/dscnitrourkela/',
-      label: 'Instagram',
-      color: '#4285F4',
-    },
-  ];
+export interface TeamMemberSocialLink {
+  name: string;
+  url: string;
+  icon: string;
+}
+
+export interface SocialLinksProps {
+  socials?: SocialLinkType[] | TeamMemberSocialLink[];
+  className?: string;
+  linkClassName?: string;
+  iconClassName?: string;
+  iconSize?: number;
+}
+
+export const SOCIAL_ICONS_MAP: Record<string, LucideIcon> = {
+  github: Github,
+  linkedin: Linkedin,
+  twitter: Twitter,
+  figma: Figma,
+};
+
+const SocialLinks = ({
+  socials,
+  className = '',
+  linkClassName,
+  iconClassName,
+  iconSize = 24,
+}: SocialLinksProps) => {
+  if (!socials || socials.length === 0) {
+    return null;
+  }
+
+  const processedSocials = socials.map((social) => {
+    if ('platform' in social) {
+      return social as SocialLinkType;
+    } else {
+      const teamSocial = social as TeamMemberSocialLink;
+      const iconName = teamSocial.icon.toLowerCase();
+      return {
+        platform: teamSocial.name.toLowerCase(),
+        url: teamSocial.url,
+        icon: SOCIAL_ICONS_MAP[iconName] || Github,
+        ariaLabel: `Visit ${teamSocial.name} profile`,
+      } as SocialLinkType;
+    }
+  });
+
+  const validSocials = processedSocials.filter(
+    (social) => social.url && social.url !== '#' && social.url.trim() !== ''
+  );
+
+  if (validSocials.length === 0) {
+    return null;
+  }
 
   return (
-    <div className={cn('flex justify-center gap-4', className)}>
-      {socialLinks.map((link, index) => {
-        const Icon = link.icon;
-        return (
-          <a
-            key={link.label}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative w-12 h-12 flex items-center justify-center rounded-full bg-white/90 backdrop-blur-xs hover:bg-white shadow-sm hover:shadow-md transition-all duration-300"
-            aria-label={link.label}
-            style={{ animationDelay: `${0.1 + index * 0.1}s` }}
-          >
-            <Icon
-              className="w-5 h-5"
-              strokeWidth={1.5}
-              style={{ color: link.color }}
-            />
-            <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/80 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-              {link.label}
-            </span>
-          </a>
-        );
-      })}
+    <div className={cn('flex items-center gap-4', className)}>
+      {validSocials.map((social, index) => (
+        <SocialLink
+          key={`${social.platform}-${index}`}
+          href={social.url}
+          icon={social.icon}
+          className={linkClassName}
+          iconClassName={iconClassName}
+          size={iconSize}
+          ariaLabel={social.ariaLabel || `Visit our ${social.platform} profile`}
+        />
+      ))}
     </div>
   );
 };
 
-export default SocialLinks;
+export default memo(SocialLinks);

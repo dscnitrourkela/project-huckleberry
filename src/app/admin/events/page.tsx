@@ -22,8 +22,9 @@ import {
   deleteEvent,
 } from '@/actions/events';
 import { ApiResponse } from '@/types/commons';
-import { useAuth } from '@/contexts/auth-context';
 import AdminPageHeader from '@/components/admin/layout/admin-page-header';
+import Loader from '@/components/shared/loader';
+import { useAdmin } from '@/hooks/useAdmin';
 
 const EventsDashboard = () => {
   const [open, setOpen] = useState(false);
@@ -37,7 +38,8 @@ const EventsDashboard = () => {
     event: null,
   });
   const [loading, setLoading] = useState(false);
-  const { user } = useAuth();
+  const { isAdmin, isLoading: isAdminLoading } = useAdmin();
+  const [fetchingEvents, setFetchingEvents] = useState(true);
 
   const handleEdit = (event: Event) => {
     setOpen(true);
@@ -73,7 +75,6 @@ const EventsDashboard = () => {
         ? await updateEvent(currentEvent.id, eventData)
         : await createEvent(eventData);
 
-      console.log(result);
       if (result.status === 'success') {
         setEvents((prevEvents) =>
           upsertEvent(prevEvents, data, currentEvent?.id)
@@ -95,20 +96,35 @@ const EventsDashboard = () => {
 
   useEffect(() => {
     async function fetchEvents() {
+      setFetchingEvents(true);
       const result = await getAllEvents();
-      if (result.status === 'success' && 'data' in result) {
+      if (
+        result.status === 'success' &&
+        'data' in result &&
+        'events' in result.data
+      ) {
         setEvents(result.data.events as Event[]);
       }
+      setFetchingEvents(false);
     }
 
     fetchEvents();
   }, []);
 
+  if (fetchingEvents || isAdminLoading) {
+    return (
+      <div className="p-8">
+        <AdminPageHeader accentTitle="Events" title="Events" />
+        <Loader />
+      </div>
+    );
+  }
+
   return (
     <div className="p-8 font-geist-sans">
       <AdminPageHeader accentTitle="Events" title="Events" />
       <div className="flex justify-end items-center mb-6">
-        {user?.role === 'admin' && (
+        {isAdmin && (
           <Button
             className="flex items-center gap-2"
             onClick={() => setOpen(true)}
@@ -118,7 +134,7 @@ const EventsDashboard = () => {
         )}
       </div>
 
-      {user?.role === 'admin' && (
+      {isAdmin && (
         <>
           <EventRegistrationModal
             open={open}
@@ -138,7 +154,7 @@ const EventsDashboard = () => {
           data={events}
           onEdit={handleEdit}
           onDelete={handleDelete}
-          isAdmin={user?.role === 'admin'}
+          isAdmin={isAdmin}
         />
       ) : (
         <p className="text-center text-lg text-muted-foreground">

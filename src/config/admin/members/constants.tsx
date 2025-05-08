@@ -3,7 +3,6 @@ import { z } from 'zod';
 export const roleOptions = [
   { label: 'Developer', value: 'developer' },
   { label: 'Designer', value: 'designer' },
-  { label: 'Lead', value: 'lead' },
 ];
 
 export const memberSchema = z.object({
@@ -33,8 +32,15 @@ export const memberSchema = z.object({
     .string()
     .url('Enter a valid Twitter URL')
     .min(1, 'Twitter profile is required'),
-  other_socials: z.array(z.string()).default([]),
-  caption: z.string().nullable().optional(),
-  introduction: z.string().min(1, 'Introduction is required'),
+  caption: z.string().optional(),
+  year_of_passing: z
+    .number()
+    .refine(
+      (year) => year >= 2020,
+      'Year of passing must be greater than 2020.'
+    ),
+  figma: z.string().url('Enter a valid Figma URL').optional().or(z.literal('')),
+
   is_admin: z.boolean().default(false),
+  is_lead: z.boolean().default(false),
 });

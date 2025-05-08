@@ -7,7 +7,7 @@ import {
   handleSuccess,
 } from '@/utils';
 import { Member } from '@/types/admin/members';
-import { getSessionUser, requireAdmin } from '../auth';
+import { getSessionUser } from '../auth';
 import { withAdminCheck } from '../events';
 
 export const getAllMembers = asyncHandler(async () => {
@@ -28,7 +28,7 @@ export const createMember = asyncHandler(async (member: Member) => {
         where: { id: memberData.id },
       });
       if (existingMember) {
-        return updateMember(memberData);
+        return updateMember(memberData, true);
       }
     }
 
@@ -43,40 +43,35 @@ export const createMember = asyncHandler(async (member: Member) => {
   });
 });
 
-export const updateMember = asyncHandler(async (member: Member) => {
-  const sessionUser = await getSessionUser();
+export const updateMember = asyncHandler(
+  async (member: Member, isAdmin: boolean = false) => {
+    const sessionUser = await getSessionUser();
 
-  if (member.email !== sessionUser.email && !sessionUser.isAdmin) {
-    const error = new EventOperationError(
-      'You are not authorized to perform this action',
-      401
-    );
-    return handleError(error);
-  }
+    if (member.email !== sessionUser.email && !isAdmin) {
+      const error = new EventOperationError(
+        'You are not authorized to perform this action',
+        401
+      );
+      return handleError(error);
+    }
 
-  if (!sessionUser.isAdmin && member.is_admin) {
-    const error = new EventOperationError(
-      'You are not authorized to perform this action',
-      401
-    );
-    return handleError(error);
-  }
-  if (!member.email) {
-    return {
-      status: 'error',
-      message: 'Member Email ID is required for updates',
-    };
-  }
+    if (!member.email) {
+      return {
+        status: 'error',
+        message: 'Member Email ID is required for updates',
+      };
+    }
 
-  const updatedMember = await prisma.member.update({
-    where: { email: member.email },
-    data: member,
-  });
-  return handleSuccess({
-    ...updatedMember,
-    message: 'Member updated successfully',
-  });
-});
+    const updatedMember = await prisma.member.update({
+      where: { email: member.email },
+      data: member,
+    });
+    return handleSuccess({
+      ...updatedMember,
+      message: 'Member updated successfully',
+    });
+  }
+);
 
 export const deleteMember = asyncHandler(async (id: string) => {
   return await withAdminCheck(async () => {
@@ -119,5 +114,72 @@ export const getMemberByEmail = asyncHandler(async (email: string) => {
   return handleSuccess({
     ...member,
     message: 'Member fetched successfully',
+  });
+});
+
+export const bulkUploadMembers = asyncHandler(async (csvData: string) => {
+  return await withAdminCheck(async () => {
+    const rows = csvData
+      .split('\n')
+      .map((row) => row.trim())
+      .filter((row) => row.length > 0);
+
+    // Skip header row and get data rows
+    const headers = rows[0].split(',').map((h) => h.trim());
+    const data = rows.slice(1);
+
+    const members = data.map((row, index) => {
+      const values = row.split(',').map((v) => v.trim());
+      const member: Partial<Member> = {
+        user_name: values[headers.indexOf('user_name')] || '',
+        email: values[headers.indexOf('email')] || '',
+        mobile_no: values[headers.indexOf('mobile_no')] || '',
+        role: values[headers.indexOf('role')] || '',
+        github: values[headers.indexOf('github')] || '',
+        linkedin: values[headers.indexOf('linkedin')] || '',
+        twitter: values[headers.indexOf('twitter')] || '',
+        figma: values[headers.indexOf('figma')] || '',
+        caption: values[headers.indexOf('caption')] || null,
+        profile_photo: values[headers.indexOf('profile_photo')] || '',
+        year_of_passing:
+          Number(values[headers.indexOf('year_of_passing')]) || 2020,
+      };
+      return { member, rowIndex: index + 2 }; // +2 because of 0-based index and header row
+    });
+
+    const invalidMembers = members
+      .filter(({ member }) => !member.email || !member.user_name)
+      .map(({ member, rowIndex }) => ({
+        rowIndex,
+        missingFields: [
+          !member.email && 'email',
+          !member.user_name && 'user_name',
+          !member.mobile_no && 'mobile_no',
+          !member.role && 'role',
+          !member.linkedin && 'linkedin',
+          !member.twitter && 'twitter',
+          !member.caption && 'caption',
+          !member.profile_photo && 'profile_photo',
+          !member.year_of_passing && 'year_of_passing',
+        ].filter(Boolean) as string[],
+      }));
+
+    if (invalidMembers.length > 0) {
+      return {
+        status: 'error',
+        message: 'Some members are missing required fields',
+        details: invalidMembers,
+      };
+    }
+
+    const createdMembers = await prisma.member.createMany({
+      data: members.map(({ member }) => member as Member),
+      skipDuplicates: true,
+    });
+
+    return handleSuccess({
+      message: `Successfully uploaded ${createdMembers.count} members`,
+      data: createdMembers,
+    });
   });
 });

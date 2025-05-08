@@ -3,7 +3,7 @@
 import { prisma } from '@/lib/prisma';
 import { ApiResponse } from '@/types/commons';
 import { GitHubRepo, GitHubContributor } from '@/types/projects';
-import { asyncHandler, handleError, handleSuccess } from '@/utils';
+import { asyncHandler, handleSuccess } from '@/utils';
 import { revalidatePath } from 'next/cache';
 import { withAdminCheck } from '../events';
 

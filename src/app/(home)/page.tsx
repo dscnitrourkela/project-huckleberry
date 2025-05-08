@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import SocialLinks from '@/components/home/social-links';
 import { Construction } from 'lucide-react';
 import Link from 'next/link';
 
@@ -65,12 +64,6 @@ const Index = () => {
           <div className="w-1/4 bg-gdg-red"></div>
           <div className="w-1/4 bg-gdg-yellow"></div>
           <div className="w-1/4 bg-gdg-green"></div>
-        </div>
-
-        {/* Social Links */}
-        <div className="mb-8 animate-fade-in-delay-3">
-          <h3 className="text-center text-gdg-gray mb-4">Connect With Us</h3>
-          <SocialLinks />
         </div>
 
         {/* Footer */}

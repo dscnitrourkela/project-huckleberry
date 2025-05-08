@@ -16,7 +16,10 @@ export default function AdminLayout({
         <div className="flex min-h-screen bg-background">
           <BackgroundElements />
           <Sidebar />
-          <main className="flex-1 ml-0 md:ml-[250px] transition-all">
+          <main
+            className="flex-1 transition-all duration-300 ease-in-out"
+            style={{ marginLeft: 'var(--sidebar-width, 250px)' }}
+          >
             <div className="min-h-[85dvh]">{children}</div>
             <AdminFooter />
           </main>

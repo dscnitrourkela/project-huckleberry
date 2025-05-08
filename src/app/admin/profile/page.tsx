@@ -1,5 +1,3 @@
-// @ts-nocheck // This is a temporary fix to avoid TypeScript errors
-
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -21,6 +19,7 @@ import {
   PersonalInfoSection,
 } from '@/components/admin/members/member-form';
 import AdminPageHeader from '@/components/admin/layout/admin-page-header';
+import Loader from '@/components/shared/loader';
 
 type ProfileFormSchema = z.infer<typeof memberSchema>;
 
@@ -42,10 +41,9 @@ export default function AdminProfilePage() {
       github: '',
       linkedin: '',
       twitter: '',
-      other_socials: [],
-      caption: '',
-      introduction: '',
+      figma: '',
       is_admin: true,
+      year_of_passing: 2020,
     },
   });
 
@@ -63,21 +61,16 @@ export default function AdminProfilePage() {
 
         const email = session.user.email;
         const result = await getMemberByEmail(email);
-
         if (result.status === 'success' && 'data' in result) {
-          const memberData = result.data;
-          setProfile(memberData as Member);
-          setImagePreview(memberData.profile_photo);
+          const memberData = result.data as any as Member;
+          if (!memberData) {
+            toast.error('No member data found');
+            return;
+          }
+          setProfile(memberData);
+          setImagePreview(memberData?.profile_photo ?? null);
 
-          Object.entries(memberData).forEach(([key, value]) => {
-            if (key !== 'id' && key !== 'created_at' && key !== 'updated_at') {
-              if (key === 'mobile_no') {
-                form.setValue(key as any, parseInt(value as string) || 0);
-              } else {
-                form.setValue(key as any, value);
-              }
-            }
-          });
+          form.reset(memberData as unknown as ProfileFormSchema);
         } else {
           toast.error('Failed to load profile data');
         }
@@ -123,11 +116,15 @@ export default function AdminProfilePage() {
         finalData.profile_photo = profile.profile_photo;
       }
 
-      const result = await updateMember(finalData as Member);
+      const result = await updateMember(finalData as unknown as Member);
 
       if (result.status === 'success') {
         toast.success('Profile updated successfully');
-        setProfile({ ...profile, ...finalData } as Member);
+        setProfile({
+          ...profile,
+          ...finalData,
+          mobile_no: finalData.mobile_no.toString(),
+        } as Member);
       } else if (result.status === 'error' && 'message' in result) {
         toast.error(result.message);
       }
@@ -143,8 +140,7 @@ export default function AdminProfilePage() {
     return (
       <div className="p-8 flex justify-center items-center min-h-[80vh]">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gdg-blue mx-auto"></div>
-          <p className="mt-4 text-gdg-gray">Loading profile...</p>
+          <Loader />
         </div>
       </div>
     );

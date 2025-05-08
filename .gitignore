@@ -45,3 +45,5 @@ pnpm-lock.yaml
 migrations
 bun.lock
 bun.lockb
+
+extensions.json

@@ -6,6 +6,7 @@ import { fetchRepos, getPublishedRepos } from '@/actions/projects';
 import ReposPage from '@/components/admin/projects/repositary-table';
 import { Loader2 } from 'lucide-react';
 import AdminPageHeader from '@/components/admin/layout/admin-page-header';
+import Loader from '@/components/shared/loader';
 
 export default function ProjectsPage() {
   const [repos, setRepos] = useState<TableRepo[]>([]);
@@ -56,16 +57,7 @@ export default function ProjectsPage() {
         <div className=" mx-auto">
           <AdminPageHeader accentTitle="Publish Projects" title="Projects" />
 
-          {isLoading && (
-            <div className="text-center py-16 animate-pulse">
-              <div className="p-6 rounded-full bg-white/80 shadow-lg inline-block mb-4">
-                <div className="w-12 h-12 border-4 border-gdg-blue border-t-transparent rounded-full animate-spin"></div>
-              </div>
-              <p className="text-lg font-geist-mono text-gdg-gray">
-                Loading projects...
-              </p>
-            </div>
-          )}
+          {isLoading && <Loader />}
 
           {error && (
             <div className="text-center py-16 animate-fade-in-delay-1">
@@ -82,7 +74,7 @@ export default function ProjectsPage() {
           )}
 
           {!isLoading && !error && (
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg mt-6 animate-fade-in-delay-2">
+            <div className=" mt-6 animate-fade-in-delay-2">
               <ReposPage repos={repos} publishedRepos={publishedRepos} />
             </div>
           )}

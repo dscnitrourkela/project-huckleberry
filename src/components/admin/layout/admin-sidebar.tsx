@@ -1,20 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import {
-  ChevronLeft,
-  ChevronRight,
-  LayoutDashboard,
-  Users,
-  Calendar,
-  Twitter,
-  Layers,
-  LogOut,
-  Menu,
-  User,
-} from 'lucide-react';
+import { ChevronLeft, ChevronRight, LogOut, Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import GoogleColorsBar from '@/components/shared/google-colors-bar';
@@ -32,6 +21,13 @@ export default function Sidebar({ className }: SidebarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
   const { user } = useAuth();
+
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      '--sidebar-width',
+      collapsed ? '70px' : '250px'
+    );
+  }, [collapsed]);
 
   return (
     <>

@@ -53,10 +53,10 @@ const MemberRegistrationModal = ({
     github: '',
     linkedin: '',
     twitter: '',
-    other_socials: [],
+    figma: '',
     caption: '',
-    introduction: '',
     is_admin: false,
+    is_lead: false,
   };
 
   const form = useForm<MemberFormSchema>({
@@ -66,16 +66,14 @@ const MemberRegistrationModal = ({
 
   const handleSubmit = async (data: MemberFormSchema) => {
     try {
-      const finalData = { ...data };
-
-      // typecast mobile_no to string
-      finalData.mobile_no = data.mobile_no.toString() as any;
-
+      const finalData = defaultValues.id
+        ? { ...data, id: defaultValues.id }
+        : { ...data };
+      finalData.mobile_no = data.mobile_no.toString();
       if (imageFile) {
         setUploadLoading(true);
         try {
           const imageUrl = await uploadToCloudinary(imageFile);
-          // const imageUrl = 'https://res.cloudinary.com/dg3p6xom';
           finalData.profile_photo = imageUrl;
         } catch (error) {
           console.error('Error uploading image:', error);
@@ -100,6 +98,7 @@ const MemberRegistrationModal = ({
       }
 
       onSubmit(finalData);
+      form.reset(defaultFormValues);
     } catch (error) {
       console.error('Error in form submission:', error);
     }
