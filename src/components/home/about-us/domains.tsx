@@ -1,10 +1,11 @@
 'use client';
-import { trackData } from '@/config/about-us';
-import Image from 'next/image';
+
 import { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
+import { SectionHead } from './section-head';
+import { DomainMappedCards } from './mapped-cards';
 
 export const Domains = () => {
   useEffect(() => {
@@ -112,52 +113,13 @@ export const Domains = () => {
   }, []);
 
   return (
-    <div className="min-h-screen py-8 sm:py-12 md:py-16">
-      <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-black mb-8 sm:mb-12 md:mb-16">
-        Domains
-      </h1>
+    <div className="min-h-screen py-8 flex flex-col gap-10 sm:py-12 md:py-16">
+      <SectionHead label="Domains" />
       <div
         id="track"
         className="flex flex-col gap-12 sm:gap-16 md:gap-24 lg:gap-32"
       >
-        {trackData.map((domain, index) => (
-          <div
-            key={index}
-            className={`domain-card flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-6 md:gap-8 lg:gap-12`}
-          >
-            <div
-              className={`domain-content rounded-xl border ${domain.bgColor} ${domain.borderColor} ${domain.shadow} flex flex-col w-full md:w-[60%] gap-4 sm:gap-6 py-6 sm:py-8 md:py-10`}
-            >
-              <div className="flex items-center w-full">
-                <div className="flex items-center">
-                  <span className="domain-number text-black ml-4 sm:ml-6 md:ml-8 lg:ml-[37px] size-8 sm:size-10 md:size-12 rounded-full bg-white flex items-center justify-center text-xs sm:text-sm md:text-base border border-gray-200 text-center">
-                    {domain.id}
-                  </span>
-                </div>
-                <div className="domain-line h-px w-full bg-black"></div>
-              </div>
-              <div className="px-4 sm:px-6 md:px-8 lg:px-[37px] flex flex-col gap-4 sm:gap-6">
-                <h3 className="domain-title text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-black">
-                  {domain.title}
-                </h3>
-                <p className="domain-description text-[#4A4A68] font-medium text-sm sm:text-base md:text-lg lg:text-xl italic w-full lg:w-[60%]">
-                  {domain.description}
-                </p>
-              </div>
-            </div>
-            <div className="flex-1 hidden md:flex items-center justify-center">
-              <div className="domain-image relative w-full aspect-square sm:aspect-auto h-48 sm:h-64 md:h-full">
-                <Image
-                  src="https://res.cloudinary.com/dfe8sdlkc/image/upload/v1746446894/amico_awy2ed.png"
-                  alt={`${domain.title} illustration`}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-            </div>
-          </div>
-        ))}
+        <DomainMappedCards />
       </div>
     </div>
   );

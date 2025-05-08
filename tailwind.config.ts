@@ -91,6 +91,7 @@ export default {
         poppins: ['Poppins', 'sans-serif'],
         google: ['Google Sans', 'Roboto', 'Arial', 'sans-serif'],
         mono: ['Roboto Mono', 'monospace'],
+        productsans: ['var(--font-product-sans)'],
       },
       keyframes: {
         'accordion-down': {
