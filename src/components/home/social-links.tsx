@@ -6,6 +6,7 @@ import {
   Youtube,
   Twitter,
   Instagram,
+  Figma,
 } from 'lucide-react';
 import SocialLink from '../shared/social-link';
 import { cn } from '@/lib/utils';
@@ -34,9 +35,8 @@ export interface SocialLinksProps {
 export const SOCIAL_ICONS_MAP: Record<string, LucideIcon> = {
   github: Github,
   linkedin: Linkedin,
-  youtube: Youtube,
   twitter: Twitter,
-  instagram: Instagram,
+  figma: Figma,
 };
 
 const SocialLinks = ({

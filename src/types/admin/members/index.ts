@@ -35,10 +35,10 @@ export interface Member {
   github: string;
   linkedin: string;
   twitter: string;
-  other_socials: string[];
+  figma: string;
   caption: string | null;
-  introduction: string;
   is_admin: boolean;
+  year_of_passing: number;
 }
 
 export type MemberFormData = Omit<Member, 'id' | 'created_at'> & {

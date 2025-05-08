@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
-import { Loader, Plus } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import MemberRegistrationModal from '../../../components/admin/members/members-table/create-member';
 import { Member } from '@/types/admin/members';
@@ -10,6 +10,8 @@ import MemberTable from '@/components/admin/members/members-table/members-table'
 import { createMember, getAllMembers, updateMember } from '@/actions/members';
 import AdminPageHeader from '@/components/admin/layout/admin-page-header';
 import { useAdmin } from '@/hooks/useAdmin';
+import BulkUpload from '@/components/admin/members/members-table/bulk-upload';
+import Loader from '@/components/shared/loader';
 
 const MembersDashboard = () => {
   const [open, setOpen] = useState(false);
@@ -85,9 +87,12 @@ const MembersDashboard = () => {
             isEditing={Boolean(currentMember)}
             isLoading={loading}
           />
-          <Button onClick={() => setOpen(true)} className="font-geist-sans">
-            <Plus className="mr-2" /> Add Member
-          </Button>
+          <div className="flex gap-2 mb-4">
+            <Button onClick={() => setOpen(true)} className="font-geist-sans">
+              <Plus className="mr-2" /> Add Member
+            </Button>
+            <BulkUpload />
+          </div>
         </>
       )}
 
