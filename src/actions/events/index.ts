@@ -6,7 +6,6 @@ import { requireAdmin } from '../auth';
 
 export async function withAdminCheck<T>(action: () => Promise<T>): Promise<T> {
   const adminCheck = await requireAdmin();
-  console.log('This is admin check', adminCheck);
   if (adminCheck.status === 'error') return adminCheck as T;
   return await action();
 }

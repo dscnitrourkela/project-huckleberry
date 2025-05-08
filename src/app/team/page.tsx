@@ -1,9 +1,10 @@
 'use client';
+import React, { useState, useMemo, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Members from '@/components/teams/members';
 import TeamHeader from '@/components/teams/team-header';
 import BatchFilter from '@/components/teams/batch-filter';
 import { getAllMembers } from '@/actions/members';
-import React, { useState, useMemo, useEffect } from 'react';
 import { Member } from '@/types/admin/members';
 import { TeamMember, Social, MembersResponse } from '@/types/team';
 import Loader from '@/components/shared/loader';
@@ -93,73 +94,100 @@ export default function Page() {
 
     if (selectedBatch !== 'all') {
       members = members.filter((member) => member.batch === selectedBatch);
-      members.sort((a, b) => a.name.localeCompare(b.name));
-    } else {
-      members.sort((a, b) => {
-        if (!a.batch) return 1;
-        if (!b.batch) return -1;
-
-        const batchComparison = b.batch.localeCompare(a.batch);
-
-        if (batchComparison === 0) {
-          return a.name.localeCompare(b.name);
-        }
-
-        return batchComparison;
-      });
     }
+
+    members.sort((a, b) => {
+      if (!a.batch && !b.batch) return a.name.localeCompare(b.name);
+      if (!a.batch) return 1;
+      if (!b.batch) return -1;
+
+      const batchComparison = b.batch.localeCompare(a.batch);
+      return batchComparison !== 0
+        ? batchComparison
+        : a.name.localeCompare(b.name);
+    });
 
     return members;
   }, [selectedBatch, displayedMembers]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDisplayedMembers(filteredMembers);
-    }, 300);
-
-    return () => clearTimeout(timer);
-  }, [filteredMembers]);
 
   const isAllBatchesSelected = selectedBatch === 'all';
 
   if (isLoading) {
     return (
-      <main className="container mx-auto px-4 py-12 max-w-7xl">
+      <motion.main
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="container mx-auto px-4 py-12 max-w-7xl"
+      >
         <TeamHeader />
-        <Loader />
-      </main>
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Loader />
+        </motion.div>
+      </motion.main>
     );
   }
 
   if (error) {
     return (
-      <main className="container mx-auto px-4 py-12 max-w-7xl">
+      <motion.main
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="container mx-auto px-4 py-12 max-w-7xl"
+      >
         <TeamHeader />
-        <div className="flex items-center justify-center min-h-[400px]">
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          className="flex items-center justify-center min-h-[400px]"
+        >
           <div className="text-red-500">{error}</div>
-        </div>
-      </main>
+        </motion.div>
+      </motion.main>
     );
   }
 
   return (
-    <main className="container mx-auto px-4 py-12 max-w-7xl">
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="container mx-auto px-4 py-12 max-w-7xl"
+    >
       <TeamHeader />
 
-      <div className="mb-8 mt-12">
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.2 }}
+        className="mb-8 mt-12"
+      >
         <BatchFilter
           years={filterOptions}
           selectedBatch={selectedBatch}
           setSelectedBatch={setSelectedBatch}
         />
-      </div>
+      </motion.div>
 
-      <div className={`transition-opacity duration-300 `}>
-        <Members
-          teamMembers={displayedMembers}
-          showBatch={isAllBatchesSelected}
-        />
-      </div>
-    </main>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={selectedBatch}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.3 }}
+        >
+          <Members
+            teamMembers={filteredMembers}
+            showBatch={isAllBatchesSelected}
+          />
+        </motion.div>
+      </AnimatePresence>
+    </motion.main>
   );
 }

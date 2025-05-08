@@ -17,7 +17,7 @@ interface AdminSettingsSectionProps {
 const AdminSettingsSection: React.FC<AdminSettingsSectionProps> = ({
   form,
 }) => (
-  <div className="bg-white p-6 rounded-xl shadow-sm">
+  <div className="bg-white p-6 rounded-xl shadow-sm space-y-4">
     <h3 className="text-lg font-medium mb-4 text-gdg-dark">
       Administrative Settings
     </h3>

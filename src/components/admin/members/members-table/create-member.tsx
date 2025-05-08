@@ -66,7 +66,9 @@ const MemberRegistrationModal = ({
 
   const handleSubmit = async (data: MemberFormSchema) => {
     try {
-      const finalData = { ...data };
+      const finalData = defaultValues.id
+        ? { ...data, id: defaultValues.id }
+        : { ...data };
       finalData.mobile_no = data.mobile_no.toString();
       if (imageFile) {
         setUploadLoading(true);

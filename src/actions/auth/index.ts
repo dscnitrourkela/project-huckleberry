@@ -34,7 +34,6 @@ export async function isAdmin() {
         is_admin: true,
       },
     });
-    console.log(response);
     return response?.is_admin;
   } catch (error) {
     console.error(error);

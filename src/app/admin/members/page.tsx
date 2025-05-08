@@ -35,9 +35,7 @@ const MembersDashboard = () => {
   const handleSubmit = async (data: Partial<Member>) => {
     setLoading(true);
     try {
-      const result = currentMember
-        ? await updateMember(data as Member)
-        : await createMember(data as Member);
+      const result = await createMember(data as Member);
       if (result.status === 'success' && 'data' in result) {
         setMembers((prev) =>
           currentMember

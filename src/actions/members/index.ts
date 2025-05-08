@@ -28,7 +28,7 @@ export const createMember = asyncHandler(async (member: Member) => {
         where: { id: memberData.id },
       });
       if (existingMember) {
-        return updateMember(memberData);
+        return updateMember(memberData, true);
       }
     }
 
@@ -43,40 +43,35 @@ export const createMember = asyncHandler(async (member: Member) => {
   });
 });
 
-export const updateMember = asyncHandler(async (member: Member) => {
-  const sessionUser = await getSessionUser();
+export const updateMember = asyncHandler(
+  async (member: Member, isAdmin: boolean = false) => {
+    const sessionUser = await getSessionUser();
 
-  if (member.email !== sessionUser.email && !sessionUser.isAdmin) {
-    const error = new EventOperationError(
-      'You are not authorized to perform this action',
-      401
-    );
-    return handleError(error);
-  }
+    if (member.email !== sessionUser.email && !isAdmin) {
+      const error = new EventOperationError(
+        'You are not authorized to perform this action',
+        401
+      );
+      return handleError(error);
+    }
 
-  if (!sessionUser.isAdmin && member.is_admin) {
-    const error = new EventOperationError(
-      'You are not authorized to perform this action',
-      401
-    );
-    return handleError(error);
-  }
-  if (!member.email) {
-    return {
-      status: 'error',
-      message: 'Member Email ID is required for updates',
-    };
-  }
+    if (!member.email) {
+      return {
+        status: 'error',
+        message: 'Member Email ID is required for updates',
+      };
+    }
 
-  const updatedMember = await prisma.member.update({
-    where: { email: member.email },
-    data: member,
-  });
-  return handleSuccess({
-    ...updatedMember,
-    message: 'Member updated successfully',
-  });
-});
+    const updatedMember = await prisma.member.update({
+      where: { email: member.email },
+      data: member,
+    });
+    return handleSuccess({
+      ...updatedMember,
+      message: 'Member updated successfully',
+    });
+  }
+);
 
 export const deleteMember = asyncHandler(async (id: string) => {
   return await withAdminCheck(async () => {
