@@ -9,7 +9,7 @@
 <br />
 <p align="center">
   <a href="#">
-    <img src="./src/public/repoCover.png" alt="Logo" width="400">
+    <img src="public/repoCover.png" alt="Logo" width="400">
   </a>
 
   <h3 align="center">Project Huckleberry</h3>
@@ -194,8 +194,8 @@ dscnitrourkela/project-huckleberry is Starware.
 This means you're free to use the project, as long as you star its GitHub repository.
 Your appreciation makes us grow and glow up. ⭐
 
-[product-screenshot]: src/public/gdg.jpg
-[dsc-nitrourkela]: src/public/repoCover.png
+[product-screenshot]: public/gdg.jpg
+[dsc-nitrourkela]: public/repoCover.png
 
 ## Contributors ✨
 
