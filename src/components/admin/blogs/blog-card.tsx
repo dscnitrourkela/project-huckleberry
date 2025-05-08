@@ -35,8 +35,6 @@ const BlogCard = ({ blog }: BlogCardProps) => {
   const imageUrl = extractImageUrl(blog.content);
   const authorUrl = extractAuthorUrl(blog.link);
 
-  console.log(blog);
-
   return (
     <Card className="overflow-hidden">
       <CardHeader className="p-0">

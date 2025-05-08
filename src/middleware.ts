@@ -10,35 +10,32 @@ export async function middleware(request) {
 
   const session = await auth();
 
-  if (session && session.user && request.nextUrl.pathname === '/login') {
-    if (session.user) {
+  if (request.nextUrl.pathname === '/login') {
+    if (session?.user) {
       return NextResponse.redirect(new URL('/admin', request.url));
     }
-  }
-
-  if (request.nextUrl.pathname === '/login' && !session) {
     return NextResponse.next();
   }
 
-  if (!session || !session.user) {
-    return NextResponse.redirect(new URL('/login', request.url));
-  }
+  if (
+    request.nextUrl.pathname.startsWith('/admin') ||
+    request.nextUrl.pathname.startsWith('/api')
+  ) {
+    if (!session?.user) {
+      if (request.nextUrl.pathname.startsWith('/api')) {
+        return new NextResponse(JSON.stringify({ error: 'Unauthorized' }), {
+          status: 401,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
 
-  // if (request.nextUrl.pathname.startsWith('/admin')) {
-  //   if (!session.user.isAdmin) {
-  //     return NextResponse.redirect(new URL('/profile', request.url));
-  //   }
-  // }
+      return NextResponse.redirect(new URL('/login', request.url));
+    }
+  }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: [
-    '/login',
-    '/dashboard/:path*',
-    '/profile/:path*',
-    '/admin/:path*',
-    '/((?!api|login|register|unauthorized|_next/static|_next/image|favicon.ico).*)',
-  ],
+  matcher: ['/login', '/admin/:path*', '/api/:path*'],
 };

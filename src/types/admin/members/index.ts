@@ -7,11 +7,11 @@ export interface Member {
   mobile_no: string;
   role: string;
   github: string;
+  figma: string;
   linkedin: string;
   twitter: string;
-  other_socials: string[];
   caption: string | null;
-  introduction: string;
+  is_lead: boolean;
   is_admin: boolean;
 }
 
@@ -22,72 +22,6 @@ export interface MemberRegistrationModalProps {
   defaultValues: Member | null;
   isEditing?: boolean;
   isLoading?: boolean;
-}
-
-export interface Database {
-  public: {
-    Tables: {
-      members: {
-        Row: {
-          id: string;
-          created_at: string;
-          profile_photo: string;
-          user_name: string;
-          email: string;
-          mobile_no: number;
-          role: string;
-          github: string;
-          linkedin: string;
-          twitter: string;
-          other_socials: string[];
-          caption: string | null;
-          introduction: string;
-          is_admin: boolean;
-        };
-        Insert: {
-          id?: string;
-          created_at?: string;
-          profile_photo: string;
-          user_name: string;
-          email: string;
-          mobile_no: number;
-          role: string;
-          github: string;
-          linkedin: string;
-          twitter: string;
-          other_socials: string[];
-          caption?: string | null;
-          introduction: string;
-          is_admin?: boolean;
-        };
-        Update: {
-          id?: string;
-          created_at?: string;
-          profile_photo?: string;
-          user_name?: string;
-          email?: string;
-          mobile_no?: number;
-          role?: string;
-          github?: string;
-          linkedin?: string;
-          twitter?: string;
-          other_socials?: string[];
-          caption?: string | null;
-          introduction?: string;
-          is_admin?: boolean;
-        };
-      };
-    };
-    Views: {
-      [_ in never]: never;
-    };
-    Functions: {
-      [_ in never]: never;
-    };
-    Enums: {
-      [_ in never]: never;
-    };
-  };
 }
 
 export interface Member {
@@ -101,10 +35,10 @@ export interface Member {
   github: string;
   linkedin: string;
   twitter: string;
-  other_socials: string[];
+  figma: string;
   caption: string | null;
-  introduction: string;
   is_admin: boolean;
+  year_of_passing: number;
 }
 
 export type MemberFormData = Omit<Member, 'id' | 'created_at'> & {

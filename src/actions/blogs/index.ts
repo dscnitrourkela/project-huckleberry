@@ -1,5 +1,5 @@
 'use server';
-import { asyncHandler, handleSuccess } from '@/utils';
+import { asyncHandler, handleError, handleSuccess } from '@/utils';
 
 export const getAllBlogs = asyncHandler(async () => {
   const response = await fetch(process.env.NEXT_PUBLIC_BLOGS_API_URL!);
@@ -8,5 +8,9 @@ export const getAllBlogs = asyncHandler(async () => {
   }
 
   const data = await response.json();
-  return handleSuccess({ blogs: data, message: null });
+  if (data.items) {
+    const blogs = data.items;
+    return handleSuccess({ blogs, message: 'Blogs fetched successfully' });
+  }
+  return handleError({ message: 'Blogs not found' });
 });

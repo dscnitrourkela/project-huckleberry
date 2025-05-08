@@ -6,21 +6,23 @@ export const formFields: FieldConfig[] = [
     name: 'title',
     label: 'Title',
     type: 'text',
-    placeholder: 'Event title',
+    placeholder:
+      'Enter a catchy title for your event (e.g., "Web Development Workshop")',
     rules: { required: 'Title is required' },
   },
   {
     name: 'subTitle',
     label: 'Subtitle',
     type: 'text',
-    placeholder: 'Event subtitle',
+    placeholder: 'Add a brief subtitle (e.g., "Learn React in 2 hours")',
     rules: { required: 'Subtitle is required' },
   },
   {
     name: 'description',
     label: 'Description',
     type: 'textarea',
-    placeholder: 'Describe your event',
+    placeholder:
+      'Provide a detailed description of your event. Include topics covered, prerequisites, and what participants will learn.',
     rules: { required: 'Description is required' },
     fullWidth: true,
   },
@@ -28,7 +30,8 @@ export const formFields: FieldConfig[] = [
     name: 'location',
     label: 'Location',
     type: 'text',
-    placeholder: 'Event location',
+    placeholder:
+      'Enter venue or platform details (e.g., "Room 101, Main Building" or "Zoom Meeting")',
     rules: { required: 'Location is required' },
   },
   {
@@ -52,7 +55,8 @@ export const formFields: FieldConfig[] = [
     name: 'eligibility',
     label: 'Eligibility',
     type: 'text',
-    placeholder: 'Who can attend?',
+    placeholder:
+      'Specify who can attend (e.g., "Open to all students" or "For 3rd year CSE students")',
     rules: { required: 'Eligibility is required' },
   },
   {

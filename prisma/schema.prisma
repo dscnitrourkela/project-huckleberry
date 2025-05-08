@@ -32,9 +32,9 @@ model Member {
   github         String?
   linkedin       String?
   twitter        String?
-  other_socials  String[]
+	figma					 String?
   caption        String?
-  introduction   String
+	is_lead				 Boolean @default(false)
   is_admin       Boolean  @default(false)
   year_of_passing Int?
   @@map("members")
