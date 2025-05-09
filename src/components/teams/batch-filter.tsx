@@ -22,7 +22,7 @@ const BatchFilter: React.FC<BatchFilterProps> = ({
         <button
           key={year}
           onClick={() => setSelectedBatch(year)}
-          className={`px-4 py-2 rounded-md border transition-all duration-300 font-dm ${
+          className={`px-4 py-2 rounded-md border transition-all duration-300 font-productsans ${
             selectedBatch === year
               ? 'border-blue-500 bg-blue-50 text-[#4285F4] font-medium'
               : 'border-gray-300 bg-white text-[#A6A6A6] hover:bg-gray-100'
