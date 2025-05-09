@@ -2,6 +2,11 @@
 import React from 'react';
 import EventsCard from '@/components/home/events/EventsCard';
 import { events } from '@/config/events';
+import { Metadata } from 'next';
+import { eventsMetadata } from '@/config/seo/events-metadata';
+
+export const metadata: Metadata = eventsMetadata;
+
 function page() {
   return (
     <div className="relative overflow-hidden ">
