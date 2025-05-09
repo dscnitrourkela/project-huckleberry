@@ -22,3 +22,14 @@ export const poppins = Poppins({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   display: 'swap',
 });
+import localFont from 'next/font/local';
+
+export const productSansRegular = localFont({
+  src: '../fonts/ProductSans-Regular.ttf',
+  variable: '--font-product-sans-regular',
+});
+
+export const productSansBlack = localFont({
+  src: '../fonts/ProductSans-Black.ttf',
+  variable: '--font-product-sans-black',
+});
