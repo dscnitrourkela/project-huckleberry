@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
-import EventsCard from '@/components/events/EventsCard';
-
+import EventsCard from '@/components/home/events/EventsCard';
+import { events } from '@/config/events';
 function page() {
   return (
     <div className="relative overflow-hidden ">
@@ -23,41 +23,4 @@ function page() {
     </div>
   );
 }
-
 export default page;
-
-const events = [
-  {
-    id: '1',
-    heading: '#1 HackNITR',
-    title: 'HackNITR',
-    date: '29/02/2025',
-    description:
-      'Lorem ipsum dolor sit amet consectetur. Augue duis etiam pulvinar duis interdum accumsan tempor bibendum amet. Lorem ipsum dolor sit amet consectetur. Augue duis etiam pulvinar duis interdum accumsan tempor bibendum amet.Lorem ipsum dolor sit amet consectetur. Augue duis etiam pulvinar duis interdum accumsan tempor bibendum amet.',
-    imageUrl:
-      'https://res.cloudinary.com/dpmlrxlzr/image/upload/v1746378087/hn_50_1_ru18tc.png',
-    cardBgColor: 'bg-[#ECF3FE]',
-  },
-  {
-    id: '2',
-    heading: '#2 HackNITR',
-    title: 'HackNITR',
-    date: '29/02/2025',
-    description:
-      'Lorem ipsum dolor sit amet consectetur. Augue duis etiam pulvinar duis interdum accumsan tempor bibendum amet. Lorem ipsum dolor sit amet consectetur. Augue duis etiam pulvinar duis interdum accumsan tempor bibendum amet.Lorem ipsum dolor sit amet consectetur. Augue duis etiam pulvinar duis interdum accumsan tempor bibendum amet.',
-    imageUrl:
-      'https://res.cloudinary.com/dpmlrxlzr/image/upload/v1746378087/hn_50_1_ru18tc.png',
-    cardBgColor: 'bg-[#FDEDEB]',
-  },
-  {
-    id: '3',
-    heading: '#3 HackNITR',
-    title: 'HackNITR',
-    date: '29/02/2025',
-    description:
-      'Lorem ipsum dolor sit amet consectetur. Augue duis etiam pulvinar duis interdum accumsan tempor bibendum amet. Lorem ipsum dolor sit amet consectetur. Augue duis etiam pulvinar duis interdum accumsan tempor bibendum amet.Lorem ipsum dolor sit amet consectetur. Augue duis etiam pulvinar duis interdum accumsan tempor bibendum amet.',
-    imageUrl:
-      'https://res.cloudinary.com/dpmlrxlzr/image/upload/v1746378087/hn_50_1_ru18tc.png',
-    cardBgColor: 'bg-[#EBF7EE]',
-  },
-];

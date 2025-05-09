@@ -1,13 +1,11 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
-
 interface EventInfoCardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
   bgColor?: string;
 }
-
 const EventInfoCard: React.FC<EventInfoCardProps> = ({
   icon,
   title,
@@ -24,5 +22,4 @@ const EventInfoCard: React.FC<EventInfoCardProps> = ({
     </div>
   );
 };
-
 export default EventInfoCard;

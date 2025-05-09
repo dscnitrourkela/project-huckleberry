@@ -1,6 +1,6 @@
 import { Calendar, MapPin, Info, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import EventInfoCard from '@/components/events/EventInfoCard';
+import EventInfoCard from '@/components/home/events/EventInfoCard';
 import Image from 'next/image';
 
 // Mock data to simulate fetching event by ID
@@ -19,11 +19,9 @@ const getEventById = (id: string) => {
     timestamp: '18/04/2023',
   };
 };
-
 interface EventDetailProps {
   eventID: string;
 }
-
 const EventDetail = ({ eventID }: EventDetailProps) => {
   const event = getEventById(eventID);
   return (
@@ -99,5 +97,4 @@ const EventDetail = ({ eventID }: EventDetailProps) => {
     </div>
   );
 };
-
 export default EventDetail;

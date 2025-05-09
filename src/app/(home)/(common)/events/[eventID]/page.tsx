@@ -1,5 +1,4 @@
-import EventDetail from '@/components/events/EventDetails';
-
+import EventDetail from '@/components/home/events/EventDetails';
 export default async function EventPage({
   params,
 }: {
