@@ -1,14 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import {
-  dmSans,
-  geistMono,
-  geistSans,
-  poppins,
-  productSans,
-  // productSansRegular,
-  // productSansBlack,
-} from './fonts';
+import { dmSans, geistMono, geistSans, poppins, productSans } from './fonts';
 import { Toaster } from '@/components/ui/sonner';
 import HOC from '@/components/shared/hoc/HOC';
 
@@ -33,4 +25,3 @@ export default function RootLayout({
     </html>
   );
 }
-// ${productSansBlack.variable} ${productSansRegular.variable}
