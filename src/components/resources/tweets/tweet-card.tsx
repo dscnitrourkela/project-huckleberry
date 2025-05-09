@@ -7,15 +7,7 @@ import { Heart, Repeat2, MessageCircle, Share } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { TweetCardProps } from '@/types/admin/tweets';
-
-const formatDate = (dateString: string) => {
-  const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  });
-};
+import { LOGO } from '@/config/common';
 
 // Format tweet text function that makes hashtags blue and truncates text if needed
 const formatTweetText = (
@@ -29,14 +21,14 @@ const formatTweetText = (
   const displayLines = displayText.split('\n');
 
   return (
-    <p className="text-black">
+    <p className="text-black font-medium">
       {displayLines.map((line, lineIndex) => (
         <React.Fragment key={`line-${lineIndex}`}>
           {/* Process each word in the line */}
           {line.split(/(\s+)/).map((part, partIndex) => (
             <React.Fragment key={`${lineIndex}-${partIndex}`}>
               {part.startsWith('#') ? (
-                <span className="text-blue-500 hover:underline cursor-pointer">
+                <span className="text-blue-600 font-bold hover:underline cursor-pointer">
                   {part}
                 </span>
               ) : (
@@ -56,6 +48,7 @@ const formatTweetText = (
 const TweetCard = ({ tweet }: TweetCardProps) => {
   const [isExpanded] = useState(false);
   const [maxLength, setMaxLength] = useState(100);
+  const [isHovering, setIsHovering] = useState(false);
 
   // Update maxLength on window resize for responsiveness
   useEffect(() => {
@@ -65,7 +58,7 @@ const TweetCard = ({ tweet }: TweetCardProps) => {
       } else if (window.innerWidth < 768) {
         setMaxLength(80); // Small screens
       } else {
-        setMaxLength(150); // Medium and larger screens
+        setMaxLength(180); // Medium and larger screens
       }
     };
 
@@ -84,47 +77,67 @@ const TweetCard = ({ tweet }: TweetCardProps) => {
     window.open(`https://twitter.com/i/web/status/${tweetId}`, '_blank');
   };
 
+  // Random rotation for neobrutalism effect
+  const rotation = React.useMemo(() => {
+    return Math.random() * 1 - 0.5; // Between -0.5 and 0.5 degrees
+  }, []);
+
+  // Random background color (soft pastel)
+  const randomBgColor = React.useMemo(() => {
+    const bgColors = [
+      'bg-yellow-50',
+      'bg-blue-50',
+      'bg-pink-50',
+      'bg-green-50',
+      'bg-purple-50',
+    ];
+    return bgColors[Math.floor(Math.random() * bgColors.length)];
+  }, []);
+
   return (
     <Card
-      className="w-full max-w-xl bg-white shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:bg-yellow-50"
+      className={`w-full max-w-xl ${randomBgColor} shadow-[5px_5px_0px_0px_rgba(0,0,0)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0)] transition-all duration-200 
+      border-2 border-black rounded-md ${isHovering ? 'translate-x-[-3px] translate-y-[-3px]' : ''}`}
+      style={{ transform: `rotate(${rotation}deg)` }}
       onClick={openTwitter}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
     >
-      <CardContent className="pt-6">
+      <CardContent className="p-6">
         <div className="flex items-start space-x-4">
-          <Avatar className="h-12 w-12">
-            <AvatarImage src="/api/placeholder/40/40" alt="DSC NITR" />
-            <AvatarFallback>DSC</AvatarFallback>
+          <Avatar className="h-14 w-14 border-2 border-black rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0)]">
+            <AvatarImage src={LOGO} alt="DSC NITR" />
+            <AvatarFallback className="bg-yellow-200 text-black font-bold">
+              DSC
+            </AvatarFallback>
           </Avatar>
 
-          <div className="flex-1 space-y-2">
+          <div className="flex-1 space-y-3">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="font-semibold text-base text-black">
+                <h3 className="font-extrabold text-lg text-black">
                   DSC NIT Rourkela
                 </h3>
-                <p className="text-sm text-gray-500">@dscnitrrourekla</p>
+                <p className="text-md text-gray-700 font-medium tracking-wider">
+                  @dscnitrrourekla
+                </p>
               </div>
-              <span className="text-sm text-gray-500 hidden sm:inline">
-                {formatDate(tweet.created_at)}
-              </span>
-            </div>
-
-            {/* Card content with fixed height and consistent size */}
-            <div className="h-[150px] md:h-[210px] overflow-hidden pt-4">
-              {formatTweetText(tweet.text, isExpanded, maxLength)}
             </div>
           </div>
         </div>
       </CardContent>
 
-      <CardFooter className="pt-4">
+      <div className="h-[150px] md:h-[210px] overflow-hidden font-sans font-lg tracking-wide pt-4 px-6">
+        {formatTweetText(tweet.text, isExpanded, maxLength)}
+      </div>
+      <CardFooter className="pt-2 pb-4 px-6">
         <div className="w-full space-y-4">
-          <Separator />
-          <div className="flex justify-between items-center px-2">
+          <Separator className="bg-black h-0.5" />
+          <div className="flex justify-between items-center">
             <Button
               variant="ghost"
               size="sm"
-              className="flex items-center space-x-2 text-gray-600 hover:text-blue-600"
+              className="flex items-center space-x-2 bg-white text-black font-bold border-2 border-black rounded-md hover:bg-blue-100 shadow-[2px_2px_0px_0px_rgba(0,0,0)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0)] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all"
             >
               <MessageCircle className="h-5 w-5" />
               <span className="hidden sm:inline">
@@ -135,7 +148,7 @@ const TweetCard = ({ tweet }: TweetCardProps) => {
             <Button
               variant="ghost"
               size="sm"
-              className="flex items-center space-x-2 text-gray-600 hover:text-green-600"
+              className="flex items-center space-x-2 bg-white text-black font-bold border-2 border-black rounded-md hover:bg-green-100 shadow-[2px_2px_0px_0px_rgba(0,0,0)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0)] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all"
             >
               <Repeat2 className="h-5 w-5" />
               <span className="hidden sm:inline">
@@ -146,7 +159,7 @@ const TweetCard = ({ tweet }: TweetCardProps) => {
             <Button
               variant="ghost"
               size="sm"
-              className="flex items-center space-x-2 text-gray-600 hover:text-red-600"
+              className="flex items-center space-x-2 bg-white text-black font-bold border-2 border-black rounded-md hover:bg-red-100 shadow-[2px_2px_0px_0px_rgba(0,0,0)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0)] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all"
             >
               <Heart className="h-5 w-5" />
               <span className="hidden sm:inline">
@@ -157,7 +170,7 @@ const TweetCard = ({ tweet }: TweetCardProps) => {
             <Button
               variant="ghost"
               size="sm"
-              className="flex items-center space-x-2 text-gray-600 hover:text-blue-600"
+              className="flex items-center space-x-2 bg-white text-black font-bold border-2 border-black rounded-md hover:bg-blue-100 shadow-[2px_2px_0px_0px_rgba(0,0,0)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0)] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all"
             >
               <Share className="h-5 w-5" />
               <span className="hidden sm:inline">

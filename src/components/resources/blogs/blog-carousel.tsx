@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/carousel';
 import { getAllBlogs } from '@/actions/blogs';
 import { BlogCardProps } from '@/types/admin/blogs';
-import { PageHeaderDescription } from '@/components/ui/page-header';
+import { PageHeaderDescription, PageHeader } from '@/components/ui/page-header';
 
 interface BlogCarouselProps {
   title?: string;
@@ -48,11 +48,11 @@ export default function BlogCarousel({
   }, []);
 
   return (
-    <section className="py-16">
-      <h1 className="text-3xl font-bold text-center text-foreground mb-4">
+    <section className="py-4">
+      <PageHeader className="text-center font-productsan mb-5 mt-20 px-4 py-4 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl font-black text-black bg-orange-300">
         {title}
-      </h1>
-      <PageHeaderDescription className="text-center max-w-2xl mx-auto mb-10">
+      </PageHeader>
+      <PageHeaderDescription className="text-center mx-auto mb-10 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed sm:mt-6 lg:mt-4 px-4 py-2 bg-transparent max-w-2xl font-medium">
         {description}
       </PageHeaderDescription>
 
@@ -80,7 +80,7 @@ export default function BlogCarousel({
               {blogList.map((blog) => (
                 <CarouselItem
                   key={blog.link}
-                  className="md:basis-1/2 lg:basis-1/3 px-4 pt-4 pb-12"
+                  className="lg:basis-1/3 px-4 pt-4 pb-12"
                 >
                   <div className="h-full flex items-center">
                     <BlogCard {...blog} />
@@ -88,8 +88,14 @@ export default function BlogCarousel({
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="absolute left-0 rounded-full h-10 w-10 hidden sm:flex" />
-            <CarouselNext className="absolute right-0 rounded-full h-10 w-10  hidden sm:flex" />
+            <CarouselPrevious
+              className="absolute left-0 rounded-none border-2 border-black bg-yellow-300 text-black h-10 w-10 
+              transition-all duration-200 hidden sm:flex"
+            />
+            <CarouselNext
+              className="absolute right-0 rounded-none border-2 border-black bg-yellow-300 text-black h-10 w-10
+               transition-all duration-200 hidden sm:flex"
+            />
           </Carousel>
         )}
       </div>
