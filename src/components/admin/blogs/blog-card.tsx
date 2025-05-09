@@ -9,19 +9,9 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { CalendarIcon } from 'lucide-react';
+import { BlogCardProps } from '@/types/admin/blogs';
 
-interface BlogCardProps {
-  blog: {
-    content: string;
-    title: string;
-    link: string;
-    author: string;
-    pubDate: string;
-    categories: string[];
-  };
-}
-
-const BlogCard = ({ blog }: BlogCardProps) => {
+const BlogCard = (blog: BlogCardProps) => {
   const extractImageUrl = (content: string) => {
     const imgTagMatch = content.match(/<img[^>]+src="([^">]+)"/);
     return imgTagMatch ? imgTagMatch[1] : null;
@@ -35,12 +25,19 @@ const BlogCard = ({ blog }: BlogCardProps) => {
   const imageUrl = extractImageUrl(blog.content);
   const authorUrl = extractAuthorUrl(blog.link);
 
+  const handleCardClick = () => {
+    window.open(blog.link, '_blank');
+  };
+
   return (
-    <Card className="overflow-hidden">
+    <Card
+      className="w-full h-[400px] sm:h-[420px] md:h-[430px] flex flex-col overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:bg-purple-50 cursor-pointer"
+      onClick={handleCardClick}
+    >
       <CardHeader className="p-0">
-        <div className="aspect-video relative overflow-hidden">
+        <div className="h-[160px] sm:h-[180px] relative overflow-hidden">
           <Image
-            src={imageUrl || ''}
+            src={imageUrl || '/placeholder-image.jpg'}
             alt={blog.title}
             fill
             className="object-cover"
@@ -48,14 +45,17 @@ const BlogCard = ({ blog }: BlogCardProps) => {
         </div>
       </CardHeader>
 
-      <CardContent className="p-4 space-y-4">
+      <CardContent className="p-4 space-y-3 flex-1">
         <h3 className="font-semibold text-lg line-clamp-2">{blog.title}</h3>
 
         <div className="flex items-center justify-between text-sm text-muted-foreground">
           <Button
             variant="link"
-            className="p-0 h-auto font-normal"
-            onClick={() => window.open(authorUrl || '', '_blank')}
+            className="p-0 h-auto font-normal truncate max-w-[150px]"
+            onClick={(e) => {
+              e.stopPropagation();
+              window.open(authorUrl || '', '_blank');
+            }}
           >
             {blog.author}
           </Button>
@@ -65,19 +65,27 @@ const BlogCard = ({ blog }: BlogCardProps) => {
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-2">
-          {blog.categories.map((category) => (
-            <Badge key={category} variant="secondary">
+        <div className="flex flex-wrap gap-2 overflow-hidden max-h-[60px] ">
+          {blog.categories.slice(0, 3).map((category) => (
+            <Badge key={category} variant="secondary" className="text-xs ">
               {category}
             </Badge>
           ))}
+          {blog.categories.length > 3 && (
+            <Badge variant="outline" className="text-xs">
+              +{blog.categories.length - 3} more
+            </Badge>
+          )}
         </div>
       </CardContent>
 
-      <CardFooter className="p-4 pt-0">
+      <CardFooter className="p-4 pt-0 mt-auto">
         <Button
           className="w-full"
-          onClick={() => window.open(blog.link, '_blank')}
+          onClick={(e) => {
+            e.stopPropagation();
+            window.open(blog.link, '_blank');
+          }}
         >
           Read More
         </Button>
