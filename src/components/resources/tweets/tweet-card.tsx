@@ -21,7 +21,7 @@ const formatTweetText = (
   const displayLines = displayText.split('\n');
 
   return (
-    <p className="text-black font-medium">
+    <p className="text-black font-medium font-productsans">
       {displayLines.map((line, lineIndex) => (
         <React.Fragment key={`line-${lineIndex}`}>
           {/* Process each word in the line */}
@@ -116,10 +116,10 @@ const TweetCard = ({ tweet }: TweetCardProps) => {
           <div className="flex-1 space-y-3">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="font-extrabold text-lg text-black">
+                <h3 className="font-extrabold text-lg text-black font-productsans">
                   DSC NIT Rourkela
                 </h3>
-                <p className="sm:flex hidden text-md text-gray-700 font-medium tracking-wider">
+                <p className="sm:flex hidden text-md text-gray-700 font-medium tracking-wider font-productsans">
                   @dscnitrrourekla
                 </p>
               </div>
@@ -128,7 +128,7 @@ const TweetCard = ({ tweet }: TweetCardProps) => {
         </div>
       </CardContent>
 
-      <div className="h-[150px] md:h-[210px] overflow-hidden font-sans font-lg tracking-wide pt-4 px-6">
+      <div className="h-[150px] md:h-[210px] overflow-hidden font-lg tracking-wide pt-4 px-6 font-productsans">
         {formatTweetText(tweet.text, isExpanded, maxLength)}
       </div>
       <CardFooter className="pt-2 pb-4 px-5">

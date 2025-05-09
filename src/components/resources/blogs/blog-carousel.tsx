@@ -47,7 +47,7 @@ export default function BlogCarousel({
 
   return (
     <section className="w-full max-w-7xl  sm:pt-8 sm:px-6 lg:px-8">
-      <h2 className="text-3xl sm:text-4xl text-center sm:text-left md:text-5xl xl:text-6xl font-bold sm:pl-12 text-black">
+      <h2 className="text-3xl sm:text-4xl text-center sm:text-left md:text-5xl xl:text-6xl font-bold sm:pl-12 text-black font-productsans">
         {title}
       </h2>
 

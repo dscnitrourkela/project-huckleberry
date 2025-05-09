@@ -65,14 +65,14 @@ const BlogCard = (blog: BlogCardProps) => {
       </CardHeader>
 
       <CardContent className="p-5 space-y-4 flex-1">
-        <h3 className="font-extrabold text-lg line-clamp-2 text-black">
+        <h3 className="font-extrabold text-lg line-clamp-2 text-black font-productsans">
           {blog.title}
         </h3>
 
         <div className=" items-center justify-between text-sm hidden sm:flex">
           <Button
             variant="ghost"
-            className="p-0 h-auto font-bold truncate max-w-[150px] text-black"
+            className="p-0 h-auto font-bold truncate max-w-[150px] font-productsans text-black"
             onClick={(e) => {
               e.stopPropagation();
               window.open(authorUrl || '', '_blank');
@@ -90,13 +90,13 @@ const BlogCard = (blog: BlogCardProps) => {
           {blog.categories.slice(0, 2).map((category) => (
             <Badge
               key={category}
-              className="text-xs border-2 border-black bg-white text-black font-bold py-1 px-2 rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0)]"
+              className="text-xs border-2 border-black font-productsans bg-white text-black font-bold py-1 px-2 rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0)]"
             >
               {category}
             </Badge>
           ))}
           {blog.categories.length > 3 && (
-            <Badge className="text-xs border-2 border-black bg-white text-black font-bold py-1 px-2 rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0)]">
+            <Badge className="text-xs border-2 border-black bg-white text-black font-productsans font-bold py-1 px-2 rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0)]">
               +{blog.categories.length - 3} more
             </Badge>
           )}
@@ -107,7 +107,7 @@ const BlogCard = (blog: BlogCardProps) => {
         <Button
           className="w-full bg-yellow-300 hover:bg-yellow-400 text-black font-extrabold border-2 border-black rounded-md 
           shadow-[3px_3px_0px_0px_rgba(0,0,0)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0)] 
-          hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all flex items-center gap-2"
+          hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all flex items-center font-productsans gap-2"
           onClick={(e) => {
             e.stopPropagation();
             window.open(blog.link, '_blank');
