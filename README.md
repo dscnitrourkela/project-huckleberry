@@ -1,9 +1,7 @@
 [![Starware](https://img.shields.io/badge/Starware-⭐-black?labelColor=f9b00d)](https://github.com/zepfietje/starware)
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
-
+[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <br />
@@ -218,11 +216,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="20%"><a href="https://github.com/NishkarshG"><img src="https://avatars.githubusercontent.com/u/143815191?v=4?s=100" width="100px;" alt="Nishkarsh Gupta"/><br /><sub><b>Nishkarsh Gupta</b></sub></a><br /><a href="#design-NishkarshG" title="Design">🎨</a></td>
       <td align="center" valign="top" width="20%"><a href="https://github.com/somnath-07"><img src="https://avatars.githubusercontent.com/u/138187553?v=4?s=100" width="100px;" alt="somnath-07"/><br /><sub><b>somnath-07</b></sub></a><br /><a href="#design-somnath-07" title="Design">🎨</a></td>
       <td align="center" valign="top" width="20%"><a href="https://github.com/pseudomidget"><img src="https://avatars.githubusercontent.com/u/157236850?v=4?s=100" width="100px;" alt="pseudomidget"/><br /><sub><b>pseudomidget</b></sub></a><br /><a href="#design-pseudomidget" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="20%"><a href="https://linktr.ee/m_srishty"><img src="https://avatars.githubusercontent.com/u/68679980?v=4?s=100" width="100px;" alt="Srishty Mangutte"/><br /><sub><b>Srishty Mangutte</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=Srish-ty" title="Code">💻</a></td>
     </tr>
   </tbody>
   <tfoot>
     <tr>
-      <td align="center" size="13px" colspan="7">
+      <td align="center" size="13px" colspan="5">
         <img src="https://raw.githubusercontent.com/all-contributors/all-contributors-cli/1b8533af435da9854653492b1327a23a4dbd0a10/assets/logo-small.svg">
           <a href="https://all-contributors.js.org/docs/en/bot/usage">Add your contributions</a>
         </img>
