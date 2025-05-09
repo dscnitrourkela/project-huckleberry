@@ -51,13 +51,15 @@ const MemberCard = ({
             />
           </div>
           <div className="p-5 flex flex-col flex-grow">
-            <h2 className="text-2xl font-bold text-gray-800 font-poppins">
+            <h2 className="text-2xl font-bold text-gray-800 font-productsans">
               {name}
             </h2>
             <div className="flex items-center justify-between">
-              <p className="text-gray-600 font-geist-sans">{role}</p>
+              <p className="text-gray-600 font-productsans capitalize">
+                {role}
+              </p>
               {showBatch && batch && (
-                <span className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded-full text-xs font-medium">
+                <span className="font-productsans bg-gray-100 text-gray-700 px-2 py-0.5 rounded-full text-xs font-medium">
                   Batch {batch}
                 </span>
               )}
@@ -86,13 +88,13 @@ const MemberCard = ({
               />
             )}
             {quote && (
-              <p className="text-lg text-black mt-4 mb-auto font-dm text-center font-[400]">
+              <p className="text-lg text-black mt-4 mb-auto font-productsans text-center font-[400]">
                 "{quote}"
               </p>
             )}
           </div>
           <div className="flex items-center justify-between">
-            <div className="inline-block border-2 text-black border-black  px-4 py-1 rounded-full font-poppins text-sm">
+            <div className="inline-block border-2 text-black border-black  px-4 py-1 rounded-full font-productsans text-sm">
               {firstName}
             </div>
           </div>
