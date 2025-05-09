@@ -12,6 +12,9 @@ const nextConfig: NextConfig = {
       {
         hostname: 'cdn-images-1.medium.com',
       },
+      {
+        hostname: 'images.pexels.com',
+      },
     ],
   },
   compiler: {
