@@ -11,9 +11,7 @@ export async function middleware(request) {
     return NextResponse.next();
   }
 
-  if (
-    request.nextUrl.pathname.startsWith('/admin')
-  ) {
+  if (request.nextUrl.pathname.startsWith('/admin')) {
     if (!session?.user) {
       return NextResponse.redirect(new URL('/login', request.url));
     }
