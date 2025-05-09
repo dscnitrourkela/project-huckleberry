@@ -11,7 +11,6 @@ import {
 } from '@/components/ui/carousel';
 import { getAllBlogs } from '@/actions/blogs';
 import { BlogCardProps } from '@/types/admin/blogs';
-import { PageHeaderDescription, PageHeader } from '@/components/ui/page-header';
 
 interface BlogCarouselProps {
   title?: string;
@@ -20,7 +19,6 @@ interface BlogCarouselProps {
 
 export default function BlogCarousel({
   title = 'Recent Blogs',
-  description = 'Explore our latest thoughts, ideas, and insights',
 }: BlogCarouselProps) {
   const [blogList, setBlogList] = useState<BlogCardProps[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -48,13 +46,10 @@ export default function BlogCarousel({
   }, []);
 
   return (
-    <section className="py-4">
-      <PageHeader className="text-center font-productsan mb-5 mt-20 px-4 py-4 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl font-black text-black bg-orange-300">
+    <section className="w-full max-w-7xl  sm:pt-8 sm:px-6 lg:px-8">
+      <h2 className="text-3xl sm:text-4xl text-center sm:text-left md:text-5xl xl:text-6xl font-bold sm:pl-12 text-black">
         {title}
-      </PageHeader>
-      <PageHeaderDescription className="text-center mx-auto mb-10 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed sm:mt-6 lg:mt-4 px-4 py-2 bg-transparent max-w-2xl font-medium">
-        {description}
-      </PageHeaderDescription>
+      </h2>
 
       <div className="relative min-h-[500px]">
         {loading ? (
@@ -80,7 +75,7 @@ export default function BlogCarousel({
               {blogList.map((blog) => (
                 <CarouselItem
                   key={blog.link}
-                  className="lg:basis-1/3 px-4 pt-4 pb-12"
+                  className="lg:basis-1/2 xl:basis-1/3 px-4 pt-4 pb-12"
                 >
                   <div className="h-full flex items-center">
                     <BlogCard {...blog} />

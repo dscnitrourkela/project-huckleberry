@@ -45,10 +45,28 @@ const formatTweetText = (
   );
 };
 
+// Deterministic background color function using tweet ID to ensure consistency
+const getBgColorFromId = (id: string) => {
+  // Use the last character of the ID to determine the background color
+  // This ensures the same tweet always gets the same background color
+  const bgColors = [
+    'bg-yellow-50',
+    'bg-blue-50',
+    'bg-pink-50',
+    'bg-green-50',
+    'bg-purple-50',
+  ];
+
+  // Extract a consistent number from the ID
+  const lastChar = id.charCodeAt(id.length - 1) || 0;
+  const colorIndex = lastChar % bgColors.length;
+
+  return bgColors[colorIndex];
+};
+
 const TweetCard = ({ tweet }: TweetCardProps) => {
   const [isExpanded] = useState(false);
   const [maxLength, setMaxLength] = useState(100);
-  const [isHovering, setIsHovering] = useState(false);
 
   // Update maxLength on window resize for responsiveness
   useEffect(() => {
@@ -77,31 +95,14 @@ const TweetCard = ({ tweet }: TweetCardProps) => {
     window.open(`https://twitter.com/i/web/status/${tweetId}`, '_blank');
   };
 
-  // Random rotation for neobrutalism effect
-  const rotation = React.useMemo(() => {
-    return Math.random() * 1 - 0.5; // Between -0.5 and 0.5 degrees
-  }, []);
-
-  // Random background color (soft pastel)
-  const randomBgColor = React.useMemo(() => {
-    const bgColors = [
-      'bg-yellow-50',
-      'bg-blue-50',
-      'bg-pink-50',
-      'bg-green-50',
-      'bg-purple-50',
-    ];
-    return bgColors[Math.floor(Math.random() * bgColors.length)];
-  }, []);
+  // Get deterministic background color based on tweet ID
+  const bgColor = getBgColorFromId(tweet.id);
 
   return (
     <Card
-      className={`w-full max-w-xl ${randomBgColor} shadow-[5px_5px_0px_0px_rgba(0,0,0)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0)] transition-all duration-200 
-      border-2 border-black rounded-md ${isHovering ? 'translate-x-[-3px] translate-y-[-3px]' : ''}`}
-      style={{ transform: `rotate(${rotation}deg)` }}
+      className={`w-full ${bgColor} shadow-[5px_5px_0px_0px_rgba(0,0,0)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0)] transition-all duration-200 
+      border-2 border-black rounded-md hover:translate-x-[-3px] hover:translate-y-[-3px]`}
       onClick={openTwitter}
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
     >
       <CardContent className="p-6">
         <div className="flex items-start space-x-4">
@@ -118,7 +119,7 @@ const TweetCard = ({ tweet }: TweetCardProps) => {
                 <h3 className="font-extrabold text-lg text-black">
                   DSC NIT Rourkela
                 </h3>
-                <p className="text-md text-gray-700 font-medium tracking-wider">
+                <p className="sm:flex hidden text-md text-gray-700 font-medium tracking-wider">
                   @dscnitrrourekla
                 </p>
               </div>
@@ -130,14 +131,14 @@ const TweetCard = ({ tweet }: TweetCardProps) => {
       <div className="h-[150px] md:h-[210px] overflow-hidden font-sans font-lg tracking-wide pt-4 px-6">
         {formatTweetText(tweet.text, isExpanded, maxLength)}
       </div>
-      <CardFooter className="pt-2 pb-4 px-6">
+      <CardFooter className="pt-2 pb-4 px-5">
         <div className="w-full space-y-4">
           <Separator className="bg-black h-0.5" />
           <div className="flex justify-between items-center">
             <Button
               variant="ghost"
               size="sm"
-              className="flex items-center space-x-2 bg-white text-black font-bold border-2 border-black rounded-md hover:bg-blue-100 shadow-[2px_2px_0px_0px_rgba(0,0,0)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0)] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all"
+              className="flex items-center bg-white text-black font-bold border-2 border-black rounded-md hover:bg-blue-100 shadow-[2px_2px_0px_0px_rgba(0,0,0)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0)] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all"
             >
               <MessageCircle className="h-5 w-5" />
               <span className="hidden sm:inline">
@@ -148,7 +149,7 @@ const TweetCard = ({ tweet }: TweetCardProps) => {
             <Button
               variant="ghost"
               size="sm"
-              className="flex items-center space-x-2 bg-white text-black font-bold border-2 border-black rounded-md hover:bg-green-100 shadow-[2px_2px_0px_0px_rgba(0,0,0)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0)] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all"
+              className="flex items-center bg-white text-black font-bold border-2 border-black rounded-md hover:bg-green-100 shadow-[2px_2px_0px_0px_rgba(0,0,0)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0)] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all"
             >
               <Repeat2 className="h-5 w-5" />
               <span className="hidden sm:inline">
@@ -159,7 +160,7 @@ const TweetCard = ({ tweet }: TweetCardProps) => {
             <Button
               variant="ghost"
               size="sm"
-              className="flex items-center space-x-2 bg-white text-black font-bold border-2 border-black rounded-md hover:bg-red-100 shadow-[2px_2px_0px_0px_rgba(0,0,0)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0)] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all"
+              className="flex items-center bg-white text-black font-bold border-2 border-black rounded-md hover:bg-red-100 shadow-[2px_2px_0px_0px_rgba(0,0,0)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0)] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all"
             >
               <Heart className="h-5 w-5" />
               <span className="hidden sm:inline">
@@ -170,7 +171,7 @@ const TweetCard = ({ tweet }: TweetCardProps) => {
             <Button
               variant="ghost"
               size="sm"
-              className="flex items-center space-x-2 bg-white text-black font-bold border-2 border-black rounded-md hover:bg-blue-100 shadow-[2px_2px_0px_0px_rgba(0,0,0)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0)] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all"
+              className="flex items-center bg-white text-black font-bold border-2 border-black rounded-md hover:bg-blue-100 shadow-[2px_2px_0px_0px_rgba(0,0,0)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0)] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all"
             >
               <Share className="h-5 w-5" />
               <span className="hidden sm:inline">

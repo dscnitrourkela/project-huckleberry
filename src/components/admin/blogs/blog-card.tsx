@@ -10,8 +10,10 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { CalendarIcon, ExternalLink } from 'lucide-react';
 import { BlogCardProps } from '@/types/admin/blogs';
+import { useState } from 'react';
 
 const BlogCard = (blog: BlogCardProps) => {
+  const [isHovering, setIsHovering] = useState(false);
   const extractImageUrl = (content: string) => {
     const imgTagMatch = content.match(/<img[^>]+src="([^">]+)"/);
     return imgTagMatch ? imgTagMatch[1] : null;
@@ -24,11 +26,6 @@ const BlogCard = (blog: BlogCardProps) => {
 
   const imageUrl = extractImageUrl(blog.content);
   const authorUrl = extractAuthorUrl(blog.link);
-
-  // Random rotation for neobrutalism effect
-  const rotation = useMemo(() => {
-    return Math.random() * 1 - 0.5; // Between -0.5 and 0.5 degrees
-  }, []);
 
   // Random background color (soft pastel)
   const randomBgColor = useMemo(() => {
@@ -48,12 +45,12 @@ const BlogCard = (blog: BlogCardProps) => {
 
   return (
     <Card
-      className={`w-full h-[440px] flex flex-col overflow-hidden ${randomBgColor} 
-        shadow-[5px_5px_0px_0px_rgba(0,0,0)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0)] 
-        transition-all duration-200 cursor-pointer border-2 border-black rounded-md
-        hover:translate-x-[-3px] hover:translate-y-[-3px]`}
-      style={{ transform: `rotate(${rotation}deg)` }}
+      className={`w-full h-[420px] sm:h-[440px] flex flex-col overflow-hidden ${randomBgColor} 
+        shadow-[5px_5px_0px_0px_rgba(0,0,0)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0)] transition-all duration-200 
+      border-2 border-black rounded-md ${isHovering ? 'translate-x-[-3px] translate-y-[-3px]' : ''}`}
       onClick={handleCardClick}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
     >
       <CardHeader className="p-0">
         <div className="h-[180px] relative overflow-hidden border-b-2 border-black">
