@@ -2,9 +2,10 @@ import './globals.css';
 import { dmSans, geistMono, geistSans, poppins, productSans } from './fonts';
 import { Toaster } from '@/components/ui/sonner';
 import HOC from '@/components/shared/hoc/HOC';
-import { metadata } from '@/config/seo/metadata';
+import { homeMetadata } from '@/config/seo/metadata';
+import { Metadata } from 'next';
 
-export { metadata };
+export const metadata: Metadata = homeMetadata;
 
 export default function RootLayout({
   children,

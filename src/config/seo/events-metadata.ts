@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 
 export const eventsMetadata: Metadata = {
-  title: 'Events | GDSC NIT Rourkela',
+  title: 'Events | GDG on Campus NITR',
   description:
-    'Discover upcoming and past tech events, workshops, and seminars organized by Google Developer Student Club at NIT Rourkela',
+    'Discover upcoming and past tech events, workshops, and seminars organized by GDG on Campus NITR',
   keywords: [
     'GDSC',
     'NIT Rourkela',
@@ -15,17 +15,17 @@ export const eventsMetadata: Metadata = {
     'developer meetups',
   ],
   openGraph: {
-    title: 'Events | GDSC NIT Rourkela',
+    title: 'Events | GDG on Campus NITR',
     description:
-      'Discover upcoming and past tech events, workshops, and seminars organized by Google Developer Student Club at NIT Rourkela',
+      'Discover upcoming and past tech events, workshops, and seminars organized by GDG on Campus NITR',
     images: ['/opengraph-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Events | GDSC NIT Rourkela',
+    title: 'Events | GDG on Campus NITR',
     description:
-      'Discover upcoming and past tech events, workshops, and seminars organized by Google Developer Student Club at NIT Rourkela',
+      'Discover upcoming and past tech events, workshops, and seminars organized by GDG on Campus NITR',
     images: ['/opengraph-image.png'],
     creator: '@dscnitrourkela',
     site: '@dscnitrourkela',

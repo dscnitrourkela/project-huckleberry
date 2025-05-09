@@ -2,13 +2,13 @@ import { Metadata } from 'next';
 
 export const baseUrl = 'http://localhost:3000';
 
-export const metadata: Metadata = {
+export const homeMetadata: Metadata = {
   title: {
-    default: 'GDSC NIT Rourkela',
-    template: '%s | GDSC NIT Rourkela',
+    default: 'GDG on Campus NITR',
+    template: '%s | GDG on Campus NITR',
   },
   description:
-    'Google Developer Student Clubs at NIT Rourkela - Building for the future with student-led technology communities',
+    'GDG on Campus NITR - Building for the future with student-led technology communities',
   keywords: [
     'GDSC',
     'Google',
@@ -19,32 +19,32 @@ export const metadata: Metadata = {
     'Technology',
     'Community',
   ],
-  authors: [{ name: 'GDSC NIT Rourkela Team' }],
-  creator: 'GDSC NIT Rourkela',
-  publisher: 'GDSC NIT Rourkela',
+  authors: [{ name: 'GDG on Campus NITR Team' }],
+  creator: 'GDG on Campus NITR',
+  publisher: 'GDG on Campus NITR',
   metadataBase: new URL(`${baseUrl}`),
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: `${baseUrl}`,
-    siteName: 'GDSC NIT Rourkela',
-    title: 'GDSC NIT Rourkela',
+    siteName: 'GDG on Campus NITR',
+    title: 'GDG on Campus NITR',
     description:
-      'Google Developer Student Clubs at NIT Rourkela - Building for the future with student-led technology communities',
+      'GDG on Campus NITR - Building for the future with student-led technology communities',
     images: [
       {
         url: '/opengraph-image.png',
         width: 1200,
         height: 630,
-        alt: 'GDSC NIT Rourkela',
+        alt: 'GDG on Campus NITR',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GDSC NIT Rourkela',
+    title: 'GDG on Campus NITR',
     description:
-      'Google Developer Student Clubs at NIT Rourkela - Building for the future with student-led technology communities',
+      'GDG on Campus NITR - Building for the future with student-led technology communities',
     creator: '@dscnitrourkela',
     images: ['/opengraph-image.png'],
   },
