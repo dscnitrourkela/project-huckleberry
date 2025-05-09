@@ -89,10 +89,9 @@ export default {
         'geist-sans': 'var(--font-geist-sans)',
         'geist-mono': 'var(--font-geist-mono)',
         dm: 'var(--font-dm-sans)',
-        'product-sans-regular': 'var(--font-product-sans-regular)',
-        'product-sans-black': 'var(--font-product-sans-black)',
         poppins: 'var(--font-poppins)',
         mono: ['Roboto Mono', 'monospace'],
+        productsans: ['var(--font-product-sans)'],
       },
       keyframes: {
         'accordion-down': {

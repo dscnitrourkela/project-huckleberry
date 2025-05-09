@@ -40,7 +40,7 @@ export default function PublicLayout({
 
       {/* Heading + Subtext Block */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 z-10 relative">
-        <div className="bg-white shadow-md px-4 sm:px-6 lg:px-10 py-6 sm:py-8 flex flex-col sm:flex-row justify-between items-center lg:items-center border-y-2 border-black font-product-sans-black text-black gap-6 lg:gap-0">
+        <div className="bg-white shadow-md px-4 sm:px-6 lg:px-10 py-6 sm:py-8 flex flex-col sm:flex-row justify-between items-center lg:items-center border-y-2 border-black font-productsans text-black gap-6 lg:gap-0">
           <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-[#313131]">
             {content.title}
           </h2>
@@ -52,7 +52,7 @@ export default function PublicLayout({
 
       {/* Children */}
       <div className={inter.className}>
-        <main className="px-4 sm:px-6 lg:px-8">{children}</main>
+        <main className="px-4 sm:px-6 lg:px-8 relative z-20">{children}</main>
       </div>
     </div>
   );
@@ -84,6 +84,28 @@ export const pageContent = {
   '/projects': {
     bgColor: '#F0F4FF',
     title: 'Our Projects',
+    description: (
+      <>
+        At Vero Et Accusamus Et
+        <br />
+        Lusto Odio Dignissimos The.
+      </>
+    ),
+  },
+  '/resources': {
+    bgColor: '#FFF4EC',
+    title: 'Resources',
+    description: (
+      <>
+        At Vero Et Accusamus Et
+        <br />
+        Lusto Odio Dignissimos The.
+      </>
+    ),
+  },
+  '/team': {
+    bgColor: '#E8F5EE',
+    title: 'Our Team',
     description: (
       <>
         At Vero Et Accusamus Et

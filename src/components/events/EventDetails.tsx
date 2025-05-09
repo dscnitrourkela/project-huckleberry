@@ -27,7 +27,7 @@ interface EventDetailProps {
 const EventDetail = ({ eventID }: EventDetailProps) => {
   const event = getEventById(eventID);
   return (
-    <div className="min-h-screen flex flex-col font-product-sans-regular tracking-wide">
+    <div className="min-h-screen flex flex-col font-productsans font-medium tracking-wide">
       <main className="flex-1 px-4 sm:px-6 md:px-8 lg:px-16 max-w-7xl mx-auto w-full">
         <div className="py-10">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-center">

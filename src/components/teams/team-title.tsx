@@ -14,7 +14,7 @@ export default function TeamTitle({
         <Divider />
       </div>
       <h2
-        className={`text-4xl font-semibold font-poppins whitespace-nowrap px-4 ${textColor}`}
+        className={`text-5xl font-semibold font-productsans whitespace-nowrap px-4 ${textColor}`}
       >
         {title}
       </h2>
