@@ -3,12 +3,11 @@ import { getPublishedRepos } from '@/actions/projects';
 import { getAllEvents } from '@/actions/events';
 import { getAllMembers } from '@/actions/members';
 import { getTweetsFromDB } from '@/actions/tweets';
+import { baseUrl } from '@/config/seo/metadata';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'http://localhost:3000';
   const currentDate = new Date();
 
-  // Static routes with appropriate priorities
   const staticRoutes = [
     { route: '', priority: 1.0, changeFrequency: 'weekly' as const },
     { route: '/resources', priority: 0.8, changeFrequency: 'weekly' as const },
@@ -25,7 +24,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority,
   }));
 
-  // Dynamic project routes
   let projectRoutes: MetadataRoute.Sitemap = [];
   try {
     const projectsResult = await getPublishedRepos();
@@ -44,7 +42,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error('Error generating project sitemap entries:', error);
   }
 
-  // Dynamic event routes
   let eventRoutes: MetadataRoute.Sitemap = [];
   try {
     const eventsResult = await getAllEvents();
@@ -61,6 +58,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error('Error generating event sitemap entries:', error);
   }
 
-  // Return combined sitemap with all routes
   return [...staticRoutes, ...projectRoutes, ...eventRoutes];
 }

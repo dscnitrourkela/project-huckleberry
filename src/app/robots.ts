@@ -1,8 +1,7 @@
 import { MetadataRoute } from 'next';
+import { baseUrl } from '@/config/seo/metadata';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'http://localhost:3000';
-
   return {
     rules: [
       {

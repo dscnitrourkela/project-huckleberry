@@ -3,6 +3,7 @@ import { getEvent } from '@/actions/events';
 import { formatTimestamp } from '@/utils';
 import EventStructuredData from '@/components/seo/event-structured-data';
 import { useState, useEffect } from 'react';
+import { baseUrl } from '@/config/seo/metadata';
 
 type Props = {
   params: { id: string };
@@ -37,14 +38,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       'tech event',
     ],
     alternates: {
-      canonical: `https://gdscnitrourkela.org/events/${id}`,
+      canonical: `${baseUrl}/events/${id}`,
     },
     openGraph: {
       title: `${event.title} | GDSC NIT Rourkela`,
       description:
         event.description.substring(0, 160) +
         (event.description.length > 160 ? '...' : ''),
-      url: `https://gdscnitrourkela.org/events/${id}`,
+      url: `${baseUrl}/events/${id}`,
       images: [
         {
           url: event.coverImage || '/opengraph-image.png',
@@ -103,7 +104,7 @@ export default function EventPage({ params }: Props) {
         startDate={startDate}
         location={event.location || 'NIT Rourkela'}
         imageUrl={event.coverImage}
-        eventUrl={`https://gdscnitrourkela.org/events/${id}`}
+        eventUrl={`${baseUrl}/events/${id}`}
         organizer="GDSC NIT Rourkela"
       />
 
