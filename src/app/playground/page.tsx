@@ -1,11 +1,10 @@
 'use client';
 import React from 'react';
-import { Heading } from './styles';
 
 const page = () => {
   return (
     <div>
-      <Heading>Playground</Heading>
+      <h1>Playground</h1>
     </div>
   );
 };

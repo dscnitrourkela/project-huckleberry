@@ -91,6 +91,7 @@ export default {
         dm: 'var(--font-dm-sans)',
         poppins: 'var(--font-poppins)',
         mono: ['Roboto Mono', 'monospace'],
+        productsans: ['var(--font-product-sans)'],
       },
       keyframes: {
         'accordion-down': {

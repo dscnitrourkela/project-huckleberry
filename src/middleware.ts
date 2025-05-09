@@ -12,17 +12,9 @@ export async function middleware(request) {
   }
 
   if (
-    request.nextUrl.pathname.startsWith('/admin') ||
-    request.nextUrl.pathname.startsWith('/api')
+    request.nextUrl.pathname.startsWith('/admin')
   ) {
     if (!session?.user) {
-      if (request.nextUrl.pathname.startsWith('/api')) {
-        return new NextResponse(JSON.stringify({ error: 'Unauthorized' }), {
-          status: 401,
-          headers: { 'Content-Type': 'application/json' },
-        });
-      }
-
       return NextResponse.redirect(new URL('/login', request.url));
     }
   }
@@ -31,5 +23,5 @@ export async function middleware(request) {
 }
 
 export const config = {
-  matcher: ['/login', '/admin/:path*', '/api/:path*'],
+  matcher: ['/login', '/admin/:path*'],
 };
