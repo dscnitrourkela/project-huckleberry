@@ -37,19 +37,18 @@ const projectsData = [
 
 export default function ProjectsSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-white to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-white to-blue-50 mr-14 ml-14">
       <div className="container mx-auto px-20">
-        <div className="border-t border-b border-gray-500 py-10 mb-10 flex justify-between">
-          <h2 className="text-8xl font-extrabold font-productsans text-gray-800">
+        <div className="border-t border-b border-gray-500 py-10 mb-10 flex bg-white justify-between">
+          <h2 className="text-8xl font-extrabold font-productsans  text-gray-800">
             Our Projects
           </h2>
-          <p className="text-gray-800 mt-2 font-productsans text-2xl font-bold max-w-md ml-auto text-right">
-            We are a group of passionate developers who love to work on open
-            source projects.
+          <p className="text-gray-800 mt-2 font-productsans text-2xl font-extrabold max-w-md ml-auto text-center py-4">
+            At Vero Et Accusamus Et lusto Odio Dignissimos The.
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto py-10 space-y-20">
           {projectsData.map((project, index) => (
             <ProjectCard
               key={index}

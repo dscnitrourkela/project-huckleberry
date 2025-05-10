@@ -1,5 +1,6 @@
 import { Github } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface ProjectCardProps {
   name: string;
@@ -18,13 +19,17 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <div
-      className={`rounded-lg p-8 mb-8 ${bgColor} border-2 border-gray-800 shadow-md w-full max-w-6xl`}
+      className={`rounded-lg p-8 mb-8 ${bgColor} border-2 border-gray-600 shadow-md w-full max-w-6xl`}
     >
       <h3 className="text-3xl font-bold text-gray-900 mb-4">{name}</h3>
 
       <div className="mb-6">
-        <p className="text-lg font-bold text-blue-600 mb-2">Description</p>
-        <p className="text-base font-medium text-gray-900">{description}</p>
+        <p className="text-lg font-bold font-productsans text-blue-600 mb-2">
+          Description
+        </p>
+        <p className="text-base font-medium text-gray-900 text-left w-3/5 whitespace-pre-line">
+          {description}
+        </p>
       </div>
 
       <div className="flex justify-between items-center mt-8">
@@ -39,28 +44,20 @@ export default function ProjectCard({
 
         <div className="flex items-center space-x-4">
           <div className="flex items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+            <Image
+              src="https://res.cloudinary.com/djmnk7cvv/image/upload/v1746862477/git-pull-request-svgrepo-com_madcpf.svg"
+              alt="GitHub"
+              width={20}
+              height={20}
               className="mr-2"
-            >
-              <path d="M12 20V10" />
-              <path d="M18 20V4" />
-              <path d="M6 20v-4" />
-            </svg>
+            />
+            <span className="text-gray-700 mx-2">|</span>
             <span className="font-medium text-lg">{count}</span>
           </div>
 
           <Link
             href={githubUrl}
-            className="flex items-center bg-blue-600 text-white px-5 py-4 rounded-md text-base font-medium border-gra- border-2 shadow-lg hover:bg-blue-800 transition duration-200"
+            className="flex items-center bg-blue-600 text-white px-5 py-4 rounded-md text-base font-medium border-gray-600 border-2 shadow-lg hover:bg-blue-800 transition duration-200"
           >
             <Github size={20} className="mr-2" />
             View GitHub

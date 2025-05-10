@@ -15,10 +15,6 @@ export default function Home() {
           className="absolute top-50 right-10 w-96 h-96 rounded-full bg-gdg-green/10 animate-float z-0"
           style={{ animationDelay: '1s' }}
         ></div>
-        <div
-          className="absolute top-1/3 right-1/6 w-[600px] h-[600px] rounded-full bg-gdg-yellow/10 animate-float z-0"
-          style={{ animationDelay: '1s' }}
-        ></div>
       </div>
 
       {/* Header */}
