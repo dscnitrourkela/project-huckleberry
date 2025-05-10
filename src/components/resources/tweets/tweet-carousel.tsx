@@ -11,7 +11,6 @@ import {
 } from '@/components/ui/carousel';
 import { Tweet } from '@/types/admin/tweets';
 import { fetchTweetsFromDB } from '@/handlers/tweets/tweetHandlers';
-import { PageHeader, PageHeaderDescription } from '@/components/ui/page-header';
 
 export default function TweetCarousel() {
   const [tweets, setTweets] = useState<Tweet[]>([]);
@@ -34,20 +33,18 @@ export default function TweetCarousel() {
   }, []);
 
   return (
-    <section>
-      <PageHeader className="text-center font-productsan mb-5 mt-20 px-4 py-4 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl font-black text-black bg-green-300">
+    <section className="w-full max-w-7xl pt-6 sm:pt-8  sm:px-6 lg:px-8">
+      <h2 className="text-3xl sm:text-4xl text-center sm:text-left md:text-5xl xl:text-6xl font-bold sm:pl-12 text-black font-productsans">
         Latest Tweets
-      </PageHeader>
-      <PageHeaderDescription className="text-center mx-auto mb-10 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed sm:mt-6 lg:mt-4 px-4 py-2 bg-transparent max-w-3xl font-medium">
-        Stay updated with our latest tweets and insights from the community.
-      </PageHeaderDescription>
+      </h2>
+
       <div className="relative min-h-[500px]">
         {loading ? (
           <div className="flex justify-center items-center min-h-[500px]">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
           </div>
         ) : tweets.length === 0 ? (
-          <div className="text-center py-20 bg-white/80 dark:bg-card/80 rounded-lg shadow-sm min-h-[500px]">
+          <div className="text-center py-20  rounded-lg shadow-sm min-h-[500px]">
             <p className="text-muted-foreground text-lg">No tweets available</p>
           </div>
         ) : (
@@ -65,7 +62,7 @@ export default function TweetCarousel() {
               {tweets.map((tweet) => (
                 <CarouselItem
                   key={tweet.id}
-                  className=" lg:basis-1/3 px-4 pt-4"
+                  className="lg:basis-1/2 xl:basis-1/3 px-4 pt-4"
                 >
                   <div className="h-full flex items-center">
                     <TweetCard tweet={tweet} />

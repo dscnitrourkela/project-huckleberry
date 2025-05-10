@@ -13,7 +13,7 @@
     "reset": "prisma migrate reset",
     "studio": "prisma studio",
     "prepare": "husky",
-    "lint:fix": "eslint \"src/**/*.{js,jsx}\" --fix",
+    "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
     "prettier": "prettier --check \"./**/*.{ts,tsx,js,jsx,css,scss,md}\" --ignore-path .gitignore",
     "prettier:check": "prettier --check \"./**/*.{ts,tsx,js,jsx,css,scss,md}\" --ignore-path .gitignore",
     "prettier:fix": "prettier --write \"./**/*.{ts,tsx,js,jsx,css,scss,md}\" --ignore-pattern node_modules/"
