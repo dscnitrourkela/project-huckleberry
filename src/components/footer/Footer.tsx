@@ -8,13 +8,19 @@ import {
   FaMedium,
 } from 'react-icons/fa';
 import { MdLocationOn, MdEmail } from 'react-icons/md';
+import { ReactElement } from 'react';
 import Image from 'next/image';
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
+interface SocialLink {
+  name: string;
+  icon: ReactElement;
+  href: string;
+}
 
-  // Social media links
-  const socialMediaLinks = [
+const Footer: React.FC = () => {
+  const currentYear: number = new Date().getFullYear();
+
+  const socialMediaLinks: SocialLink[] = [
     {
       name: 'Instagram',
       icon: <FaInstagram size={20} />,
@@ -45,7 +51,6 @@ const Footer = () => {
   return (
     <footer className="relative bg-gray-52 py-12">
       <div className="container mx-auto px-4 max-w-6xl">
-        {/* large dsc logo image*/}
         <div className="absolute -bottom-0 -left-20 -ml-20 -mb-30">
           <Image
             src="/images/dsc-logo-lg.png"
@@ -56,7 +61,6 @@ const Footer = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {/* dsc ka logo and name */}
           <div className="col-span-1">
             <div className="flex flex-col">
               <div className="flex items-center mb-0 -mt-7 ml-20">
@@ -78,12 +82,10 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* social media links */}
           <div className="col-span-1 justify-center ml-20">
             <h3 className="text-gray-800 font-medium mb-6 text-lg">Socials</h3>
 
             <div className="flex space-x-8">
-              {/* Left column with first 3 links */}
               <div className="flex flex-col space-y-4">
                 {socialMediaLinks.slice(0, 3).map((social, index) => (
                   <Link
@@ -99,7 +101,6 @@ const Footer = () => {
                 ))}
               </div>
 
-              {/* Right column with next 2 links */}
               <div className="flex flex-col space-y-4">
                 {socialMediaLinks.slice(3, 5).map((social, index) => (
                   <Link
@@ -117,7 +118,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* contact information */}
           <div className="col-span-1 justify-end ml-20">
             <h3 className="text-gray-800 font-medium mb-6 text-lg">Contact</h3>
             <div className="mb-6">
@@ -135,7 +135,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* description and cta section */}
         <div className="mb-8 md:pl-0 md:pr-0 md:w-3/4 mx-auto text-center justify-center">
           <h3 className="text-gray-700 mb-6 ml-80 text-lg font-semibold text-left">
             Don't Code Alone,
@@ -150,10 +149,8 @@ const Footer = () => {
           </Link>
         </div>
 
-        {/* divider */}
         <div className="border-t border-gray-200 my-8"></div>
 
-        {/* copyright */}
         <div className="text-center">
           <p className="text-gray-600 text-sm -ml-7">
             &copy;{currentYear} GDG NIT ROURKELA
