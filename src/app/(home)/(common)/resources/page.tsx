@@ -1,5 +1,11 @@
+     
 import TweetCarousel from '@/components/resources/tweets/tweet-carousel';
 import BlogCarousel from '@/components/resources/blogs/blog-carousel';
+import { resourcesMetadata } from '@/config/seo/resources-metadata';
+import { Metadata } from 'next';
+import React from 'react';
+
+export const metadata: Metadata = resourcesMetadata;
 
 export default function ResourcesPage() {
   return (
@@ -8,4 +14,4 @@ export default function ResourcesPage() {
       <BlogCarousel />
     </div>
   );
-}
+
