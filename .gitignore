@@ -47,3 +47,4 @@ bun.lock
 bun.lockb
 
 extensions.json
+.vscode/settings.json

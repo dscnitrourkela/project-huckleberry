@@ -1,6 +1,4 @@
 export interface Tweet {
-  username: string;
-  profileImageUrl: any;
   id: string;
   text: string;
   created_at: string;
@@ -25,6 +23,9 @@ export interface TweetCardProps {
       like_count: number;
       quote_count: number;
     };
+    username?: string;
+    displayname?: string;
+    avatarUrl?: string;
   };
 }
 

@@ -12,7 +12,7 @@ function page() {
     <div className="relative overflow-hidden ">
       {/* Event Cards */}
       <div className="w-full space-y-12 px-4 sm:px-8 max-w-7xl mx-auto pb-16">
-        {events.map((event, index) => (
+        {events.map((event) => (
           <EventsCard
             key={event.id}
             id={event.id}

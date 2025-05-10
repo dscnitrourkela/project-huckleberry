@@ -9,6 +9,7 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from '@/components/ui/page-header';
+import { BlogCardProps } from '@/types/admin/blogs';
 
 const Blogs = () => {
   const [blogList, setBlogList] = useState([]);
@@ -35,7 +36,9 @@ const Blogs = () => {
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {blogList.length > 0 &&
-          blogList.map((blog: any) => <BlogCard blog={blog} key={blog.link} />)}
+          blogList.map((blog: BlogCardProps) => (
+            <BlogCard {...blog} key={blog.link} />
+          ))}
       </div>
     </Container>
   );

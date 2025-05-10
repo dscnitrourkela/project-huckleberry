@@ -1,16 +1,17 @@
-import Blogs from '@/components/admin/blogs/blogs';
+     
+import TweetCarousel from '@/components/resources/tweets/tweet-carousel';
+import BlogCarousel from '@/components/resources/blogs/blog-carousel';
 import { resourcesMetadata } from '@/config/seo/resources-metadata';
 import { Metadata } from 'next';
 import React from 'react';
 
 export const metadata: Metadata = resourcesMetadata;
 
-const page = () => {
+export default function ResourcesPage() {
   return (
-    <div>
-      <Blogs />
+    <div className="mx-auto container px-0 sm:px-8">
+      <TweetCarousel />
+      <BlogCarousel />
     </div>
   );
-};
 
-export default page;
