@@ -1,12 +1,11 @@
-import Blogs from '@/components/admin/blogs/blogs';
-import React from 'react';
+import TweetCarousel from '@/components/resources/tweets/tweet-carousel';
+import BlogCarousel from '@/components/resources/blogs/blog-carousel';
 
-const page = () => {
+export default function ResourcesPage() {
   return (
-    <div>
-      <Blogs />
+    <div className="mx-auto container px-0 sm:px-8">
+      <TweetCarousel />
+      <BlogCarousel />
     </div>
   );
-};
-
-export default page;
+}
