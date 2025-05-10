@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/carousel';
 import { Tweet } from '@/types/admin/tweets';
 import { fetchTweetsFromDB } from '@/handlers/tweets/tweetHandlers';
+import Loader from '@/components/shared/loader';
 
 export default function TweetCarousel() {
   const [tweets, setTweets] = useState<Tweet[]>([]);
@@ -41,7 +42,7 @@ export default function TweetCarousel() {
       <div className="relative min-h-[500px]">
         {loading ? (
           <div className="flex justify-center items-center min-h-[500px]">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+            <Loader />
           </div>
         ) : tweets.length === 0 ? (
           <div className="text-center py-20  rounded-lg shadow-sm min-h-[500px]">
