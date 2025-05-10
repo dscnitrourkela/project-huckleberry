@@ -24,7 +24,7 @@ export default function PublicLayout({
         imageUrl={content.imageUrl}
       />
       {/* Main Content */}
-      <main className="px-4 sm:px-6 lg:px-8 relative z-20">{children}</main>
+      <main className="relative z-20">{children}</main>
     </div>
   );
 }
