@@ -43,7 +43,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-gray-50 py-12">
+    <footer className="relative bg-gray-52 py-12">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* large dsc logo image*/}
         <div className="absolute -bottom-0 -left-20 -ml-20 -mb-30">
@@ -103,7 +103,7 @@ const Footer = () => {
               <div className="flex flex-col space-y-4">
                 {socialMediaLinks.slice(3, 5).map((social, index) => (
                   <Link
-                    key={index + 3} // Adjust key to avoid duplicates
+                    key={index + 3}
                     href={social.href}
                     className="flex items-center text-gray-600 hover:text-blue-500 transition-colors"
                     target="_blank"
