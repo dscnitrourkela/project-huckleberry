@@ -8,12 +8,12 @@ body {
 
 @font-face {
   font-family: 'Product Sans';
-  src: url('../public/fonts/productsansfull/ProductSans-Bold.ttf')
+  src: url('../../public/fonts/productsansfull/ProductSans-Bold.ttf')
     format('truetype');
 }
 @font-face {
   font-family: 'Product Sans Light';
-  src: url('../public/fonts/productsansfull/ProductSans-Light.ttf')
+  src: url('../..//public/fonts/productsansfull/ProductSans-Light.ttf')
     format('truetype');
 }
 
@@ -113,7 +113,7 @@ body {
 }
 
 #hero {
-  background-image: url('../public/herobg.png');
+  background-image: url('../../public/herobg.png');
   background-size: cover;
   background-position: center;
 }
