@@ -1,89 +1,95 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import ProjectsSection from '@/app/(home)/(common)/projects/projects-section';
+'use client';
 
-export default function Home() {
-  return (
-    <div className="min-h-screen w-full overflow-hidden relative bg-gradient-to-br from-white to-blue-50 flex flex-col">
-      {/* Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-        <div
-          className="absolute top-10 left-10 w-56 h-56 rounded-full bg-gdg-blue/10 animate-float"
-          style={{ animationDelay: '0s' }}
-        ></div>
-        <div
-          className="absolute top-50 right-10 w-96 h-96 rounded-full bg-gdg-green/10 animate-float z-0"
-          style={{ animationDelay: '1s' }}
-        ></div>
-      </div>
+import { useEffect, useState } from 'react';
+import ProjectCard from '@/components/projects/projects-card';
+import { GitHubRepo } from '@/types/projects';
+import { fetchRepos, getPublishedRepos } from '@/actions/projects';
+import Loader from '@/components/shared/loader';
 
-      {/* Header */}
-      <header className="relative z-10 container mx-auto px-9 py-4 flex justify-between items-center">
-        <div className="flex items-center">
-          <Image
-            src="https://res.cloudinary.com/djmnk7cvv/image/upload/v1746851582/AL_GDG_Short_hmdok8.png"
-            alt="Google Developer Groups"
-            width={200}
-            height={50}
-            className="mr-0 ml-10"
-          />
-        </div>
+const bgColors = ['bg-blue-100', 'bg-yellow-50', 'bg-purple-50', 'bg-green-50'];
 
-        <nav className="hidden md:flex items-center space-x-6 mr-4">
-          <Link
-            href="/"
-            className="text-gray-600  font-bold hover:text-blue-600 font-large"
-          >
-            Home
-          </Link>
-          <Link
-            href="/about"
-            className="text-gray-600 font-bold hover:text-blue-600 font-large"
-          >
-            About us
-          </Link>
-          <Link
-            href="/events"
-            className="text-gray-600 font-bold hover:text-blue-600 font-large"
-          >
-            Events
-          </Link>
-          <Link
-            href="/projects"
-            className="text-gray-600 font-bold hover:text-blue-600 font-large"
-          >
-            Projects
-          </Link>
-          <Link
-            href="/team"
-            className="text-gray-600 font-bold hover:text-blue-600 font-large"
-          >
-            Team
-          </Link>
-          <Link
-            href="/join"
-            className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition"
-          >
-            Join Community
-          </Link>
-        </nav>
-      </header>
+export default function ProjectsPage() {
+  const [repos, setRepos] = useState<GitHubRepo[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-      {/* Hero Section */}
-      <section className="relative z-10 container mx-auto px-4 py-8">
-        <div className="rounded-lg overflow-hidden max-w-6xl mx-auto">
-          <Image
-            src="https://res.cloudinary.com/dqcrkrtyr/image/upload/v1747039475/banner_iuhyjr.jpg"
-            alt="GDG Event"
-            width={1000}
-            height={400}
-            className="object-cover h-90 rounded-2xl shadow-xl w-full"
-          />
+  useEffect(() => {
+    const fetchRepositories = async () => {
+      const orgName = 'dscnitrourkela';
+      try {
+        const result = await getPublishedRepos();
+        const published: { repo_id: string }[] =
+          result && 'data' in result
+            ? (result.data.data as { repo_id: string }[])
+            : [];
+
+        const data = await fetchRepos(orgName);
+        const filteredRepos = data.filter((repo: GitHubRepo) =>
+          published.some(
+            (publishedRepo: { repo_id: string }) =>
+              publishedRepo.repo_id === repo.id.toString()
+          )
+        );
+
+        setRepos(filteredRepos);
+      } catch (error) {
+        console.error('Error fetching repositories:', error);
+        setError(
+          error instanceof Error ? error.message : 'Failed to load projects'
+        );
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchRepositories();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <section className="py-10 md:py-20 px-4 sm:px-6 md:px-8 lg:px-14">
+        <div className="container mx-auto">
+          <Loader />
         </div>
       </section>
+    );
+  }
 
-      {/* Projects Section */}
-      <ProjectsSection />
-    </div>
+  if (error) {
+    return (
+      <section className="py-10 md:py-20 px-4 sm:px-6 md:px-8 lg:px-14">
+        <div className="container mx-auto">
+          <div className="text-center">
+            <p className="text-red-500 text-lg">Error: {error}</p>
+            <p className="mt-2">Please try refreshing the page.</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="py-10 md:py-20 px-4 sm:px-6 md:px-8 lg:px-14">
+      <div className=" mx-auto">
+        <div className="w-full mx-auto py-6 md:py-10 space-y-10 md:space-y-20">
+          {repos.map((repo, index) => (
+            <ProjectCard
+              key={repo.id}
+              name={repo.name}
+              description={repo.description || 'No description available'}
+              count={repo.contributors?.length || 0}
+              githubUrl={repo.html_url}
+              bgColor={bgColors[index % bgColors.length]}
+              contributors={repo.contributors}
+            />
+          ))}
+          {repos.length === 0 && (
+            <div className="text-center">
+              <p className="text-lg">No published projects found</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
   );
 }
