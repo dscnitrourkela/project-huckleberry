@@ -49,11 +49,11 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="relative bg-gray-52 py-12">
+    <footer className="relative bg-[#FAF8F6] py-12">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="absolute -bottom-0 -left-20 -ml-20 -mb-30">
-          <Image
-            src="/images/dsc-logo-lg.png"
+        <div className="hidden md:block absolute -bottom-0 -left-20 -ml-20 -mb-30">
+          <img
+            src="https://res.cloudinary.com/dwh7xuupf/image/upload/v1747073420/dsc-logo-lg_xly4pi.png"
             alt="dsc-logo"
             width={600}
             height={300}
@@ -61,11 +61,11 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <div className="col-span-1">
+          <div className="col-span-1 mx-auto">
             <div className="flex flex-col">
               <div className="flex items-center mb-0 -mt-7 ml-20">
-                <Image
-                  src="/images/gdg.jpg"
+                <img
+                  src="https://res.cloudinary.com/dwh7xuupf/image/upload/v1747073715/gdg_dgyduw.jpg"
                   alt="GDSC"
                   width={50}
                   height={50}
@@ -136,10 +136,12 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="mb-8 md:pl-0 md:pr-0 md:w-3/4 mx-auto text-center justify-center">
-          <h3 className="text-gray-700 mb-6 ml-80 text-lg font-semibold text-left">
-            Don't Code Alone,
-            <br /> Code For The Community
-          </h3>
+          <div className="mb-8 md:pl-0 md:pr-0 md:w-3/4 mx-auto lg:ml-20 text-center md:text-left">
+            <h3 className="text-gray-700 mb-6 text-lg font-semibold md:ml-60 sm:mx-auto">
+              Join our vibrant tech community and unlock opportunities to learn,
+              network, and grow — apply for GDG NIT Rourkela membership today!
+            </h3>
+          </div>
 
           <Link
             href="/membership"
