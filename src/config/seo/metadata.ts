@@ -53,8 +53,8 @@ export const homeMetadata: Metadata = {
     initialScale: 1,
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
+    icon: '/gdg.ico',
+    shortcut: '/gdg.png',
+    apple: '/gdg.png',
   },
 };
