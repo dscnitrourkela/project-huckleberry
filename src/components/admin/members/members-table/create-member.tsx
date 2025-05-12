@@ -66,8 +66,6 @@ const MemberRegistrationModal = ({
 
   const handleSubmit = async (data: MemberFormSchema) => {
     try {
-      console.log('Form data:', data);
-      console.log('Default values:', defaultValues);
       const finalData = defaultValues?.id
         ? { ...data, id: defaultValues.id }
         : { ...data };

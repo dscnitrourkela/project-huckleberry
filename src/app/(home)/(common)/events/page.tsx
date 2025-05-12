@@ -29,7 +29,6 @@ function Page() {
       }
       // @ts-ignore
       setEvents(response.data.events);
-      console.log(response);
     } catch (error) {
       console.log(error);
       toast.error('Error fetching events');
