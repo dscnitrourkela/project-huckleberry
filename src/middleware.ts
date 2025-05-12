@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { auth } from '@/auth';
 
 export async function middleware(request) {
-  const publicRoutes = ['/', '/team'];
+  const publicRoutes = ['/', '/team', '/landingPage'];
 
   if (publicRoutes.includes(request.nextUrl.pathname)) {
     return NextResponse.next();
