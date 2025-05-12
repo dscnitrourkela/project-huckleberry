@@ -9,7 +9,6 @@ import {
 } from 'react-icons/fa';
 import { MdLocationOn, MdEmail } from 'react-icons/md';
 import { ReactElement } from 'react';
-import Image from 'next/image';
 
 interface SocialLink {
   name: string;

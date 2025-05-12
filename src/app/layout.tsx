@@ -3,6 +3,7 @@ import './globals.css';
 import { dmSans, geistMono, geistSans, poppins, productSans } from './fonts';
 import { Toaster } from '@/components/ui/sonner';
 import HOC from '@/components/shared/hoc/HOC';
+import Footer from '@/config/marginals/Footer';
 
 export const metadata: Metadata = {
   title: 'DSC NIT Rourkela',
@@ -21,6 +22,7 @@ export default function RootLayout({
       >
         <Toaster position="top-right" />
         <HOC>{children}</HOC>
+        <Footer />
       </body>
     </html>
   );
