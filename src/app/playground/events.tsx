@@ -6,15 +6,11 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 
 const EventsSection: React.FC = () => {
   const eventsToShow = sampleEvents.slice(0, 3);
-
-  // Ensure you have events to show
   if (eventsToShow.length === 0) {
     return null;
   }
@@ -24,8 +20,7 @@ const EventsSection: React.FC = () => {
       <h2 className="text-5xl md:text-5xl font-bold text-center mb-8 md:mb-12 text-gray-800">
         Upcoming Events
       </h2>
-
-      <div className="md:hidden px-4">
+      <div className="md:hidden">
         <Carousel
           className="w-full relative"
           plugins={[
@@ -34,7 +29,7 @@ const EventsSection: React.FC = () => {
             }),
           ]}
         >
-          <CarouselContent>
+          <CarouselContent className="px-1">
             {eventsToShow.map((event) => (
               <CarouselItem key={event.id}>
                 <EventCard event={event} />
@@ -44,14 +39,12 @@ const EventsSection: React.FC = () => {
         </Carousel>
       </div>
 
-      {/* Desktop Grid View (visible from md breakpoint and up) */}
       <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {eventsToShow.map((event) => (
           <EventCard key={event.id} event={event} />
         ))}
       </div>
 
-      {/* View All button */}
       <div className="text-center mt-8 md:mt-12">
         <Link
           href="/events"

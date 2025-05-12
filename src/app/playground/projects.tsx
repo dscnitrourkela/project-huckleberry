@@ -7,8 +7,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 const ProjectsSection: React.FC = () => {
@@ -26,12 +24,9 @@ const ProjectsSection: React.FC = () => {
       <div className="md:hidden px-4">
         <Carousel
           className="w-full relative"
-          // Configure autoplay plugin
           plugins={[
             Autoplay({
-              delay: 3000, // Auto-slide delay in milliseconds (e.g., 4 seconds)
-              // stopOnLastSnap: true, // Optional: Stop autoplay after the last slide
-              // stopOnInteraction: true, // Optional: Stop autoplay on user interaction
+              delay: 3000,
             }),
           ]}
         >

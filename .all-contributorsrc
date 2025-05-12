@@ -4,7 +4,9 @@
   "repoType": "github",
   "repoHost": "https://github.com",
   "repoOwner": "dscnitrourkela",
-  "files": ["README.md"],
+  "files": [
+    "README.md"
+  ],
   "imageSize": 100,
   "commit": true,
   "commitConvention": "eslint",
@@ -14,44 +16,102 @@
       "name": "Ayush",
       "avatar_url": "https://avatars.githubusercontent.com/u/135319056?v=4",
       "profile": "https://ayussh.vercel.app/",
-      "contributions": ["code"]
+      "contributions": [
+        "code"
+      ]
     },
     {
       "login": "Cybrite",
       "name": "Harsh",
       "avatar_url": "https://avatars.githubusercontent.com/u/140698710?v=4",
       "profile": "https://github.com/Cybrite",
-      "contributions": ["code"]
+      "contributions": [
+        "code"
+      ]
     },
     {
       "login": "siddharth-narayan-mishra",
       "name": "siddharth",
       "avatar_url": "https://avatars.githubusercontent.com/u/138509510?v=4",
       "profile": "https://github.com/siddharth-narayan-mishra",
-      "contributions": ["code"]
+      "contributions": [
+        "code"
+      ]
     },
     {
       "login": "swaindhruti",
       "name": "Dhrutinandan Swain",
       "avatar_url": "https://avatars.githubusercontent.com/u/92504849?v=4",
       "profile": "https://github.com/swaindhruti",
-      "contributions": ["code"]
+      "contributions": [
+        "code"
+      ]
     },
     {
       "login": "AYANscyy2",
       "name": "Ayan",
       "avatar_url": "https://avatars.githubusercontent.com/u/180634057?v=4",
       "profile": "https://portfolioscyy.netlify.app/playground",
-      "contributions": ["code"]
+      "contributions": [
+        "code"
+      ]
     },
     {
       "login": "HIMANSHU6001",
       "name": "Himanshu Kaushik",
       "avatar_url": "https://avatars.githubusercontent.com/u/92459082?v=4",
       "profile": "https://github.com/HIMANSHU6001",
-      "contributions": ["code"]
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "NishkarshG",
+      "name": "Nishkarsh Gupta",
+      "avatar_url": "https://avatars.githubusercontent.com/u/143815191?v=4",
+      "profile": "https://github.com/NishkarshG",
+      "contributions": [
+        "design"
+      ]
+    },
+    {
+      "login": "somnath-07",
+      "name": "somnath-07",
+      "avatar_url": "https://avatars.githubusercontent.com/u/138187553?v=4",
+      "profile": "https://github.com/somnath-07",
+      "contributions": [
+        "design"
+      ]
+    },
+    {
+      "login": "pseudomidget",
+      "name": "pseudomidget",
+      "avatar_url": "https://avatars.githubusercontent.com/u/157236850?v=4",
+      "profile": "https://github.com/pseudomidget",
+      "contributions": [
+        "design"
+      ]
+    },
+    {
+      "login": "Srish-ty",
+      "name": "Srishty Mangutte",
+      "avatar_url": "https://avatars.githubusercontent.com/u/68679980?v=4",
+      "profile": "https://linktr.ee/m_srishty",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "BlessedAmrita",
+      "name": "BlessedAmrita",
+      "avatar_url": "https://avatars.githubusercontent.com/u/153388147?v=4",
+      "profile": "https://github.com/BlessedAmrita",
+      "contributions": [
+        "code"
+      ]
     }
   ],
-  "contributorsPerLine": 7,
-  "linkToUsage": true
+  "contributorsPerLine": 6,
+  "linkToUsage": true,
+  "commitType": "docs"
 }

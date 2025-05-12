@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import Loader from '@/components/ui/loader';
+import Loader from '@/components/shared/loader';
 import Link from 'next/link';
 
 export const StatCard = ({

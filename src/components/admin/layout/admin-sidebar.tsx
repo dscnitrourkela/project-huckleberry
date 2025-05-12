@@ -1,69 +1,16 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import {
-  ChevronLeft,
-  ChevronRight,
-  LayoutDashboard,
-  Users,
-  Calendar,
-  Twitter,
-  Layers,
-  LogOut,
-  Menu,
-  User,
-} from 'lucide-react';
+import { ChevronLeft, ChevronRight, LogOut, Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import GoogleColorsBar from '@/components/shared/google-colors-bar';
 import { useAuth } from '@/contexts/auth-context';
 import Image from 'next/image';
-const navItems = [
-  {
-    name: 'Dashboard',
-    href: '/admin',
-    icon: LayoutDashboard,
-    color: 'text-gdg-blue',
-  },
-  {
-    name: 'Members',
-    href: '/admin/members',
-    icon: Users,
-    color: 'text-gdg-blue',
-  },
-  {
-    name: 'Events',
-    href: '/admin/events',
-    icon: Calendar,
-    color: 'text-gdg-yellow',
-  },
-  {
-    name: 'Tweets',
-    href: '/admin/tweets',
-    icon: Twitter,
-    color: 'text-gdg-red',
-  },
-  {
-    name: 'Manage Projects',
-    href: '/admin/publish-projects',
-    icon: Layers,
-    color: 'text-gdg-green',
-  },
-  {
-    name: 'All Projects',
-    href: '/admin/projects',
-    icon: Layers,
-    color: 'text-gdg-green',
-  },
-  {
-    name: 'My Profile',
-    href: '/admin/profile',
-    icon: User,
-    color: 'text-gray-500',
-  },
-];
+import { LOGO } from '@/config/common';
+import { navItems } from '@/config/admin';
 
 type SidebarProps = {
   className?: string;
@@ -74,6 +21,13 @@ export default function Sidebar({ className }: SidebarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
   const { user } = useAuth();
+
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      '--sidebar-width',
+      collapsed ? '70px' : '250px'
+    );
+  }, [collapsed]);
 
   return (
     <>
@@ -102,11 +56,11 @@ export default function Sidebar({ className }: SidebarProps) {
         )}
       >
         <div className="flex flex-col h-full">
-          <div className="h-16 flex items-center px-4 border-b">
+          <div className="h-16 flex items-center px-4">
             <div className="flex items-center space-x-2">
               <div className="relative w-8 h-8 rounded-full overflow-hidden">
                 <Image
-                  src="/src/public/gdg.jpg"
+                  src={LOGO}
                   alt={user?.name || 'GDSC logo'}
                   fill
                   className="object-cover"

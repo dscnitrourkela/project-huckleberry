@@ -7,11 +7,11 @@ import Info from '@/app/playground/info';
 import ProjectsSection from '@/app/playground/projects';
 const Index = () => {
   return (
-    <>
+    <div className="font-productsans">
       <Info />
       <EventsSection />
       <ProjectsSection />
-    </>
+    </div>
   );
 };
 

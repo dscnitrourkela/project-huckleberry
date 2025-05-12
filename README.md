@@ -2,14 +2,14 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <br />
 <p align="center">
   <a href="#">
-    <img src="./src/public/repoCover.png" alt="Logo" width="400">
+    <img src="public/repoCover.png" alt="Logo" width="400">
   </a>
 
   <h3 align="center">Project Huckleberry</h3>
@@ -96,16 +96,16 @@ To setup the project locally the steps below.
   ```sh
     # Homebrew
     brew install git
-  
+
     # Sudo apt
     apt-get install git
-  
+
     # Packman
     pacman -S git
-  
+
     # Module Install (Fedora)
     dnf install git
-  
+
   ```
 
 ### Contribution guidlines
@@ -131,16 +131,19 @@ Please refer to the project's style and contribution guidelines for submitting p
 The project uses Yarn as the package manager. It is strictly advised to use Yarn instead of NPM to avoid dependency conflicts.
 
 1. **Install Dependencies**
+
    ```sh
    yarn install
    ```
 
 2. **Environment Setup**
+
    - Create a new `.env` file in the root directory
    - Copy the contents from `.sample.env` as reference
    - Update the environment variables as needed
 
 3. **Database Setup**
+
    ```sh
    # Generate Prisma Client
    yarn generate
@@ -150,12 +153,14 @@ The project uses Yarn as the package manager. It is strictly advised to use Yarn
    ```
 
 4. **Development Server**
+
    ```sh
    # Start the development server with Turbopack
    yarn dev
    ```
 
 5. **Additional Commands**
+
    ```sh
    # Run linting
    yarn lint
@@ -189,8 +194,8 @@ dscnitrourkela/project-huckleberry is Starware.
 This means you're free to use the project, as long as you star its GitHub repository.
 Your appreciation makes us grow and glow up. ⭐
 
-[product-screenshot]: src/public/gdg.jpg
-[dsc-nitrourkela]: src/public/repoCover.png
+[product-screenshot]: public/gdg.jpg
+[dsc-nitrourkela]: public/repoCover.png
 
 ## Contributors ✨
 
@@ -202,17 +207,24 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://ayussh.vercel.app/"><img src="https://avatars.githubusercontent.com/u/135319056?v=4?s=100" width="100px;" alt="Ayush"/><br /><sub><b>Ayush</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=ayussh-2" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Cybrite"><img src="https://avatars.githubusercontent.com/u/140698710?v=4?s=100" width="100px;" alt="Harsh"/><br /><sub><b>Harsh</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=Cybrite" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/siddharth-narayan-mishra"><img src="https://avatars.githubusercontent.com/u/138509510?v=4?s=100" width="100px;" alt="siddharth"/><br /><sub><b>siddharth</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=siddharth-narayan-mishra" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/swaindhruti"><img src="https://avatars.githubusercontent.com/u/92504849?v=4?s=100" width="100px;" alt="Dhrutinandan Swain"/><br /><sub><b>Dhrutinandan Swain</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=swaindhruti" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://portfolioscyy.netlify.app/playground"><img src="https://avatars.githubusercontent.com/u/180634057?v=4?s=100" width="100px;" alt="Ayan"/><br /><sub><b>Ayan</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=AYANscyy2" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/HIMANSHU6001"><img src="https://avatars.githubusercontent.com/u/92459082?v=4?s=100" width="100px;" alt="Himanshu Kaushik"/><br /><sub><b>Himanshu Kaushik</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=HIMANSHU6001" title="Code">💻</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://ayussh.vercel.app/"><img src="https://avatars.githubusercontent.com/u/135319056?v=4?s=100" width="100px;" alt="Ayush"/><br /><sub><b>Ayush</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=ayussh-2" title="Code">💻</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://github.com/Cybrite"><img src="https://avatars.githubusercontent.com/u/140698710?v=4?s=100" width="100px;" alt="Harsh"/><br /><sub><b>Harsh</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=Cybrite" title="Code">💻</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://github.com/siddharth-narayan-mishra"><img src="https://avatars.githubusercontent.com/u/138509510?v=4?s=100" width="100px;" alt="siddharth"/><br /><sub><b>siddharth</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=siddharth-narayan-mishra" title="Code">💻</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://github.com/swaindhruti"><img src="https://avatars.githubusercontent.com/u/92504849?v=4?s=100" width="100px;" alt="Dhrutinandan Swain"/><br /><sub><b>Dhrutinandan Swain</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=swaindhruti" title="Code">💻</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://portfolioscyy.netlify.app/playground"><img src="https://avatars.githubusercontent.com/u/180634057?v=4?s=100" width="100px;" alt="Ayan"/><br /><sub><b>Ayan</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=AYANscyy2" title="Code">💻</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://github.com/HIMANSHU6001"><img src="https://avatars.githubusercontent.com/u/92459082?v=4?s=100" width="100px;" alt="Himanshu Kaushik"/><br /><sub><b>Himanshu Kaushik</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=HIMANSHU6001" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="16.66%"><a href="https://github.com/NishkarshG"><img src="https://avatars.githubusercontent.com/u/143815191?v=4?s=100" width="100px;" alt="Nishkarsh Gupta"/><br /><sub><b>Nishkarsh Gupta</b></sub></a><br /><a href="#design-NishkarshG" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://github.com/somnath-07"><img src="https://avatars.githubusercontent.com/u/138187553?v=4?s=100" width="100px;" alt="somnath-07"/><br /><sub><b>somnath-07</b></sub></a><br /><a href="#design-somnath-07" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://github.com/pseudomidget"><img src="https://avatars.githubusercontent.com/u/157236850?v=4?s=100" width="100px;" alt="pseudomidget"/><br /><sub><b>pseudomidget</b></sub></a><br /><a href="#design-pseudomidget" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://linktr.ee/m_srishty"><img src="https://avatars.githubusercontent.com/u/68679980?v=4?s=100" width="100px;" alt="Srishty Mangutte"/><br /><sub><b>Srishty Mangutte</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=Srish-ty" title="Code">💻</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://github.com/BlessedAmrita"><img src="https://avatars.githubusercontent.com/u/153388147?v=4?s=100" width="100px;" alt="BlessedAmrita"/><br /><sub><b>BlessedAmrita</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=BlessedAmrita" title="Code">💻</a></td>
     </tr>
   </tbody>
   <tfoot>
     <tr>
-      <td align="center" size="13px" colspan="7">
+      <td align="center" size="13px" colspan="6">
         <img src="https://raw.githubusercontent.com/all-contributors/all-contributors-cli/1b8533af435da9854653492b1327a23a4dbd0a10/assets/logo-small.svg">
           <a href="https://all-contributors.js.org/docs/en/bot/usage">Add your contributions</a>
         </img>

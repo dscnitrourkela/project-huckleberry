@@ -1,9 +1,5 @@
 'use client';
-
 import { useEffect } from 'react';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Button } from '@/components/ui/button';
-import { XCircle } from 'lucide-react';
 
 export default function Error({
   error,
@@ -17,31 +13,34 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="h-screen w-full flex items-center justify-center bg-background p-4">
-      <div className="max-w-md w-full space-y-4">
-        <Alert
-          variant="destructive"
-          className="border-destructive/50 dark:border-destructive"
-        >
-          <XCircle className="h-5 w-5" />
-          <AlertTitle className="ml-2">Error</AlertTitle>
-          <AlertDescription className="mt-2">
-            {error.message || 'Something went wrong! Please try again.'}
-            {error.digest && (
-              <p className="text-xs mt-2 text-muted-foreground">
-                Error ID: {error.digest}
-              </p>
-            )}
-          </AlertDescription>
-        </Alert>
-
-        <Button
-          variant="outline"
-          onClick={() => reset()}
-          className="w-full transition-colors hover:bg-accent"
+    <div className="min-h-[60vh] flex flex-col items-center justify-center px-4">
+      <div className="text-center">
+        <div className="flex items-center justify-center mb-6">
+          <div className="w-16 h-16 rounded-full bg-[#EA4335] flex items-center justify-center text-white text-3xl font-bold mr-2">
+            !
+          </div>
+          <div className="w-16 h-16 rounded-full bg-[#4285F4] flex items-center justify-center text-white text-3xl font-bold mr-2">
+            ?
+          </div>
+          <div className="w-16 h-16 rounded-full bg-[#FBBC05] flex items-center justify-center text-white text-3xl font-bold mr-2">
+            !
+          </div>
+          <div className="w-16 h-16 rounded-full bg-[#34A853] flex items-center justify-center text-white text-3xl font-bold">
+            ?
+          </div>
+        </div>
+        <h2 className="text-4xl font-bold text-gray-800 mb-4 font-poppins">
+          Oops! Something went wrong
+        </h2>
+        <p className="text-gray-600 mb-8 font-geist-sans max-w-md mx-auto">
+          {error.message || 'An unexpected error occurred. Please try again.'}
+        </p>
+        <button
+          onClick={reset}
+          className="bg-[#4285F4] text-white px-6 py-3 rounded-full font-medium hover:bg-[#3367d6] transition-colors duration-200 font-poppins"
         >
           Try again
-        </Button>
+        </button>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import { publishRepos, unpublishRepos } from '@/actions/projects';
 import { withLoadingToast } from '@/utils';
 import { ApiResponse } from '@/types/commons';
 import { Search } from 'lucide-react';
-import { useAuth } from '@/contexts/auth-context';
+import { useAdmin } from '@/hooks/useAdmin';
 
 interface ReposPageProps {
   repos: TableRepo[];
@@ -20,15 +20,16 @@ export default function ReposPage({
   publishedRepos,
 }: ReposPageProps) {
   const [repos, setRepos] = useState<TableRepo[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isPublishing, setIsPublishing] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const { user } = useAuth();
+  const { isAdmin, isLoading: isAdminLoading } = useAdmin();
+
   useEffect(() => {
     setRepos(initialRepos);
   }, [initialRepos]);
 
   const toggleSelection = (id: string) => {
-    if (user?.role !== 'admin') return;
+    if (!isAdmin) return;
     setRepos((prevRepos) =>
       prevRepos.map((repo) =>
         repo.id === id ? { ...repo, isSelected: !repo.isSelected } : repo
@@ -37,7 +38,7 @@ export default function ReposPage({
   };
 
   const handlePublish = withLoadingToast(async (): Promise<ApiResponse> => {
-    setIsLoading(true);
+    setIsPublishing(true);
     const selectedRepos = repos
       .filter((repo) => repo.isSelected)
       .map((repo) => ({
@@ -46,6 +47,7 @@ export default function ReposPage({
       }));
 
     if (selectedRepos.length === 0) {
+      setIsPublishing(false);
       return {
         status: 'error',
         message: 'No repositories selected',
@@ -59,7 +61,7 @@ export default function ReposPage({
 
     await unpublishRepos(reposToUnpublish);
     const result = await publishRepos(selectedRepos);
-    setIsLoading(false);
+    setIsPublishing(false);
 
     return result;
   });
@@ -69,6 +71,14 @@ export default function ReposPage({
       repo.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       repo.description.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  if (isAdminLoading) {
+    return (
+      <div className="flex items-center justify-center min-h-[200px]">
+        <div className="text-gdg-gray">Loading admin status...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="font-geist-sans">
@@ -94,13 +104,13 @@ export default function ReposPage({
             />
           </div>
 
-          {user?.role === 'admin' && (
+          {isAdmin && (
             <Button
               onClick={handlePublish}
-              disabled={isLoading}
+              disabled={isPublishing}
               className="bg-gdg-blue hover:bg-gdg-blue/90 text-white rounded-full transition-all px-6 py-2 font-medium"
             >
-              {isLoading ? 'Publishing...' : 'Publish Selected'}
+              {isPublishing ? 'Publishing...' : 'Publish Selected'}
             </Button>
           )}
         </div>

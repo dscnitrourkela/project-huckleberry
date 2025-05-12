@@ -24,16 +24,17 @@ export async function login() {
 
 export async function isAdmin() {
   try {
-    const baseUrl = await getBaseUrl();
-    const response = await fetch(`${baseUrl}/api/auth/session`, {
-      credentials: 'include',
-      headers: {
-        Cookie: (await headers()).get('cookie') || '',
+    const session = await getSessionUser();
+    if (!session?.email) return false;
+    const response = await prisma.member.findFirst({
+      where: {
+        email: session?.email,
+      },
+      select: {
+        is_admin: true,
       },
     });
-    const session = await response.json();
-
-    return session?.user?.isAdmin;
+    return response?.is_admin;
   } catch (error) {
     console.error(error);
     return false;
@@ -58,20 +59,21 @@ export async function getSessionUser() {
 }
 
 export async function requireAdmin() {
-  if (!(await isAdmin())) {
+  const adminStatus = await isAdmin();
+  if (!adminStatus) {
     const err = new EventOperationError(
       'You are not authorized to perform this action',
       401
     );
     return handleError(err);
   }
-  return true;
+  return {
+    status: 'success',
+  };
 }
 
-// In your actions/members/index.ts file
 export async function updateMember(member: Member) {
   try {
-    // Validate that ID exists before updating
     if (!member.id) {
       return {
         status: 'error',
