@@ -55,7 +55,8 @@ const BlogCard = (blog: BlogCardProps) => {
       <CardHeader className="p-0">
         <div className="h-[180px] relative overflow-hidden border-b-2 border-black">
           <Image
-            src={imageUrl || '/placeholder-image.jpg'}
+            src={imageUrl || '/repoCover.png'}
+            priority
             alt={blog.title}
             fill
             className="object-cover"

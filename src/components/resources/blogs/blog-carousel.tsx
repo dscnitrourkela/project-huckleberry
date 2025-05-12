@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/carousel';
 import { getAllBlogs } from '@/actions/blogs';
 import { BlogCardProps } from '@/types/admin/blogs';
+import Loader from '@/components/shared/loader';
 
 interface BlogCarouselProps {
   title?: string;
@@ -54,7 +55,7 @@ export default function BlogCarousel({
       <div className="relative min-h-[500px]">
         {loading ? (
           <div className="flex justify-center items-center min-h-[500px]">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+            <Loader />
           </div>
         ) : blogList.length === 0 ? (
           <div className="text-center py-20 bg-white/80 dark:bg-card/80 rounded-lg shadow-sm min-h-[500px]">
