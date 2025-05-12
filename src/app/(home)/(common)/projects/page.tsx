@@ -1,4 +1,7 @@
 import React from 'react';
+import { projectsMetadata } from '@/config/seo/projects-metadata';
+
+export { projectsMetadata as metadata };
 
 function page() {
   return (

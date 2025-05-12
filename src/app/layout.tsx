@@ -3,9 +3,8 @@ import { dmSans, geistMono, geistSans, poppins, productSans } from './fonts';
 import { Toaster } from '@/components/ui/sonner';
 import HOC from '@/components/shared/hoc/HOC';
 import { homeMetadata } from '@/config/seo/metadata';
-import { Metadata } from 'next';
 
-export const metadata: Metadata = homeMetadata;
+export { homeMetadata as metadata };
 
 export default function RootLayout({
   children,
