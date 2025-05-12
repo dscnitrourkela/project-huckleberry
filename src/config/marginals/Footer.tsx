@@ -9,6 +9,7 @@ import {
 } from 'react-icons/fa';
 import { MdLocationOn, MdEmail } from 'react-icons/md';
 import { ReactElement } from 'react';
+import { DSC_LOGO_LARGE, GDG_ICON_SMALL } from '@/config/marginals/index';
 
 interface SocialLink {
   name: string;
@@ -51,24 +52,14 @@ const Footer: React.FC = () => {
     <footer className="relative bg-[#FAF8F6] py-12">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="hidden md:block absolute -bottom-0 -left-20 -ml-20 -mb-30">
-          <img
-            src="https://res.cloudinary.com/dwh7xuupf/image/upload/v1747073420/dsc-logo-lg_xly4pi.png"
-            alt="dsc-logo"
-            width={600}
-            height={300}
-          />
+          <img src={DSC_LOGO_LARGE} alt="dsc-logo" width={600} height={300} />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div className="col-span-1 mx-auto">
             <div className="flex flex-col">
               <div className="flex items-center mb-0 -mt-7 ml-20">
-                <img
-                  src="https://res.cloudinary.com/dwh7xuupf/image/upload/v1747073715/gdg_dgyduw.jpg"
-                  alt="GDSC"
-                  width={50}
-                  height={50}
-                />
+                <img src={GDG_ICON_SMALL} alt="GDSC" width={50} height={50} />
               </div>
               <div className="-mb-22">
                 <h2 className="text-gray-500 font-medium text-lg flex justify-start text-center">
