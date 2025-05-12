@@ -73,7 +73,7 @@ export default function Home() {
       <section className="relative z-10 container mx-auto px-4 py-8">
         <div className="rounded-lg overflow-hidden max-w-6xl mx-auto">
           <Image
-            src="https://res.cloudinary.com/djmnk7cvv/image/upload/v1746850701/image_11_lmxvdy.png"
+            src="https://res.cloudinary.com/dqcrkrtyr/image/upload/v1747039475/banner_iuhyjr.jpg"
             alt="GDG Event"
             width={1000}
             height={400}
