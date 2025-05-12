@@ -1,4 +1,5 @@
 'use client';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 import { useState } from 'react';
 import { infoImage } from '@/config/home';
@@ -8,7 +9,7 @@ function Info() {
   const [showMore, setShowMore] = useState(false);
 
   return (
-    <div className="w-full min-h-[80dvh] bg-gradient-to-r from-[#4379E0] to-[#1B66F6] text-white px-6 md:px-16 lg:px-32 py-12 md:py-20 flex flex-col lg:flex-row items-center justify-between gap-12 md:gap-44">
+    <div className="w-full min-h-[80dvh] 2xl:min-h-[60dvh] bg-gradient-to-r from-[#4379E0] to-[#1B66F6] text-white px-6 md:px-16 lg:px-32 py-12 md:py-20 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-44">
       <div className="flex justify-center lg:hidden w-full">
         <Image
           src={infoImage}
@@ -20,7 +21,7 @@ function Info() {
       </div>
 
       <div className="flex-1 flex flex-col text-left gap-12">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-productsans leading-snug">
+        <h1 className="text-3xl sm:text-4xl xl:text-5xl font-bold font-productsans leading-snug">
           What is GDG?
         </h1>
 
@@ -38,7 +39,7 @@ function Info() {
           technology.
         </p>
 
-        <div className="sm:hidden text-base font-normal leading-9 font-productsans">
+        <div className="sm:hidden text-base font-normal leading-6 font-productsans">
           <p>
             Google Developer Group (GDG) is a global community of developers and
             tech enthusiasts who come together to learn, share, and collaborate
@@ -60,9 +61,17 @@ function Info() {
 
           <button
             onClick={() => setShowMore(!showMore)}
-            className="mt-4 text-white underline focus:outline-none"
+            className="mt-4 flex items-center gap-2 text-white font-bold focus:outline-none"
           >
-            {showMore ? 'Read Less' : 'Read More'}
+            {showMore ? (
+              <>
+                Read Less <ChevronUp className="animate-bounce" size={18} />
+              </>
+            ) : (
+              <>
+                Read More <ChevronDown className="animate-bounce" size={18} />
+              </>
+            )}
           </button>
         </div>
       </div>

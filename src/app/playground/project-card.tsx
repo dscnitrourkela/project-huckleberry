@@ -49,10 +49,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         </div>
       </div>
 
-      <Link
-        href={project.link}
-        className="text-[#035302] hover:underline text-sm font-normal "
-      >
+      <Link href={project.link} className="text-[#035302] text-sm font-normal ">
         View more &gt;
       </Link>
     </div>

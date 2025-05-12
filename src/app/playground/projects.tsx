@@ -48,7 +48,7 @@ const ProjectsSection: React.FC = () => {
       <div className="text-center mt-8 md:mt-12">
         <Link
           href="/projects"
-          className="inline-block px-6 py-2 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-colors duration-200"
+          className="inline-block px-6 py-2 border-2  border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-colors duration-200"
         >
           Explore Projects
         </Link>

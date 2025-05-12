@@ -39,7 +39,7 @@ const EventsSection: React.FC = () => {
         </Carousel>
       </div>
 
-      <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 auto-rows-fr">
         {eventsToShow.map((event) => (
           <EventCard key={event.id} event={event} />
         ))}
