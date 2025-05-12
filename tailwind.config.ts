@@ -91,6 +91,7 @@ export default {
         dm: 'var(--font-dm-sans)',
         poppins: 'var(--font-poppins)',
         mono: ['Roboto Mono', 'monospace'],
+        productsans: ['var(--font-product-sans)'],
         product: ['Product Sans', 'sans-serif'],
         productLight: ['Product Sans Light', 'sans-serif'],
       },
@@ -144,6 +145,9 @@ export default {
       backdropBlur: {
         '2xs': '2px',
         xs: '4px',
+      },
+      screens: {
+        xsmd: '480px',
       },
     },
   },

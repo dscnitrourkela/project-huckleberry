@@ -22,10 +22,8 @@ export const canFetchTweets = (lastFetchedTimestamp: Date | null): boolean => {
 // Fetch tweet count from database
 export const fetchTweetCount = async (): Promise<number> => {
   try {
-    const count = await getTotalTweetCount();
-    return count;
-  } catch (error) {
-    console.error('Error fetching tweet count:', error);
+    return await getTotalTweetCount();
+  } catch {
     return 0;
   }
 };
@@ -33,10 +31,8 @@ export const fetchTweetCount = async (): Promise<number> => {
 // Fetch tweets from database
 export const fetchTweetsFromDB = async (): Promise<Tweet[]> => {
   try {
-    const tweets = await getTweetsFromDB();
-    return tweets;
-  } catch (error) {
-    console.error('Error fetching tweets from DB:', error);
+    return await getTweetsFromDB();
+  } catch {
     return [];
   }
 };
@@ -47,19 +43,8 @@ export const handleUpdateFetchedAt = async (
   date?: Date
 ): Promise<Date | null> => {
   try {
-    const fetchedDate = await updateFetchedAt(type, date);
-    // const formattedDate = new Date(fetchedDate).toLocaleString('en-GB', {
-    //   year: 'numeric',
-    //   month: 'numeric',
-    //   day: 'numeric',
-    //   hour: 'numeric',
-    //   minute: 'numeric',
-    //   second: 'numeric',
-    //   hour12: true,
-    // });
-    return fetchedDate;
-  } catch (error) {
-    console.error('Error updating fetchedAt:', error);
+    return await updateFetchedAt(type, date);
+  } catch {
     return null;
   }
 };
@@ -102,8 +87,7 @@ export const handleFetchLatestTweet = async (
 
     // Call the success callback
     onSuccess();
-  } catch (error) {
-    console.error('Error fetching latest tweet:', error);
+  } catch {
     toast.error('Failed to fetch latest tweet. Please try again later.', {
       duration: 5000,
     });
@@ -134,8 +118,7 @@ export const handleFetchAllDSCTweets = async (
 
     // Call the success callback
     onSuccess();
-  } catch (error) {
-    console.error('Error fetching all DSC tweets:', error);
+  } catch {
     toast.error('Failed to fetch tweets. Please try again later.', {
       duration: 5000,
     });

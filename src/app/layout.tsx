@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { dmSans, geistMono, geistSans, poppins } from './fonts';
+import { dmSans, geistMono, geistSans, poppins, productSans } from './fonts';
 import { Toaster } from '@/components/ui/sonner';
 import HOC from '@/components/shared/hoc/HOC';
 import Navbar from '@/components/marginals/navbar/Navbar';
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${dmSans.variable} ${poppins.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${dmSans.variable} ${productSans.variable}  antialiased`}
       >
         <Navbar />
         <Toaster position="top-right" />
