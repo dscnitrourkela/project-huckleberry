@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import EventDetail from '@/components/home/events/EventDetails';
+import EventDetail from '@/components/events/EventDetails';
 import Loader from '@/components/shared/loader';
 import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';

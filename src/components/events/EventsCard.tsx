@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '../../ui/button';
+import { Button } from '../ui/button';
 import { formatTimestamp } from '@/utils';
 import { MapPin, Users, Laptop } from 'lucide-react';
 

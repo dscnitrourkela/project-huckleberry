@@ -31,13 +31,13 @@ export const pageContent = {
     title: 'Our Projects',
     description: (
       <>
-        At Vero Et Accusamus Et
+        From hostel brainstorms to real-world solutions
         <br />
-        Lusto Odio Dignissimos The.
+        projects by and for the NITR family.
       </>
     ),
     imageUrl:
-      'https://res.cloudinary.com/dpmlrxlzr/image/upload/v1746378087/hn_50_1_ru18tc.png',
+      'https://res.cloudinary.com/dqcrkrtyr/image/upload/v1747039475/banner_iuhyjr.jpg',
   },
   '/resources': {
     bgColor: '#FFF4EC',
