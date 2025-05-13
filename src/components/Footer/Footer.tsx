@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="relative bg-[#FAF8F6] py-12">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="hidden md:block absolute -bottom-0 -left-20 -ml-20 -mb-30">
+        <div className="hidden lg:block absolute -bottom-0 -left-20 -ml-20 -mb-30 md-hidden">
           <img src={DSC_LOGO_LARGE} alt="dsc-logo" width={600} height={300} />
         </div>
 
@@ -107,7 +107,7 @@ const Footer: React.FC = () => {
 
           <Link
             href="/membership"
-            className="inline-block bg-blue-500 text-white px-8 py-3 rounded-md hover:bg-blue-600 transition-colors ml-6"
+            className="inline-block bg-blue-500 border border-black text-white px-8 py-3 rounded-md hover:bg-blue-600 transition-colors ml-6"
           >
             Apply For Membership
           </Link>
