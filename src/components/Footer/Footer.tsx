@@ -1,52 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
-import {
-  FaInstagram,
-  FaTwitter,
-  FaLinkedinIn,
-  FaGithub,
-  FaMedium,
-} from 'react-icons/fa';
 import { MdLocationOn, MdEmail } from 'react-icons/md';
-import { ReactElement } from 'react';
-import { DSC_LOGO_LARGE, GDG_ICON_SMALL } from '@/config/marginals/index';
-
-interface SocialLink {
-  name: string;
-  icon: ReactElement;
-  href: string;
-}
+import {
+  DSC_LOGO_LARGE,
+  GDG_ICON_SMALL,
+  socialMediaLinks,
+} from '@/config/marginals/index';
 
 const Footer: React.FC = () => {
-  const currentYear: number = new Date().getFullYear();
-
-  const socialMediaLinks: SocialLink[] = [
-    {
-      name: 'Instagram',
-      icon: <FaInstagram size={20} />,
-      href: 'https://www.instagram.com/dscnitrourkela/',
-    },
-    {
-      name: 'Medium',
-      icon: <FaMedium size={20} />,
-      href: 'https://medium.com/dsc-nit-rourkela',
-    },
-    {
-      name: 'LinkedIn',
-      icon: <FaLinkedinIn size={20} />,
-      href: 'https://www.linkedin.com/company/dscnitrourkela/',
-    },
-    {
-      name: 'Github',
-      icon: <FaGithub size={20} />,
-      href: 'https://github.com/dscnitrourkela',
-    },
-    {
-      name: 'Twitter',
-      icon: <FaTwitter size={20} />,
-      href: 'https://twitter.com/dscnitrourkela',
-    },
-  ];
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="relative bg-[#FAF8F6] py-12">
@@ -77,33 +39,43 @@ const Footer: React.FC = () => {
 
             <div className="flex space-x-8">
               <div className="flex flex-col space-y-4">
-                {socialMediaLinks.slice(0, 3).map((social, index) => (
-                  <Link
-                    key={index}
-                    href={social.href}
-                    className="flex items-center text-gray-600 hover:text-blue-500 transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="mr-3">{social.icon}</span>
-                    <span>{social.name}</span>
-                  </Link>
-                ))}
+                {socialMediaLinks.slice(0, 3).map((social, index) => {
+                  const Icon = social.icon;
+                  return (
+                    <Link
+                      key={index}
+                      href={social.href}
+                      className="flex items-center text-gray-600 hover:text-blue-500 transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span className="mr-3">
+                        <Icon size={20} />
+                      </span>
+                      <span>{social.name}</span>
+                    </Link>
+                  );
+                })}
               </div>
 
               <div className="flex flex-col space-y-4">
-                {socialMediaLinks.slice(3, 5).map((social, index) => (
-                  <Link
-                    key={index + 3}
-                    href={social.href}
-                    className="flex items-center text-gray-600 hover:text-blue-500 transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="mr-3">{social.icon}</span>
-                    <span>{social.name}</span>
-                  </Link>
-                ))}
+                {socialMediaLinks.slice(3, 5).map((social, index) => {
+                  const Icon = social.icon;
+                  return (
+                    <Link
+                      key={index + 3}
+                      href={social.href}
+                      className="flex items-center text-gray-600 hover:text-blue-500 transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span className="mr-3">
+                        <Icon size={20} />
+                      </span>
+                      <span>{social.name}</span>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           </div>
