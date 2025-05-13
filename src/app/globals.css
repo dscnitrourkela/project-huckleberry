@@ -113,7 +113,7 @@ body {
 }
 
 #hero {
-  background-image: url('../../public/herobg.png');
+  background-image: url('https://res.cloudinary.com/db4zbyipc/image/upload/v1747121185/herobg_dwtxlw.png');
   background-size: cover;
   background-position: center;
 }

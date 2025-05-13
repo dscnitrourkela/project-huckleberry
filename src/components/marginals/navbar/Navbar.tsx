@@ -5,19 +5,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-
+import { navLinks } from '@/config/marginal/navbar';
 gsap.registerPlugin(useGSAP);
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const navLinks = [
-    { href: '/', text: 'Home' },
-    { href: '/about', text: 'About Us' },
-    { href: '/event', text: 'Events' },
-    { href: '/project', text: 'Projects' },
-    { href: '/team', text: 'Team' },
-  ];
 
   useGSAP(() => {
     gsap.from('#nav', {
@@ -38,7 +30,7 @@ const Navbar = () => {
       {/* Desktop Navbar */}
       <nav
         id="nav"
-        className="absolute top-0 left-0 h-[92px] w-full hidden lg:flex z-10 bg-white font-product"
+        className="absolute top-0 left-0 h-[92px] w-full hidden lg:flex z-10 bg-white font-productsans"
       >
         <div className="w-full h-full px-6 xl:px-[120px] py-4">
           <div className="w-full h-full relative flex items-center justify-between">

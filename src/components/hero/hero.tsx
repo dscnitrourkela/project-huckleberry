@@ -239,13 +239,13 @@ const Hero = () => {
               <div className="flex flex-col gap-7">
                 <h1
                   id="head"
-                  className="text-center text-[40px] sm:text-[52px] md:text-[60px] xl:text-[68px] text-[#646464] leading-tight font-product"
+                  className="text-center text-[40px] sm:text-[52px] md:text-[60px] xl:text-[68px] text-[#646464] leading-tight font-bold font-productsans"
                 >
                   Google Developer Groups
                 </h1>
                 <h1
                   id="subhead"
-                  className="text-center text-[#646464] xl:text-2xl font-[700] font-product"
+                  className="text-center text-[#646464] xl:text-2xl font-[700] font-productsans"
                 >
                   National Institute of Technology, Rourkela
                 </h1>
@@ -253,14 +253,14 @@ const Hero = () => {
               <div className="flex justify-center">
                 <p
                   id="para"
-                  className="text-center md:w-[720px] leading-6 font-productLight"
+                  className="text-center md:w-[720px] leading-6 font-productsans"
                 >
                   Fueling innovation and collaboration at NIT Rourkela through
                   hands-on learning, events, and impactful tech projects.
                 </p>
               </div>
               <div className=" flex justify-center">
-                <button className="button text-white font-[700] px-6 xl:px-12 py-[18px] rounded-[8px] border border-black font-product">
+                <button className="button text-white font-[700] px-6 xl:px-12 py-[18px] rounded-[8px] border border-black font-productsans">
                   Apply For Membership
                 </button>
               </div>
