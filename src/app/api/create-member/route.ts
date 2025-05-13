@@ -4,10 +4,10 @@ import { Member } from '@/types/admin/members';
 
 export async function POST(request: NextRequest) {
   try {
-    // step 1: comment /actions/members/index.ts line 23 and 24
-    // step 2: comment line 26 and 27 on this page
+    // step 1: comment /actions/events/index.ts line 8 and 9
+    // step 2: comment line 28 and 31 on this page
     // step 3: hit a post request to /api/create-member with the following body line: 13-26
-    // step 4: after creating the member uncomment line 26 and 27 on this page and uncomment line 23 and 24 on /actions/members/index.ts
+    // step 4: after creating the member uncomment all the lines in the first step
     // step 5: login with the gmail account you used to create the member
 
     // {
@@ -19,9 +19,9 @@ export async function POST(request: NextRequest) {
     //     "github": "https://github.com",
     //     "linkedin": "https://linkedin.com",
     //     "twitter": "https://x.com",
-    //     "other_socials": [],
+    //     "figma": "https://figma.com",
     //     "caption": "Building the future",
-    //     "introduction": "Full-stack developer with expertise in Next.js and TypeScript.",
+    //     "is_lead": true,
     //     "is_admin": true
     //   }
 

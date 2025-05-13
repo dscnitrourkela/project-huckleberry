@@ -27,6 +27,7 @@ const SocialLinksSection: React.FC<SocialLinksSectionProps> = ({ form }) => (
             <FormControl>
               <Input
                 {...field}
+                placeholder="https://github.com/@username"
                 className="rounded-lg border-gray-200 focus:border-gdg-blue focus:ring-gdg-blue/20"
               />
             </FormControl>
@@ -47,6 +48,7 @@ const SocialLinksSection: React.FC<SocialLinksSectionProps> = ({ form }) => (
             <FormControl>
               <Input
                 {...field}
+                placeholder="https://www.linkedin.com/in/@username"
                 className="rounded-lg border-gray-200 focus:border-gdg-blue focus:ring-gdg-blue/20"
               />
             </FormControl>
@@ -64,9 +66,32 @@ const SocialLinksSection: React.FC<SocialLinksSectionProps> = ({ form }) => (
             <FormControl>
               <Input
                 {...field}
+                placeholder="https://x.com/@username"
                 className="rounded-lg border-gray-200 focus:border-gdg-blue focus:ring-gdg-blue/20"
               />
             </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      <FormField
+        control={form.control}
+        name="figma"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel className="text-gdg-gray">Figma Profile</FormLabel>
+            <FormControl>
+              <Input
+                type="url"
+                {...field}
+                placeholder="https://figma.com/@username"
+                className="rounded-lg border-gray-200 focus:border-gdg-blue focus:ring-gdg-blue/20"
+              />
+            </FormControl>
+            <FormDescription className="text-xs text-gdg-gray">
+              Optional: You can leave this blank if not available
+            </FormDescription>
             <FormMessage />
           </FormItem>
         )}

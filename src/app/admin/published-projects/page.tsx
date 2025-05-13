@@ -5,6 +5,7 @@ import { ProjectCard } from '@/components/admin/projects/project-card';
 import { useEffect, useState } from 'react';
 import { fetchRepos, getPublishedRepos } from '@/actions/projects';
 import AdminPageHeader from '@/components/admin/layout/admin-page-header';
+import Loader from '@/components/shared/loader';
 
 export default function ProjectsPage() {
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
@@ -47,9 +48,7 @@ export default function ProjectsPage() {
     return (
       <div className="container mx-auto p-6">
         <AdminPageHeader accentTitle="Published Projects" title="Projects" />
-        <div className="text-center">
-          <p className="text-lg">Loading projects...</p>
-        </div>
+        <Loader />
       </div>
     );
   }
@@ -73,6 +72,11 @@ export default function ProjectsPage() {
         {repos.map((repo) => (
           <ProjectCard key={repo.id} repo={repo} />
         ))}
+        {repos.length === 0 && (
+          <div className="text-center">
+            <p className="text-lg">No projects found</p>
+          </div>
+        )}
       </div>
     </div>
   );

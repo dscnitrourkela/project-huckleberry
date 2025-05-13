@@ -74,6 +74,7 @@
         "design"
       ]
     },
+    {
       "login": "somnath-07",
       "name": "somnath-07",
       "avatar_url": "https://avatars.githubusercontent.com/u/138187553?v=4",
@@ -82,6 +83,7 @@
         "design"
       ]
     },
+    {
       "login": "pseudomidget",
       "name": "pseudomidget",
       "avatar_url": "https://avatars.githubusercontent.com/u/157236850?v=4",
@@ -89,9 +91,36 @@
       "contributions": [
         "design"
       ]
+    },
+    {
+      "login": "Srish-ty",
+      "name": "Srishty Mangutte",
+      "avatar_url": "https://avatars.githubusercontent.com/u/68679980?v=4",
+      "profile": "https://linktr.ee/m_srishty",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "BlessedAmrita",
+      "name": "BlessedAmrita",
+      "avatar_url": "https://avatars.githubusercontent.com/u/153388147?v=4",
+      "profile": "https://github.com/BlessedAmrita",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "auraexe25",
+      "name": "Veena Sahu",
+      "avatar_url": "https://avatars.githubusercontent.com/u/154359186?v=4",
+      "profile": "http://portfolio-eight-rose-30.vercel.app/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
-  "contributorsPerLine": 7,
+  "contributorsPerLine": 6,
   "linkToUsage": true,
   "commitType": "docs"
 }

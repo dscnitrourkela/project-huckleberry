@@ -13,7 +13,6 @@ type User = {
   id: string;
   name: string;
   email: string;
-  role: string;
 };
 
 type AuthContextType = {
@@ -34,7 +33,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         id: (session.user.id as string) || '',
         name: session.user.name || '',
         email: session.user.email || '',
-        role: session.user.isAdmin ? 'admin' : 'member',
       });
     } else if (status === 'unauthenticated') {
       setUser(null);

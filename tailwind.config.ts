@@ -88,8 +88,8 @@ export default {
       fontFamily: {
         'geist-sans': 'var(--font-geist-sans)',
         'geist-mono': 'var(--font-geist-mono)',
-        poppins: ['Poppins', 'sans-serif'],
-        google: ['Google Sans', 'Roboto', 'Arial', 'sans-serif'],
+        dm: 'var(--font-dm-sans)',
+        poppins: 'var(--font-poppins)',
         mono: ['Roboto Mono', 'monospace'],
         productsans: ['var(--font-product-sans)'],
       },
@@ -143,6 +143,9 @@ export default {
       backdropBlur: {
         '2xs': '2px',
         xs: '4px',
+      },
+      screens: {
+        xsmd: '480px',
       },
     },
   },

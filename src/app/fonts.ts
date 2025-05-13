@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Poppins } from 'next/font/google';
+import { Geist, Geist_Mono, Poppins, DM_Sans } from 'next/font/google';
 import localFont from 'next/font/local';
 
 export const geistSans = Geist({
@@ -20,26 +20,32 @@ export const poppins = Poppins({
 export const productSans = localFont({
   src: [
     {
-      path: './font/Product Sans Regular.ttf',
+      path: '../../public/font/Product Sans Regular.ttf',
       weight: '400',
       style: 'normal',
     },
     {
-      path: './font/Product Sans Italic.ttf',
+      path: '../../public/font/Product Sans Italic.ttf',
       weight: '400',
       style: 'italic',
     },
     {
-      path: './font/Product Sans Bold.ttf',
+      path: '../../public/font/Product Sans Bold.ttf',
       weight: '700',
       style: 'normal',
     },
     {
-      path: './font/Product Sans Bold Italic.ttf',
+      path: '../../public/font/Product Sans Bold Italic.ttf',
       weight: '700',
       style: 'italic',
     },
   ],
   variable: '--font-product-sans',
   display: 'swap',
+});
+
+export const dmSans = DM_Sans({
+  weight: ['400', '500', '700'],
+  variable: '--font-dm-sans',
+  subsets: ['latin'],
 });
