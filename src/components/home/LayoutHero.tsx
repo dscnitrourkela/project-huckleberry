@@ -13,17 +13,23 @@ const LayoutHero: React.FC<LayoutHeroProps> = ({
   imageUrl,
 }) => {
   return (
-    <div className="w-full max-w-7xl mx-auto pt-6 sm:pt-8 px-4 sm:px-6 lg:px-8">
+    <div className="w-full  pt-24 lg:pt-32  px-[35px] sm:px-[65px] md:px-[90px] lg:px-[100px] xl:px-[120px]">
       {/* Hero Image */}
-      <div className="relative w-full aspect-[3/1.4] sm:aspect-[3/1.2] md:aspect-[3/1.1] lg:aspect-[3/1.1] rounded-xl overflow-hidden shadow-md">
+      <div className="relative w-full h-[30dvh] sm:h-[35dvh] md:h-[40dvh] lg:h-[45dvh] rounded-[25px] overflow-hidden">
         <Image
           src={imageUrl}
-          alt="Event Hero"
-          fill
-          className="object-cover rounded-xl"
+          alt={`Hero image for ${title}`}
           priority
+          quality={100}
+          fill
+          style={{
+            objectFit: 'cover',
+            objectPosition: 'center center',
+            imageRendering: 'crisp-edges',
+          }}
+          unoptimized={true}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-white/20 rounded-xl" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#000]/30 to-[#FFFEFE00]/20 rounded-xl" />
       </div>
 
       {/* Heading + Subtext Block */}

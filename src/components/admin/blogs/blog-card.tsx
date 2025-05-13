@@ -10,8 +10,10 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { CalendarIcon, ExternalLink } from 'lucide-react';
 import { BlogCardProps } from '@/types/admin/blogs';
+import { useState } from 'react';
 
 const BlogCard = (blog: BlogCardProps) => {
+  const [isHovering, setIsHovering] = useState(false);
   const extractImageUrl = (content: string) => {
     const imgTagMatch = content.match(/<img[^>]+src="([^">]+)"/);
     return imgTagMatch ? imgTagMatch[1] : null;
@@ -24,11 +26,6 @@ const BlogCard = (blog: BlogCardProps) => {
 
   const imageUrl = extractImageUrl(blog.content);
   const authorUrl = extractAuthorUrl(blog.link);
-
-  // Random rotation for neobrutalism effect
-  const rotation = useMemo(() => {
-    return Math.random() * 1 - 0.5; // Between -0.5 and 0.5 degrees
-  }, []);
 
   // Random background color (soft pastel)
   const randomBgColor = useMemo(() => {
@@ -48,17 +45,18 @@ const BlogCard = (blog: BlogCardProps) => {
 
   return (
     <Card
-      className={`w-full h-[440px] flex flex-col overflow-hidden ${randomBgColor} 
-        shadow-[5px_5px_0px_0px_rgba(0,0,0)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0)] 
-        transition-all duration-200 cursor-pointer border-2 border-black rounded-md
-        hover:translate-x-[-3px] hover:translate-y-[-3px]`}
-      style={{ transform: `rotate(${rotation}deg)` }}
+      className={`w-full h-[420px] sm:h-[440px] flex flex-col overflow-hidden ${randomBgColor} 
+        shadow-[5px_5px_0px_0px_rgba(0,0,0)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0)] transition-all duration-200 
+      border-2 border-black rounded-md ${isHovering ? 'translate-x-[-3px] translate-y-[-3px]' : ''}`}
       onClick={handleCardClick}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
     >
       <CardHeader className="p-0">
         <div className="h-[180px] relative overflow-hidden border-b-2 border-black">
           <Image
-            src={imageUrl || '/placeholder-image.jpg'}
+            src={imageUrl || '/repoCover.png'}
+            priority
             alt={blog.title}
             fill
             className="object-cover"
@@ -68,14 +66,14 @@ const BlogCard = (blog: BlogCardProps) => {
       </CardHeader>
 
       <CardContent className="p-5 space-y-4 flex-1">
-        <h3 className="font-extrabold text-lg line-clamp-2 text-black">
+        <h3 className="font-extrabold text-lg line-clamp-2 text-black font-productsans">
           {blog.title}
         </h3>
 
         <div className=" items-center justify-between text-sm hidden sm:flex">
           <Button
             variant="ghost"
-            className="p-0 h-auto font-bold truncate max-w-[150px] text-black"
+            className="p-0 h-auto font-bold truncate max-w-[150px] font-productsans text-black"
             onClick={(e) => {
               e.stopPropagation();
               window.open(authorUrl || '', '_blank');
@@ -93,13 +91,13 @@ const BlogCard = (blog: BlogCardProps) => {
           {blog.categories.slice(0, 2).map((category) => (
             <Badge
               key={category}
-              className="text-xs border-2 border-black bg-white text-black font-bold py-1 px-2 rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0)]"
+              className="text-xs border-2 border-black font-productsans bg-white text-black font-bold py-1 px-2 rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0)]"
             >
               {category}
             </Badge>
           ))}
           {blog.categories.length > 3 && (
-            <Badge className="text-xs border-2 border-black bg-white text-black font-bold py-1 px-2 rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0)]">
+            <Badge className="text-xs border-2 border-black bg-white text-black font-productsans font-bold py-1 px-2 rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0)]">
               +{blog.categories.length - 3} more
             </Badge>
           )}
@@ -110,7 +108,7 @@ const BlogCard = (blog: BlogCardProps) => {
         <Button
           className="w-full bg-yellow-300 hover:bg-yellow-400 text-black font-extrabold border-2 border-black rounded-md 
           shadow-[3px_3px_0px_0px_rgba(0,0,0)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0)] 
-          hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all flex items-center gap-2"
+          hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all flex items-center font-productsans gap-2"
           onClick={(e) => {
             e.stopPropagation();
             window.open(blog.link, '_blank');

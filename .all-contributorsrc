@@ -109,6 +109,33 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "auraexe25",
+      "name": "Veena Sahu",
+      "avatar_url": "https://avatars.githubusercontent.com/u/154359186?v=4",
+      "profile": "http://portfolio-eight-rose-30.vercel.app/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "PratyushPanda2005",
+      "name": "Ptrock2005",
+      "avatar_url": "https://avatars.githubusercontent.com/u/175925778?v=4",
+      "profile": "https://pratyush-portfolio.vercel.app/",
+       "contributions": [
+        "code"
+      ]
+    }
+    {
+      "login": "AshutoshMishra1615",
+      "name": "AshutoshMishra1615",
+      "avatar_url": "https://avatars.githubusercontent.com/u/135343059?v=4",
+      "profile": "https://github.com/AshutoshMishra1615",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 6,

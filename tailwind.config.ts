@@ -144,6 +144,9 @@ export default {
         '2xs': '2px',
         xs: '4px',
       },
+      screens: {
+        xsmd: '480px',
+      },
     },
   },
   // eslint-disable-next-line @typescript-eslint/no-require-imports
