@@ -61,15 +61,17 @@ function Info() {
 
           <button
             onClick={() => setShowMore(!showMore)}
-            className="mt-4 flex items-center gap-2 text-white font-bold focus:outline-none"
+            className="mt-4 flex items-center gap-1 text-white font-bold focus:outline-none"
           >
             {showMore ? (
               <>
-                Read Less <ChevronUp className="animate-bounce" size={18} />
+                Read Less{' '}
+                <ChevronUp className="mt-[2px]" strokeWidth={2} size={24} />
               </>
             ) : (
               <>
-                Read More <ChevronDown className="animate-bounce" size={18} />
+                Read More{' '}
+                <ChevronDown className="mt-[2px]" strokeWidth={2} size={24} />
               </>
             )}
           </button>
