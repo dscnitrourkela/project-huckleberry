@@ -1,14 +1,52 @@
 import { ImageResponse } from 'next/og';
 import { LOGO } from '@/config/common';
+// Node.js helper for reading files
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 
+// Define constants for better maintainability
+const COLORS = {
+  blue: '#4285F4',
+  red: '#EA4335',
+  yellow: '#FBBC05',
+  green: '#34A853',
+  text: '#202124',
+  subtext: '#5F6368',
+};
+
+// Image metadata
+export const alt = 'GDG on Campus NITR';
 export const size = {
   width: 1200,
   height: 630,
 };
-
 export const contentType = 'image/png';
 
-export default function Image() {
+// Add caching directive to improve performance
+export const runtime = 'edge';
+export const revalidate = 60 * 60 * 24 * 7; // Cache for 1 week
+
+export default async function Image() {
+  // Try to load the fonts - if they fail, the image will still render with system fonts
+  let productSansRegular, productSansBold;
+
+  try {
+    // Note: this is a more reliable way to load fonts in Next.js
+    productSansRegular = await readFile(
+      join(
+        process.cwd(),
+        'public/fonts/productsansfull/ProductSans-Regular.ttf'
+      )
+    );
+
+    productSansBold = await readFile(
+      join(process.cwd(), 'public/fonts/productsansfull/ProductSans-Bold.ttf')
+    );
+  } catch (e) {
+    console.error('Failed to load fonts:', e);
+    // Continue without custom fonts
+  }
+
   return new ImageResponse(
     (
       <div
@@ -23,6 +61,7 @@ export default function Image() {
           overflow: 'hidden',
         }}
       >
+        {/* Background gradient */}
         <div
           style={{
             position: 'absolute',
@@ -35,6 +74,7 @@ export default function Image() {
           }}
         />
 
+        {/* Content container */}
         <div
           style={{
             display: 'flex',
@@ -45,6 +85,7 @@ export default function Image() {
             height: '100%',
           }}
         >
+          {/* Header with logo and name */}
           <div
             style={{
               display: 'flex',
@@ -65,7 +106,7 @@ export default function Image() {
             <div
               style={{
                 fontSize: '32px',
-                color: '#1B66F6',
+                color: COLORS.blue,
                 padding: '12px 24px',
                 background: 'rgba(255, 255, 255, 0.9)',
                 borderRadius: '12px',
@@ -74,10 +115,11 @@ export default function Image() {
                 fontWeight: 'bold',
               }}
             >
-              DSC NIT Rourkela
+              GDG on Campus NITR
             </div>
           </div>
 
+          {/* Main content */}
           <div
             style={{
               display: 'flex',
@@ -93,7 +135,7 @@ export default function Image() {
               style={{
                 fontSize: '64px',
                 fontWeight: 'bold',
-                color: '#202124',
+                color: COLORS.text,
                 lineHeight: 1.2,
                 maxWidth: '900px',
               }}
@@ -104,7 +146,7 @@ export default function Image() {
             <div
               style={{
                 fontSize: '36px',
-                color: '#5F6368',
+                color: COLORS.subtext,
                 maxWidth: '800px',
                 lineHeight: 1.4,
               }}
@@ -113,6 +155,7 @@ export default function Image() {
             </div>
           </div>
 
+          {/* Footer with Google colors */}
           <div
             style={{
               display: 'flex',
@@ -136,7 +179,7 @@ export default function Image() {
                   width: '24px',
                   height: '24px',
                   borderRadius: '50%',
-                  background: '#4285F4',
+                  background: COLORS.blue,
                 }}
               />
               <div
@@ -144,7 +187,7 @@ export default function Image() {
                   width: '24px',
                   height: '24px',
                   borderRadius: '50%',
-                  background: '#EA4335',
+                  background: COLORS.red,
                 }}
               />
               <div
@@ -152,7 +195,7 @@ export default function Image() {
                   width: '24px',
                   height: '24px',
                   borderRadius: '50%',
-                  background: '#FBBC05',
+                  background: COLORS.yellow,
                 }}
               />
               <div
@@ -160,7 +203,7 @@ export default function Image() {
                   width: '24px',
                   height: '24px',
                   borderRadius: '50%',
-                  background: '#34A853',
+                  background: COLORS.green,
                 }}
               />
             </div>
@@ -168,6 +211,27 @@ export default function Image() {
         </div>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+      // Add optimizations for image generation
+      emoji: 'twemoji',
+      fonts:
+        productSansRegular && productSansBold
+          ? [
+              {
+                name: 'ProductSans',
+                data: productSansRegular,
+                weight: 400,
+                style: 'normal',
+              },
+              {
+                name: 'ProductSans',
+                data: productSansBold,
+                weight: 700,
+                style: 'normal',
+              },
+            ]
+          : undefined,
+    }
   );
 }

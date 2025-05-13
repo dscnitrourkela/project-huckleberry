@@ -15,8 +15,7 @@ const EventDetail = ({ event }: EventDetailProps) => {
       <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.5] pointer-events-none" />
 
       <main className="flex-1 px-4 sm:px-6 md:px-8 lg:px-16 max-w-7xl mx-auto w-full relative z-10">
-        <div className="py-12">
-          <EventHeader title={event.title} subTitle={event.subTitle} />
+        <div className="py-12 mt-12">
           <EventImage imageUrl={event.coverImage} title={event.title} />
 
           <motion.div
