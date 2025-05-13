@@ -22,7 +22,7 @@ export const WhatWeDoMappedCards = () => {
           <h3 className="card-title font-[900] font-productsans text-xl sm:text-2xl md:text-[28px]  text-black leading-tight">
             {card.title}
           </h3>
-          <p className="card-description font-productsans text-[#4A4A68] text-[14px] sm:text-[16px] md:text-[18px] leading-[12px] font-[500] w-[90%] sm:leading-[14px] md:leading-[16px]">
+          <p className="card-description font-productsans text-[#4A4A68] text-[14px] sm:text-[16px] md:text-[18px] leading-[16px] font-[500] w-[90%] sm:leading-[18px] md:leading-[20px]">
             {card.description}
           </p>
         </div>
@@ -54,7 +54,7 @@ export const DomainMappedCards = () => {
               <h3 className="domain-title text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-[900] font-productsans text-black">
                 {domain.title}
               </h3>
-              <p className="domain-description text-[#4A4A68] font-medium text-sm font-productsans sm:text-base md:text-lg lg:text-xl italic w-full lg:w-[60%]">
+              <p className="domain-description text-[#4A4A68] font-[520] text-sm font-productsans sm:text-base md:text-lg lg:text-xl italic w-full lg:w-[60%]">
                 {domain.description}
               </p>
             </div>
