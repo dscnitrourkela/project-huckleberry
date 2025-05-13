@@ -6,6 +6,17 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@font-face {
+  font-family: 'Product Sans';
+  src: url('../../public/fonts/productsansfull/ProductSans-Bold.ttf')
+    format('truetype');
+}
+@font-face {
+  font-family: 'Product Sans Light';
+  src: url('../..//public/fonts/productsansfull/ProductSans-Light.ttf')
+    format('truetype');
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -78,6 +89,10 @@ body {
   .button-gradient {
     @apply bg-gradient-to-r from-gdg-blue to-gdg-green hover:from-gdg-green hover:to-gdg-blue transition-all duration-500;
   }
+
+  .navlink {
+    @apply hover:text-blue-600 cursor-pointer hover:font-[700] transition duration-300;
+  }
 }
 
 /* Add this to your existing globals.css file */
@@ -88,4 +103,17 @@ body {
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none; /* Chrome, Safari and Opera */
+}
+
+.button {
+  background: var(
+    --Ascent,
+    linear-gradient(82deg, #4379e0 -4.79%, #1b66f6 103.83%)
+  );
+}
+
+#hero {
+  background-image: url('https://res.cloudinary.com/db4zbyipc/image/upload/v1747121185/herobg_dwtxlw.png');
+  background-size: cover;
+  background-position: center;
 }
