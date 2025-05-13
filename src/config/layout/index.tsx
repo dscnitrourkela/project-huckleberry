@@ -5,39 +5,39 @@ export const pageContent = {
     title: 'Our Events',
     description: (
       <>
-        At Vero Et Accusamus Et
+        Empowering students through hands-on experiences,
         <br />
-        Lusto Odio Dignissimos The.
+        collaboration, and innovation.
       </>
     ),
     imageUrl:
-      'https://res.cloudinary.com/dpmlrxlzr/image/upload/v1746378087/hn_50_1_ru18tc.png',
+      'https://res.cloudinary.com/dqcrkrtyr/image/upload/v1747036740/hiv_xn6d1p.jpg',
   },
   '/about-us': {
     bgColor: '#FFF4EC',
     title: 'About Us',
     description: (
       <>
-        At Vero Et Accusamus Et
+        Empowering students to learn,
         <br />
-        Lusto Odio Dignissimos The.
+        connect, and create.
       </>
     ),
     imageUrl:
-      'https://res.cloudinary.com/dpmlrxlzr/image/upload/v1746378087/hn_50_1_ru18tc.png',
+      'https://res.cloudinary.com/dqcrkrtyr/image/upload/v1737872743/IMG_3663_2_1_l1mwcb.png',
   },
   '/projects': {
     bgColor: '#F0F4FF',
     title: 'Our Projects',
     description: (
       <>
-        At Vero Et Accusamus Et
+        From hostel brainstorms to real-world solutions
         <br />
-        Lusto Odio Dignissimos The.
+        projects by and for the NITR family.
       </>
     ),
     imageUrl:
-      'https://res.cloudinary.com/dpmlrxlzr/image/upload/v1746378087/hn_50_1_ru18tc.png',
+      'https://res.cloudinary.com/dqcrkrtyr/image/upload/v1747039475/banner_iuhyjr.jpg',
   },
   '/resources': {
     bgColor: '#FFF4EC',

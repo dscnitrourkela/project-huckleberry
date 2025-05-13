@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import EventsCard from '@/components/home/events/EventsCard';
+import EventsCard from '@/components/events/EventsCard';
 import { toast } from 'sonner';
 import { getAllEvents } from '@/actions/events';
 import Loader from '@/components/shared/loader';
@@ -33,7 +33,6 @@ function Page() {
       }
       // @ts-ignore
       setEvents(response.data.events);
-      console.log(response);
     } catch (error) {
       console.log(error);
       toast.error('Error fetching events');
