@@ -20,7 +20,7 @@ function Info() {
         />
       </div>
 
-      <div className="flex-1 flex flex-col text-left gap-12">
+      <div className="flex-1 flex flex-col text-center sm:text-left gap-12">
         <h1 className="text-3xl sm:text-4xl xl:text-5xl font-bold font-productsans leading-snug">
           What is GDG?
         </h1>
@@ -39,7 +39,7 @@ function Info() {
           technology.
         </p>
 
-        <div className="sm:hidden text-base font-normal leading-6 font-productsans">
+        <div className="sm:hidden text-base flex flex-col items-center font-normal leading-6 font-productsans">
           <p>
             Google Developer Group (GDG) is a global community of developers and
             tech enthusiasts who come together to learn, share, and collaborate

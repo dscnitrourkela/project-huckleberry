@@ -19,6 +19,7 @@
     "prettier:fix": "prettier --write \"./**/*.{ts,tsx,js,jsx,css,scss,md}\" --ignore-pattern node_modules/"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@hookform/resolvers": "^3.10.0",
     "@prisma/client": "^6.5.0",
     "@radix-ui/react-avatar": "^1.1.2",

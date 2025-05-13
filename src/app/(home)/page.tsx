@@ -1,17 +1,21 @@
 'use client';
 
 import React from 'react';
+import Hero from '@/components/hero/hero';
 
-import EventsSection from '@/app/playground/events';
-import Info from '@/app/playground/info';
-import ProjectsSection from '@/app/playground/projects';
+import EventsSection from '@/components/home/events';
+import Info from '@/components/home/info';
+import ProjectsSection from '@/components/home/projects';
 const Index = () => {
   return (
-    <div className="font-productsans">
-      <Info />
-      <EventsSection />
-      <ProjectsSection />
-    </div>
+    <main>
+      <Hero />
+      <div className="font-productsans">
+        <Info />
+        <EventsSection />
+        <ProjectsSection />
+      </div>
+    </main>
   );
 };
 
