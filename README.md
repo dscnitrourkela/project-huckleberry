@@ -221,6 +221,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="16.66%"><a href="http://portfolio-eight-rose-30.vercel.app/"><img src="https://avatars.githubusercontent.com/u/154359186?v=4?s=100" width="100px;" alt="Veena Sahu"/><br /><sub><b>Veena Sahu</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=auraexe25" title="Code">💻</a></td>
     </tr>
     <tr>
+      <td align="center" valign="top" width="16.66%"><a href="https://pratyush-portfolio.vercel.app/"><img src="https://avatars.githubusercontent.com/u/175925778?v=4?s=100" width="100px;" alt="Ptrock2005"/><br /><sub><b>Ptrock2005</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=PratyushPanda2005" title="Code">💻</a></td>
       <td align="center" valign="top" width="16.66%"><a href="https://github.com/AshutoshMishra1615"><img src="https://avatars.githubusercontent.com/u/135343059?v=4?s=100" width="100px;" alt="AshutoshMishra1615"/><br /><sub><b>AshutoshMishra1615</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=AshutoshMishra1615" title="Code">💻</a></td>
     </tr>
   </tbody>
