@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-export const baseUrl = 'http://localhost:3000';
+export const baseUrl = 'https://gdsc-nitr.netlify.app';
 
 export const homeMetadata: Metadata = {
   title: {
