@@ -8,6 +8,7 @@ import { getAllMembers } from '@/actions/members';
 import { Member } from '@/types/admin/members';
 import { TeamMember, Social, MembersResponse } from '@/types/team';
 import Loader from '@/components/shared/loader';
+import { Metadata } from 'next';
 
 const transformMemberToTeamMember = (member: Member): TeamMember => {
   const socials: Social[] = [];

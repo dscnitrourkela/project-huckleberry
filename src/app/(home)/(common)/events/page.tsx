@@ -4,6 +4,10 @@ import EventsCard from '@/components/events/EventsCard';
 import { toast } from 'sonner';
 import { getAllEvents } from '@/actions/events';
 import Loader from '@/components/shared/loader';
+import { eventsMetadata } from '@/config/seo/events-metadata';
+
+export { eventsMetadata as metadata };
+
 function Page() {
   const [events, setEvents] = useState<
     {

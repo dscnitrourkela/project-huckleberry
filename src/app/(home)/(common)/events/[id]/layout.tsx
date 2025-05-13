@@ -1,6 +1,7 @@
 import { prisma } from '@/lib/prisma';
 import type { Metadata } from 'next';
 import { formatTimestamp } from '@/utils';
+import { baseUrl } from '@/config/seo/metadata';
 
 interface EventPageProps {
   params: Promise<{
@@ -33,8 +34,6 @@ export async function generateMetadata({
   const eventMode = event.mode ? `(${event.mode})` : '';
 
   const metaDescription = `${event.subTitle}. Join us on ${formattedTime} ${eventLocation} ${eventMode}. ${event.description?.substring(0, 120)}...`;
-
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL!;
 
   return {
     title: `${event.title} | GDSC NITR Events`,
