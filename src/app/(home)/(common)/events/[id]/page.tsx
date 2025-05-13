@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import EventDetail from '@/components/home/events/EventDetails';
+import EventDetail from '@/components/events/EventDetails';
 import Loader from '@/components/shared/loader';
 import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
@@ -17,7 +17,9 @@ export async function generateStaticParams() {
 export default async function EventPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{
+    id: string;
+  }>;
 }) {
   const { id } = await params;
   const event = await prisma.event.findUnique({

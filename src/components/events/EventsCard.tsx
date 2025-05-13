@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '../../ui/button';
+import { Button } from '../ui/button';
 import { formatTimestamp } from '@/utils';
 import { MapPin, Users, Laptop } from 'lucide-react';
 
@@ -84,7 +84,7 @@ const EventsCard: React.FC<EventsCardProps> = ({
       {/* Info Card */}
       <div
         className={`${cardBgColor} shadow-md shadow-gray-300 rounded-xl px-6 sm:px-10 lg:px-16 pt-10 pb-14 
-      mt-4 sm:-mt-20 lg:-mt-32 w-full max-w-4xl z-10 relative tracking-wider`}
+      mt-4 sm:-mt-[50px] lg:-mt-32 w-full max-w-4xl z-10 relative tracking-wider`}
       >
         <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-black capitalize text-center">
           {subtitle}

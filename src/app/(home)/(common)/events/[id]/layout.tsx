@@ -3,9 +3,9 @@ import type { Metadata } from 'next';
 import { formatTimestamp } from '@/utils';
 
 interface EventPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({
@@ -53,7 +53,7 @@ export async function generateMetadata({
         },
       ],
       type: 'website',
-      url: `${baseUrl}/events/${params.id}`,
+      url: `${baseUrl}/events/${id}`,
     },
     twitter: {
       card: 'summary_large_image',
@@ -64,7 +64,7 @@ export async function generateMetadata({
       ],
     },
     alternates: {
-      canonical: `${baseUrl}/events/${params.id}`,
+      canonical: `${baseUrl}/events/${id}`,
     },
   };
 }
