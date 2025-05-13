@@ -2,7 +2,7 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
@@ -221,6 +221,10 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="16.66%"><a href="https://linktr.ee/m_srishty"><img src="https://avatars.githubusercontent.com/u/68679980?v=4?s=100" width="100px;" alt="Srishty Mangutte"/><br /><sub><b>Srishty Mangutte</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=Srish-ty" title="Code">💻</a></td>
       <td align="center" valign="top" width="16.66%"><a href="https://github.com/BlessedAmrita"><img src="https://avatars.githubusercontent.com/u/153388147?v=4?s=100" width="100px;" alt="BlessedAmrita"/><br /><sub><b>BlessedAmrita</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=BlessedAmrita" title="Code">💻</a></td>
       <td align="center" valign="top" width="16.66%"><a href="http://portfolio-eight-rose-30.vercel.app/"><img src="https://avatars.githubusercontent.com/u/154359186?v=4?s=100" width="100px;" alt="Veena Sahu"/><br /><sub><b>Veena Sahu</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=auraexe25" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="16.66%"><a href="https://pratyush-portfolio.vercel.app/"><img src="https://avatars.githubusercontent.com/u/175925778?v=4?s=100" width="100px;" alt="Ptrock2005"/><br /><sub><b>Ptrock2005</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=PratyushPanda2005" title="Code">💻</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://github.com/AshutoshMishra1615"><img src="https://avatars.githubusercontent.com/u/135343059?v=4?s=100" width="100px;" alt="AshutoshMishra1615"/><br /><sub><b>AshutoshMishra1615</b></sub></a><br /><a href="https://github.com/dscnitrourkela/project-huckleberry/commits?author=AshutoshMishra1615" title="Code">💻</a></td>
     </tr>
   </tbody>
   <tfoot>

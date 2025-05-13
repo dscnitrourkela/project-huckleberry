@@ -3,6 +3,7 @@ import { dmSans, geistMono, geistSans, poppins, productSans } from './fonts';
 import { Toaster } from '@/components/ui/sonner';
 import HOC from '@/components/shared/hoc/HOC';
 import { homeMetadata } from '@/config/seo/metadata';
+import Navbar from '@/components/marginals/navbar/Navbar';
 
 export { homeMetadata as metadata };
 
@@ -16,6 +17,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${dmSans.variable} ${productSans.variable}  antialiased`}
       >
+        <Navbar />
         <Toaster position="top-right" />
         <HOC>{children}</HOC>
       </body>
