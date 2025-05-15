@@ -6,17 +6,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@font-face {
-  font-family: 'Product Sans';
-  src: url('../../public/fonts/productsansfull/ProductSans-Bold.ttf')
-    format('truetype');
-}
-@font-face {
-  font-family: 'Product Sans Light';
-  src: url('../..//public/fonts/productsansfull/ProductSans-Light.ttf')
-    format('truetype');
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -91,7 +80,7 @@ body {
   }
 
   .navlink {
-    @apply hover:text-blue-600 cursor-pointer hover:font-[700] transition duration-300;
+    @apply transition duration-700 hover:text-blue-600 cursor-pointer;
   }
 }
 
