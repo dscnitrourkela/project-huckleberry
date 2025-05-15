@@ -1,6 +1,12 @@
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 
 export const baseUrl = 'https://gdsc-nitr.netlify.app';
+
+// Separate viewport export as recommended by Next.js
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const homeMetadata: Metadata = {
   title: {
@@ -47,10 +53,6 @@ export const homeMetadata: Metadata = {
       'GDG on Campus NITR - Building for the future with student-led technology communities',
     creator: '@dscnitrourkela',
     images: ['/opengraph-image.png'],
-  },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
   },
   icons: {
     icon: '/gdg.ico',

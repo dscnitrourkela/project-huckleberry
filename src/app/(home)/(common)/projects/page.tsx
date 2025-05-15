@@ -9,8 +9,6 @@ import { projectsMetadata } from '@/config/seo/projects-metadata';
 
 const bgColors = ['bg-blue-100', 'bg-yellow-50', 'bg-purple-50', 'bg-green-50'];
 
-export { projectsMetadata as metadata };
-
 export default function ProjectsPage() {
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
   const [isLoading, setIsLoading] = useState(true);

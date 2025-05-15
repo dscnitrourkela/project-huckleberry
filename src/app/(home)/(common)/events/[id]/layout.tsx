@@ -36,16 +36,14 @@ export async function generateMetadata({
   const metaDescription = `${event.subTitle}. Join us on ${formattedTime} ${eventLocation} ${eventMode}. ${event.description?.substring(0, 120)}...`;
 
   return {
-    title: `${event.title} | GDSC NITR Events`,
+    title: `${event.title}`,
     description: metaDescription,
     openGraph: {
       title: event.title,
       description: event.subTitle!,
       images: [
         {
-          url:
-            event.coverImage ||
-            `/api/og?title=${encodeURIComponent(event.title)}`,
+          url: event.coverImage!,
           width: 1200,
           height: 630,
           alt: event.title,
@@ -58,9 +56,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: event.title,
       description: event.subTitle!,
-      images: [
-        event.coverImage || `/api/og?title=${encodeURIComponent(event.title)}`,
-      ],
+      images: [event.coverImage!],
     },
     alternates: {
       canonical: `${baseUrl}/events/${id}`,

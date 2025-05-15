@@ -4,11 +4,8 @@ import EventsCard from '@/components/events/EventsCard';
 import { toast } from 'sonner';
 import { getAllEvents } from '@/actions/events';
 import Loader from '@/components/shared/loader';
-import { eventsMetadata } from '@/config/seo/events-metadata';
 
-export { eventsMetadata as metadata };
-
-function Page() {
+export default function EventsPage() {
   const [events, setEvents] = useState<
     {
       id: string;
@@ -84,4 +81,3 @@ function Page() {
     </div>
   );
 }
-export default Page;
