@@ -33,7 +33,6 @@ const Hero = () => {
   const rectRef = useRef<HTMLImageElement>(null);
   const yelRectRef = useRef<HTMLImageElement>(null);
   const rectRefsec = useRef<HTMLImageElement>(null);
-  const redHor = useRef<HTMLImageElement>(null);
   const redHorSec = useRef<HTMLImageElement>(null);
   const circles = useRef<HTMLImageElement>(null);
   const polygonRef1 = useRef<HTMLImageElement>(null);
@@ -41,39 +40,40 @@ const Hero = () => {
   const rectRef1 = useRef<HTMLImageElement>(null);
   const rectRef2 = useRef<HTMLImageElement>(null);
   const svgcontainer = useRef<HTMLImageElement>(null);
+  const greenVerRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     gsap.to(rectRef.current, {
       height: '25px',
-      duration: 3,
+      duration: 4,
       yoyo: true,
       repeat: -1,
       ease: 'power1.inOut',
     });
     gsap.to(yelRectRef.current, {
       height: '100px',
-      duration: 3,
+      duration: 4,
       yoyo: true,
       repeat: -1,
       ease: 'power1.inOut',
     });
     gsap.to(rectRefsec.current, {
       width: '25px',
-      duration: 3,
+      duration: 4,
       yoyo: true,
       repeat: -1,
       ease: 'power1.inOut',
     });
-    gsap.to(redHor.current, {
-      width: '25px',
-      duration: 3,
+    gsap.to(greenVerRef.current, {
+      height: '32px',
+      duration: 1.3,
       yoyo: true,
       repeat: -1,
       ease: 'power1.inOut',
     });
     gsap.to(redHorSec.current, {
       width: '25px',
-      duration: 3,
+      duration: 4,
       yoyo: true,
       repeat: -1,
       ease: 'power1.inOut',
@@ -382,7 +382,8 @@ const Hero = () => {
             />
 
             <Image
-              className="absolute left-28 bottom-20"
+              ref={greenVerRef}
+              className="absolute left-28 bottom-20 rounded-full"
               src={greenVer}
               width={24}
               height={25}

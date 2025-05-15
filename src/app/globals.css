@@ -6,6 +6,114 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 217 89% 61%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  .dot {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    margin: 0 2px;
+    animation-name: dots;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-lg;
+  }
+
+  .text-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-gdg-blue via-gdg-green to-gdg-red;
+  }
+
+  .button-gradient {
+    @apply bg-gradient-to-r from-gdg-blue to-gdg-green hover:from-gdg-green hover:to-gdg-blue transition-all duration-500;
+  }
+
+  .navlink {
+    @apply transition duration-700 hover:text-blue-600 cursor-pointer;
+  }
+}
+
+/* Add this to your existing globals.css file */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.button {
+  background: var(
+    --Ascent,
+    linear-gradient(82deg, #4379e0 -4.79%, #1b66f6 103.83%)
+  );
+}
+
+#hero {
+  background-image: url('https://res.cloudinary.com/db4zbyipc/image/upload/v1747121185/herobg_dwtxlw.png');
+  background-size: cover;
+  background-position: center;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 @font-face {
   font-family: 'Product Sans';
   src: url('../../public/fonts/productsansfull/ProductSans-Bold.ttf')
