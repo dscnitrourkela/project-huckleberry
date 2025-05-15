@@ -1,5 +1,6 @@
 import TweetCarousel from '@/components/resources/tweets/tweet-carousel';
 import BlogCarousel from '@/components/resources/blogs/blog-carousel';
+import React from 'react';
 
 export default function ResourcesPage() {
   return (

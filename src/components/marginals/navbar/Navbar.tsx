@@ -52,7 +52,7 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile Navbar */}
-      <nav className="lg:hidden fixed top-0 left-0 w-full bg-white z-20 font-product  px-4 py-3">
+      <nav className="lg:hidden fixed top-0 left-0 w-full bg-white z-50 font-product  px-4 py-3">
         <div className="flex items-center justify-between">
           <Image src={GDGLogo} alt="GDG Logo" className="h-10 w-auto" />
           <button onClick={toggleMenu} className="focus:outline-none">
