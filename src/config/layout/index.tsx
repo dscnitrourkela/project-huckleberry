@@ -44,9 +44,9 @@ export const pageContent = {
     title: 'Resources',
     description: (
       <>
-        At Vero Et Accusamus Et
+        Tools, guides, and platforms.
         <br />
-        Lusto Odio Dignissimos The.
+        Everything students need to build, innovate, and thrive.
       </>
     ),
     imageUrl:
@@ -57,9 +57,8 @@ export const pageContent = {
     title: 'Our Team',
     description: (
       <>
-        At Vero Et Accusamus Et
-        <br />
-        Lusto Odio Dignissimos The.
+        Driven by passion, united by purpose.
+        <br />A collective of creators, thinkers, and changemakers.
       </>
     ),
     imageUrl:
