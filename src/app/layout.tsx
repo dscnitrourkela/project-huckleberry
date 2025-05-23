@@ -2,7 +2,7 @@ import './globals.css';
 import { dmSans, geistMono, geistSans, poppins, productSans } from './fonts';
 import { Toaster } from '@/components/ui/sonner';
 import HOC from '@/components/shared/hoc/HOC';
-import Footer from '@/components/Footer/Footer';
+import Footer from '@/components/footer/Footer';
 import { homeMetadata, viewport } from '@/config/seo/metadata';
 import Navbar from '@/components/marginals/navbar/Navbar';
 
