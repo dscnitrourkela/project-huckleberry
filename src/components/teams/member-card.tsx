@@ -1,8 +1,7 @@
 'use client';
 import { memo } from 'react';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { cn } from '@/lib/utils';
+
 import Image from 'next/image';
 import SocialLinks from '../home/social-links';
 import { TeamMember } from '@/types/team';
@@ -19,7 +18,6 @@ const MemberCard = ({
   socials,
   showBatch = false,
 }: MemberCardProps) => {
-  const [isHovered, setIsHovered] = useState(false);
   const colors = [
     'bg-pink-50',
     'bg-blue-50',
@@ -32,11 +30,7 @@ const MemberCard = ({
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
 
   return (
-    <div
-      className="w-full max-w-xs mx-auto relative h-[380px] overflow-hidden border-black border-2 shadow-[gray_4px_4px_2px] hover:shadow-[gray_7px_7px_2px] hover:translate-x-[-3px] hover:translate-y-[-3px] transistion-all duration-300 ease-in-out"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <div className="w-full max-w-xs mx-auto relative h-[380px] overflow-hidden border-black border-2 shadow-[gray_4px_4px_2px] hover:shadow-[gray_7px_7px_2px] hover:translate-x-[-3px] hover:translate-y-[-3px] transistion-all duration-300 ease-in-out">
       <motion.div className="absolute inset-0 w-full h-full">
         <div className={`${randomColor} rounded-2xl h-full flex flex-col`}>
           <div className="h-3/4 overflow-hidden p-5 pb-0">
