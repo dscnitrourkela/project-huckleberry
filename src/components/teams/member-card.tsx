@@ -32,7 +32,7 @@ const MemberCard = ({
   return (
     <div className="w-full max-w-xs mx-auto relative h-[380px] overflow-hidden border-black border-2 shadow-[gray_4px_4px_2px] hover:shadow-[gray_7px_7px_2px] hover:translate-x-[-3px] hover:translate-y-[-3px] transistion-all duration-300 ease-in-out">
       <motion.div className="absolute inset-0 w-full h-full">
-        <div className={`${randomColor} rounded-2xl h-full flex flex-col`}>
+        <div className={`${randomColor} h-full flex flex-col`}>
           <div className="h-3/4 overflow-hidden p-3 pb-0 mb-2">
             <Image
               src={photo}
