@@ -213,7 +213,7 @@ body {
   display: none; /* Chrome, Safari and Opera */
 }
 .gridbg {
-  background-size: 100% 100%;
+  background-size: cover;
   background-repeat: repeat;
   background-position: center;
 
