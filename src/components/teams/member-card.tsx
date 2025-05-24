@@ -33,7 +33,7 @@ const MemberCard = ({
     <div className="w-full max-w-xs mx-auto relative h-[380px] overflow-hidden border-black border-2 shadow-[gray_4px_4px_2px] hover:shadow-[gray_7px_7px_2px] hover:translate-x-[-3px] hover:translate-y-[-3px] transistion-all duration-300 ease-in-out">
       <motion.div className="absolute inset-0 w-full h-full">
         <div className={`${randomColor} rounded-2xl h-full flex flex-col`}>
-          <div className="h-3/4 overflow-hidden p-5 pb-0">
+          <div className="h-3/4 overflow-hidden p-3 pb-0 mb-2">
             <Image
               src={photo}
               alt={`${name} - ${role}`}
@@ -52,7 +52,7 @@ const MemberCard = ({
                 {role}
               </p>
               {showBatch && batch && (
-                <span className="font-productsans bg-gray-100 text-gray-700 px-2 py-0.5 rounded-full text-xs font-medium">
+                <span className="font-productsans text-gray-700 px-2 py-0.5 rounded-full text-xs font-medium">
                   Batch {batch}
                 </span>
               )}
@@ -62,8 +62,7 @@ const MemberCard = ({
                 <SocialLinks
                   socials={socials}
                   className="justify-start"
-                  linkClassName="bg-black/80 hover:bg-black"
-                  iconSize={20}
+                  iconSize={16}
                 />
               )}
             </div>
