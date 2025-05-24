@@ -31,24 +31,30 @@ const Navbar = () => {
       {/* Desktop Navbar */}
       <nav
         id="nav"
-        className="absolute top-0 left-0 h-[92px] w-full hidden lg:flex z-10 bg-white font-productsans"
+        className="fixed top-0 left-0 h-[92px] w-full hidden lg:flex z-[100] bg-white font-productsans"
       >
-        <div className="w-full h-full px-6 xl:px-[120px] py-4">
+        <div className="w-full h-full px-24 xl:px-32 py-4">
           <div className="w-full h-full relative flex items-center justify-between">
-            <Image src={GDGLogo} alt="GDG Logo" className="h-full w-auto" />
+            <Link href="/" className="h-full w-auto">
+              <Image
+                src={GDGLogo}
+                alt="GDG Logo"
+                className="h-full w-auto cursor-pointer"
+              />
+            </Link>
 
             <div className="flex gap-4 xl:gap-6 items-center">
               {navLinks.map((link, index) => (
                 <Link
                   key={index}
                   href={link.href}
-                  className="navlink relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-neutral-600 after:transition-all after:duration-300 hover:after:w-full hover:font-normal"
+                  className="navlink relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full hover:font-normal"
                 >
                   {link.text}
                 </Link>
               ))}
               <div className="xl:ml-6">
-                <button className="button text-white font-[700] px-6 xl:px-12 py-[18px] rounded-[12px]">
+                <button className="bg-blue-600 hover:bg-blue-800 transition duration-300  text-white font-[700] px-6 xl:px-12 py-[18px] rounded-[12px]">
                   Join Community
                 </button>
               </div>
@@ -58,12 +64,12 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile Navbar */}
-      <nav className="lg:hidden fixed top-0 left-0 w-full bg-white z-20 font-productsans  px-4 py-3">
+      <nav className="lg:hidden fixed top-0 left-0 w-full bg-white z-[100] font-productsans  px-8 sm:px-16 md:px-24 py-3">
         <div className="flex items-center justify-between">
           <Image
             src={GDGBrackets}
             alt="GDG Logo"
-            className="h-12 sm:h-20 w-auto"
+            className="h-12 sm:h-16 w-auto"
           />
           <button
             onClick={toggleMenu}
@@ -85,24 +91,34 @@ const Navbar = () => {
 
         {/* Slide-out menu */}
         <div
-          className={`transition-all duration-300 ease-in-out overflow-hidden ${
-            isMenuOpen ? 'max-h-96 mt-4' : 'max-h-0'
+          className={`fixed top-0 left-0 w-full h-screen bg-white z-[-1] pt-20 transition-all duration-300 ease-in-out ${
+            isMenuOpen
+              ? 'opacity-100 pointer-events-auto'
+              : 'opacity-0 pointer-events-none'
           }`}
         >
-          <div className="flex flex-col gap-4">
-            {navLinks.map((link, index) => (
-              <Link
-                key={index}
-                href={link.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="text-black text-lg py-2 border-b border-gray-200 text-center font-productsans"
-              >
-                {link.text}
-              </Link>
-            ))}
-            <button className="mt-4 button text-white font-[700] px-6 py-[14px] rounded-[12px] font-productsans">
-              Join Community
-            </button>
+          <div className="flex flex-col h-full justify-between pb-12 px-4">
+            <div className="space-y-4">
+              {navLinks.map((link, index) => (
+                <Link
+                  key={index}
+                  href={link.href}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    document.body.style.overflow = 'auto';
+                  }}
+                  className="block text-black text-lg md:text-xl py-2 text-center font-productsans hover:bg-gray-100 rounded-lg"
+                >
+                  {link.text}
+                </Link>
+              ))}
+            </div>
+
+            <div className="px-4 mb-8">
+              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-4 rounded-lg font-productsans text-lg transition-colors">
+                Join Community
+              </button>
+            </div>
           </div>
         </div>
       </nav>

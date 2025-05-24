@@ -1,84 +1,24 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { useRef } from 'react';
 import Image from 'next/image';
-import {
-  polygon,
-  rectver,
-  darkBlueCir,
-  blueRectHor,
-  yellowVer,
-  yellowVerSmall,
-  redHorRect,
-  yellowDark,
-  yellowDarkMed,
-  yellowLight,
-  yellowMed,
-  botPolygon,
-  concentricCircles,
-  greenVer,
-  blueCircle,
-  darkGreenDot,
-  lightGreenDot,
-  redDot,
-} from '@/config/home';
+import { polygon, botPolygon, concentricCircles } from '@/config/home';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
+import SvgBottomLeft from './svgusables/svglogos';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(SplitText);
 
 const Hero = () => {
-  const rectRef = useRef<HTMLImageElement>(null);
-  const yelRectRef = useRef<HTMLImageElement>(null);
-  const rectRefsec = useRef<HTMLImageElement>(null);
-  const redHorSec = useRef<HTMLImageElement>(null);
   const circles = useRef<HTMLImageElement>(null);
   const polygonRef1 = useRef<HTMLImageElement>(null);
   const polygonRef2 = useRef<HTMLImageElement>(null);
   const rectRef1 = useRef<HTMLImageElement>(null);
   const rectRef2 = useRef<HTMLImageElement>(null);
-  const svgcontainer = useRef<HTMLImageElement>(null);
-  const greenVerRef = useRef<HTMLImageElement>(null);
 
-  useEffect(() => {
-    gsap.to(rectRef.current, {
-      height: '25px',
-      duration: 4,
-      yoyo: true,
-      repeat: -1,
-      ease: 'power1.inOut',
-    });
-    gsap.to(yelRectRef.current, {
-      height: '100px',
-      duration: 4,
-      yoyo: true,
-      repeat: -1,
-      ease: 'power1.inOut',
-    });
-    gsap.to(rectRefsec.current, {
-      width: '25px',
-      duration: 4,
-      yoyo: true,
-      repeat: -1,
-      ease: 'power1.inOut',
-    });
-    gsap.to(greenVerRef.current, {
-      height: '32px',
-      duration: 1.3,
-      yoyo: true,
-      repeat: -1,
-      ease: 'power1.inOut',
-    });
-    gsap.to(redHorSec.current, {
-      width: '25px',
-      duration: 4,
-      yoyo: true,
-      repeat: -1,
-      ease: 'power1.inOut',
-    });
-
+  useLayoutEffect(() => {
     gsap.to(circles.current, {
       rotate: -360,
       repeat: -1,
@@ -98,7 +38,8 @@ const Hero = () => {
     });
 
     gsap.to(polygonRef2.current, {
-      y: 130,
+      y: 140,
+      duration: 0.2,
       ease: 'none',
       scrollTrigger: {
         trigger: '#hero',
@@ -109,7 +50,8 @@ const Hero = () => {
     });
 
     gsap.to(rectRef1.current, {
-      y: -100,
+      y: -110,
+      duration: 0.2,
       ease: 'none',
       scrollTrigger: {
         trigger: '#hero',
@@ -182,19 +124,12 @@ const Hero = () => {
       },
     });
 
-    gsap.set(svgcontainer.current, { opacity: 0 });
     gsap.set(polygonRef1.current, { opacity: 0 });
     gsap.set(polygonRef2.current, { opacity: 0 });
     gsap.set(circles.current, { opacity: 0 });
     gsap.set(rectRef1.current, { opacity: 0 });
     gsap.set(rectRef2.current, { opacity: 0 });
 
-    gsap.to(svgcontainer.current, {
-      opacity: 1,
-      delay: 1,
-      duration: 1,
-      ease: 'power1.inOut',
-    });
     gsap.to(polygonRef1.current, {
       opacity: 1,
       delay: 1,
@@ -232,7 +167,7 @@ const Hero = () => {
       <main className="relative">
         <section
           id="hero"
-          className="h-dvh relative w-full px-6 lg:px-0 overflow-hidden"
+          className="h-[100vh] relative w-full px-6 lg:px-0 overflow-hidden"
         >
           <div className="h-full w-full flex justify-center items-center ">
             <div className="flex flex-col gap-12 relative z-10">
@@ -260,7 +195,7 @@ const Hero = () => {
                 </p>
               </div>
               <div className=" flex justify-center">
-                <button className="button text-white font-[700] px-6 xl:px-12 py-[18px] rounded-[8px] border border-black font-productsans">
+                <button className="bg-blue-600 hover:bg-blue-800 transition duration-300 text-white font-[700] px-6 xl:px-12 py-[18px] rounded-[8px] border border-black font-productsans">
                   Apply For Membership
                 </button>
               </div>
@@ -286,161 +221,7 @@ const Hero = () => {
 
           {/* SVG Bottom Left Elements */}
 
-          <div ref={svgcontainer} className="svgcomponents hidden md:flex">
-            <Image
-              ref={rectRef}
-              src={rectver}
-              className="w-[25px] absolute bottom-20 left-12 rounded-full"
-              alt="Vertical Blue Rectangle"
-              width={25}
-              height={24}
-            />
-
-            <Image
-              src={darkBlueCir}
-              className="w-auto absolute bottom-4 left-12"
-              alt="Dark Blue Circle"
-              width={25}
-              height={25}
-            />
-            <Image
-              src={darkBlueCir}
-              className="w-auto absolute bottom-12 left-12"
-              alt="Dark Blue Circle"
-              width={25}
-              height={25}
-            />
-            <Image
-              src={darkBlueCir}
-              className="w-auto absolute bottom-44 left-4"
-              alt="Dark Blue Circle"
-              width={25}
-              height={25}
-            />
-
-            <Image
-              ref={yelRectRef}
-              src={yellowVer}
-              className="w-[24px] h-[25px] absolute bottom-12 left-20 rounded-full"
-              alt="Yellow Vertical Rectangle"
-              width={24}
-              height={25}
-            />
-            <Image
-              ref={rectRefsec}
-              src={blueRectHor}
-              className="h-[25px] w-auto absolute bottom-12 left-28 rounded-full"
-              alt="Blue Horizontal Rectangle"
-              height={25}
-              width={100}
-            />
-            <Image
-              src={darkBlueCir}
-              className="w-auto absolute bottom-12 left-28"
-              alt="Dark Blue Circle"
-              width={25}
-              height={25}
-            />
-
-            <Image
-              src={yellowVerSmall}
-              className="w-auto absolute bottom-24 left-4"
-              alt="Yellow Vertical small bar"
-              height={25}
-              width={25}
-            />
-
-            <Image
-              ref={redHorSec}
-              src={redHorRect}
-              className="w-auto h-[25px] absolute bottom-4 left-20 rounded-full"
-              alt="Red Horizontal bar"
-              width={25}
-              height={25}
-            />
-            <Image
-              src={redDot}
-              className=" absolute bottom-4 left-44 rounded-full"
-              width={24}
-              height={24}
-              alt="Red Horizontal bar"
-            />
-
-            <Image
-              src={yellowDark}
-              className="w-auto absolute bottom-12 left-20"
-              alt="Dark Yellow Circle"
-              width={25}
-              height={25}
-            />
-            <Image
-              src={blueCircle}
-              className="w-auto absolute bottom-40 left-4"
-              alt="Blue Circle"
-              width={25}
-              height={25}
-            />
-
-            <Image
-              ref={greenVerRef}
-              className="absolute left-28 bottom-20 rounded-full"
-              src={greenVer}
-              width={24}
-              height={25}
-              alt="Green Vertical Rectangle"
-            />
-            <Image
-              className="absolute left-28 bottom-36"
-              src={darkGreenDot}
-              width={24}
-              height={25}
-              alt="Dark Green Circle"
-            />
-            <Image
-              className="absolute left-28 bottom-32"
-              src={lightGreenDot}
-              width={24}
-              height={25}
-              alt="Light Green Circle"
-            />
-            <Image
-              className="absolute left-28 bottom-44"
-              src={darkGreenDot}
-              width={24}
-              height={25}
-              alt="Dark Green Circle"
-            />
-            {/* Yellow Dots */}
-
-            <Image
-              src={yellowLight}
-              className="absolute bottom-4 left-4 z-5"
-              alt="Yellow Light Dot"
-              width={25}
-              height={25}
-            />
-            <Image
-              src={yellowMed}
-              className="absolute bottom-8 left-4 z-5"
-              alt="Yellow Medium Dot"
-              width={25}
-              height={25}
-            />
-            <Image
-              src={yellowDarkMed}
-              className="absolute bottom-12 left-4 z-5"
-              alt="Yellow Dark Medium Dot"
-              width={25}
-              height={25}
-            />
-            <Image
-              src={yellowDark}
-              className="absolute bottom-16 left-4 z-5"
-              alt="Yellow Dark Dot"
-              width={25}
-              height={25}
-            />
-          </div>
+          <SvgBottomLeft />
 
           <Image
             ref={circles}
