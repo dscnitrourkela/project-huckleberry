@@ -14,33 +14,32 @@ interface MemberCardProps extends TeamMember {
 const MemberCard = ({
   name,
   role,
-  quote,
   photo,
   batch,
-  colorClass = 'bg-gdg-blue',
   socials,
   showBatch = false,
 }: MemberCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
-
-  const firstName = name.split(' ')[0];
+  const colors = [
+    'bg-pink-50',
+    'bg-blue-50',
+    'bg-green-50',
+    'bg-yellow-50',
+    'bg-red-50',
+    'bg-purple-50',
+    'bg-orange-50',
+  ];
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
 
   return (
     <div
-      className="w-full max-w-xs mx-auto relative h-[380px] overflow-hidden rounded-2xl shadow-lg"
+      className="w-full max-w-xs mx-auto relative h-[380px] overflow-hidden border-black border-2 shadow-[gray_4px_4px_2px] hover:shadow-[gray_7px_7px_2px] hover:translate-x-[-3px] hover:translate-y-[-3px] transistion-all duration-300 ease-in-out"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <motion.div
-        className="absolute inset-0 w-full h-full"
-        animate={{
-          opacity: isHovered ? 0 : 1,
-          y: isHovered ? -20 : 0,
-        }}
-        transition={{ duration: 0.3, ease: 'easeOut' }}
-      >
-        <div className="bg-white rounded-2xl h-full flex flex-col">
-          <div className="h-3/4 overflow-hidden">
+      <motion.div className="absolute inset-0 w-full h-full">
+        <div className={`${randomColor} rounded-2xl h-full flex flex-col`}>
+          <div className="h-3/4 overflow-hidden p-5 pb-0">
             <Image
               src={photo}
               alt={`${name} - ${role}`}
@@ -50,7 +49,7 @@ const MemberCard = ({
               priority
             />
           </div>
-          <div className="p-5 flex flex-col flex-grow">
+          <div className="p-5 pt-1 flex flex-col flex-grow">
             <h2 className="text-2xl font-bold text-gray-800 font-productsans">
               {name}
             </h2>
@@ -64,38 +63,15 @@ const MemberCard = ({
                 </span>
               )}
             </div>
-          </div>
-        </div>
-      </motion.div>
-
-      <motion.div
-        className={cn('absolute inset-0 w-full h-full rounded-2xl', colorClass)}
-        initial={{ opacity: 0, y: 30 }}
-        animate={{
-          opacity: isHovered ? 1 : 0,
-          y: isHovered ? 0 : 30,
-        }}
-        transition={{ duration: 0.3, ease: 'easeOut' }}
-      >
-        <div className="flex flex-col h-full p-6 justify-between">
-          <div>
-            {socials && (
-              <SocialLinks
-                socials={socials}
-                className="justify-start"
-                linkClassName="bg-black/80 hover:bg-black"
-                iconSize={20}
-              />
-            )}
-            {quote && (
-              <p className="text-lg text-black mt-4 mb-auto font-productsans text-center font-[400]">
-                "{quote}"
-              </p>
-            )}
-          </div>
-          <div className="flex items-center justify-between">
-            <div className="inline-block border-2 text-black border-black  px-4 py-1 rounded-full font-productsans text-sm">
-              {firstName}
+            <div className="pt-3">
+              {socials && (
+                <SocialLinks
+                  socials={socials}
+                  className="justify-start"
+                  linkClassName="bg-black/80 hover:bg-black"
+                  iconSize={20}
+                />
+              )}
             </div>
           </div>
         </div>

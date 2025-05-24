@@ -5,6 +5,7 @@ import ProjectCard from '@/components/projects/projects-card';
 import { GitHubRepo } from '@/types/projects';
 import { fetchRepos, getPublishedRepos } from '@/actions/projects';
 import Loader from '@/components/shared/loader';
+import { projectsMetadata } from '@/config/seo/projects-metadata';
 
 const bgColors = ['bg-blue-100', 'bg-yellow-50', 'bg-purple-50', 'bg-green-50'];
 

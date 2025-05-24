@@ -13,9 +13,9 @@ const LayoutHero: React.FC<LayoutHeroProps> = ({
   imageUrl,
 }) => {
   return (
-    <div className="w-full max-w-7xl mx-auto pt-6 sm:pt-8 px-4 sm:px-6 lg:px-8">
+    <div className="w-full  pt-24 lg:pt-32  px-[35px] sm:px-[65px] md:px-[90px] lg:px-[100px] xl:px-[120px]">
       {/* Hero Image */}
-      <div className="relative w-full h-[30dvh] sm:h-[35dvh] md:h-[40dvh] lg:h-[45dvh] rounded-[25px] overflow-hidden">
+      <div className="relative w-full h-[30dvh] sm:h-[35dvh] md:h-[40dvh] lg:h-[45dvh] rounded-xl overflow-hidden">
         <Image
           src={imageUrl}
           alt={`Hero image for ${title}`}
@@ -38,7 +38,7 @@ const LayoutHero: React.FC<LayoutHeroProps> = ({
           <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-[#313131]">
             {title}
           </h2>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed sm:mt-2 lg:mt-0 max-w-xl text-left">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed sm:mt-2 lg:mt-0 max-w-xl text-center sm:text-left">
             {description}
           </p>
         </div>

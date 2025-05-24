@@ -2,7 +2,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Members from '@/components/teams/members';
-import TeamHeader from '@/components/teams/team-header';
 import BatchFilter from '@/components/teams/batch-filter';
 import { getAllMembers } from '@/actions/members';
 import { Member } from '@/types/admin/members';
@@ -120,7 +119,6 @@ export default function Page() {
         exit={{ opacity: 0 }}
         className="container mx-auto px-4 py-12 max-w-7xl"
       >
-        <TeamHeader />
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -140,7 +138,6 @@ export default function Page() {
         exit={{ opacity: 0 }}
         className="container mx-auto px-4 py-12 max-w-7xl"
       >
-        <TeamHeader />
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -159,8 +156,6 @@ export default function Page() {
       exit={{ opacity: 0 }}
       className="container mx-auto px-4 py-12 max-w-7xl"
     >
-      <TeamHeader />
-
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
