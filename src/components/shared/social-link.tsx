@@ -27,14 +27,14 @@ const SocialLink = ({
     <Link
       href={href}
       className={cn(
-        'bg-black rounded-full p-2 hover:scale-105 transition-transform',
+        'border-black border-2 shadow-[black_0px_2px_1px] rounded-full p-2 hover:scale-105 hover:shadow-[black_0px_3px_1px] transition-transform',
         className
       )}
       target={target}
       rel={rel}
       aria-label={ariaLabel || `Visit our social media profile`}
     >
-      <Icon size={size} className={cn('text-white', iconClassName)} />
+      <Icon size={size} className={cn('text-black', iconClassName)} />
     </Link>
   );
 };

@@ -27,6 +27,14 @@ const SvgBottomLeft = () => {
   const svgcontainer = useRef<HTMLImageElement>(null);
   const greenVerRef = useRef<HTMLImageElement>(null);
   useLayoutEffect(() => {
+    gsap.set(svgcontainer.current, { opacity: 0 });
+    gsap.to(svgcontainer.current, {
+      opacity: 1,
+      delay: 1,
+      duration: 1,
+      ease: 'power1.inOut',
+    });
+
     gsap.to(rectRef.current, {
       height: '25px',
       duration: 3,
@@ -62,18 +70,9 @@ const SvgBottomLeft = () => {
       repeat: -1,
       ease: 'power1.inOut',
     });
-
-    gsap.set(svgcontainer.current, { opacity: 0 });
-
-    gsap.to(svgcontainer.current, {
-      opacity: 1,
-      delay: 1,
-      duration: 1,
-      ease: 'power1.inOut',
-    });
   }, []);
   return (
-    <div ref={svgcontainer} className="svgcomponents hidden md:flex">
+    <div ref={svgcontainer} className="opacity-0 svgcomponents hidden md:flex">
       <Image
         ref={rectRef}
         src={rectver}
