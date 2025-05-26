@@ -66,11 +66,13 @@ const Navbar = () => {
       {/* Mobile Navbar */}
       <nav className="lg:hidden fixed top-0 left-0 w-full bg-white z-[100] font-productsans  px-8 sm:px-16 md:px-24 py-3">
         <div className="flex items-center justify-between">
-          <Image
-            src={GDGBrackets}
-            alt="GDG Logo"
-            className="h-12 sm:h-16 w-auto"
-          />
+          <Link href="/" className="h-full w-auto">
+            <Image
+              src={GDGBrackets}
+              alt="GDG Logo"
+              className="h-12 sm:h-16 w-auto"
+            />
+          </Link>
           <button
             onClick={toggleMenu}
             className="focus:outline-none h-6 w-6 flex items-center justify-center"
@@ -98,7 +100,7 @@ const Navbar = () => {
           }`}
         >
           <div className="flex flex-col h-full justify-between pb-12 px-4">
-            <div className="space-y-4">
+            <div className="flex flex-col h-full justify-center items-center gap-4">
               {navLinks.map((link, index) => (
                 <Link
                   key={index}
