@@ -49,7 +49,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         </div>
       </div>
 
-      <Link href={project.link} className="text-[#035302] text-sm font-normal ">
+      <Link
+        href={project.link}
+        className="text-[#035302] text-sm font-normal "
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         View more &gt;
       </Link>
     </div>
