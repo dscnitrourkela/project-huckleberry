@@ -30,14 +30,14 @@ const SvgBottomLeft = () => {
     gsap.set(svgcontainer.current, { opacity: 0 });
     gsap.to(svgcontainer.current, {
       opacity: 1,
-      delay: 1,
+      delay: 1.5,
       duration: 1,
       ease: 'power1.inOut',
     });
 
     gsap.to(rectRef.current, {
       height: '25px',
-      duration: 3,
+      duration: 1.5,
       yoyo: true,
       repeat: -1,
       ease: 'power1.inOut',

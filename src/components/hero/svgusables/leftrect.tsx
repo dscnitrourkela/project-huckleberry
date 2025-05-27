@@ -38,13 +38,13 @@ const LeftPolygon = () => {
 
     gsap.to(polygonRef1.current, {
       opacity: 1,
-      delay: 1,
+      delay: 1.5,
       duration: 1,
       ease: 'power1.inOut',
     });
     gsap.to(polygonRef2.current, {
       opacity: 1,
-      delay: 1,
+      delay: 1.5,
       duration: 1,
       ease: 'power1.inOut',
     });

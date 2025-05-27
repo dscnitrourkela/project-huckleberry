@@ -16,4 +16,5 @@ export interface Project {
 
   pr?: string | number;
   link: string;
+  contributorImages: string[];
 }

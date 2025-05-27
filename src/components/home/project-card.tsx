@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Project } from '@/types/home';
 import React from 'react';
 import Image from 'next/image';
-import { eclipse, gitPullRequest } from '@/config/home';
+import { gitPullRequest } from '@/config/home';
 
 interface ProjectCardProps {
   project: Project;
@@ -21,18 +21,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       <div className="flex items-start w-full max-w-[310px] justify-between text-sm text-black mb-3">
         <div className="flex items-center gap-1">
           <div className="flex items-center ">
-            {[...Array(Math.min(Number(project.contribution), 3))].map(
-              (_, i) => (
+            {project.contributorImages
+              .slice(0, Math.min(Number(project.contribution), 3))
+              .map((imageUrl, i) => (
                 <Image
                   key={i}
-                  src={eclipse}
-                  alt="Circle"
-                  width={24}
-                  height={24}
-                  className={`${i !== 0 ? '-ml-2' : ''}`}
+                  src={imageUrl}
+                  alt={`Contributor ${i + 1}`}
+                  width={28}
+                  height={28}
+                  className={`rounded-full ${i !== 0 ? '-ml-2' : ''}`}
                 />
-              )
-            )}
+              ))}
           </div>
           {Number(project.contribution) > 3 && (
             <span>+{Number(project.contribution) - 3}</span>
@@ -49,7 +49,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         </div>
       </div>
 
-      <Link href={project.link} className="text-[#035302] text-sm font-normal ">
+      <Link
+        href={project.link}
+        className="text-[#035302] text-sm font-normal "
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         View more &gt;
       </Link>
     </div>
