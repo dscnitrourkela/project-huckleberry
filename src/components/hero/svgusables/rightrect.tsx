@@ -15,13 +15,13 @@ const RightPolygon = () => {
 
     gsap.to(rectRef1.current, {
       opacity: 1,
-      delay: 1,
+      delay: 1.5,
       duration: 1,
       ease: 'power1.inOut',
     });
     gsap.to(rectRef2.current, {
       opacity: 1,
-      delay: 1,
+      delay: 1.5,
       duration: 1,
       ease: 'power1.inOut',
     });

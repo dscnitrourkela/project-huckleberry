@@ -10,7 +10,7 @@ const ConcentricCircle = () => {
 
     gsap.to(circles.current, {
       opacity: 1,
-      delay: 1,
+      delay: 1.5,
       duration: 1,
       ease: 'power1.inOut',
     });

@@ -17,7 +17,7 @@ const Navbar = () => {
       y: -100,
       opacity: 0,
       duration: 1.03,
-      delay: 1.6,
+      delay: 1.5,
       ease: 'power2.inOut',
     });
   }, []);
@@ -48,13 +48,13 @@ const Navbar = () => {
                 <Link
                   key={index}
                   href={link.href}
-                  className="navlink relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full hover:font-normal"
+                  className="navlink relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full hover:font-normal max-md:text-[16px] text-[18px]"
                 >
                   {link.text}
                 </Link>
               ))}
               <div className="xl:ml-6">
-                <button className="bg-blue-600 hover:bg-blue-800 transition duration-300  text-white font-[700] px-6 xl:px-12 py-[18px] rounded-[12px]">
+                <button className="bg-blue-600 hover:bg-blue-800 transition duration-300  text-white font-[700] px-6 xl:px-12 py-[18px] rounded-[12px] max-md:text-[16px] text-[18px]">
                   Join Community
                 </button>
               </div>

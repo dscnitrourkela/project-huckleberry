@@ -26,7 +26,7 @@ const Hero = () => {
       mask: 'words',
       onSplit: (self) => {
         gsap.from(self.words, {
-          duration: 4,
+          duration: 3,
           yPercent: 100,
           opacity: 0,
           stagger: 0.23,
@@ -42,10 +42,11 @@ const Hero = () => {
       mask: 'words',
       onSplit: (self) => {
         gsap.from(self.words, {
-          duration: 4,
+          duration: 1,
+          delay: 0.92,
           yPercent: 100,
           opacity: 0,
-          stagger: 0.23,
+          stagger: 0.1,
           ease: 'expo.out',
         });
       },
@@ -58,7 +59,8 @@ const Hero = () => {
       mask: 'words',
       onSplit: (self) => {
         gsap.from(self.words, {
-          duration: 4,
+          duration: 2,
+          delay: 1.5,
           yPercent: 150,
           opacity: 0,
           stagger: 0.02,
@@ -69,7 +71,7 @@ const Hero = () => {
 
     gsap.to(btnRef.current, {
       opacity: 1,
-      delay: 1.35,
+      delay: 2.5,
       duration: 2,
     });
   }, []);
@@ -100,14 +102,14 @@ const Hero = () => {
               <div className="flex justify-center">
                 <p
                   id="para"
-                  className="opacity-0 text-center md:w-[720px] leading-6 font-productsans"
+                  className="opacity-0 text-center md:w-[720px] max-md:text-[16px] text-[18px] leading-6 font-productsans"
                 >
                   Fueling innovation and collaboration at NIT Rourkela through
                   hands-on learning, events, and impactful tech projects.
                 </p>
               </div>
               <div ref={btnRef} className="flex justify-center opacity-0">
-                <button className="bg-blue-600 hover:bg-blue-800 transition duration-300 text-white font-[700] px-6 xl:px-12 py-[18px] rounded-[8px] border border-black font-productsans ">
+                <button className="bg-blue-600 hover:bg-blue-800 transition duration-300 text-white font-[700] px-6 xl:px-12 py-[18px] rounded-[8px] border border-black font-productsans max-md:text-[16px] text-[18px]">
                   Apply For Membership
                 </button>
               </div>
