@@ -40,6 +40,11 @@ export const sampleProjects: Project[] = [
     contribution: '21',
     pr: '186',
     link: 'https://github.com/dscnitrourkela/project-avocado',
+    contributorImages: [
+      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362616/27865704_ptevwe.png',
+      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362706/34758667_tdcv5o.jpg',
+      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362706/13520364_lofkxt.jpg',
+    ],
   },
   {
     id: 'p2',
@@ -49,6 +54,11 @@ export const sampleProjects: Project[] = [
     contribution: '16',
     pr: '70',
     link: 'https://github.com/dscnitrourkela/project-huckleberry',
+    contributorImages: [
+      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362856/135319056_tl32qo.jpg',
+      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362856/100484401_leeyzw.png',
+      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362857/92504849_x8iz9b.jpg',
+    ],
   },
   {
     id: 'p3',
@@ -58,15 +68,25 @@ export const sampleProjects: Project[] = [
     contribution: '21',
     pr: '245',
     link: 'https://github.com/dscnitrourkela/project-raisin',
+    contributorImages: [
+      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362856/135319056_tl32qo.jpg',
+      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362856/100484401_leeyzw.png',
+      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748363030/140698710_sqi4ec.jpg',
+    ],
   },
   {
     id: 'p4',
     name: 'Oregano',
     description:
-      'Official site for HackNITR,one of India’s largest student-run hackathons, with event details and registration.',
+      "Official site for HackNITR,one of India's largest student-run hackathons, with event details and registration.",
     contribution: '16',
     pr: '280',
     link: 'https://github.com/dscnitrourkela/project-oregano',
+    contributorImages: [
+      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748363170/56112399_dmpwbw.jpg',
+      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748363171/56754747_xgxcuk.jpg',
+      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748363171/75530516_ejvemk.jpg',
+    ],
   },
   {
     id: 'p5',
@@ -76,6 +96,11 @@ export const sampleProjects: Project[] = [
     contribution: '10',
     pr: '98',
     link: 'https://github.com/dscnitrourkela/project-vanilla',
+    contributorImages: [
+      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362856/135319056_tl32qo.jpg',
+      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748363030/140698710_sqi4ec.jpg',
+      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362857/92504849_x8iz9b.jpg',
+    ],
   },
   {
     id: 'p6',
@@ -85,6 +110,11 @@ export const sampleProjects: Project[] = [
     contribution: '5',
     pr: '71',
     link: 'https://github.com/dscnitrourkela/project-tart',
+    contributorImages: [
+      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748363171/56754747_xgxcuk.jpg',
+      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362856/100484401_leeyzw.png',
+      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748363425/98693953_gdg0gt.jpg',
+    ],
   },
 ];
 
