@@ -80,7 +80,7 @@ body {
   }
 
   .navlink {
-    @apply transition duration-700 hover:text-blue-600 cursor-pointer;
+    @apply transition duration-300 hover:text-blue-600 cursor-pointer;
   }
 }
 
