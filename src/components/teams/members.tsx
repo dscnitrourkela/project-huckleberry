@@ -20,40 +20,45 @@ const Members = ({ teamMembers, showBatch = false }: MembersProps) => {
 
   return (
     <section>
-      <TeamTitle title="Lead" />
       {leads.length > 0 && (
-        <div className="flex justify-center mb-12">
-          <div
-            className={`grid ${getGridClass(leads.length)} gap-6 max-w-6xl w-full px-4 my-10`}
-          >
-            {leads.map((member, index) => (
-              <MemberCard
-                key={member.id}
-                {...member}
-                colorClass={googleColors[index % googleColors.length]}
-                showBatch={showBatch}
-              />
-            ))}
+        <>
+          <TeamTitle title="Lead" />
+          <div className="flex justify-center mb-12">
+            <div
+              className={`grid ${getGridClass(leads.length)} gap-6 max-w-6xl w-full px-4 my-10`}
+            >
+              {leads.map((member, index) => (
+                <MemberCard
+                  key={member.id}
+                  {...member}
+                  colorClass={googleColors[index % googleColors.length]}
+                  showBatch={showBatch}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        </>
       )}
 
-      <TeamTitle title="Core Team" textColor="text-gdg-blue" />
       {coreMembers.length > 0 && (
-        <div className="flex justify-center">
-          <div
-            className={`grid ${getGridClass(coreMembers.length)} gap-6 max-w-6xl w-full px-4 my-10`}
-          >
-            {coreMembers.map((member, index) => (
-              <MemberCard
-                key={member.id}
-                {...member}
-                colorClass={googleColors[index % googleColors.length]}
-                showBatch={showBatch}
-              />
-            ))}
+        <>
+          <TeamTitle title="Core Team" textColor="text-gdg-blue" />
+
+          <div className="flex justify-center">
+            <div
+              className={`grid ${getGridClass(coreMembers.length)} gap-6 max-w-6xl w-full px-4 my-10`}
+            >
+              {coreMembers.map((member, index) => (
+                <MemberCard
+                  key={member.id}
+                  {...member}
+                  colorClass={googleColors[index % googleColors.length]}
+                  showBatch={showBatch}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        </>
       )}
     </section>
   );

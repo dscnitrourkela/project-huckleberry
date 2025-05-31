@@ -31,7 +31,8 @@ export const memberSchema = z.object({
   twitter: z
     .string()
     .url('Enter a valid Twitter URL')
-    .min(1, 'Twitter profile is required'),
+    .optional()
+    .or(z.literal('')),
   caption: z.string().optional(),
   year_of_passing: z
     .number()
