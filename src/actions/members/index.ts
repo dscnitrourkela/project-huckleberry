@@ -124,12 +124,16 @@ export const bulkUploadMembers = asyncHandler(async (csvData: string) => {
       .map((row) => row.trim())
       .filter((row) => row.length > 0);
 
-    // Skip header row and get data rows
-    const headers = rows[0].split(',').map((h) => h.trim());
+    const headers = rows[0]
+      .split(',')
+      .map((h) => h.trim().replace(/^"(.*)"$/, '$1'));
     const data = rows.slice(1);
 
+    console.log(headers);
     const members = data.map((row, index) => {
-      const values = row.split(',').map((v) => v.trim());
+      const values = row
+        .split(',')
+        .map((v) => v.trim().replace(/^"(.*)"$/, '$1'));
       const member: Partial<Member> = {
         user_name: values[headers.indexOf('user_name')] || '',
         email: values[headers.indexOf('email')] || '',

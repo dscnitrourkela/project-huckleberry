@@ -38,7 +38,6 @@ const SocialLinksSection: React.FC<SocialLinksSectionProps> = ({ form }) => (
           </FormItem>
         )}
       />
-
       <FormField
         control={form.control}
         name="linkedin"
@@ -55,14 +54,13 @@ const SocialLinksSection: React.FC<SocialLinksSectionProps> = ({ form }) => (
             <FormMessage />
           </FormItem>
         )}
-      />
-
+      />{' '}
       <FormField
         control={form.control}
         name="twitter"
         render={({ field }) => (
           <FormItem>
-            <FormLabel className="text-gdg-gray">Twitter Profile*</FormLabel>
+            <FormLabel className="text-gdg-gray">Twitter Profile</FormLabel>
             <FormControl>
               <Input
                 {...field}
@@ -70,11 +68,13 @@ const SocialLinksSection: React.FC<SocialLinksSectionProps> = ({ form }) => (
                 className="rounded-lg border-gray-200 focus:border-gdg-blue focus:ring-gdg-blue/20"
               />
             </FormControl>
+            <FormDescription className="text-xs text-gdg-gray">
+              Optional: You can leave this blank if not available
+            </FormDescription>
             <FormMessage />
           </FormItem>
         )}
       />
-
       <FormField
         control={form.control}
         name="figma"
