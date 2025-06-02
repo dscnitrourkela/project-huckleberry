@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 
 export const tweetsMetadata: Metadata = {
-  title: 'Twitter Feed | GDSC NIT Rourkela',
+  title: 'Twitter Feed | DSC NIT Rourkela',
   description:
-    'Stay updated with the latest announcements, events, and tech insights from GDSC NIT Rourkela through our Twitter feed',
+    'Stay updated with the latest announcements, events, and tech insights from DSC NIT Rourkela through our Twitter feed',
   keywords: [
     'GDSC',
     'NIT Rourkela',
@@ -11,19 +11,20 @@ export const tweetsMetadata: Metadata = {
     'tweets',
     'updates',
     'tech news',
+    'DSC NIT Rourkela',
   ],
   openGraph: {
-    title: 'Twitter Feed | GDSC NIT Rourkela',
+    title: 'Twitter Feed | DSC NIT Rourkela',
     description:
-      'Stay updated with the latest announcements, events, and tech insights from GDSC NIT Rourkela through our Twitter feed',
+      'Stay updated with the latest announcements, events, and tech insights from DSC NIT Rourkela through our Twitter feed',
     images: ['/opengraph-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Twitter Feed | GDSC NIT Rourkela',
+    title: 'Twitter Feed | DSC NIT Rourkela',
     description:
-      'Stay updated with the latest announcements, events, and tech insights from GDSC NIT Rourkela through our Twitter feed',
+      'Stay updated with the latest announcements, events, and tech insights from DSC NIT Rourkela through our Twitter feed',
     images: ['/opengraph-image.png'],
     creator: '@dscnitrourkela',
     site: '@dscnitrourkela',

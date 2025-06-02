@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 
 export const resourcesMetadata: Metadata = {
-  title: 'Resources | GDG on Campus NITR',
+  title: 'Resources | DSC NIT Rourkela',
   description:
-    'Access valuable learning resources, tutorials, and educational materials shared by GDG on Campus NITR',
+    'Access valuable learning resources, tutorials, and educational materials shared by DSC NIT Rourkela',
   keywords: [
     'GDSC',
     'NIT Rourkela',
@@ -13,20 +13,20 @@ export const resourcesMetadata: Metadata = {
     'educational content',
     'developer resources',
     'coding guides',
-    'GDG',
+    'DSC NIT Rourkela',
   ],
   openGraph: {
-    title: 'Resources | GDG on Campus NITR',
+    title: 'Resources | DSC NIT Rourkela',
     description:
-      'Access valuable learning resources, tutorials, and educational materials shared by GDG on Campus NITR',
+      'Access valuable learning resources, tutorials, and educational materials shared by DSC NIT Rourkela',
     images: ['/opengraph-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Resources | GDG on Campus NITR',
+    title: 'Resources | DSC NIT Rourkela',
     description:
-      'Access valuable learning resources, tutorials, and educational materials shared by GDG on Campus NITR',
+      'Access valuable learning resources, tutorials, and educational materials shared by DSC NIT Rourkela',
     images: ['/opengraph-image.png'],
     creator: '@dscnitrourkela',
     site: '@dscnitrourkela',

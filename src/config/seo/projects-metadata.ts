@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 
 export const projectsMetadata: Metadata = {
-  title: 'Projects | GDG on Campus NITR',
-  description: 'Explore innovative projects developed by GDG on Campus NITR',
+  title: 'Projects | DSC NIT Rourkela',
+  description: 'Explore innovative projects developed by DSC NIT Rourkela',
   keywords: [
     'GDSC',
     'NIT Rourkela',
@@ -10,17 +10,18 @@ export const projectsMetadata: Metadata = {
     'open source',
     'student developers',
     'GitHub',
+    'DSC NIT Rourkela',
   ],
   openGraph: {
-    title: 'Projects | GDG on Campus NITR',
-    description: 'Explore innovative projects developed by GDG on Campus NITR',
+    title: 'Projects | DSC NIT Rourkela',
+    description: 'Explore innovative projects developed by DSC NIT Rourkela',
     images: ['/opengraph-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Projects | GDG on Campus NITR',
-    description: 'Explore innovative projects developed by GDG on Campus NITR',
+    title: 'Projects | DSC NIT Rourkela',
+    description: 'Explore innovative projects developed by DSC NIT Rourkela',
     images: ['/opengraph-image.png'],
   },
 };
