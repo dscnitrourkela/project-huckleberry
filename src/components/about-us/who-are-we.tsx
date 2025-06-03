@@ -10,7 +10,7 @@ export const WhoAreWe = () => {
             <SectionHead label="Who are we?" />
             <p className="text-[#4A4A68] text-base sm:text-lg md:text-xl font-productsans font-[500] lg:text-2xl  leading-relaxed">
               We are a diverse group of students united by our love for
-              technology and innovation. GDG NIT Rourkela provides a platform
+              technology and innovation. DSC NIT Rourkela provides a platform
               for students of all backgrounds and skill levels to explore new
               technologies, develop practical skills, and work on real-world
               projects. We believe in learning by doing, sharing knowledge, and

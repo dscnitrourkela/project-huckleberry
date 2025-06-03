@@ -90,7 +90,7 @@ const Hero = () => {
                   id="head"
                   className="opacity-0 text-center text-[40px] sm:text-[52px] md:text-[60px] xl:text-[68px] text-[#646464] leading-tight font-bold font-productsans"
                 >
-                  Google Developer Groups
+                  Developer Student Clubs
                 </h1>
                 <h1
                   id="subhead"

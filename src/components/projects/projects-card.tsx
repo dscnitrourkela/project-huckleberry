@@ -189,7 +189,7 @@ export default function ProjectCard({
         </div>
 
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-end space-y-3 sm:space-y-0 sm:space-x-4 w-full">
-          <motion.div
+          {/* <motion.div
             className="flex items-center"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -207,7 +207,7 @@ export default function ProjectCard({
             <span className="text-base md:text-lg font-productsans">
               {count}
             </span>
-          </motion.div>
+          </motion.div> */}
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
