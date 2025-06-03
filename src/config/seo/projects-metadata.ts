@@ -11,6 +11,7 @@ export const projectsMetadata: Metadata = {
     'student developers',
     'GitHub',
     'DSC NIT Rourkela',
+    'GDG',
   ],
   openGraph: {
     title: 'Projects | DSC NIT Rourkela',

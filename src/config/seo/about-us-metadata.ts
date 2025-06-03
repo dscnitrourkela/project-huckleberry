@@ -13,6 +13,7 @@ export const aboutUsMetadata: Metadata = {
     'student developers',
     'tech domains',
     'DSC NIT Rourkela',
+    'GDG',
   ],
   openGraph: {
     title: 'About Us | DSC NIT Rourkela',

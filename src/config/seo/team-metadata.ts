@@ -13,6 +13,7 @@ export const teamMetadata: Metadata = {
     'GDSC team',
     'Google Developer Student Clubs',
     'DSC NIT Rourkela',
+    'GDG',
   ],
   openGraph: {
     title: 'Our Team | DSC NIT Rourkela',

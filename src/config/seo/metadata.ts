@@ -25,6 +25,7 @@ export const homeMetadata: Metadata = {
     'Technology',
     'Community',
     'DSC NIT Rourkela',
+    'GDG',
   ],
   authors: [{ name: 'DSC NIT Rourkela Team' }],
   creator: 'DSC NIT Rourkela',
@@ -49,9 +50,9 @@ export const homeMetadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dsc NIT Rourkela',
+    title: 'DSC NIT Rourkela',
     description:
-      'Dsc NIT Rourkela - Building for the future with student-led technology communities',
+      'DSC NIT Rourkela - Building for the future with student-led technology communities',
     creator: '@dscnitrourkela',
     images: ['/opengraph-image.png'],
   },

@@ -14,6 +14,7 @@ export const eventsMetadata: Metadata = {
     'student events',
     'developer meetups',
     'DSC NIT Rourkela',
+    'GDG',
   ],
   openGraph: {
     title: 'Events | DSC NIT Rourkela',

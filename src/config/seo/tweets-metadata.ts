@@ -12,6 +12,7 @@ export const tweetsMetadata: Metadata = {
     'updates',
     'tech news',
     'DSC NIT Rourkela',
+    'GDG',
   ],
   openGraph: {
     title: 'Twitter Feed | DSC NIT Rourkela',

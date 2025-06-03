@@ -14,6 +14,7 @@ export const resourcesMetadata: Metadata = {
     'developer resources',
     'coding guides',
     'DSC NIT Rourkela',
+    'GDG',
   ],
   openGraph: {
     title: 'Resources | DSC NIT Rourkela',
