@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 
 export const aboutUsMetadata: Metadata = {
-  title: 'About Us | GDG on Campus NITR',
+  title: 'About Us | DSC NIT Rourkela',
   description:
-    'Learn about GDG on Campus NIT Rourkela - our mission, values, team, and the domains we focus on.',
+    'Learn about DSC NIT Rourkela - our mission, values, team, and the domains we focus on.',
   keywords: [
     'GDSC',
     'NIT Rourkela',
@@ -12,19 +12,21 @@ export const aboutUsMetadata: Metadata = {
     'technology community',
     'student developers',
     'tech domains',
+    'DSC NIT Rourkela',
+    'GDG',
   ],
   openGraph: {
-    title: 'About Us | GDG on Campus NITR',
+    title: 'About Us | DSC NIT Rourkela',
     description:
-      'Learn about GDG on Campus NIT Rourkela - our mission, values, team, and the domains we focus on.',
+      'Learn about DSC NIT Rourkela - our mission, values, team, and the domains we focus on.',
     images: ['/opengraph-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Us | GDG on Campus NITR',
+    title: 'About Us | DSC NIT Rourkela',
     description:
-      'Learn about GDG on Campus NIT Rourkela - our mission, values, team, and the domains we focus on.',
+      'Learn about DSC NIT Rourkela - our mission, values, team, and the domains we focus on.',
     images: ['/opengraph-image.png'],
   },
 };

@@ -10,11 +10,11 @@ export const viewport: Viewport = {
 
 export const homeMetadata: Metadata = {
   title: {
-    default: 'GDG on Campus NITR',
-    template: '%s | GDG on Campus NITR',
+    default: 'DSC NIT Rourkela',
+    template: '%s | DSC NIT Rourkela',
   },
   description:
-    'GDG on Campus NITR - Building for the future with student-led technology communities',
+    'DSC NIT Rourkela - Building for the future with student-led technology communities',
   keywords: [
     'GDSC',
     'Google',
@@ -24,33 +24,35 @@ export const homeMetadata: Metadata = {
     'NIT Rourkela',
     'Technology',
     'Community',
+    'DSC NIT Rourkela',
+    'GDG',
   ],
-  authors: [{ name: 'GDG on Campus NITR Team' }],
-  creator: 'GDG on Campus NITR',
-  publisher: 'GDG on Campus NITR',
+  authors: [{ name: 'DSC NIT Rourkela Team' }],
+  creator: 'DSC NIT Rourkela',
+  publisher: 'DSC NIT Rourkela',
   metadataBase: new URL(`${baseUrl}`),
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: `${baseUrl}`,
-    siteName: 'GDG on Campus NITR',
-    title: 'GDG on Campus NITR',
+    siteName: 'DSC NIT Rourkela',
+    title: 'DSC NIT Rourkela',
     description:
-      'GDG on Campus NITR - Building for the future with student-led technology communities',
+      'DSC NIT Rourkela - Building for the future with student-led technology communities',
     images: [
       {
         url: '/opengraph-image.png',
         width: 1200,
         height: 630,
-        alt: 'GDG on Campus NITR',
+        alt: 'DSC NIT Rourkela',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GDG on Campus NITR',
+    title: 'DSC NIT Rourkela',
     description:
-      'GDG on Campus NITR - Building for the future with student-led technology communities',
+      'DSC NIT Rourkela - Building for the future with student-led technology communities',
     creator: '@dscnitrourkela',
     images: ['/opengraph-image.png'],
   },
