@@ -146,7 +146,7 @@ export default {
       },
       screens: {
         xsmd: '480px',
-        xxsm: '372px',
+        lmd: '840px',
       },
     },
   },

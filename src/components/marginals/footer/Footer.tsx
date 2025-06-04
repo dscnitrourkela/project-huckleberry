@@ -7,24 +7,25 @@ import {
 } from '@/config/marginals/index';
 import Image from 'next/image';
 import { Separator } from '../../ui/separator';
-import { Copyright, CopyrightIcon, Mail, MapPin } from 'lucide-react';
-import DSGLogo from '../../../public/DSGLogo.svg';
+import { CopyrightIcon, Mail, MapPin } from 'lucide-react';
 import TallyFormWrapper from '../../hero/tally-form';
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-gradient-to-b from-[#fdfcf8] to-[#f9f8f4] px-4 sm:px-8 md:px-12 pt-4 md:pt-20 min-h-[50vh] flex overflow-hidden font-productsans">
-      <div className="w-2/5 relative hidden md:flex flex-col justify-between">
-        {/* small logo */}
+    <footer className="relative bg-gradient-to-b from-[#fdfcf8] to-[#f9f8f4] px-4 sm:px-8 lmd:px-12 pt-4 lmd:pt-20 min-h-[50vh] flex overflow-hidden font-productsans">
+      <div className="w-2/5 relative hidden lmd:flex flex-col justify-between">
         <div className="flex flex-col items-center w-fit scale-[120%]">
           <Image src={DSC_LOGO_SMALL} alt="" width={60} height={30} />
           <span className=" text-[#575757] text-xl -mt-2">
             Developer Student Clubs
           </span>
           <span className=" text-[#575757] text-sm">
-            On Campus • NIT Rourkela
+            National Institute of Technology, Rourkela
           </span>
+          {/* <span className=" text-[#575757] text-sm">
+            On Campus • NIT Rourkela
+          </span> */}
         </div>
 
         {/* large logo */}
@@ -43,29 +44,32 @@ const Footer: React.FC = () => {
       </div>
 
       {/* right panel */}
-      <div className="flex flex-col justify-around relative md:w-3/5 gap-8 md:gap-12">
+      <div className="flex flex-col justify-around relative lmd:w-3/5 gap-8 lmd:gap-12">
         {/* small logo */}
-        <div className="flex flex-col items-center w-fit mx-auto md:hidden scale-[120%]">
+        <div className="flex flex-col items-center w-fit mx-auto lmd:hidden scale-[120%]">
           <Image src={DSC_LOGO_SMALL} alt="" width={60} height={30} />
           <span className=" text-[#575757] text-xl -mt-2">
             Developer Student Clubs
           </span>
           <span className=" text-[#575757] text-sm">
-            On Campus • NIT Rourkela
+            National Institute of Technology, Rourkela
           </span>
+          {/* <span className=" text-[#575757] text-sm">
+            On Campus • NIT Rourkela
+          </span> */}
         </div>
 
         {/* socials & contact */}
-        <div className="flex flex-col gap-6 md:gap-0 sm:flex-row h-1/2 justify-between relative z-[10]">
+        <div className="flex flex-col gap-6 lmd:gap-0 sm:flex-row h-1/2 justify-between relative z-[10]">
           {/* socials */}
-          <div className="md:w-2/5 flex flex-col gap-2 md:gap-5">
+          <div className="lmd:w-2/5 flex flex-col gap-2 lmd:gap-5">
             <span className=" font-bold text-[#434242] text-xl">Socials</span>
-            <div className="flex md:flex-col flex-wrap md:w-64">
+            <div className="flex lmd:flex-col flex-wrap lmd:w-64">
               {socialMediaLinks.map((item, idx) => {
                 return (
                   <div
                     key={idx}
-                    className="flex items-center mb-1 md:mb-0 w-1/3 gap-2 md:h-1/3 md:w-1/2 "
+                    className="flex items-center mb-1 lmd:mb-0 w-1/3 gap-2 lmd:h-1/3 lmd:w-1/2 "
                   >
                     <item.icon className="text-[#5A5A5A]" />
                     <Link
@@ -80,17 +84,17 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div className="md:w-2/5 flex flex-col">
-            <span className=" font-bold text-[#434242] text-xl mb-2 md:mb-5">
+          <div className="lmd:w-2/5 flex flex-col">
+            <span className=" font-bold text-[#434242] text-xl mb-2 lmd:mb-5">
               Contacts
             </span>
-            <div className="flex gap-2 text-[#5a5a5a] items-center mb-1 md:mb-4">
+            <div className="flex gap-2 text-[#5a5a5a] items-center mb-1 lmd:mb-4">
               <MapPin />
               <span>National Institute of Technology, Rourkela</span>
             </div>
             <a
               href="mailto:dsc.nitr@gmail.com"
-              className="flex gap-2 text-[#5a5a5a] items-center mb-1 md:mb-4"
+              className="flex gap-2 text-[#5a5a5a] items-center mb-1 lmd:mb-4"
             >
               <Mail />
               <span>dsc.nitr@gmail.com</span>
