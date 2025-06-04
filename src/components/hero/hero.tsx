@@ -7,6 +7,7 @@ import SvgBottomLeft from './svgusables/svglogos';
 import LeftPolygon from './svgusables/leftrect';
 import ConcentricCircle from './svgusables/circlessvg';
 import RightPolygon from './svgusables/rightrect';
+import TallyFormWrapper from './tally-form';
 
 gsap.registerPlugin(SplitText);
 
@@ -109,9 +110,11 @@ const Hero = () => {
                 </p>
               </div>
               <div ref={btnRef} className="flex justify-center opacity-0">
-                <button className="bg-blue-600 hover:bg-blue-800 transition duration-300 text-white font-[700] px-6 xl:px-12 py-[18px] rounded-[8px] border border-black font-productsans max-md:text-[16px] text-[18px]">
-                  Apply For Membership
-                </button>
+                <TallyFormWrapper>
+                  <button className="bg-blue-600 hover:bg-blue-800 transition duration-300 text-white font-[700] px-6 xl:px-12 py-[18px] rounded-[8px] border border-black font-productsans max-md:text-[16px] text-[18px]">
+                    Apply For Membership
+                  </button>
+                </TallyFormWrapper>
               </div>
             </div>
           </div>

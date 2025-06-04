@@ -1,5 +1,7 @@
 import { Event, Project } from '@/types/home';
 
+export const TALLY_FORM_ID = 'wbj9Q2';
+
 export const sampleEvents: Event[] = [
   {
     id: 1,
