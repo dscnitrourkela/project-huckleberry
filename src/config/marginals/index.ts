@@ -41,7 +41,7 @@ export const socialMediaLinks: SocialLink[] = [
     href: 'https://github.com/dscnitrourkela',
   },
   {
-    name: 'Formerly Twitter',
+    name: 'X',
     icon: FaXTwitter,
     href: 'https://twitter.com/dscnitrourkela',
   },
