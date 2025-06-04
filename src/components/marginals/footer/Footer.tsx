@@ -6,10 +6,10 @@ import {
   socialMediaLinks,
 } from '@/config/marginals/index';
 import Image from 'next/image';
-import { Separator } from '../ui/separator';
-import { Mail, MapPin } from 'lucide-react';
+import { Separator } from '../../ui/separator';
+import { Copyright, CopyrightIcon, Mail, MapPin } from 'lucide-react';
 import DSGLogo from '../../../public/DSGLogo.svg';
-import TallyFormWrapper from '../hero/tally-form';
+import TallyFormWrapper from '../../hero/tally-form';
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
@@ -80,7 +80,6 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* contact */}
           <div className="md:w-2/5 flex flex-col">
             <span className=" font-bold text-[#434242] text-xl mb-2 md:mb-5">
               Contacts
@@ -99,28 +98,23 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* links */}
         <div className="h-1/2 flex flex-col gap-8 justify-end pb-4 relative z-[10]">
-          {/* footer text */}
           <div className=" font-bold text-xl w-full max-w-[45rem] text-[#434242]">
             Join our vibrant tech community and unlock opportunities to learn,
             network, and grow - apply for DSC NIT Rourkela membership today!
           </div>
 
-          {/* apply for membership button */}
           <TallyFormWrapper>
             <button className="button text-white font-[700] px-6 xl:px-12 py-[18px] rounded-[8px] border border-black  w-fit">
               Apply For Membership
             </button>
           </TallyFormWrapper>
 
-          {/* divider */}
           <Separator className="bg-[#D2D2D2]" />
 
-          {/* copyright */}
-          <div className="text-[#707070]">
-            <span className="h-24 w-full"> &copy;</span> {currentYear} DSC NIT
-            ROURKELA
+          <div className="text-[#707070] flex items-center justify-start gap-1 text-sm">
+            <CopyrightIcon className="inline h-4 w-4" />
+            {currentYear} DSC NIT ROURKELA
           </div>
         </div>
       </div>
