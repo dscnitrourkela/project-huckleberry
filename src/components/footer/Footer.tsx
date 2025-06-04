@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-center w-fit scale-[120%]">
           <Image src={DSC_LOGO_SMALL} alt="" width={60} height={30} />
           <span className=" text-[#575757] text-xl -mt-2">
-            Developer Student Groups
+            Developer Student Clubs
           </span>
           <span className=" text-[#575757] text-sm">
             On Campus • NIT Rourkela
@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-center w-fit mx-auto md:hidden scale-[120%]">
           <Image src={DSC_LOGO_SMALL} alt="" width={60} height={30} />
           <span className=" text-[#575757] text-xl -mt-2">
-            Developer Student Groups
+            Developer Student Clubs
           </span>
           <span className=" text-[#575757] text-sm">
             On Campus • NIT Rourkela
@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
                 return (
                   <div
                     key={idx}
-                    className="flex items-center mb-1 md:mb-0 w-1/3 gap-2 md:h-1/3 md:w-1/2"
+                    className="flex items-center mb-1 md:mb-0 w-1/3 gap-2 md:h-1/3 md:w-1/2 "
                   >
                     <item.icon className="text-[#5A5A5A]" />
                     <Link
