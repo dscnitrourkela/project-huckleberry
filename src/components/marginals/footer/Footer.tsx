@@ -7,8 +7,7 @@ import {
 } from '@/config/marginals/index';
 import Image from 'next/image';
 import { Separator } from '../../ui/separator';
-import { Copyright, CopyrightIcon, Mail, MapPin } from 'lucide-react';
-import DSGLogo from '../../../public/DSGLogo.svg';
+import { CopyrightIcon, Mail, MapPin } from 'lucide-react';
 import TallyFormWrapper from '../../hero/tally-form';
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -23,8 +22,11 @@ const Footer: React.FC = () => {
             Developer Student Clubs
           </span>
           <span className=" text-[#575757] text-sm">
-            On Campus • NIT Rourkela
+            National Institute of Technology, Rourkela
           </span>
+          {/* <span className=" text-[#575757] text-sm">
+            On Campus • NIT Rourkela
+          </span> */}
         </div>
 
         {/* large logo */}
@@ -51,8 +53,11 @@ const Footer: React.FC = () => {
             Developer Student Clubs
           </span>
           <span className=" text-[#575757] text-sm">
-            On Campus • NIT Rourkela
+            National Institute of Technology, Rourkela
           </span>
+          {/* <span className=" text-[#575757] text-sm">
+            On Campus • NIT Rourkela
+          </span> */}
         </div>
 
         {/* socials & contact */}
