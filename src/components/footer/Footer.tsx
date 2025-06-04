@@ -9,6 +9,7 @@ import Image from 'next/image';
 import { Separator } from '../ui/separator';
 import { Mail, MapPin } from 'lucide-react';
 import DSGLogo from '../../../public/DSGLogo.svg';
+import TallyFormWrapper from '../hero/tally-form';
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
@@ -88,10 +89,13 @@ const Footer: React.FC = () => {
               <MapPin />
               <span>National Institute of Technology, Rourkela</span>
             </div>
-            <div className="flex gap-2 text-[#5a5a5a] items-center mb-1 md:mb-4">
+            <a
+              href="mailto:dsc.nitr@gmail.com"
+              className="flex gap-2 text-[#5a5a5a] items-center mb-1 md:mb-4"
+            >
               <Mail />
               <span>dsc.nitr@gmail.com</span>
-            </div>
+            </a>
           </div>
         </div>
 
@@ -104,9 +108,11 @@ const Footer: React.FC = () => {
           </div>
 
           {/* apply for membership button */}
-          <button className="button text-white font-[700] px-6 xl:px-12 py-[18px] rounded-[8px] border border-black  w-fit">
-            Apply For Membership
-          </button>
+          <TallyFormWrapper>
+            <button className="button text-white font-[700] px-6 xl:px-12 py-[18px] rounded-[8px] border border-black  w-fit">
+              Apply For Membership
+            </button>
+          </TallyFormWrapper>
 
           {/* divider */}
           <Separator className="bg-[#D2D2D2]" />

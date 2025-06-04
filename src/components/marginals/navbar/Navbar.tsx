@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { navLinks } from '@/config/marginal/navbar';
+import { WP_COMMUNITY, navLinks } from '@/config/marginals';
 gsap.registerPlugin(useGSAP);
 
 const Navbar = () => {
@@ -54,9 +54,13 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="xl:ml-6">
-                <button className="bg-blue-600 hover:bg-blue-800 transition duration-300  text-white font-[700] px-6 xl:px-12 py-[18px] rounded-[12px] max-md:text-[16px] text-[18px]">
+                <a
+                  href={WP_COMMUNITY}
+                  target="_blank"
+                  className="bg-blue-600 hover:bg-blue-800 transition duration-300  text-white font-[700] px-6 xl:px-12 py-[18px] rounded-[12px] max-md:text-[16px] text-[18px]"
+                >
                   Join Community
-                </button>
+                </a>
               </div>
             </div>
           </div>

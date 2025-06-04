@@ -1,3 +1,4 @@
+'use client';
 import { TALLY_FORM_ID } from '@/config/home';
 import React, { useEffect } from 'react';
 
