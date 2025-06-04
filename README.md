@@ -9,7 +9,7 @@
 <br />
 <p align="center">
   <a href="#">
-    <img src="public/repoCover.png" alt="Logo" width="400">
+    <img src="public/screenshot.png" alt="Logo" width="800">
   </a>
 
   <h3 align="center">Project Huckleberry</h3>
