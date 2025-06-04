@@ -70,9 +70,9 @@ export default function ProjectsPage() {
   }
 
   return (
-    <section className="py-10 md:py-20 px-4 sm:px-6 md:px-8 lg:px-14">
-      <div className=" mx-auto">
-        <div className="w-full mx-auto py-6 md:py-10 space-y-10 md:space-y-20">
+    <section className="px-[35px] sm:px-[65px] md:px-[90px] lg:px-[100px] xl:px-[120px]">
+      <div className="mx-auto">
+        <div className="w-full mx-auto  space-y-10 md:space-y-20">
           {repos.map((repo, index) => (
             <ProjectCard
               key={repo.id}

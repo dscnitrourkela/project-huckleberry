@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import GDGLogo from '../../../../public/GDGLogo.png';
+import DSGLogo from '../../../../public/DSGLogo.svg';
 import GDGBrackets from '../../../../public/gdg.jpg';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -37,7 +37,7 @@ const Navbar = () => {
           <div className="w-full h-full relative flex items-center justify-between">
             <Link href="/" className="h-full w-auto">
               <Image
-                src={GDGLogo}
+                src={DSGLogo}
                 alt="GDG Logo"
                 className="h-full w-auto cursor-pointer"
               />

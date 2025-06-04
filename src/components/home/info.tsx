@@ -13,7 +13,7 @@ function Info() {
       <div className="flex justify-center lg:hidden w-full">
         <Image
           src={infoImage}
-          alt="GDG Illustration"
+          alt="DSC Illustration"
           className="w-full max-w-xs sm:max-w-sm md:max-w-md h-auto"
           width={455}
           height={455}
@@ -22,18 +22,18 @@ function Info() {
 
       <div className="flex-1 flex flex-col text-center sm:text-left gap-12">
         <h1 className="text-3xl sm:text-4xl xl:text-5xl font-bold font-productsans leading-snug">
-          What is GDG?
+          What is DSC?
         </h1>
 
         <p className="hidden sm:block text-base md:text-lg lg:text-[1.33rem] font-normal leading-9 font-productsans">
-          Google Developer Group (GDG) is a global community of developers and
+          Developer Student Clubs (DSC) is a global community of developers and
           tech enthusiasts who come together to learn, share, and collaborate on
           the latest technologies. It provides a platform for members to grow
           their skills through hands-on workshops, hackathons, tech talks, and
           collaborative projects. <br />
-          GDG fosters an inclusive environment where developers at all levels
+          DSC fosters an inclusive environment where developers at all levels
           can connect, innovate, and build solutions that address real-world
-          challenges. By participating in GDG activities, members gain access to
+          challenges. By participating in DSC activities, members gain access to
           valuable resources, professional networking opportunities, and a
           supportive ecosystem to advance their careers and passion for
           technology.
@@ -41,18 +41,18 @@ function Info() {
 
         <div className="sm:hidden text-base flex flex-col items-center font-normal leading-6 font-productsans">
           <p>
-            Google Developer Group (GDG) is a global community of developers and
-            tech enthusiasts who come together to learn, share, and collaborate
-            on the latest technologies.
+            Developer Student Clubs (DSC) is a global community of developers
+            and tech enthusiasts who come together to learn, share, and
+            collaborate on the latest technologies.
           </p>
           {showMore && (
             <p className="mt-4">
               It provides a platform for members to grow their skills through
               hands-on workshops, hackathons, tech talks, and collaborative
               projects. <br />
-              GDG fosters an inclusive environment where developers at all
+              DSC fosters an inclusive environment where developers at all
               levels can connect, innovate, and build solutions that address
-              real-world challenges. By participating in GDG activities, members
+              real-world challenges. By participating in DSC activities, members
               gain access to valuable resources, professional networking
               opportunities, and a supportive ecosystem to advance their careers
               and passion for technology.

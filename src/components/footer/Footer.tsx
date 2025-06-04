@@ -8,7 +8,7 @@ import {
 import Image from 'next/image';
 import { Separator } from '../ui/separator';
 import { Mail, MapPin } from 'lucide-react';
-
+import DSGLogo from '../../../public/DSGLogo.svg';
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-center w-fit scale-[120%]">
           <Image src={DSC_LOGO_SMALL} alt="" width={60} height={30} />
           <span className=" text-[#575757] text-xl -mt-2">
-            Google Developer Groups
+            Developer Student Clubs
           </span>
           <span className=" text-[#575757] text-sm">
             On Campus • NIT Rourkela
@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-center w-fit mx-auto md:hidden scale-[120%]">
           <Image src={DSC_LOGO_SMALL} alt="" width={60} height={30} />
           <span className=" text-[#575757] text-xl -mt-2">
-            Google Developer Groups
+            Developer Student Clubs
           </span>
           <span className=" text-[#575757] text-sm">
             On Campus • NIT Rourkela
@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
                 return (
                   <div
                     key={idx}
-                    className="flex items-center mb-1 md:mb-0 w-1/3 gap-2 md:h-1/3 md:w-1/2"
+                    className="flex items-center mb-1 md:mb-0 w-1/3 gap-2 md:h-1/3 md:w-1/2 "
                   >
                     <item.icon className="text-[#5A5A5A]" />
                     <Link
@@ -100,7 +100,7 @@ const Footer: React.FC = () => {
           {/* footer text */}
           <div className=" font-bold text-xl w-full max-w-[45rem] text-[#434242]">
             Join our vibrant tech community and unlock opportunities to learn,
-            network, and grow - apply for GDG NIT Rourkela membership today!
+            network, and grow - apply for DSC NIT Rourkela membership today!
           </div>
 
           {/* apply for membership button */}
@@ -112,8 +112,9 @@ const Footer: React.FC = () => {
           <Separator className="bg-[#D2D2D2]" />
 
           {/* copyright */}
-          <div className="text-[#707070] ">
-            &copy;{currentYear} GDG NIT ROURKELA
+          <div className="text-[#707070]">
+            <span className="h-24 w-full"> &copy;</span> {currentYear} DSC NIT
+            ROURKELA
           </div>
         </div>
       </div>
