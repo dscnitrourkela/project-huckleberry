@@ -46,3 +46,13 @@ export const socialMediaLinks: SocialLink[] = [
     href: 'https://twitter.com/dscnitrourkela',
   },
 ];
+
+export const navLinks = [
+  { href: '/about-us', text: 'About Us' },
+  { href: '/events', text: 'Events' },
+  { href: '/projects', text: 'Projects' },
+  { href: '/team', text: 'Team' },
+  { href: '/resources', text: 'Resources' },
+];
+
+export const WP_COMMUNITY = 'https://chat.whatsapp.com/ENX6lr2xjBSCZoVLxYFz77';
