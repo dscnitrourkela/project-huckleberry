@@ -66,6 +66,9 @@ export default function Page() {
             transformMemberToTeamMember
           );
           setDisplayedMembers(transformedMembers);
+
+          const defaultBatch = getDefaultBatch(transformedMembers);
+          setSelectedBatch(defaultBatch);
         } else {
           setError(result.message || 'Failed to fetch team members');
         }
@@ -80,12 +83,36 @@ export default function Page() {
     fetchMembers();
   }, []);
 
+  const getDefaultBatch = (members: TeamMember[]) => {
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    const currentMonth = now.getMonth() + 1;
+
+    const expectedCurrentBatch =
+      currentMonth >= 6 ? currentYear + 2 : currentYear + 1;
+    const expectedCurrentBatchStr = expectedCurrentBatch.toString();
+
+    const availableBatches = [
+      ...new Set(members.map((member) => member.batch)),
+    ].filter(Boolean) as string[];
+    if (availableBatches.includes(expectedCurrentBatchStr)) {
+      return expectedCurrentBatchStr;
+    }
+
+    if (availableBatches.length > 0) {
+      return availableBatches.sort((a, b) => b.localeCompare(a))[0];
+    }
+
+    return 'all';
+  };
+
   const availableBatches = [
     ...new Set(displayedMembers.map((member) => member.batch)),
   ].filter(Boolean) as string[];
   const sortedBatches = [...availableBatches].sort((a, b) =>
     b.localeCompare(a)
   );
+
   const filterOptions = ['all', ...sortedBatches];
 
   const filteredMembers = useMemo(() => {
