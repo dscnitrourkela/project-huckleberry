@@ -13,6 +13,9 @@ import { withAdminCheck } from '../events';
 export const getAllMembers = asyncHandler(async () => {
   const data = await prisma.member.findMany({
     orderBy: { created_at: 'desc' },
+    where: {
+      is_displayed: true,
+    },
   });
   return handleSuccess({
     data: data || [],
@@ -128,8 +131,6 @@ export const bulkUploadMembers = asyncHandler(async (csvData: string) => {
       .split(',')
       .map((h) => h.trim().replace(/^"(.*)"$/, '$1'));
     const data = rows.slice(1);
-
-    console.log(headers);
     const members = data.map((row, index) => {
       const values = row
         .split(',')
@@ -151,34 +152,34 @@ export const bulkUploadMembers = asyncHandler(async (csvData: string) => {
       return { member, rowIndex: index + 2 }; // +2 because of 0-based index and header row
     });
 
-    const invalidMembers = members
-      .filter(({ member }) => !member.email || !member.user_name)
-      .map(({ member, rowIndex }) => ({
-        rowIndex,
-        missingFields: [
-          !member.email && 'email',
-          !member.user_name && 'user_name',
-          !member.mobile_no && 'mobile_no',
-          !member.role && 'role',
-          !member.linkedin && 'linkedin',
-          !member.twitter && 'twitter',
-          !member.caption && 'caption',
-          !member.profile_photo && 'profile_photo',
-          !member.year_of_passing && 'year_of_passing',
-        ].filter(Boolean) as string[],
-      }));
+    // const invalidMembers = members
+    //   .filter(({ member }) => !member.email || !member.user_name)
+    //   .map(({ member, rowIndex }) => ({
+    //     rowIndex,
+    //     missingFields: [
+    //       !member.email && 'email',
+    //       !member.user_name && 'user_name',
+    //       !member.mobile_no && 'mobile_no',
+    //       !member.role && 'role',
+    //       !member.linkedin && 'linkedin',
+    //       !member.twitter && 'twitter',
+    //       !member.caption && 'caption',
+    //       !member.profile_photo && 'profile_photo',
+    //       !member.year_of_passing && 'year_of_passing',
+    //     ].filter(Boolean) as string[],
+    //   }));
 
-    if (invalidMembers.length > 0) {
-      return {
-        status: 'error',
-        message: 'Some members are missing required fields',
-        details: invalidMembers,
-      };
-    }
+    // if (invalidMembers.length > 0) {
+    //   return {
+    //     status: 'error',
+    //     message: 'Some members are missing required fields',
+    //     details: invalidMembers,
+    //   };
+    // }
 
     const createdMembers = await prisma.member.createMany({
       data: members.map(({ member }) => member as Member),
-      skipDuplicates: true,
+      // skipDuplicates: true,
     });
 
     return handleSuccess({
