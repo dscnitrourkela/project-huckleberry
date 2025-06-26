@@ -38,6 +38,7 @@ model Member {
   is_admin       Boolean  @default(false)
   year_of_passing Int?
   is_displayed   Boolean  @default(true)
+  lead_role        String?  @default("")
   @@map("members")
 }
 

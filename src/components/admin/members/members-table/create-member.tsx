@@ -48,15 +48,17 @@ const MemberRegistrationModal = ({
     profile_photo: '',
     user_name: '',
     email: '',
-    mobile_no: '',
+    mobile_no: 0,
     role: 'developer',
     github: '',
     linkedin: '',
     twitter: '',
     figma: '',
     caption: '',
+    year_of_passing: new Date().getFullYear(),
     is_admin: false,
     is_lead: false,
+    lead_role: '',
   };
 
   const form = useForm<MemberFormSchema>({
@@ -156,7 +158,7 @@ const MemberRegistrationModal = ({
 
               <SocialLinksSection form={form} />
 
-              <PersonalInfoSection form={form} />
+              {/* <PersonalInfoSection form={form} /> */}
 
               <AdminSettingsSection form={form} />
 

@@ -9,6 +9,14 @@ import {
 import { Switch } from '@/components/ui/switch';
 import { UseFormReturn } from 'react-hook-form';
 import { Checkbox } from '@/components/ui/checkbox';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { leadRoleOptions } from '@/config/admin/members/constants';
 
 interface AdminSettingsSectionProps {
   form: UseFormReturn<any>;
@@ -54,6 +62,33 @@ const AdminSettingsSection: React.FC<AdminSettingsSectionProps> = ({
             <FormLabel>Lead</FormLabel>
             <FormDescription>Designate this member as a lead</FormDescription>
           </div>
+        </FormItem>
+      )}
+    />
+    <FormField
+      control={form.control}
+      name="lead_role"
+      disabled={!form.watch('is_lead')}
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel className="text-gdg-gray">Lead Role</FormLabel>
+          <Select onValueChange={field.onChange} defaultValue={field.value}>
+            <FormControl>
+              <SelectTrigger className="rounded-lg border-gray-200 focus:border-gdg-blue focus:ring-gdg-blue/20">
+                <SelectValue placeholder="Select lead role" />
+              </SelectTrigger>
+            </FormControl>
+            <SelectContent>
+              {leadRoleOptions.map((option) => (
+                <SelectItem key={option.value} value={option.value}>
+                  {option.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <FormDescription className="text-xs text-gdg-gray">
+            Optional: Select the specific lead role for this member
+          </FormDescription>
         </FormItem>
       )}
     />
