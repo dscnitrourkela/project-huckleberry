@@ -37,6 +37,7 @@ model Member {
 	is_lead				 Boolean @default(false)
   is_admin       Boolean  @default(false)
   year_of_passing Int?
+  is_displayed   Boolean  @default(true)
   @@map("members")
 }
 
