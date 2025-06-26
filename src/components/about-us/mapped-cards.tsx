@@ -14,7 +14,7 @@ export const WhatWeDoMappedCards = () => {
               src={card.Icon}
               alt={`${card.title} icon`}
               fill
-              className="object-contain"
+              className={`object-contain ${card.imgClass || ''}`}
               sizes="(max-width: 640px) 64px, (max-width: 768px) 72px, 80px"
             />
           </div>

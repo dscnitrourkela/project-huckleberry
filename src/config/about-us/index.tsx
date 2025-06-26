@@ -4,16 +4,17 @@ export const cardData = [
     description:
       'We organize interactive sessions, workshops, and study groups to help members learn the latest technologies, programming languages, and tools in a collaborative environment.',
     bgClass: 'bg-[#EBF7EE]',
-    Icon: 'https://res.cloudinary.com/dfe8sdlkc/image/upload/v1746445211/Book_Reading_fdtynx.svg',
+    Icon: 'https://res.cloudinary.com/dscnitrourkela/image/upload/v1750954972/project-huckleberry/f9s68avppemp2ootabmw.png',
     cardClass:
       'rounded-lg border border-white/20 shadow-[0px_4px_4px_0px_#C4D3DA,4px_0px_4px_0px_#C4D3DA]',
+    imgClass: 'scale-150',
   },
   {
     title: 'Analyse',
     description:
       'We encourage critical thinking and problem-solving by analyzing real-world challenges, discussing solutions, and exploring case studies from the tech industry.',
     bgClass: 'bg-[#FDEDEB]',
-    Icon: 'https://res.cloudinary.com/dfe8sdlkc/image/upload/v1746445211/Analyze_egamfj.svg',
+    Icon: 'https://res.cloudinary.com/dscnitrourkela/image/upload/v1750953736/project-huckleberry/ezlqkb5v0hkmletwm4gw.png',
     cardClass:
       'rounded-lg border border-white/20 shadow-[0px_4px_4px_0px_#C4D3DA,4px_0px_4px_0px_#C4D3DA]',
   },
@@ -22,16 +23,16 @@ export const cardData = [
     description:
       'We host hackathons, coding competitions, and project-building events where members can apply their knowledge, work in teams, and build innovative solutions to real problems.',
     bgClass: 'bg-[#ECF3FE]',
-    Icon: 'https://res.cloudinary.com/dfe8sdlkc/image/upload/v1746445211/Critical_Thinking_mimwbg.svg',
+    Icon: 'https://res.cloudinary.com/dscnitrourkela/image/upload/v1750953602/project-huckleberry/tjv9q8rm5vit9eaw8udf.svg',
     cardClass:
       'rounded-lg border border-white/20 shadow-[0px_4px_4px_0px_#C4D3DA,4px_0px_4px_0px_#C4D3DA]',
   },
   {
-    title: 'Lorem',
+    title: 'Collaborate',
     description:
       'We foster connections through networking events, guest lectures, and collaborations with industry experts, helping members expand their horizons and build professional relationships.',
     bgClass: 'bg-[#FFF9E6]',
-    Icon: 'https://res.cloudinary.com/dfe8sdlkc/image/upload/v1746445211/Critical_Thinking_mimwbg.svg',
+    Icon: 'https://res.cloudinary.com/dscnitrourkela/image/upload/v1750953020/project-huckleberry/waaesyqmqzgjsbuw4k0f.svg',
     cardClass:
       'rounded-lg border border-white/20 shadow-[0px_4px_4px_0px_#C4D3DA,4px_0px_4px_0px_#C4D3DA]',
   },
