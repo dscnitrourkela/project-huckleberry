@@ -1,8 +1,7 @@
 import { Metadata, Viewport } from 'next';
 
-export const baseUrl = 'https://gdsc-nitr.netlify.app';
+export const baseUrl = 'https://dscnitrourkela.org';
 
-// Separate viewport export as recommended by Next.js
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,

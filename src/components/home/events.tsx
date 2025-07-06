@@ -46,14 +46,14 @@ const EventsSection: React.FC = () => {
           ))}
         </div>
 
-        <div className="text-center mt-8 md:mt-12">
+        {/* <div className="text-center mt-8 md:mt-12">
           <Link
             href="/events"
             className="inline-block px-6 py-2 border-2 rounded-lg border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors duration-200"
           >
             View All
           </Link>
-        </div>
+        </div> */}
       </section>
     </div>
   );
