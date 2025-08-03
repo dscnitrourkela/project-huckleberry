@@ -123,61 +123,45 @@ export const sampleProjects: Project[] = [
 //images
 export const eclipse =
   'https://res.cloudinary.com/dtis6vqc5/image/upload/v1746853099/Ellipse_107_n4slza.png';
+
 export const gitPullRequest =
   'https://res.cloudinary.com/dtis6vqc5/image/upload/v1746853099/GitPullRequest_zg3vxt.png';
+
 export const infoImage =
   'https://res.cloudinary.com/dtis6vqc5/image/upload/v1746853100/Design_team-bro_1_wkuods.png';
 
-export const polygon =
-  'https://res.cloudinary.com/db4zbyipc/image/upload/v1747030648/Polygon_3_ueu5r4.png';
+export const polygon = '/shapes/Polygon 3.svg';
 
-export const rectver =
-  'https://res.cloudinary.com/db4zbyipc/image/upload/v1747033244/Rectangle_803_rvyfbh.png';
+export const rectver = '/shapes/Rectangle 803.png';
 
-export const darkBlueCir =
-  'https://res.cloudinary.com/db4zbyipc/image/upload/v1747036734/Ellipse_117_nmggli.png';
+export const darkBlueCir = '/shapes/Ellipse 117.svg';
 
-export const blueRectHor =
-  'https://res.cloudinary.com/db4zbyipc/image/upload/v1747037084/Rectangle_800_v3877p.png';
+export const blueRectHor = '/shapes/Rectangle 800.png';
 
-export const yellowVer =
-  'https://res.cloudinary.com/db4zbyipc/image/upload/v1747037538/Rectangle_802_hp2sow.png';
+export const yellowVer = '/shapes/Rectangle 802.png';
 
-export const yellowVerSmall =
-  'https://res.cloudinary.com/db4zbyipc/image/upload/v1747037802/Rectangle_804_glirdm.png';
+export const yellowVerSmall = '/shapes/Rectangle 804.svg';
 
-export const redHorRect =
-  'https://res.cloudinary.com/db4zbyipc/image/upload/v1747038923/Rectangle_801_jmlyww.png';
+export const redHorRect = '/shapes/Rectangle 801.png';
 
-export const yellowDark =
-  'https://res.cloudinary.com/db4zbyipc/image/upload/v1747039279/Ellipse_114_2_gjmrzf.svg';
+export const yellowDark = '/shapes/Ellipse 114 (1).svg';
 
-export const yellowDarkMed =
-  'https://res.cloudinary.com/db4zbyipc/image/upload/v1747039287/Ellipse_115_2_uiny4g.svg';
+export const yellowDarkMed = '/shapes/Ellipse 115.svg';
 
-export const yellowMed =
-  'https://res.cloudinary.com/db4zbyipc/image/upload/v1747039293/Ellipse_116_2_vwamir.svg';
+export const yellowMed = '/shapes/Ellipse 116 (1).svg';
 
-export const yellowLight =
-  'https://res.cloudinary.com/db4zbyipc/image/upload/v1747039298/Ellipse_117_1_pbnl26.png';
+export const yellowLight = '/shapes/Ellipse 117.png';
 
-export const botPolygon =
-  'https://res.cloudinary.com/db4zbyipc/image/upload/v1747040828/Rectangle_27_eevc4j.png';
+export const botPolygon = '/shapes/Rectangle 27.svg';
 
-export const concentricCircles =
-  'https://res.cloudinary.com/db4zbyipc/image/upload/v1747042564/Group_81_1_rwqmtm.png';
+export const concentricCircles = '/shapes/Group 81.svg';
 
-export const greenVer =
-  'https://res.cloudinary.com/db4zbyipc/image/upload/v1747042988/Rectangle_805_p7a56n.png';
+export const greenVer = '/shapes/Rectangle 805.png';
 
-export const blueCircle =
-  'https://res.cloudinary.com/db4zbyipc/image/upload/v1747043150/Ellipse_110_l4vwh4.png';
+export const blueCircle = '/shapes/Ellipse 110.svg';
 
-export const darkGreenDot =
-  'https://res.cloudinary.com/db4zbyipc/image/upload/v1747043337/Ellipse_116_q5vgud.svg';
+export const darkGreenDot = '/shapes/Ellipse 116.svg';
 
-export const lightGreenDot =
-  'https://res.cloudinary.com/db4zbyipc/image/upload/v1747043382/Ellipse_114_gonzcn.svg';
+export const lightGreenDot = '/shapes/Ellipse 114.svg';
 
-export const redDot =
-  'https://res.cloudinary.com/db4zbyipc/image/upload/v1747043538/Ellipse_137_bxdwt5.svg';
+export const redDot = '/shapes/Ellipse 137.svg';
