@@ -7,6 +7,7 @@ export type TeamMember = {
   photo: string;
   batch?: string;
   role?: string;
+  lead_role?: string;
   socials?: {
     name: string;
     url: string;
