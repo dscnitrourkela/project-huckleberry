@@ -64,7 +64,7 @@ export default function Page() {
     const fetchMembers = async () => {
       try {
         const result = (await getAllMembers()) as MembersResponse;
-        if ((result.status === 'success' && result.data?.data) || true) {
+        if (result.status === 'success' && result.data?.data) {
           const transformedMembers = result.data.data.map(
             transformMemberToTeamMember
           );
