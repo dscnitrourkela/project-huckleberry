@@ -4,7 +4,7 @@ import { memo, useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-import { LeadOptions } from '@/config/admin/members';
+import { leadRoleOptions } from '@/config/admin/members/constants';
 import { TeamMember } from '@/types/team';
 
 import SocialLinks from '../home/social-links';
@@ -46,8 +46,10 @@ const MemberCard = ({
 
   const getLeadRoleTitle = (leadRole?: string) => {
     if (!leadRole) return null;
-    const leadOption = LeadOptions.find((option) => option.code === leadRole);
-    return leadOption?.title || leadRole;
+    const leadOption = leadRoleOptions.find(
+      (option) => option.value === leadRole
+    );
+    return leadOption?.label || leadRole;
   };
 
   const displayRole = isLead && lead_role ? getLeadRoleTitle(lead_role) : role;
