@@ -19,7 +19,6 @@ const Members = ({ teamMembers, showBatch = false }: MembersProps) => {
   const leads = teamMembers.filter((member) => member.isLead);
   const coreMembers = teamMembers.filter((member) => !member.isLead);
 
-  // Define the order for leads: lead, co_lead, design_lead, community_lead, events_lead
   const leadOrder = [
     'lead',
     'co_lead',
@@ -28,19 +27,15 @@ const Members = ({ teamMembers, showBatch = false }: MembersProps) => {
     'events_lead',
   ];
 
-  // Sort leads based on the specified order
   const sortedLeads = leads.sort((a, b) => {
     const aIndex = a.lead_role ? leadOrder.indexOf(a.lead_role) : -1;
     const bIndex = b.lead_role ? leadOrder.indexOf(b.lead_role) : -1;
 
-    // If both have valid lead_roles, sort by order
     if (aIndex !== -1 && bIndex !== -1) {
       return aIndex - bIndex;
     }
-    // If only one has a valid lead_role, it comes first
     if (aIndex !== -1 && bIndex === -1) return -1;
     if (aIndex === -1 && bIndex !== -1) return 1;
-    // If neither has a valid lead_role, maintain original order
     return 0;
   });
 

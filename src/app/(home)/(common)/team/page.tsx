@@ -72,8 +72,6 @@ export default function Page() {
 
           const defaultBatch = getDefaultBatch(transformedMembers);
           setSelectedBatch(defaultBatch);
-        } else {
-          setError(result.message || 'Failed to fetch team members');
         }
       } catch (err) {
         console.error('Error fetching members:', err);

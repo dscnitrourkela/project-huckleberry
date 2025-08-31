@@ -6,7 +6,6 @@ export interface Member {
   email: string;
   mobile_no: string;
   role: string;
-  lead_role?: string;
   github: string;
   figma: string;
   linkedin: string;
@@ -33,7 +32,6 @@ export interface Member {
   email: string;
   mobile_no: string;
   role: string;
-  lead_role?: string;
   github: string;
   linkedin: string;
   twitter: string;

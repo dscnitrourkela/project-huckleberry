@@ -1,9 +1,10 @@
 'use client';
-import { memo } from 'react';
+import { memo, useState } from 'react';
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+import { LeadOptions } from '@/config/admin/members';
 import { TeamMember } from '@/types/team';
 
 import SocialLinks from '../home/social-links';
@@ -35,38 +36,44 @@ const MemberCard = ({
   ];
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
 
-  // Generate initials from name
   const getInitials = (fullName: string) => {
     return fullName
       .split(' ')
       .map((word) => word.charAt(0).toUpperCase())
       .join('')
-      .slice(0, 2); // Take only first 2 initials
+      .slice(0, 2);
   };
 
-  // Get the display title for lead role
   const getLeadRoleTitle = (leadRole?: string) => {
     if (!leadRole) return null;
     const leadOption = LeadOptions.find((option) => option.code === leadRole);
     return leadOption?.title || leadRole;
   };
 
-  // Determine what role to display
   const displayRole = isLead && lead_role ? getLeadRoleTitle(lead_role) : role;
 
   return (
     <div className="w-full max-w-xs mx-auto relative h-[380px] overflow-hidden border-black border-2 shadow-[black_4px_4px_0px] hover:shadow-[black_7px_7px_0px] hover:translate-x-[-3px] hover:translate-y-[-3px] transistion-all duration-300 ease-in-out">
       <motion.div className="absolute inset-0 w-full h-full">
         <div className={`${randomColor} h-full flex flex-col`}>
-          <div className="h-3/4 overflow-hidden p-3 pb-0 mb-2">
-            <Image
-              src={photo}
-              alt={`${name} - ${displayRole}`}
-              className="w-full h-full object-cover"
-              width={600}
-              height={600}
-              priority
-            />
+          <div className="h-3/4 overflow-hidden p-3 pb-0 mb-2 relative">
+            {!imageError && photo ? (
+              <Image
+                src={photo}
+                alt={`${name} - ${displayRole}`}
+                className="w-full h-full object-cover"
+                width={600}
+                height={600}
+                priority
+                onError={() => setImageError(true)}
+              />
+            ) : (
+              <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                <span className="text-6xl font-bold text-gray-600 font-productsans">
+                  {getInitials(name)}
+                </span>
+              </div>
+            )}
           </div>
           <div className="p-5 pt-1 flex flex-col flex-grow">
             <h2 className="text-2xl font-bold text-gray-800 font-productsans">

@@ -6,7 +6,8 @@ export const roleOptions = [
 ];
 
 export const leadRoleOptions = [
-  { label: 'Overall Lead', value: 'overall_lead' },
+  { label: 'Lead', value: 'lead' },
+  { label: 'Co-Lead', value: 'co_lead' },
   { label: 'Community Lead', value: 'community_lead' },
   { label: 'Events Lead', value: 'events_lead' },
   { label: 'Design Lead', value: 'design_lead' },
