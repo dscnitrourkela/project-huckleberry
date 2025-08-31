@@ -1,12 +1,14 @@
 'use client';
-import React, { useState, useMemo, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Members from '@/components/teams/members';
-import BatchFilter from '@/components/teams/batch-filter';
+import React, { useEffect, useMemo, useState } from 'react';
+
+import { AnimatePresence, motion } from 'framer-motion';
+
 import { getAllMembers } from '@/actions/members';
-import { Member } from '@/types/admin/members';
-import { TeamMember, Social, MembersResponse } from '@/types/team';
 import Loader from '@/components/shared/loader';
+import BatchFilter from '@/components/teams/batch-filter';
+import Members from '@/components/teams/members';
+import { Member } from '@/types/admin/members';
+import { MembersResponse, Social, TeamMember } from '@/types/team';
 
 const transformMemberToTeamMember = (member: Member): TeamMember => {
   const socials: Social[] = [];
@@ -46,6 +48,7 @@ const transformMemberToTeamMember = (member: Member): TeamMember => {
     photo: member.profile_photo || '',
     batch: member.year_of_passing?.toString(),
     role: member.role,
+    lead_role: member.lead_role,
     socials,
     isLead: member.is_lead,
   };
@@ -61,7 +64,7 @@ export default function Page() {
     const fetchMembers = async () => {
       try {
         const result = (await getAllMembers()) as MembersResponse;
-        if (result.status === 'success' && result.data?.data) {
+        if ((result.status === 'success' && result.data?.data) || true) {
           const transformedMembers = result.data.data.map(
             transformMemberToTeamMember
           );

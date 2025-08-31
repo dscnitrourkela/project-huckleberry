@@ -1,10 +1,12 @@
 'use client';
-import { memo, useState } from 'react';
-import { motion } from 'framer-motion';
+import { memo } from 'react';
 
+import { motion } from 'framer-motion';
 import Image from 'next/image';
-import SocialLinks from '../home/social-links';
+
 import { TeamMember } from '@/types/team';
+
+import SocialLinks from '../home/social-links';
 
 interface MemberCardProps extends TeamMember {
   showBatch?: boolean;
@@ -13,9 +15,11 @@ interface MemberCardProps extends TeamMember {
 const MemberCard = ({
   name,
   role,
+  lead_role,
   photo,
   batch,
   socials,
+  isLead,
   showBatch = false,
 }: MemberCardProps) => {
   const [imageError, setImageError] = useState(false);
@@ -40,28 +44,29 @@ const MemberCard = ({
       .slice(0, 2); // Take only first 2 initials
   };
 
+  // Get the display title for lead role
+  const getLeadRoleTitle = (leadRole?: string) => {
+    if (!leadRole) return null;
+    const leadOption = LeadOptions.find((option) => option.code === leadRole);
+    return leadOption?.title || leadRole;
+  };
+
+  // Determine what role to display
+  const displayRole = isLead && lead_role ? getLeadRoleTitle(lead_role) : role;
+
   return (
     <div className="w-full max-w-xs mx-auto relative h-[380px] overflow-hidden border-black border-2 shadow-[black_4px_4px_0px] hover:shadow-[black_7px_7px_0px] hover:translate-x-[-3px] hover:translate-y-[-3px] transistion-all duration-300 ease-in-out">
       <motion.div className="absolute inset-0 w-full h-full">
         <div className={`${randomColor} h-full flex flex-col`}>
           <div className="h-3/4 overflow-hidden p-3 pb-0 mb-2">
-            {!imageError && photo ? (
-              <Image
-                src={photo}
-                alt={`${name} - ${role}`}
-                className="w-full h-full object-cover"
-                width={600}
-                height={600}
-                priority
-                onError={() => setImageError(true)}
-              />
-            ) : (
-              <div className="w-full h-full bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center">
-                <span className="text-white text-6xl font-bold font-productsans">
-                  {getInitials(name)}
-                </span>
-              </div>
-            )}
+            <Image
+              src={photo}
+              alt={`${name} - ${displayRole}`}
+              className="w-full h-full object-cover"
+              width={600}
+              height={600}
+              priority
+            />
           </div>
           <div className="p-5 pt-1 flex flex-col flex-grow">
             <h2 className="text-2xl font-bold text-gray-800 font-productsans">
@@ -69,7 +74,7 @@ const MemberCard = ({
             </h2>
             <div className="flex items-center justify-between">
               <p className="text-gray-600 font-productsans capitalize">
-                {role}
+                {displayRole}
               </p>
               {showBatch && batch && (
                 <span className="font-productsans text-gray-700 px-2 py-0.5 rounded-full text-xs font-medium">

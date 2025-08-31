@@ -1,4 +1,5 @@
 import { TeamMember } from '@/types/team';
+
 import MemberCard from './member-card';
 import TeamTitle from './team-title';
 
@@ -18,16 +19,41 @@ const Members = ({ teamMembers, showBatch = false }: MembersProps) => {
   const leads = teamMembers.filter((member) => member.isLead);
   const coreMembers = teamMembers.filter((member) => !member.isLead);
 
+  // Define the order for leads: lead, co_lead, design_lead, community_lead, events_lead
+  const leadOrder = [
+    'lead',
+    'co_lead',
+    'design_lead',
+    'community_lead',
+    'events_lead',
+  ];
+
+  // Sort leads based on the specified order
+  const sortedLeads = leads.sort((a, b) => {
+    const aIndex = a.lead_role ? leadOrder.indexOf(a.lead_role) : -1;
+    const bIndex = b.lead_role ? leadOrder.indexOf(b.lead_role) : -1;
+
+    // If both have valid lead_roles, sort by order
+    if (aIndex !== -1 && bIndex !== -1) {
+      return aIndex - bIndex;
+    }
+    // If only one has a valid lead_role, it comes first
+    if (aIndex !== -1 && bIndex === -1) return -1;
+    if (aIndex === -1 && bIndex !== -1) return 1;
+    // If neither has a valid lead_role, maintain original order
+    return 0;
+  });
+
   return (
     <section>
-      {leads.length > 0 && (
+      {sortedLeads.length > 0 && (
         <>
           <TeamTitle title="Lead" />
           <div className="flex justify-center mb-12">
             <div
-              className={`grid ${getGridClass(leads.length)} gap-6 max-w-6xl w-full px-4 my-10`}
+              className={`grid ${getGridClass(sortedLeads.length)} gap-6 max-w-6xl w-full px-4 my-10`}
             >
-              {leads.map((member, index) => (
+              {sortedLeads.map((member, index) => (
                 <MemberCard
                   key={member.id}
                   {...member}
