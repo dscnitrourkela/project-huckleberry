@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { SectionHead } from './section-head';
+import { illustration } from '@/config/about-us';
 
 export const WhoAreWe = () => {
   return (
@@ -20,7 +21,7 @@ export const WhoAreWe = () => {
           <div className="w-full md:w-1/2 flex justify-center items-center mt-6 md:mt-0">
             <div className="relative h-48 sm:h-56 md:h-64 lg:h-80 w-full max-w-sm">
               <Image
-                src="https://res.cloudinary.com/dfe8sdlkc/image/upload/v1746446894/amico_awy2ed.png"
+                src={illustration}
                 alt="People collaborating"
                 fill
                 className="object-contain"

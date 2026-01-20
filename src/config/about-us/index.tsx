@@ -47,6 +47,8 @@ export const trackData = [
     bgColor: 'bg-[#ECF3FE]',
     borderColor: 'border-blue-200',
     shadow: 'shadow-[4px_0px_4px_0px_#C4D3DA] shadow-[0px_4px_4px_0px_#C4D3DA]',
+    illustration:
+      'https://res.cloudinary.com/dscnitrourkela/image/upload/v1768940067/project-huckleberry/assets/nc4blj5udc9uimqt8n1k.jpg',
   },
   {
     id: '02',
@@ -56,6 +58,8 @@ export const trackData = [
     bgColor: 'bg-[#FDEDEB]',
     borderColor: 'border-pink-200',
     shadow: 'shadow-[4px_0px_4px_0px_#FDEDEB] shadow-[0px_4px_4px_0px_#FDEDEB]',
+    illustration:
+      'https://res.cloudinary.com/dscnitrourkela/image/upload/v1768940112/project-huckleberry/assets/ih5q5wksbsiwsljweize.jpg',
   },
   {
     id: '03',
@@ -65,6 +69,8 @@ export const trackData = [
     bgColor: 'bg-[#FFF9E6]',
     borderColor: 'border-yellow-200',
     shadow: 'shadow-[4px_0px_4px_0px_#FFF9E6] shadow-[0px_4px_4px_0px_#FFF9E6]',
+    illustration:
+      'https://res.cloudinary.com/dscnitrourkela/image/upload/v1768940167/project-huckleberry/assets/juvrwhj80rxrlkgkvic0.png',
   },
   {
     id: '04',
@@ -74,5 +80,10 @@ export const trackData = [
     bgColor: 'bg-[#EBF7EE]',
     borderColor: 'border-green-200',
     shadow: 'shadow-[4px_0px_4px_0px_#EBF7EE] shadow-[0px_4px_4px_0px_#EBF7EE]',
+    illustration:
+      'https://res.cloudinary.com/dscnitrourkela/image/upload/v1768940214/project-huckleberry/assets/n8lhrr4t6bjax0wzvezt.jpg',
   },
 ];
+
+export const illustration =
+  'https://res.cloudinary.com/dscnitrourkela/image/upload/v1768939895/project-huckleberry/assets/v57e3ecx4si95osva1u9.png';

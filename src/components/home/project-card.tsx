@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Project } from '@/types/home';
 import React from 'react';
 import Image from 'next/image';
-import { gitPullRequest } from '@/config/home';
+import { prIcon } from '@/config/projects';
 
 interface ProjectCardProps {
   project: Project;
@@ -30,7 +30,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                   alt={`Contributor ${i + 1}`}
                   width={28}
                   height={28}
-                  className={`rounded-full ${i !== 0 ? '-ml-2' : ''}`}
+                  className={`rounded-full border border-2 border-black ${i !== 0 ? '-ml-2' : ''}`}
                 />
               ))}
           </div>
@@ -39,13 +39,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           )}
         </div>
         <div className="flex items-center gap-1">
-          <Image
-            src={gitPullRequest}
-            alt="Git Pull Request"
-            width={24}
-            height={24}
-          />
-          |{project.pr && <span className="font-bold">{project.pr}</span>}
+          <Image src={prIcon} alt="Git Pull Request" width={24} height={24} />|
+          {project.pr && <span className="font-bold">{project.pr}</span>}
         </div>
       </div>
 

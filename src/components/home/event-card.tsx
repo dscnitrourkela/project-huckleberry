@@ -27,12 +27,12 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
         </p>
       </div>
 
-      <div className="flex justify-between items-center text-sm sm:text-base ">
+      {/* <div className="flex justify-between items-center text-sm sm:text-base ">
         <span className="font-semibold text-black">{event.date}</span>
         <span className="font-semibold text-blue-500 cursor-pointer">
           View More
         </span>
-      </div>
+      </div> */}
     </div>
   );
 };

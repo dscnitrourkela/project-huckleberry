@@ -1,2 +1,2 @@
 export const prIcon =
-  'https://res.cloudinary.com/djmnk7cvv/image/upload/v1746862477/git-pull-request-svgrepo-com_madcpf.svg';
+  'https://res.cloudinary.com/dscnitrourkela/image/upload/v1768939373/project-huckleberry/assets/s8jpvvuyhmgcy5hsgrfn.svg';

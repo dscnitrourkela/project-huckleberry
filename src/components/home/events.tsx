@@ -19,7 +19,7 @@ const EventsSection: React.FC = () => {
     <div className="gridbg w-full">
       <section className=" w-full bg-[length:80px_80px]  max-w-6xl mx-auto px-4 pt-24 md:pt-32">
         <h2 className="text-5xl md:text-5xl font-bold text-center mb-8 md:mb-12 text-gray-800">
-          Upcoming Events
+          Our Events
         </h2>
         <div className="md:hidden">
           <Carousel

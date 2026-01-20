@@ -6,29 +6,30 @@ export const sampleEvents: Event[] = [
   {
     id: 1,
     imageUrl:
-      'https://res.cloudinary.com/dqcrkrtyr/image/upload/v1747036740/hn-coming-soon_moc1cu.jpg',
-    title: 'HackNITR 7.0',
-    description: 'India’s largest student-run hackathon',
-    date: 'Coming Soon',
+      'https://res.cloudinary.com/dscnitrourkela/image/upload/v1768938924/project-huckleberry/assets/f8zjyafs43rdjo2cqjfl.png',
+    title: 'HackNITR',
+    description:
+      'HackNITR is the flagship hackathon of NIT Rourkela, and one of India’s largest student-led hackathons.',
+    date: '3rd - 4th January 2026',
     link: '#',
   },
   {
     id: 2,
     imageUrl:
-      'https://res.cloudinary.com/dqcrkrtyr/image/upload/v1747036740/hiv-coming-soon_pphwri.jpg',
+      'https://res.cloudinary.com/dscnitrourkela/image/upload/v1768939173/project-huckleberry/assets/wt4pidhzqfoyvs3ksmly.png',
     title: 'HackInnovision',
     description: 'NIT Rourkela’s flagship intra-college hackathon',
-    date: 'Coming Soon',
+    date: '',
     link: '#',
   },
   {
     id: 3,
     imageUrl:
-      'https://res.cloudinary.com/dqcrkrtyr/image/upload/v1747039328/hacktoberfest_x610pa.png',
+      'https://res.cloudinary.com/dscnitrourkela/image/upload/v1768939082/project-huckleberry/assets/zsvz6mnod4kmempjnjkv.png',
     title: 'HacktoberFest',
     description:
       'DigitalOcean’s annual event that encourages people to contribute to open source throughout October',
-    date: 'October 2025',
+    date: '',
     link: '#',
   },
 ];
@@ -165,3 +166,6 @@ export const darkGreenDot = '/shapes/Ellipse 116.svg';
 export const lightGreenDot = '/shapes/Ellipse 114.svg';
 
 export const redDot = '/shapes/Ellipse 137.svg';
+
+export const homeIllustration =
+  'https://res.cloudinary.com/dscnitrourkela/image/upload/v1768938900/project-huckleberry/assets/u4lxsvybwpappqad6qyz.png';
