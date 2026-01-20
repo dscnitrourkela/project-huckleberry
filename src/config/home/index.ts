@@ -6,7 +6,7 @@ export const sampleEvents: Event[] = [
   {
     id: 1,
     imageUrl:
-      'https://res.cloudinary.com/dscnitrourkela/image/upload/v1768938924/project-huckleberry/assets/f8zjyafs43rdjo2cqjfl.png',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947274/project-huckleberry/assets/f8zjyafs43rdjo2cqjfl.png',
     title: 'HackNITR',
     description:
       'HackNITR is the flagship hackathon of NIT Rourkela, and one of India’s largest student-led hackathons.',
@@ -16,7 +16,7 @@ export const sampleEvents: Event[] = [
   {
     id: 2,
     imageUrl:
-      'https://res.cloudinary.com/dscnitrourkela/image/upload/v1768939173/project-huckleberry/assets/wt4pidhzqfoyvs3ksmly.png',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947275/project-huckleberry/assets/wt4pidhzqfoyvs3ksmly.png',
     title: 'HackInnovision',
     description: 'NIT Rourkela’s flagship intra-college hackathon',
     date: '',
@@ -25,7 +25,7 @@ export const sampleEvents: Event[] = [
   {
     id: 3,
     imageUrl:
-      'https://res.cloudinary.com/dscnitrourkela/image/upload/v1768939082/project-huckleberry/assets/zsvz6mnod4kmempjnjkv.png',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947276/project-huckleberry/assets/zsvz6mnod4kmempjnjkv.png',
     title: 'HacktoberFest',
     description:
       'DigitalOcean’s annual event that encourages people to contribute to open source throughout October',
@@ -44,9 +44,9 @@ export const sampleProjects: Project[] = [
     pr: '186',
     link: 'https://github.com/dscnitrourkela/project-avocado',
     contributorImages: [
-      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362616/27865704_ptevwe.png',
-      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362706/34758667_tdcv5o.jpg',
-      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362706/13520364_lofkxt.jpg',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947277/27865704_ptevwe.png',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947278/34758667_tdcv5o.jpg',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947279/13520364_lofkxt.jpg',
     ],
   },
   {
@@ -58,9 +58,9 @@ export const sampleProjects: Project[] = [
     pr: '70',
     link: 'https://github.com/dscnitrourkela/project-huckleberry',
     contributorImages: [
-      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362856/135319056_tl32qo.jpg',
-      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362856/100484401_leeyzw.png',
-      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362857/92504849_x8iz9b.jpg',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947280/135319056_tl32qo.jpg',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947280/100484401_leeyzw.png',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947281/92504849_x8iz9b.jpg',
     ],
   },
   {
@@ -72,9 +72,9 @@ export const sampleProjects: Project[] = [
     pr: '245',
     link: 'https://github.com/dscnitrourkela/project-raisin',
     contributorImages: [
-      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362856/135319056_tl32qo.jpg',
-      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362856/100484401_leeyzw.png',
-      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748363030/140698710_sqi4ec.jpg',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947280/135319056_tl32qo.jpg',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947280/100484401_leeyzw.png',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947282/140698710_sqi4ec.jpg',
     ],
   },
   {
@@ -86,9 +86,9 @@ export const sampleProjects: Project[] = [
     pr: '280',
     link: 'https://github.com/dscnitrourkela/project-oregano',
     contributorImages: [
-      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748363170/56112399_dmpwbw.jpg',
-      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748363171/56754747_xgxcuk.jpg',
-      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748363171/75530516_ejvemk.jpg',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947283/56112399_dmpwbw.jpg',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947284/56754747_xgxcuk.jpg',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947284/75530516_ejvemk.jpg',
     ],
   },
   {
@@ -100,9 +100,9 @@ export const sampleProjects: Project[] = [
     pr: '98',
     link: 'https://github.com/dscnitrourkela/project-vanilla',
     contributorImages: [
-      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362856/135319056_tl32qo.jpg',
-      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748363030/140698710_sqi4ec.jpg',
-      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362857/92504849_x8iz9b.jpg',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947280/135319056_tl32qo.jpg',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947282/140698710_sqi4ec.jpg',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947281/92504849_x8iz9b.jpg',
     ],
   },
   {
@@ -114,9 +114,9 @@ export const sampleProjects: Project[] = [
     pr: '71',
     link: 'https://github.com/dscnitrourkela/project-tart',
     contributorImages: [
-      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748363171/56754747_xgxcuk.jpg',
-      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748362856/100484401_leeyzw.png',
-      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1748363425/98693953_gdg0gt.jpg',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947284/56754747_xgxcuk.jpg',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947280/100484401_leeyzw.png',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947285/98693953_gdg0gt.jpg',
     ],
   },
 ];
@@ -168,4 +168,7 @@ export const lightGreenDot = '/shapes/Ellipse 114.svg';
 export const redDot = '/shapes/Ellipse 137.svg';
 
 export const homeIllustration =
-  'https://res.cloudinary.com/dscnitrourkela/image/upload/v1768938900/project-huckleberry/assets/u4lxsvybwpappqad6qyz.png';
+  'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947288/project-huckleberry/assets/u4lxsvybwpappqad6qyz.png';
+
+export const gridBackground =
+  'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947289/project-huckleberry/assets/g3cghhhpgyglamqotn1s.svg';

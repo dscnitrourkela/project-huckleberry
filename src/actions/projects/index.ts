@@ -2,7 +2,11 @@
 
 import { prisma } from '@/lib/prisma';
 import { ApiResponse } from '@/types/commons';
-import { GitHubRepo, GitHubContributor } from '@/types/projects';
+import {
+  GitHubRepo,
+  GitHubContributor,
+  ProjectWithGitHub,
+} from '@/types/projects';
 import { asyncHandler, handleSuccess } from '@/utils';
 import { revalidatePath } from 'next/cache';
 import { withAdminCheck } from '../events';
@@ -147,6 +151,51 @@ export const unpublishRepos = asyncHandler(
       return handleSuccess({
         message: 'Repository unpublished successfully',
       });
+    });
+  }
+);
+
+// Unified server action: fetches published projects from DB and merges with GitHub data
+export const getPublishedProjectsWithGitHubData = asyncHandler(async () => {
+  const publishedProjects = await prisma.project.findMany({
+    orderBy: { published_at: 'desc' },
+  });
+
+  if (!publishedProjects.length) {
+    return handleSuccess({ data: [], message: null });
+  }
+
+  const orgName = 'dscnitrourkela';
+  const allRepos = await fetchRepos(orgName, true);
+
+  const projectsWithGitHub: ProjectWithGitHub[] = [];
+
+  for (const project of publishedProjects) {
+    const githubData = allRepos.find(
+      (repo) => repo.id.toString() === project.repo_id
+    );
+    if (githubData) {
+      projectsWithGitHub.push({
+        ...githubData,
+        imageUrl: project.image_url || undefined,
+      });
+    }
+  }
+
+  return handleSuccess({ data: projectsWithGitHub, message: null });
+});
+
+// Update project screenshot image URL
+export const updateProjectImage = asyncHandler(
+  async (repoId: string, imageUrl: string): Promise<ApiResponse> => {
+    return await withAdminCheck(async () => {
+      await prisma.project.update({
+        where: { repo_id: repoId },
+        data: { image_url: imageUrl },
+      });
+      revalidatePath('/projects');
+      revalidatePath('/admin/manage-projects');
+      return handleSuccess({ message: 'Project image updated successfully' });
     });
   }
 );

@@ -8,6 +8,7 @@ import LeftPolygon from './svgusables/leftrect';
 import ConcentricCircle from './svgusables/circlessvg';
 import RightPolygon from './svgusables/rightrect';
 import TallyFormWrapper from './tally-form';
+import GridBackground from '@/components/common/grid-background';
 
 gsap.registerPlugin(SplitText);
 
@@ -84,6 +85,8 @@ const Hero = () => {
           id="hero"
           className="h-[100vh] relative w-full px-6 lg:px-0 overflow-hidden"
         >
+          {/* Grid Background */}
+          <GridBackground opacity={0.5} />
           <div className="h-full w-full flex justify-center items-center ">
             <div className="flex flex-col gap-12 relative z-10">
               <div className="flex flex-col gap-7">

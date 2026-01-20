@@ -7,7 +7,7 @@ export const events = [
     description:
       'Lorem ipsum dolor sit amet consectetur. Augue duis etiam pulvinar duis interdum accumsan tempor bibendum amet. Lorem ipsum dolor sit amet consectetur. Augue duis etiam pulvinar duis interdum accumsan tempor bibendum amet.Lorem ipsum dolor sit amet consectetur. Augue duis etiam pulvinar duis interdum accumsan tempor bibendum amet.',
     imageUrl:
-      'https://res.cloudinary.com/dpmlrxlzr/image/upload/v1746378087/hn_50_1_ru18tc.png',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947273/hn_50_1_ru18tc.png',
     cardBgColor: 'bg-[#ECF3FE]',
   },
   {
@@ -18,7 +18,7 @@ export const events = [
     description:
       'Lorem ipsum dolor sit amet consectetur. Augue duis etiam pulvinar duis interdum accumsan tempor bibendum amet. Lorem ipsum dolor sit amet consectetur. Augue duis etiam pulvinar duis interdum accumsan tempor bibendum amet.Lorem ipsum dolor sit amet consectetur. Augue duis etiam pulvinar duis interdum accumsan tempor bibendum amet.',
     imageUrl:
-      'https://res.cloudinary.com/dpmlrxlzr/image/upload/v1746378087/hn_50_1_ru18tc.png',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947273/hn_50_1_ru18tc.png',
     cardBgColor: 'bg-[#FDEDEB]',
   },
   {
@@ -29,7 +29,7 @@ export const events = [
     description:
       'Lorem ipsum dolor sit amet consectetur. Augue duis etiam pulvinar duis interdum accumsan tempor bibendum amet. Lorem ipsum dolor sit amet consectetur. Augue duis etiam pulvinar duis interdum accumsan tempor bibendum amet.Lorem ipsum dolor sit amet consectetur. Augue duis etiam pulvinar duis interdum accumsan tempor bibendum amet.',
     imageUrl:
-      'https://res.cloudinary.com/dpmlrxlzr/image/upload/v1746378087/hn_50_1_ru18tc.png',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947273/hn_50_1_ru18tc.png',
     cardBgColor: 'bg-[#EBF7EE]',
   },
 ];

@@ -46,6 +46,7 @@ model Project {
   id           String   @id @default(cuid())
   repo_id      String   @unique
   repo_name    String
+  image_url    String?  @default("")
   published_at DateTime @default(now())
 
   @@map("projects")

@@ -26,4 +26,9 @@ export interface TableRepo {
   name: string;
   description: string;
   isSelected: boolean;
+  imageUrl?: string;
+}
+
+export interface ProjectWithGitHub extends GitHubRepo {
+  imageUrl?: string;
 }

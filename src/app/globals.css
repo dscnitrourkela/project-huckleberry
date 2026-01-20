@@ -112,22 +112,9 @@
   }
 }
 
-.gridbg {
-  background-repeat: no-repeat;
-  background-position-y: -80px;
-  background-position-x: center;
-  background-image: url('https://res.cloudinary.com/dtis6vqc5/image/upload/v1746855328/image_90_ftxd6b.png');
-}
-
 .button {
   background: var(
     --Ascent,
     linear-gradient(82deg, #4379e0 -4.79%, #1b66f6 103.83%)
   );
-}
-
-#hero {
-  background-image: url('https://res.cloudinary.com/db4zbyipc/image/upload/v1747121185/herobg_dwtxlw.png');
-  background-size: cover;
-  background-position: center;
 }

@@ -4,7 +4,7 @@ export const cardData = [
     description:
       'We organize interactive sessions, workshops, and study groups to help members learn the latest technologies, programming languages, and tools in a collaborative environment.',
     bgClass: 'bg-[#EBF7EE]',
-    Icon: 'https://res.cloudinary.com/dscnitrourkela/image/upload/v1750954972/project-huckleberry/f9s68avppemp2ootabmw.png',
+    Icon: 'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947292/project-huckleberry/f9s68avppemp2ootabmw.png',
     cardClass:
       'rounded-lg border border-white/20 shadow-[0px_4px_4px_0px_#C4D3DA,4px_0px_4px_0px_#C4D3DA]',
     imgClass: 'scale-150',
@@ -14,7 +14,7 @@ export const cardData = [
     description:
       'We encourage critical thinking and problem-solving by analyzing real-world challenges, discussing solutions, and exploring case studies from the tech industry.',
     bgClass: 'bg-[#FDEDEB]',
-    Icon: 'https://res.cloudinary.com/dscnitrourkela/image/upload/v1750953736/project-huckleberry/ezlqkb5v0hkmletwm4gw.png',
+    Icon: 'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947293/project-huckleberry/ezlqkb5v0hkmletwm4gw.png',
     cardClass:
       'rounded-lg border border-white/20 shadow-[0px_4px_4px_0px_#C4D3DA,4px_0px_4px_0px_#C4D3DA]',
   },
@@ -23,7 +23,7 @@ export const cardData = [
     description:
       'We host hackathons, coding competitions, and project-building events where members can apply their knowledge, work in teams, and build innovative solutions to real problems.',
     bgClass: 'bg-[#ECF3FE]',
-    Icon: 'https://res.cloudinary.com/dscnitrourkela/image/upload/v1750953602/project-huckleberry/tjv9q8rm5vit9eaw8udf.svg',
+    Icon: 'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947295/project-huckleberry/tjv9q8rm5vit9eaw8udf.svg',
     cardClass:
       'rounded-lg border border-white/20 shadow-[0px_4px_4px_0px_#C4D3DA,4px_0px_4px_0px_#C4D3DA]',
   },
@@ -32,7 +32,7 @@ export const cardData = [
     description:
       'We foster connections through networking events, guest lectures, and collaborations with industry experts, helping members expand their horizons and build professional relationships.',
     bgClass: 'bg-[#FFF9E6]',
-    Icon: 'https://res.cloudinary.com/dscnitrourkela/image/upload/v1750953020/project-huckleberry/waaesyqmqzgjsbuw4k0f.svg',
+    Icon: 'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947296/project-huckleberry/waaesyqmqzgjsbuw4k0f.svg',
     cardClass:
       'rounded-lg border border-white/20 shadow-[0px_4px_4px_0px_#C4D3DA,4px_0px_4px_0px_#C4D3DA]',
   },
@@ -48,7 +48,7 @@ export const trackData = [
     borderColor: 'border-blue-200',
     shadow: 'shadow-[4px_0px_4px_0px_#C4D3DA] shadow-[0px_4px_4px_0px_#C4D3DA]',
     illustration:
-      'https://res.cloudinary.com/dscnitrourkela/image/upload/v1768940067/project-huckleberry/assets/nc4blj5udc9uimqt8n1k.jpg',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947298/project-huckleberry/assets/nc4blj5udc9uimqt8n1k.jpg',
   },
   {
     id: '02',
@@ -59,7 +59,7 @@ export const trackData = [
     borderColor: 'border-pink-200',
     shadow: 'shadow-[4px_0px_4px_0px_#FDEDEB] shadow-[0px_4px_4px_0px_#FDEDEB]',
     illustration:
-      'https://res.cloudinary.com/dscnitrourkela/image/upload/v1768940112/project-huckleberry/assets/ih5q5wksbsiwsljweize.jpg',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947299/project-huckleberry/assets/ih5q5wksbsiwsljweize.jpg',
   },
   {
     id: '03',
@@ -70,7 +70,7 @@ export const trackData = [
     borderColor: 'border-yellow-200',
     shadow: 'shadow-[4px_0px_4px_0px_#FFF9E6] shadow-[0px_4px_4px_0px_#FFF9E6]',
     illustration:
-      'https://res.cloudinary.com/dscnitrourkela/image/upload/v1768940167/project-huckleberry/assets/juvrwhj80rxrlkgkvic0.png',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947300/project-huckleberry/assets/juvrwhj80rxrlkgkvic0.png',
   },
   {
     id: '04',
@@ -81,9 +81,9 @@ export const trackData = [
     borderColor: 'border-green-200',
     shadow: 'shadow-[4px_0px_4px_0px_#EBF7EE] shadow-[0px_4px_4px_0px_#EBF7EE]',
     illustration:
-      'https://res.cloudinary.com/dscnitrourkela/image/upload/v1768940214/project-huckleberry/assets/n8lhrr4t6bjax0wzvezt.jpg',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947301/project-huckleberry/assets/n8lhrr4t6bjax0wzvezt.jpg',
   },
 ];
 
 export const illustration =
-  'https://res.cloudinary.com/dscnitrourkela/image/upload/v1768939895/project-huckleberry/assets/v57e3ecx4si95osva1u9.png';
+  'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947302/project-huckleberry/assets/v57e3ecx4si95osva1u9.png';

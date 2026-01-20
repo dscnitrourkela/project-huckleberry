@@ -5,7 +5,7 @@ export const mockEvents = [
     timestamp: new Date('2023-08-15'),
     description: "One of the India's largest student run hackathon, HackNITR",
     coverImage:
-      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1746795054/hn5_i26s4e.png',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947303/hn5_i26s4e.png',
     registrationLink: 'https://forms.gle/example1',
   },
   {
@@ -14,7 +14,7 @@ export const mockEvents = [
     timestamp: new Date('2023-09-20'),
     description: 'Intra-college hackathon for students of NIT Rourkela',
     coverImage:
-      'https://res.cloudinary.com/dqqyuvg1v/image/upload/v1746795054/HI_acqc9y.jpg',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947304/HI_acqc9y.jpg',
     registrationLink: 'https://forms.gle/example2',
   },
   {
