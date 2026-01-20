@@ -8,7 +8,7 @@ import {
 import { IconType } from 'react-icons';
 
 export const DSC_LOGO_LARGE =
-  'https://res.cloudinary.com/dwh7xuupf/image/upload/v1747073420/dsc-logo-lg_xly4pi.png';
+  'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768948180/image_92_zvkqmm.png';
 
 export const DSC_LOGO_SMALL =
   'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947267/project-huckleberry/assets/d8hofakqxnabruzwduuu.svg';

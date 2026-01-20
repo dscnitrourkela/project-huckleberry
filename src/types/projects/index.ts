@@ -27,8 +27,10 @@ export interface TableRepo {
   description: string;
   isSelected: boolean;
   imageUrl?: string;
+  displayOrder?: number;
 }
 
 export interface ProjectWithGitHub extends GitHubRepo {
   imageUrl?: string;
+  displayOrder?: number;
 }

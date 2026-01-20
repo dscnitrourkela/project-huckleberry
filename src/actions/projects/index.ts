@@ -120,9 +120,7 @@ export const publishRepos = asyncHandler(
 
 export const getPublishedRepos = asyncHandler(async () => {
   const res = await prisma.project.findMany({
-    orderBy: {
-      published_at: 'desc',
-    },
+    orderBy: [{ display_order: 'asc' }, { published_at: 'desc' }],
   });
   if (!res) {
     return handleSuccess({
@@ -158,7 +156,7 @@ export const unpublishRepos = asyncHandler(
 // Unified server action: fetches published projects from DB and merges with GitHub data
 export const getPublishedProjectsWithGitHubData = asyncHandler(async () => {
   const publishedProjects = await prisma.project.findMany({
-    orderBy: { published_at: 'desc' },
+    orderBy: [{ display_order: 'asc' }, { published_at: 'desc' }],
   });
 
   if (!publishedProjects.length) {
@@ -178,6 +176,7 @@ export const getPublishedProjectsWithGitHubData = asyncHandler(async () => {
       projectsWithGitHub.push({
         ...githubData,
         imageUrl: project.image_url || undefined,
+        displayOrder: project.display_order,
       });
     }
   }
@@ -196,6 +195,27 @@ export const updateProjectImage = asyncHandler(
       revalidatePath('/projects');
       revalidatePath('/admin/manage-projects');
       return handleSuccess({ message: 'Project image updated successfully' });
+    });
+  }
+);
+
+// Update project display order
+export const updateProjectOrder = asyncHandler(
+  async (
+    orderedRepoIds: { repoId: string; order: number }[]
+  ): Promise<ApiResponse> => {
+    return await withAdminCheck(async () => {
+      await Promise.all(
+        orderedRepoIds.map((item) =>
+          prisma.project.update({
+            where: { repo_id: item.repoId },
+            data: { display_order: item.order },
+          })
+        )
+      );
+      revalidatePath('/projects');
+      revalidatePath('/admin/manage-projects');
+      return handleSuccess({ message: 'Project order updated successfully' });
     });
   }
 );
