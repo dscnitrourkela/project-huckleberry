@@ -11,7 +11,7 @@ export const DSC_LOGO_LARGE =
   'https://res.cloudinary.com/dwh7xuupf/image/upload/v1747073420/dsc-logo-lg_xly4pi.png';
 
 export const DSC_LOGO_SMALL =
-  'https://res.cloudinary.com/dwh7xuupf/image/upload/v1747145310/Adobe_Express_-_file_tdockj.png';
+  'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947267/project-huckleberry/assets/d8hofakqxnabruzwduuu.svg';
 
 export interface SocialLink {
   name: string;

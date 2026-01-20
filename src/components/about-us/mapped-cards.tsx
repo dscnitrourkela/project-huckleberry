@@ -62,7 +62,7 @@ export const DomainMappedCards = () => {
           <div className="flex-1 hidden md:flex items-center justify-center">
             <div className="domain-image relative w-full aspect-square sm:aspect-auto h-48 sm:h-64 md:h-full">
               <Image
-                src="https://res.cloudinary.com/dfe8sdlkc/image/upload/v1746446894/amico_awy2ed.png"
+                src={domain.illustration}
                 alt={`${domain.title} illustration`}
                 fill
                 className="object-contain"

@@ -2,39 +2,36 @@
 
 import { useEffect, useState } from 'react';
 import ProjectCard from '@/components/projects/projects-card';
-import { GitHubRepo } from '@/types/projects';
-import { fetchRepos, getPublishedRepos } from '@/actions/projects';
+import { ProjectWithGitHub } from '@/types/projects';
+import { getPublishedProjectsWithGitHubData } from '@/actions/projects';
 import Loader from '@/components/shared/loader';
 
 const bgColors = ['bg-blue-100', 'bg-yellow-50', 'bg-purple-50', 'bg-green-50'];
 
 export default function ProjectsPage() {
-  const [repos, setRepos] = useState<GitHubRepo[]>([]);
+  const [repos, setRepos] = useState<ProjectWithGitHub[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchRepositories = async () => {
-      const orgName = 'dscnitrourkela';
+    const fetchProjects = async () => {
       try {
-        const result = await getPublishedRepos();
-        const published: { repo_id: string }[] =
+        // Use unified server action that fetches both DB and GitHub data
+        const result = await getPublishedProjectsWithGitHubData();
+        const projects: ProjectWithGitHub[] =
           result && 'data' in result
-            ? (result.data.data as { repo_id: string }[])
+            ? (result.data.data as ProjectWithGitHub[])
             : [];
 
-        const data = await fetchRepos(orgName);
-        console.log('Fetched repositories:', data);
-        const filteredRepos = data.filter((repo: GitHubRepo) =>
-          published.some(
-            (publishedRepo: { repo_id: string }) =>
-              publishedRepo.repo_id === repo.id.toString()
-          )
+        // Sort by created_at date (newest first)
+        const sortedProjects = projects.sort(
+          (a, b) =>
+            new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
         );
 
-        setRepos(filteredRepos);
+        setRepos(sortedProjects);
       } catch (error) {
-        console.error('Error fetching repositories:', error);
+        console.error('Error fetching projects:', error);
         setError(
           error instanceof Error ? error.message : 'Failed to load projects'
         );
@@ -43,7 +40,7 @@ export default function ProjectsPage() {
       }
     };
 
-    fetchRepositories();
+    fetchProjects();
   }, []);
 
   if (isLoading) {
@@ -82,6 +79,7 @@ export default function ProjectsPage() {
               githubUrl={repo.html_url}
               bgColor={bgColors[index % bgColors.length]}
               contributors={repo.contributors}
+              imageUrl={repo.imageUrl}
             />
           ))}
           {repos.length === 0 && (

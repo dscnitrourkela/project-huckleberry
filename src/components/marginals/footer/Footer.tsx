@@ -16,8 +16,8 @@ const Footer: React.FC = () => {
     <footer className="relative bg-gradient-to-b from-[#fdfcf8] to-[#f9f8f4] px-4 sm:px-8 lmd:px-12 pt-4 lmd:pt-20 min-h-[50vh] flex overflow-hidden font-productsans">
       <div className="w-2/5 relative hidden lmd:flex flex-col justify-between">
         <div className="flex flex-col items-center w-fit scale-[120%]">
-          <Image src={DSC_LOGO_SMALL} alt="" width={60} height={30} />
-          <span className=" text-[#575757] text-xl -mt-2">
+          <Image src={DSC_LOGO_SMALL} alt="" width={50} height={35} />
+          <span className=" text-[#575757] text-xl">
             Developer Student Clubs
           </span>
           <span className=" text-[#575757] text-sm">

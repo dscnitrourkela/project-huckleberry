@@ -2,7 +2,7 @@
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
 import { useState } from 'react';
-import { infoImage } from '@/config/home';
+import { homeIllustration, infoImage } from '@/config/home';
 import Image from 'next/image';
 
 function Info() {
@@ -80,7 +80,7 @@ function Info() {
 
       <div className="hidden lg:flex justify-center flex-1">
         <Image
-          src="https://res.cloudinary.com/dtis6vqc5/image/upload/v1746853100/Design_team-bro_1_wkuods.png"
+          src={homeIllustration}
           alt="GDG Illustration"
           className="w-full max-w-sm xl:max-w-md h-auto"
           width={455}

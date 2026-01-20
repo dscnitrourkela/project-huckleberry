@@ -8,6 +8,7 @@ import {
   CarouselItem,
 } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
+import GridBackground from '@/components/common/grid-background';
 
 const EventsSection: React.FC = () => {
   const eventsToShow = sampleEvents.slice(0, 3);
@@ -16,10 +17,11 @@ const EventsSection: React.FC = () => {
   }
 
   return (
-    <div className="gridbg w-full">
-      <section className=" w-full bg-[length:80px_80px]  max-w-6xl mx-auto px-4 pt-24 md:pt-32">
+    <div className="relative w-full">
+      <GridBackground opacity={0.5} />
+      <section className="relative w-full bg-[length:80px_80px]  max-w-6xl mx-auto px-4 pt-24 md:pt-32">
         <h2 className="text-5xl md:text-5xl font-bold text-center mb-8 md:mb-12 text-gray-800">
-          Upcoming Events
+          Our Events
         </h2>
         <div className="md:hidden">
           <Carousel

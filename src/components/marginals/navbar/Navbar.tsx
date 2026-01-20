@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { WP_COMMUNITY, navLinks } from '@/config/marginals';
+import { DSC_LOGO_SMALL, WP_COMMUNITY, navLinks } from '@/config/marginals';
 gsap.registerPlugin(useGSAP);
 
 const Navbar = () => {
@@ -35,11 +35,13 @@ const Navbar = () => {
       >
         <div className="w-full h-full px-24 xl:px-32 py-4">
           <div className="w-full h-full relative flex items-center justify-between">
-            <Link href="/" className="h-full w-auto">
+            <Link href="/" className="h-full w-auto flex items-center ">
               <Image
-                src={DSCLogo}
+                src={DSC_LOGO_SMALL}
                 alt="GDG Logo"
-                className="h-full w-auto cursor-pointer"
+                width={50}
+                height={50}
+                className="h-[40px] w-auto cursor-pointer"
               />
             </Link>
 

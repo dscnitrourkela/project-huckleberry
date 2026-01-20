@@ -8,6 +8,11 @@ import { Loader2 } from 'lucide-react';
 import AdminPageHeader from '@/components/admin/layout/admin-page-header';
 import Loader from '@/components/shared/loader';
 
+interface PublishedRepo {
+  repo_id: string;
+  image_url?: string;
+}
+
 export default function ProjectsPage() {
   const [repos, setRepos] = useState<TableRepo[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -20,22 +25,24 @@ export default function ProjectsPage() {
       try {
         const data = await fetchRepos(orgName, false);
         const result = await getPublishedRepos();
-        const published: { repo_id: string }[] =
+        const published: PublishedRepo[] =
           result && 'data' in result
-            ? (result.data.data as { repo_id: string }[])
+            ? (result.data.data as PublishedRepo[])
             : [];
-        setPublishedRepos(
-          (published as { repo_id: string }[]).map((repo) => repo.repo_id)
-        );
+        setPublishedRepos(published.map((repo) => repo.repo_id));
 
-        const allRepos = data.map((repo) => ({
-          id: String(repo.id),
-          name: repo.name,
-          description: repo.description || 'No description available',
-          isSelected: published?.some(
-            (published) => published.repo_id === String(repo.id)
-          ),
-        }));
+        const allRepos = data.map((repo) => {
+          const publishedRepo = published.find(
+            (p) => p.repo_id === String(repo.id)
+          );
+          return {
+            id: String(repo.id),
+            name: repo.name,
+            description: repo.description || 'No description available',
+            isSelected: !!publishedRepo,
+            imageUrl: publishedRepo?.image_url || undefined,
+          };
+        });
 
         setRepos(allRepos as TableRepo[]);
       } catch (error) {

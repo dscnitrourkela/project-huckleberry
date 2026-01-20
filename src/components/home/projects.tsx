@@ -9,12 +9,15 @@ import {
   CarouselItem,
 } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
+import GridBackground from '@/components/common/grid-background';
+
 const ProjectsSection: React.FC = () => {
   const projectsToShow = sampleProjects.slice(0, 6);
 
   return (
-    <div className="gridbg w-full">
-      <section className="w-full max-w-6xl flex flex-col mx-auto px-4 py-12 md:py-16 gap-8">
+    <div className="relative w-full">
+      <GridBackground opacity={0.5} />
+      <section className="relative w-full max-w-6xl flex flex-col mx-auto px-4 py-12 md:py-16 gap-8">
         <h2 className="text-5xl md:text-5xl font-bold text-center mb-3 text-gray-800">
           Projects
         </h2>

@@ -1,14 +1,20 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { TableRepo } from '@/types/projects';
-import { publishRepos, unpublishRepos } from '@/actions/projects';
-import { withLoadingToast } from '@/utils';
+import {
+  publishRepos,
+  unpublishRepos,
+  updateProjectImage,
+} from '@/actions/projects';
+import { withLoadingToast, uploadToCloudinary } from '@/utils';
 import { ApiResponse } from '@/types/commons';
-import { Search } from 'lucide-react';
+import { Search, Upload, X, ImageIcon, Loader2 } from 'lucide-react';
 import { useAdmin } from '@/hooks/useAdmin';
+import { toast } from 'sonner';
 
 interface ReposPageProps {
   repos: TableRepo[];
@@ -22,7 +28,12 @@ export default function ReposPage({
   const [repos, setRepos] = useState<TableRepo[]>([]);
   const [isPublishing, setIsPublishing] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [uploadingRepoId, setUploadingRepoId] = useState<string | null>(null);
   const { isAdmin, isLoading: isAdminLoading } = useAdmin();
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [selectedRepoForUpload, setSelectedRepoForUpload] = useState<
+    string | null
+  >(null);
 
   useEffect(() => {
     setRepos(initialRepos);
@@ -66,6 +77,80 @@ export default function ReposPage({
     return result;
   });
 
+  const handleImageUploadClick = (repoId: string) => {
+    setSelectedRepoForUpload(repoId);
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file || !selectedRepoForUpload) return;
+
+    // Validate file type
+    if (!file.type.startsWith('image/')) {
+      toast.error('Please select an image file');
+      return;
+    }
+
+    // Validate file size (max 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      toast.error('Image size should be less than 5MB');
+      return;
+    }
+
+    setUploadingRepoId(selectedRepoForUpload);
+
+    try {
+      // Upload to Cloudinary
+      const imageUrl = await uploadToCloudinary(file);
+
+      // Update in database
+      const result = await updateProjectImage(selectedRepoForUpload, imageUrl);
+
+      if (result && 'status' in result && result.status === 'success') {
+        // Update local state
+        setRepos((prevRepos) =>
+          prevRepos.map((repo) =>
+            repo.id === selectedRepoForUpload ? { ...repo, imageUrl } : repo
+          )
+        );
+        toast.success('Project image updated successfully');
+      } else {
+        toast.error('Failed to update project image');
+      }
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      toast.error('Failed to upload image');
+    } finally {
+      setUploadingRepoId(null);
+      setSelectedRepoForUpload(null);
+      // Reset file input
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    }
+  };
+
+  const handleRemoveImage = async (repoId: string) => {
+    setUploadingRepoId(repoId);
+    try {
+      const result = await updateProjectImage(repoId, '');
+      if (result && 'status' in result && result.status === 'success') {
+        setRepos((prevRepos) =>
+          prevRepos.map((repo) =>
+            repo.id === repoId ? { ...repo, imageUrl: undefined } : repo
+          )
+        );
+        toast.success('Project image removed');
+      }
+    } catch (error) {
+      console.error('Error removing image:', error);
+      toast.error('Failed to remove image');
+    } finally {
+      setUploadingRepoId(null);
+    }
+  };
+
   const filteredRepos = repos.filter(
     (repo) =>
       repo.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -82,6 +167,15 @@ export default function ReposPage({
 
   return (
     <div className="font-geist-sans">
+      {/* Hidden file input */}
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="image/*"
+        onChange={handleFileChange}
+        className="hidden"
+      />
+
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
         <div>
           <h2 className="text-2xl font-geist-mono font-bold text-gdg-dark mb-1">
@@ -127,6 +221,9 @@ export default function ReposPage({
                 <th className="px-6 py-4 text-left text-sm font-medium">
                   Description
                 </th>
+                <th className="px-6 py-4 text-center text-sm font-medium w-32">
+                  Screenshot
+                </th>
                 <th className="px-6 py-4 text-center text-sm font-medium w-24">
                   Published
                 </th>
@@ -137,8 +234,7 @@ export default function ReposPage({
                 filteredRepos.map((repo) => (
                   <tr
                     key={repo.id}
-                    className="hover:bg-gray-50 transition-colors cursor-pointer"
-                    onClick={() => toggleSelection(repo.id)}
+                    className="hover:bg-gray-50 transition-colors"
                   >
                     <td className="px-6 py-4 font-geist-mono font-medium">
                       {repo.name}
@@ -146,11 +242,82 @@ export default function ReposPage({
                     <td className="px-6 py-4 text-gdg-gray">
                       {repo.description}
                     </td>
-                    <td className="px-6 py-4 text-center">
-                      <div className="flex justify-center">
+                    <td className="px-6 py-4">
+                      <div className="flex justify-center items-center">
+                        {repo.isSelected ? (
+                          uploadingRepoId === repo.id ? (
+                            <div className="flex items-center justify-center w-16 h-16 bg-gray-100 rounded-lg">
+                              <Loader2 className="w-6 h-6 animate-spin text-gdg-blue" />
+                            </div>
+                          ) : repo.imageUrl ? (
+                            <div className="relative group">
+                              <div className="w-16 h-16 rounded-lg overflow-hidden border border-gray-200">
+                                <Image
+                                  src={repo.imageUrl}
+                                  alt={`${repo.name} screenshot`}
+                                  width={64}
+                                  height={64}
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+                              {isAdmin && (
+                                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center gap-1">
+                                  <button
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      handleImageUploadClick(repo.id);
+                                    }}
+                                    className="p-1 bg-white rounded-full hover:bg-gray-100"
+                                    title="Change image"
+                                  >
+                                    <Upload className="w-3 h-3 text-gdg-blue" />
+                                  </button>
+                                  <button
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      handleRemoveImage(repo.id);
+                                    }}
+                                    className="p-1 bg-white rounded-full hover:bg-gray-100"
+                                    title="Remove image"
+                                  >
+                                    <X className="w-3 h-3 text-red-500" />
+                                  </button>
+                                </div>
+                              )}
+                            </div>
+                          ) : isAdmin ? (
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleImageUploadClick(repo.id);
+                              }}
+                              className="flex flex-col items-center justify-center w-16 h-16 bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg hover:border-gdg-blue hover:bg-blue-50 transition-colors"
+                              title="Upload screenshot"
+                            >
+                              <ImageIcon className="w-5 h-5 text-gdg-gray mb-1" />
+                              <span className="text-[10px] text-gdg-gray">
+                                Upload
+                              </span>
+                            </button>
+                          ) : (
+                            <div className="flex items-center justify-center w-16 h-16 bg-gray-50 rounded-lg">
+                              <ImageIcon className="w-5 h-5 text-gdg-gray" />
+                            </div>
+                          )
+                        ) : (
+                          <span className="text-xs text-gdg-gray">
+                            Publish first
+                          </span>
+                        )}
+                      </div>
+                    </td>
+                    <td
+                      onClick={() => toggleSelection(repo.id)}
+                      className="px-6 py-4 cursor-pointer"
+                    >
+                      <div onClick={(e) => e.stopPropagation()}>
                         <Checkbox
                           checked={repo.isSelected}
-                          className="border-2 border-gdg-blue data-[state=checked]:bg-gdg-blue data-[state=checked]:border-gdg-blue h-5 w-5 rounded"
                           onCheckedChange={() => toggleSelection(repo.id)}
                         />
                       </div>
@@ -160,7 +327,7 @@ export default function ReposPage({
               ) : (
                 <tr>
                   <td
-                    colSpan={3}
+                    colSpan={4}
                     className="px-6 py-8 text-center text-gdg-gray"
                   >
                     {searchQuery

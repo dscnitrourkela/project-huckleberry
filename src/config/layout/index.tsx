@@ -11,7 +11,7 @@ export const pageContent = {
       </>
     ),
     imageUrl:
-      'https://res.cloudinary.com/dqcrkrtyr/image/upload/v1747036740/hiv_xn6d1p.jpg',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947270/hiv_xn6d1p.jpg',
   },
   '/about-us': {
     bgColor: '#FFF4EC',
@@ -24,7 +24,7 @@ export const pageContent = {
       </>
     ),
     imageUrl:
-      'https://res.cloudinary.com/dqcrkrtyr/image/upload/v1737872743/IMG_3663_2_1_l1mwcb.png',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947271/IMG_3663_2_1_l1mwcb.png',
   },
   '/projects': {
     bgColor: '#F0F4FF',
@@ -37,7 +37,7 @@ export const pageContent = {
       </>
     ),
     imageUrl:
-      'https://res.cloudinary.com/dqcrkrtyr/image/upload/v1747039475/banner_iuhyjr.jpg',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947272/banner_iuhyjr.jpg',
   },
   '/resources': {
     bgColor: '#FFF4EC',
@@ -50,7 +50,7 @@ export const pageContent = {
       </>
     ),
     imageUrl:
-      'https://res.cloudinary.com/dpmlrxlzr/image/upload/v1746378087/hn_50_1_ru18tc.png',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947273/hn_50_1_ru18tc.png',
   },
   '/team': {
     bgColor: '#E8F5EE',
@@ -62,6 +62,6 @@ export const pageContent = {
       </>
     ),
     imageUrl:
-      'https://res.cloudinary.com/dpmlrxlzr/image/upload/v1746378087/hn_50_1_ru18tc.png',
+      'https://res.cloudinary.com/dmvdbpyqk/image/upload/v1768947273/hn_50_1_ru18tc.png',
   },
 };
