@@ -11,6 +11,7 @@ import Loader from '@/components/shared/loader';
 interface PublishedRepo {
   repo_id: string;
   image_url?: string;
+  display_order?: number;
 }
 
 export default function ProjectsPage() {
@@ -41,7 +42,18 @@ export default function ProjectsPage() {
             description: repo.description || 'No description available',
             isSelected: !!publishedRepo,
             imageUrl: publishedRepo?.image_url || undefined,
+            displayOrder: publishedRepo?.display_order ?? 999,
           };
+        });
+
+        // Sort by display order for selected repos
+        allRepos.sort((a, b) => {
+          if (a.isSelected && b.isSelected) {
+            return (a.displayOrder ?? 999) - (b.displayOrder ?? 999);
+          }
+          if (a.isSelected) return -1;
+          if (b.isSelected) return 1;
+          return 0;
         });
 
         setRepos(allRepos as TableRepo[]);

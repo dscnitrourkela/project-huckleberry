@@ -9,10 +9,18 @@ import {
   publishRepos,
   unpublishRepos,
   updateProjectImage,
+  updateProjectOrder,
 } from '@/actions/projects';
 import { withLoadingToast, uploadToCloudinary } from '@/utils';
 import { ApiResponse } from '@/types/commons';
-import { Search, Upload, X, ImageIcon, Loader2 } from 'lucide-react';
+import {
+  Search,
+  Upload,
+  X,
+  ImageIcon,
+  Loader2,
+  GripVertical,
+} from 'lucide-react';
 import { useAdmin } from '@/hooks/useAdmin';
 import { toast } from 'sonner';
 
@@ -34,6 +42,8 @@ export default function ReposPage({
   const [selectedRepoForUpload, setSelectedRepoForUpload] = useState<
     string | null
   >(null);
+  const [draggedId, setDraggedId] = useState<string | null>(null);
+  const [isSavingOrder, setIsSavingOrder] = useState(false);
 
   useEffect(() => {
     setRepos(initialRepos);
@@ -46,6 +56,82 @@ export default function ReposPage({
         repo.id === id ? { ...repo, isSelected: !repo.isSelected } : repo
       )
     );
+  };
+
+  // Drag and drop handlers for reordering
+  const handleDragStart = (e: React.DragEvent, id: string) => {
+    setDraggedId(id);
+    e.dataTransfer.effectAllowed = 'move';
+  };
+
+  const handleDragOver = (e: React.DragEvent, targetId: string) => {
+    e.preventDefault();
+    if (!draggedId || draggedId === targetId) return;
+
+    const publishedReposList = repos.filter((r) => r.isSelected);
+    const draggedIndex = publishedReposList.findIndex(
+      (r) => r.id === draggedId
+    );
+    const targetIndex = publishedReposList.findIndex((r) => r.id === targetId);
+
+    if (draggedIndex === -1 || targetIndex === -1) return;
+
+    // Reorder the repos
+    const newRepos = [...repos];
+    const publishedIds = publishedReposList.map((r) => r.id);
+
+    // Remove dragged from its position
+    const newPublishedOrder = [...publishedIds];
+    newPublishedOrder.splice(draggedIndex, 1);
+    newPublishedOrder.splice(targetIndex, 0, draggedId);
+
+    // Update displayOrder for all published repos
+    const reorderedRepos = newRepos.map((repo) => {
+      if (repo.isSelected) {
+        const newOrder = newPublishedOrder.indexOf(repo.id);
+        return { ...repo, displayOrder: newOrder };
+      }
+      return repo;
+    });
+
+    // Sort so published repos appear in order
+    reorderedRepos.sort((a, b) => {
+      if (a.isSelected && b.isSelected) {
+        return (a.displayOrder ?? 999) - (b.displayOrder ?? 999);
+      }
+      if (a.isSelected) return -1;
+      if (b.isSelected) return 1;
+      return 0;
+    });
+
+    setRepos(reorderedRepos);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedId(null);
+  };
+
+  const saveOrder = async () => {
+    if (!isAdmin) return;
+    setIsSavingOrder(true);
+    try {
+      const publishedReposList = repos.filter((r) => r.isSelected);
+      const orderedRepoIds = publishedReposList.map((repo, index) => ({
+        repoId: repo.id,
+        order: index,
+      }));
+      const result = await updateProjectOrder(orderedRepoIds);
+      if (result && 'status' in result && result.status === 'success') {
+        toast.success('Project order saved successfully');
+      } else {
+        toast.error('Failed to save project order');
+      }
+    } catch (error) {
+      console.error('Error saving order:', error);
+      toast.error('Failed to save project order');
+    } finally {
+      setIsSavingOrder(false);
+    }
   };
 
   const handlePublish = withLoadingToast(async (): Promise<ApiResponse> => {
@@ -199,13 +285,22 @@ export default function ReposPage({
           </div>
 
           {isAdmin && (
-            <Button
-              onClick={handlePublish}
-              disabled={isPublishing}
-              className="bg-gdg-blue hover:bg-gdg-blue/90 text-white rounded-full transition-all px-6 py-2 font-medium"
-            >
-              {isPublishing ? 'Publishing...' : 'Publish Selected'}
-            </Button>
+            <>
+              <Button
+                onClick={saveOrder}
+                disabled={isSavingOrder}
+                className="bg-gdg-green hover:bg-gdg-green/90 text-white rounded-full transition-all px-6 py-2 font-medium"
+              >
+                {isSavingOrder ? 'Saving...' : 'Save Order'}
+              </Button>
+              <Button
+                onClick={handlePublish}
+                disabled={isPublishing}
+                className="bg-gdg-blue hover:bg-gdg-blue/90 text-white rounded-full transition-all px-6 py-2 font-medium"
+              >
+                {isPublishing ? 'Publishing...' : 'Publish Selected'}
+              </Button>
+            </>
           )}
         </div>
       </div>
@@ -215,6 +310,9 @@ export default function ReposPage({
           <table className="min-w-full">
             <thead className="bg-gray-50 border-b border-gray-100">
               <tr className="font-geist-sans text-gdg-gray">
+                <th className="px-2 py-4 text-center text-sm font-medium w-12">
+                  Order
+                </th>
                 <th className="px-6 py-4 text-left text-sm font-medium">
                   Repository Name
                 </th>
@@ -234,8 +332,25 @@ export default function ReposPage({
                 filteredRepos.map((repo) => (
                   <tr
                     key={repo.id}
-                    className="hover:bg-gray-50 transition-colors"
+                    className={`hover:bg-gray-50 transition-colors ${draggedId === repo.id ? 'opacity-50' : ''}`}
+                    draggable={repo.isSelected && isAdmin}
+                    onDragStart={(e) => handleDragStart(e, repo.id)}
+                    onDragOver={(e) => handleDragOver(e, repo.id)}
+                    onDragEnd={handleDragEnd}
                   >
+                    <td className="px-2 py-4 text-center">
+                      {repo.isSelected && isAdmin ? (
+                        <div className="cursor-grab active:cursor-grabbing flex justify-center">
+                          <GripVertical className="w-5 h-5 text-gdg-gray" />
+                        </div>
+                      ) : repo.isSelected ? (
+                        <span className="text-sm text-gdg-gray">
+                          {(repo.displayOrder ?? 0) + 1}
+                        </span>
+                      ) : (
+                        <span className="text-xs text-gray-400">—</span>
+                      )}
+                    </td>
                     <td className="px-6 py-4 font-geist-mono font-medium">
                       {repo.name}
                     </td>
@@ -327,7 +442,7 @@ export default function ReposPage({
               ) : (
                 <tr>
                   <td
-                    colSpan={4}
+                    colSpan={5}
                     className="px-6 py-8 text-center text-gdg-gray"
                   >
                     {searchQuery

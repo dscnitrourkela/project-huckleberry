@@ -23,13 +23,8 @@ export default function ProjectsPage() {
             ? (result.data.data as ProjectWithGitHub[])
             : [];
 
-        // Sort by created_at date (newest first)
-        const sortedProjects = projects.sort(
-          (a, b) =>
-            new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-        );
-
-        setRepos(sortedProjects);
+        // Projects are already sorted by display_order from the server
+        setRepos(projects);
       } catch (error) {
         console.error('Error fetching projects:', error);
         setError(

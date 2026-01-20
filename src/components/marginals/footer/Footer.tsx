@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
             style={{
               objectFit: 'contain',
               scale: '1.25',
-              transform: 'translateX(-20%) translateY(15%)',
+              transform: 'translateX(-10%) translateY(15%)',
             }}
           />
         </div>
