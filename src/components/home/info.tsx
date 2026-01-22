@@ -2,7 +2,7 @@
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
 import { useState } from 'react';
-import { homeIllustration, infoImage } from '@/config/home';
+import { homeIllustration } from '@/config/home';
 import Image from 'next/image';
 
 function Info() {
@@ -12,7 +12,7 @@ function Info() {
     <div className="w-full min-h-[80dvh] 2xl:min-h-[60dvh] bg-gradient-to-r from-[#4379E0] to-[#1B66F6] text-white px-6 md:px-16 lg:px-32 py-12 md:py-20 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-44">
       <div className="flex justify-center lg:hidden w-full">
         <Image
-          src={infoImage}
+         src={homeIllustration}
           alt="DSC Illustration"
           className="w-full max-w-xs sm:max-w-sm md:max-w-md h-auto"
           width={455}
