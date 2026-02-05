@@ -12,6 +12,7 @@ interface PublishedRepo {
   repo_id: string;
   image_url?: string;
   display_order?: number;
+  is_mobile_app?: boolean;
 }
 
 export default function ProjectsPage() {
@@ -43,6 +44,7 @@ export default function ProjectsPage() {
             isSelected: !!publishedRepo,
             imageUrl: publishedRepo?.image_url || undefined,
             displayOrder: publishedRepo?.display_order ?? 999,
+            isMobileApp: publishedRepo?.is_mobile_app ?? false,
           };
         });
 

@@ -49,6 +49,7 @@ model Project {
   image_url     String?  @default("")
   published_at  DateTime @default(now())
   display_order Int      @default(0)
+  is_mobile_app Boolean  @default(false)
 
   @@map("projects")
 }

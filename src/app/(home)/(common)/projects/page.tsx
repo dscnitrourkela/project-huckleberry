@@ -18,6 +18,7 @@ export default function ProjectsPage() {
       try {
         // Use unified server action that fetches both DB and GitHub data
         const result = await getPublishedProjectsWithGitHubData();
+
         const projects: ProjectWithGitHub[] =
           result && 'data' in result
             ? (result.data.data as ProjectWithGitHub[])
@@ -64,7 +65,7 @@ export default function ProjectsPage() {
   return (
     <section className="px-[35px] sm:px-[65px] md:px-[90px] lg:px-[100px] xl:px-[120px]">
       <div className="mx-auto">
-        <div className="w-full mx-auto  space-y-10 md:space-y-20">
+        <div className="w-full mx-auto  space-y-10 md:space-y-20 pb-20">
           {repos.map((repo, index) => (
             <ProjectCard
               key={repo.id}
@@ -75,6 +76,7 @@ export default function ProjectsPage() {
               bgColor={bgColors[index % bgColors.length]}
               contributors={repo.contributors}
               imageUrl={repo.imageUrl}
+              isMobileApp={repo.isMobileApp}
             />
           ))}
           {repos.length === 0 && (

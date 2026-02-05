@@ -10,6 +10,7 @@ import {
   unpublishRepos,
   updateProjectImage,
   updateProjectOrder,
+  updateProjectMobileApp,
 } from '@/actions/projects';
 import { withLoadingToast, uploadToCloudinary } from '@/utils';
 import { ApiResponse } from '@/types/commons';
@@ -44,6 +45,9 @@ export default function ReposPage({
   >(null);
   const [draggedId, setDraggedId] = useState<string | null>(null);
   const [isSavingOrder, setIsSavingOrder] = useState(false);
+  const [updatingMobileAppId, setUpdatingMobileAppId] = useState<string | null>(
+    null
+  );
 
   useEffect(() => {
     setRepos(initialRepos);
@@ -162,6 +166,32 @@ export default function ReposPage({
 
     return result;
   });
+
+  const handleToggleMobileApp = async (
+    repoId: string,
+    currentValue: boolean
+  ) => {
+    if (!isAdmin) return;
+    setUpdatingMobileAppId(repoId);
+    try {
+      const result = await updateProjectMobileApp(repoId, !currentValue);
+      if (result && 'status' in result && result.status === 'success') {
+        setRepos((prevRepos) =>
+          prevRepos.map((repo) =>
+            repo.id === repoId ? { ...repo, isMobileApp: !currentValue } : repo
+          )
+        );
+        toast.success('Mobile app status updated');
+      } else {
+        toast.error('Failed to update mobile app status');
+      }
+    } catch (error) {
+      console.error('Error updating mobile app status:', error);
+      toast.error('Failed to update mobile app status');
+    } finally {
+      setUpdatingMobileAppId(null);
+    }
+  };
 
   const handleImageUploadClick = (repoId: string) => {
     setSelectedRepoForUpload(repoId);
@@ -323,6 +353,9 @@ export default function ReposPage({
                   Screenshot
                 </th>
                 <th className="px-6 py-4 text-center text-sm font-medium w-24">
+                  Mobile App
+                </th>
+                <th className="px-6 py-4 text-center text-sm font-medium w-24">
                   Published
                 </th>
               </tr>
@@ -426,6 +459,30 @@ export default function ReposPage({
                         )}
                       </div>
                     </td>
+                    <td className="px-6 py-4">
+                      <div className="flex justify-center items-center">
+                        {repo.isSelected ? (
+                          updatingMobileAppId === repo.id ? (
+                            <Loader2 className="w-4 h-4 animate-spin text-gdg-blue" />
+                          ) : (
+                            <div onClick={(e) => e.stopPropagation()}>
+                              <Checkbox
+                                checked={repo.isMobileApp ?? false}
+                                onCheckedChange={() =>
+                                  handleToggleMobileApp(
+                                    repo.id,
+                                    repo.isMobileApp ?? false
+                                  )
+                                }
+                                disabled={!isAdmin}
+                              />
+                            </div>
+                          )
+                        ) : (
+                          <span className="text-xs text-gdg-gray">—</span>
+                        )}
+                      </div>
+                    </td>
                     <td
                       onClick={() => toggleSelection(repo.id)}
                       className="px-6 py-4 cursor-pointer"
@@ -442,7 +499,7 @@ export default function ReposPage({
               ) : (
                 <tr>
                   <td
-                    colSpan={5}
+                    colSpan={6}
                     className="px-6 py-8 text-center text-gdg-gray"
                   >
                     {searchQuery
