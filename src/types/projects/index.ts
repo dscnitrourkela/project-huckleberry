@@ -28,9 +28,11 @@ export interface TableRepo {
   isSelected: boolean;
   imageUrl?: string;
   displayOrder?: number;
+  isMobileApp?: boolean;
 }
 
 export interface ProjectWithGitHub extends GitHubRepo {
   imageUrl?: string;
   displayOrder?: number;
+  isMobileApp?: boolean;
 }

@@ -177,6 +177,7 @@ export const getPublishedProjectsWithGitHubData = asyncHandler(async () => {
         ...githubData,
         imageUrl: project.image_url || undefined,
         displayOrder: project.display_order,
+        isMobileApp: project.is_mobile_app,
       });
     }
   }
@@ -216,6 +217,23 @@ export const updateProjectOrder = asyncHandler(
       revalidatePath('/projects');
       revalidatePath('/admin/manage-projects');
       return handleSuccess({ message: 'Project order updated successfully' });
+    });
+  }
+);
+
+// Update project mobile app flag
+export const updateProjectMobileApp = asyncHandler(
+  async (repoId: string, isMobileApp: boolean): Promise<ApiResponse> => {
+    return await withAdminCheck(async () => {
+      await prisma.project.update({
+        where: { repo_id: repoId },
+        data: { is_mobile_app: isMobileApp },
+      });
+      revalidatePath('/projects');
+      revalidatePath('/admin/manage-projects');
+      return handleSuccess({
+        message: 'Project mobile app status updated successfully',
+      });
     });
   }
 );
